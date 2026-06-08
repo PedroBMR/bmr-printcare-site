@@ -1,0 +1,41 @@
+---
+interface NavItem {
+  href: string;
+  label: string;
+  status?: string;
+}
+
+interface Props {
+  activePath?: string;
+}
+
+const { activePath = Astro.url.pathname } = Astro.props;
+
+const navItems: NavItem[] = [
+  { href: '/docs/', label: 'Docs hub' },
+  { href: '/docs/getting-started/', label: 'Getting started', status: 'Draft' },
+  { href: '/docs/printer-profiles/', label: 'Printer profiles', status: 'Draft' },
+  { href: '/docs/maintenance-history/', label: 'Maintenance history', status: 'Draft' },
+  { href: '/docs/preventive-maintenance/', label: 'Preventive maintenance', status: 'Draft' },
+  { href: '/docs/parts-and-consumables/', label: 'Parts and consumables', status: 'Draft' },
+  { href: '/docs/local-first-data/', label: 'Local-first data', status: 'Draft' },
+];
+---
+
+<nav class="docs-nav" aria-label="Documentation navigation">
+  <p class="docs-nav__label">Documentation</p>
+  <ul>
+    {navItems.map((item) => {
+      const isActive = activePath === item.href;
+
+      return (
+        <li>
+          <a href={item.href} aria-current={isActive ? 'page' : undefined}>
+            <span>{item.label}</span>
+            {item.status && <small>{item.status}</small>}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>

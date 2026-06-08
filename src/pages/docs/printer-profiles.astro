@@ -1,0 +1,46 @@
+---
+import DocsLayout from '../../components/docs/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Printer Profiles | BMR PrintCare Docs"
+  description="Printer profiles guide draft for BMR PrintCare documentation."
+  heading="Printer profiles organize maintenance context."
+  intro="Printer profiles are planned as the starting point for tracking each machine separately. This documentation is a draft and may change as the app is implemented."
+>
+  <section class="docs-section" aria-labelledby="profile-purpose-title">
+    <h2 id="profile-purpose-title">Purpose of a printer profile</h2>
+    <p>
+      A printer profile is designed to identify one printer and keep its maintenance context close to its history. A
+      profile may include a friendly name, model description, location notes, usage context, and other practical details
+      that help users understand which printer a maintenance record belongs to.
+    </p>
+  </section>
+
+  <section class="docs-section" aria-labelledby="profile-fields-title">
+    <h2 id="profile-fields-title">Useful profile notes</h2>
+    <ul class="plain-list">
+      <li>A short printer nickname that is easy to recognize.</li>
+      <li>A plain model description written by the user.</li>
+      <li>Where the printer is used, such as a home desk, farm shelf, lab, or workshop bench.</li>
+      <li>Any non-sensitive notes that affect maintenance, such as enclosure use or typical material type.</li>
+    </ul>
+  </section>
+
+  <section class="docs-section" aria-labelledby="independent-title">
+    <h2 id="independent-title">Manufacturer independence</h2>
+    <p>
+      Profile notes should be descriptive only. BMR PrintCare is independent and does not claim official support,
+      endorsement, sponsorship, or affiliation from any printer manufacturer.
+    </p>
+  </section>
+
+  <section class="content-panel" aria-labelledby="profile-next-title">
+    <h2 id="profile-next-title">Related documentation</h2>
+    <ul class="link-list">
+      <li><a href="/docs/maintenance-history/">Record maintenance history</a></li>
+      <li><a href="/docs/preventive-maintenance/">Plan preventive maintenance</a></li>
+      <li><a href="/support/">Check support expectations</a></li>
+    </ul>
+  </section>
+</DocsLayout>

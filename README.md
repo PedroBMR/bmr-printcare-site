@@ -2,13 +2,13 @@
 
 Official website and documentation hub for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 3 — Product Features and Public Positioning**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, placeholder documentation/support routes, and an initial `/features` route with conservative product positioning.
+This repository is currently in **Milestone 4 — Documentation Hub Expansion**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, and a beginner-friendly static documentation hub with initial guide pages.
 
 ## Tech stack
 
 - [Astro](https://astro.build/) for the website framework
 - TypeScript for safer project configuration and future code
-- Plain CSS for global styles, section styling, layout styling, and design tokens
+- Plain CSS for global styles, section styling, layout styling, documentation styling, and design tokens
 
 ## Project structure
 
@@ -16,11 +16,12 @@ This repository is currently in **Milestone 3 — Product Features and Public Po
 src/
   components/
     content/       Reusable content cards, grids, and notes for product pages
+    docs/          Reusable documentation cards, grid, layout, and navigation
     layout/        Shared site header and footer components
     sections/      Reusable homepage landing page sections
   layouts/         Page layouts used by routes
   pages/           Static Astro routes
-    docs/          Initial documentation hub route
+    docs/          Documentation hub and beginner guide routes
   styles/          Global CSS and design tokens
 ```
 
@@ -41,6 +42,13 @@ The feature overview uses reusable content components in `src/components/content
 - `FeatureGrid.astro`
 - `StatusNote.astro`
 
+The documentation hub uses reusable docs components in `src/components/docs/`:
+
+- `DocsCard.astro`
+- `DocsGrid.astro`
+- `DocsLayout.astro`
+- `DocsNav.astro`
+
 The shared site chrome is composed from layout components in `src/components/layout/`:
 
 - `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Roadmap, and Support.
@@ -53,14 +61,39 @@ The shared site chrome is composed from layout components in `src/components/lay
 | Route | Purpose | Status |
 | --- | --- | --- |
 | `/` | Premium dark landing page for BMR PrintCare. | Live structure |
-| `/features` | Initial feature overview for product direction, core maintenance tracking, local-first positioning, and roadmap-only feature notes. | Initial content |
-| `/docs` | Initial documentation hub with planned beginner-friendly sections. | Placeholder |
+| `/features` | Feature overview for product direction, core maintenance tracking, local-first positioning, and roadmap-only feature notes. | Initial content |
+| `/docs` | Documentation hub with links to beginner-friendly guide drafts and cross-links to Features, Roadmap, and Support. | Expanded draft |
+| `/docs/getting-started` | Beginner overview for the intended maintenance workflow without public download instructions. | Draft |
+| `/docs/printer-profiles` | Guide draft explaining printer profiles and manufacturer-independent profile notes. | Draft |
+| `/docs/maintenance-history` | Guide draft for dated maintenance records, service notes, and practical history review. | Draft |
+| `/docs/preventive-maintenance` | Guide draft for preventive maintenance reminders and their limits. | Draft |
+| `/docs/parts-and-consumables` | Guide draft for replacement parts, consumables, and compatibility caution. | Draft |
+| `/docs/local-first-data` | Guide draft for local-first data direction, backups, exports, and legal-page readiness. | Draft |
 | `/roadmap` | Public roadmap placeholder for website and release planning. | Placeholder |
-| `/support` | Support placeholder for future help resources and documentation links. | Placeholder |
+| `/support` | Support placeholder with links to documentation drafts and future support expectations. | Placeholder |
+
+## Documentation structure
+
+Milestone 4 keeps the documentation system intentionally simple. The docs are regular static Astro pages under `src/pages/docs/`, supported by a small reusable docs layout and navigation component. There is no documentation engine, content collection, search integration, backend, authentication, analytics, or checkout flow.
+
+The documentation hub currently covers these beginner topics:
+
+- Getting started
+- Core concepts
+- Maintenance workflow
+- Printer profiles
+- Maintenance history
+- Preventive maintenance
+- Parts and consumables
+- Local-first data direction
+- Roadmap-only topics
+- Support and feedback links
+
+The app is still in development, so documentation should continue to use conservative language such as “designed to”, “intended to”, “planned”, “in development”, and “documentation in progress” where appropriate. Do not add public app installation instructions or real download links until a later release-readiness milestone explicitly supports them.
 
 ## Feature positioning
 
-Milestone 3 keeps product claims conservative because the app is still in development and is not publicly available yet.
+Milestone 3 added conservative product positioning, and Milestone 4 links the documentation back to those feature areas.
 
 The `/features` page explains these areas in English:
 
@@ -120,35 +153,40 @@ Run Astro diagnostics and TypeScript checks:
 npx astro check
 ```
 
-Optionally start the dev server and open the homepage in a browser:
+Check for whitespace errors before committing:
+
+```bash
+git diff --check
+```
+
+Optionally start the dev server and open the homepage or documentation hub in a browser:
 
 ```bash
 npm run dev
 ```
 
-## Milestone 3 scope
+## Milestone 4 scope
 
-Milestone 3 focuses only on product features and public positioning:
+Milestone 4 focuses only on documentation hub expansion:
 
-- Add an initial `/features` page.
-- Explain product feature areas in a manufacturer-independent way.
-- Keep all claims conservative while the app is still in development.
-- Mark calibration tracking and print-quality tracking as roadmap-only ideas, not current features.
-- Add small reusable content components where they keep feature content organized.
-- Add `/features` to primary navigation and footer links.
-- Add internal links between Home, Features, Docs, Roadmap, and Support where useful.
+- Expand `/docs` from a placeholder into a more useful documentation hub.
+- Add initial static guide pages for beginner documentation topics.
+- Add a simple docs navigation structure without a complex documentation engine.
+- Keep documentation clear, conservative, and marked as draft or in progress.
+- Add internal links between Docs, Features, Roadmap, and Support where useful.
 - Keep the site static, beginner-friendly, and maintainable.
-- Avoid real download links while the app is not publicly available.
+- Avoid public app download instructions while the app is not publicly available.
+- Avoid manufacturer logos, endorsement claims, and affiliation language.
 
-## Milestone 4 suggestions
+## Milestone 5 suggestions
 
-Milestone 4 should build on the static product positioning without adding complex integrations. Good next steps include:
+Milestone 5 should build on the documentation foundation without overpromising product availability. Good next steps include:
 
-- Expand the documentation hub with short beginner-friendly guide drafts.
-- Define a simple public release readiness checklist.
-- Clarify future catalog language and examples without adding manufacturer logos or endorsement claims.
-- Improve support content once documentation topics are more stable.
-- Add basic legal pages only when accurate legal copy is ready.
+- Improve support content now that initial documentation routes exist.
+- Add a simple release-readiness checklist for future public availability.
+- Clarify planned download messaging without adding real download links yet.
+- Decide whether basic legal placeholder routes are ready for accurate copy.
+- Add more concrete documentation only after implemented app behavior is verified.
 
 ## Brand and manufacturer disclaimer
 

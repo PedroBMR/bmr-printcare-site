@@ -1,55 +1,109 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import DocsGrid from '../../components/docs/DocsGrid.astro';
+import DocsLayout from '../../components/docs/DocsLayout.astro';
 
-const docSections = [
+const beginnerGuides = [
   {
     title: 'Getting started',
-    description: 'Future setup notes for installing the desktop app, creating a local workspace, and adding a first printer.',
+    href: '/docs/getting-started/',
+    description:
+      'Understand what BMR PrintCare is intended to help with, what is still in development, and how to prepare for a first printer record.',
   },
   {
-    title: 'Maintenance records',
-    description: 'Planned guidance for recording service events, replacement parts, recurring tasks, and workshop notes.',
+    title: 'Printer profiles',
+    href: '/docs/printer-profiles/',
+    description:
+      'Learn how printer profiles are planned to organize printer identity, notes, and maintenance context without implying manufacturer affiliation.',
+  },
+  {
+    title: 'Maintenance history',
+    href: '/docs/maintenance-history/',
+    description:
+      'Review the intended maintenance record workflow for dates, service notes, parts, and workshop observations.',
+  },
+  {
+    title: 'Preventive maintenance',
+    href: '/docs/preventive-maintenance/',
+    description:
+      'See how preventive task planning is expected to help users remember routine checks without replacing hands-on inspection.',
+  },
+  {
+    title: 'Parts and consumables',
+    href: '/docs/parts-and-consumables/',
+    description:
+      'Explore the planned approach for tracking replacement parts, consumables, vendors, and practical notes in a conservative way.',
   },
   {
     title: 'Local-first data',
-    description: 'Beginner-friendly explanations of how local data ownership, backups, and exports are expected to work.',
+    href: '/docs/local-first-data/',
+    description:
+      'Read the current direction for local data ownership, backups, exports, and responsible expectations while the app is being built.',
   },
 ];
 ---
 
-<BaseLayout
+<DocsLayout
   title="Documentation | BMR PrintCare"
-  description="Documentation hub in progress for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking."
+  description="Beginner-friendly documentation hub in progress for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking."
+  heading="A practical documentation hub for printer maintenance records."
+  intro="BMR PrintCare is still in development, so this documentation is an early static guide structure rather than final product instructions. The goal is to explain the intended maintenance workflow clearly, conservatively, and without promising public availability yet."
 >
-  <main class="page-shell">
-    <section class="page-hero" aria-labelledby="docs-title">
-      <p class="section-eyebrow">Documentation in progress</p>
-      <h1 id="docs-title">A clear home for product documentation.</h1>
+  <section class="docs-section" aria-labelledby="docs-guides-title">
+    <div class="section-heading">
+      <p class="section-eyebrow">Beginner guides</p>
+      <h2 id="docs-guides-title">Start with the core maintenance topics.</h2>
       <p>
-        This hub will grow into beginner-friendly documentation for setup, maintenance workflows, local data handling,
-        and responsible printer care records. The public app is not available yet, so these pages are placeholders for
-        the planned structure.
+        These draft guides introduce the most important concepts for a local-first 3D printer maintenance tracker. They
+        avoid public download steps because the app is not publicly available yet.
       </p>
-    </section>
+    </div>
+    <DocsGrid items={beginnerGuides} ariaLabel="Beginner documentation guides" />
+  </section>
 
-    <section class="content-grid" aria-label="Planned documentation sections">
-      {docSections.map((section) => (
-        <article class="content-card">
-          <span class="status-pill">Planned</span>
-          <h2>{section.title}</h2>
-          <p>{section.description}</p>
-        </article>
-      ))}
-    </section>
+  <section class="docs-section" aria-labelledby="docs-workflow-title">
+    <div class="section-heading">
+      <p class="section-eyebrow">Maintenance workflow</p>
+      <h2 id="docs-workflow-title">A simple path through the planned product.</h2>
+    </div>
+    <ol class="docs-steps">
+      <li>
+        <strong>Create a printer profile.</strong>
+        <span>Use a profile to keep the printer identity, model notes, and maintenance context in one place.</span>
+      </li>
+      <li>
+        <strong>Record maintenance events.</strong>
+        <span>Add dated notes when you clean, inspect, adjust, replace, or observe something important.</span>
+      </li>
+      <li>
+        <strong>Plan preventive work.</strong>
+        <span>Use planned reminders as helpful prompts, not as automatic diagnostics or safety guarantees.</span>
+      </li>
+      <li>
+        <strong>Review history before decisions.</strong>
+        <span>Look back at previous repairs, parts, and notes before changing hardware or tuning a workflow.</span>
+      </li>
+    </ol>
+  </section>
 
-    <section class="content-panel" aria-labelledby="docs-next-title">
-      <h2 id="docs-next-title">What to expect next</h2>
-      <ul class="plain-list">
-        <li>Short guides written for non-technical users and small workshops.</li>
-        <li>Plain-language explanations before advanced reference material.</li>
-        <li>Feature explanations that link back to the <a href="/features/">feature overview</a>.</li>
-        <li>No manufacturer logos, endorsement claims, or affiliation language.</li>
-      </ul>
-    </section>
-  </main>
-</BaseLayout>
+  <section class="content-panel" aria-labelledby="docs-roadmap-title">
+    <h2 id="docs-roadmap-title">Roadmap-only topics</h2>
+    <p>
+      Some ideas, such as deeper catalogs, calibration notes, exports, and release packaging, are still roadmap topics.
+      They should be treated as planned direction until a future milestone documents implemented behavior.
+    </p>
+    <ul class="link-list">
+      <li><a href="/features/">Review the feature overview</a></li>
+      <li><a href="/roadmap/">Check the public roadmap</a></li>
+      <li><a href="/support/">See current support expectations</a></li>
+    </ul>
+  </section>
+
+  <section class="status-note status-note--accent" aria-labelledby="docs-independence-title">
+    <h2 id="docs-independence-title">Independent product note</h2>
+    <p>
+      BMR PrintCare is independent and is not affiliated with, endorsed by, sponsored by, or officially connected to any
+      3D printer manufacturer. Documentation may use general printer maintenance language, but it must not imply an
+      official partnership with any manufacturer.
+    </p>
+  </section>
+</DocsLayout>

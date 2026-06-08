@@ -1,0 +1,47 @@
+---
+import DocsLayout from '../../components/docs/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Preventive Maintenance | BMR PrintCare Docs"
+  description="Preventive maintenance guide draft for BMR PrintCare documentation."
+  heading="Preventive maintenance is planned as a reminder workflow."
+  intro="BMR PrintCare is intended to support routine maintenance planning, but it should not be presented as a safety system, automatic diagnostic tool, or replacement for manufacturer guidance."
+>
+  <section class="docs-section" aria-labelledby="preventive-purpose-title">
+    <h2 id="preventive-purpose-title">Purpose of preventive planning</h2>
+    <p>
+      Preventive maintenance planning is designed to help users remember routine checks before small issues become harder
+      to understand. The planned workflow is conservative: create reminders, review the printer, record what happened,
+      and adjust future notes based on real observations.
+    </p>
+  </section>
+
+  <section class="docs-section" aria-labelledby="task-examples-title">
+    <h2 id="task-examples-title">Possible routine tasks</h2>
+    <ul class="plain-list">
+      <li>Visual inspection before a long print job.</li>
+      <li>Cleaning dust, filament debris, or residue from accessible areas.</li>
+      <li>Checking belts, motion, fans, cable paths, or build surfaces according to official guidance.</li>
+      <li>Reviewing previous notes before replacing a part or changing a maintenance interval.</li>
+    </ul>
+  </section>
+
+  <section class="docs-section" aria-labelledby="limits-title">
+    <h2 id="limits-title">Important limits</h2>
+    <p>
+      Planned reminders should be treated as prompts only. They cannot confirm that a printer is safe, correctly tuned,
+      or free of faults. Users remain responsible for inspection, safety, repair decisions, and following official
+      printer documentation.
+    </p>
+  </section>
+
+  <section class="content-panel" aria-labelledby="preventive-next-title">
+    <h2 id="preventive-next-title">Related documentation</h2>
+    <ul class="link-list">
+      <li><a href="/docs/maintenance-history/">Record completed maintenance</a></li>
+      <li><a href="/docs/parts-and-consumables/">Document replacement parts</a></li>
+      <li><a href="/features/">Review planned feature areas</a></li>
+    </ul>
+  </section>
+</DocsLayout>

@@ -1,0 +1,51 @@
+---
+import DocsLayout from '../../components/docs/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Getting Started | BMR PrintCare Docs"
+  description="Getting started guide draft for BMR PrintCare documentation."
+  heading="Getting started with the planned maintenance workflow."
+  intro="This guide explains the intended first steps for BMR PrintCare at a high level. It does not include installation or download instructions because the app is still in development and is not publicly available yet."
+>
+  <section class="docs-section" aria-labelledby="what-is-title">
+    <h2 id="what-is-title">What BMR PrintCare is designed to help with</h2>
+    <p>
+      BMR PrintCare is intended to help owners and small workshops keep structured maintenance records for 3D printers.
+      The focus is practical record keeping: printer profiles, dated maintenance history, preventive planning, and parts
+      notes that can be reviewed later.
+    </p>
+    <p>
+      It should be treated as a maintenance documentation tool, not as a replacement for manufacturer instructions,
+      qualified repair judgment, or careful hands-on inspection.
+    </p>
+  </section>
+
+  <section class="docs-section" aria-labelledby="before-use-title">
+    <h2 id="before-use-title">Before using the app</h2>
+    <ul class="plain-list">
+      <li>Keep following the safety and maintenance guidance supplied with your printer.</li>
+      <li>Collect basic printer details, such as a nickname, model description, purchase date, and workshop notes.</li>
+      <li>Think about the maintenance events you already track manually, such as nozzle changes or belt checks.</li>
+      <li>Plan a simple backup habit for any local records once the app becomes available.</li>
+    </ul>
+  </section>
+
+  <section class="docs-section" aria-labelledby="first-record-title">
+    <h2 id="first-record-title">A first record should stay simple</h2>
+    <p>
+      The planned first workflow is to create one printer profile, add a small number of real maintenance notes, and use
+      those records to understand the history of that printer over time. Avoid trying to document every possible detail
+      on the first day.
+    </p>
+  </section>
+
+  <section class="content-panel" aria-labelledby="next-guides-title">
+    <h2 id="next-guides-title">Next guides</h2>
+    <ul class="link-list">
+      <li><a href="/docs/printer-profiles/">Learn about printer profiles</a></li>
+      <li><a href="/docs/maintenance-history/">Review maintenance history</a></li>
+      <li><a href="/features/">Compare the guide with the feature overview</a></li>
+    </ul>
+  </section>
+</DocsLayout>

@@ -1,0 +1,47 @@
+---
+import DocsLayout from '../../components/docs/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Parts and Consumables | BMR PrintCare Docs"
+  description="Parts and consumables guide draft for BMR PrintCare documentation."
+  heading="Parts and consumables notes should support clear maintenance history."
+  intro="This draft guide explains how BMR PrintCare is intended to help users remember part replacements and consumable details without acting as an official parts catalog."
+>
+  <section class="docs-section" aria-labelledby="parts-purpose-title">
+    <h2 id="parts-purpose-title">Why track parts and consumables</h2>
+    <p>
+      Parts and consumables records are planned to make maintenance history easier to interpret. If a user replaces a
+      nozzle, tube, fan, build plate, lubricant, filter, or other item, a short note can help explain later performance
+      changes or repeat maintenance needs.
+    </p>
+  </section>
+
+  <section class="docs-section" aria-labelledby="parts-details-title">
+    <h2 id="parts-details-title">Helpful details to record</h2>
+    <ul class="plain-list">
+      <li>What was replaced or used.</li>
+      <li>The date of the change.</li>
+      <li>Optional supplier, batch, cost, or compatibility notes when useful.</li>
+      <li>Why the change was made and what changed afterward.</li>
+    </ul>
+  </section>
+
+  <section class="docs-section" aria-labelledby="catalog-limits-title">
+    <h2 id="catalog-limits-title">Catalog and compatibility limits</h2>
+    <p>
+      Any future catalog language should be treated carefully. BMR PrintCare should not imply official manufacturer
+      partnership, official compatibility certification, or endorsement. Users should confirm parts and consumables with
+      their printer documentation and trusted suppliers.
+    </p>
+  </section>
+
+  <section class="content-panel" aria-labelledby="parts-next-title">
+    <h2 id="parts-next-title">Related documentation</h2>
+    <ul class="link-list">
+      <li><a href="/docs/maintenance-history/">Connect parts to maintenance history</a></li>
+      <li><a href="/docs/local-first-data/">Understand local-first data direction</a></li>
+      <li><a href="/roadmap/">Review future catalog direction</a></li>
+    </ul>
+  </section>
+</DocsLayout>
