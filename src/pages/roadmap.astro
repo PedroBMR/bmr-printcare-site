@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const roadmapItems = [
+  {
+    title: 'Website foundation',
+    status: 'Completed',
+    description: 'Static Astro foundation, landing page sections, and reusable layout components.',
+  },
+  {
+    title: 'Documentation structure',
+    status: 'In progress',
+    description: 'Initial documentation hub, support route, roadmap route, header, footer, and navigation structure.',
+  },
+  {
+    title: 'Public release preparation',
+    status: 'Planned',
+    description: 'Future product details, availability notes, responsible download messaging, and expanded docs.',
+  },
+];
+---
+
+<BaseLayout
+  title="Roadmap | BMR PrintCare"
+  description="Public roadmap placeholder for BMR PrintCare website milestones and planned desktop app availability."
+>
+  <main class="page-shell">
+    <section class="page-hero" aria-labelledby="roadmap-title">
+      <p class="section-eyebrow">Roadmap</p>
+      <h1 id="roadmap-title">Public release is planned, not available yet.</h1>
+      <p>
+        BMR PrintCare is being prepared in careful milestones. This page keeps the current website direction visible
+        without promising download dates, integrations, or manufacturer partnerships.
+      </p>
+    </section>
+
+    <section class="content-grid" aria-label="Roadmap milestones">
+      {roadmapItems.map((item) => (
+        <article class="content-card">
+          <span class="status-pill">{item.status}</span>
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="content-panel" aria-labelledby="roadmap-note-title">
+      <h2 id="roadmap-note-title">Release note</h2>
+      <p>
+        No real download links are published yet. Future milestones should add availability details only when the app,
+        documentation, support expectations, and basic legal pages are ready.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

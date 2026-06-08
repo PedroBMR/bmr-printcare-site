@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const docSections = [
+  {
+    title: 'Getting started',
+    description: 'Future setup notes for installing the desktop app, creating a local workspace, and adding a first printer.',
+  },
+  {
+    title: 'Maintenance records',
+    description: 'Planned guidance for recording service events, replacement parts, recurring tasks, and workshop notes.',
+  },
+  {
+    title: 'Local-first data',
+    description: 'Beginner-friendly explanations of how local data ownership, backups, and exports are expected to work.',
+  },
+];
+---
+
+<BaseLayout
+  title="Documentation | BMR PrintCare"
+  description="Documentation hub in progress for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking."
+>
+  <main class="page-shell">
+    <section class="page-hero" aria-labelledby="docs-title">
+      <p class="section-eyebrow">Documentation in progress</p>
+      <h1 id="docs-title">A clear home for product documentation.</h1>
+      <p>
+        This hub will grow into beginner-friendly documentation for setup, maintenance workflows, local data handling,
+        and responsible printer care records. The public app is not available yet, so these pages are placeholders for
+        the planned structure.
+      </p>
+    </section>
+
+    <section class="content-grid" aria-label="Planned documentation sections">
+      {docSections.map((section) => (
+        <article class="content-card">
+          <span class="status-pill">Planned</span>
+          <h2>{section.title}</h2>
+          <p>{section.description}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="content-panel" aria-labelledby="docs-next-title">
+      <h2 id="docs-next-title">What to expect next</h2>
+      <ul class="plain-list">
+        <li>Short guides written for non-technical users and small workshops.</li>
+        <li>Plain-language explanations before advanced reference material.</li>
+        <li>No manufacturer logos, endorsement claims, or affiliation language.</li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>
