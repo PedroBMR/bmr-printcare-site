@@ -1,54 +1,181 @@
 ---
+import FaqList from '../components/content/FaqList.astro';
+import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const supportTopics = [
+const beforeSupportItems = [
   {
-    title: 'Product questions',
-    description: 'Future answers about the app scope, local-first approach, supported workflows, and public release status.',
+    title: 'Check the documentation drafts',
+    description:
+      'Start with the documentation hub for the current getting started, printer profile, maintenance history, preventive maintenance, parts, and local-first data guides.',
   },
   {
-    title: 'Documentation help',
-    description: 'Beginner-friendly draft guides are available for printer profiles, maintenance history, preventive planning, parts notes, and local-first data direction.',
+    title: 'Confirm the current release status',
+    description:
+      'BMR PrintCare is still in development. Public download instructions, release notes, and installation steps are not published yet.',
   },
   {
-    title: 'Manufacturer independence',
-    description: 'Support content will avoid endorsement claims and will not present BMR PrintCare as an official manufacturer tool.',
+    title: 'Separate app questions from printer service questions',
+    description:
+      'The website can explain the planned app workflow, but it does not replace printer manuals, manufacturer safety guidance, or hands-on inspection.',
+  },
+];
+
+const releaseReadinessItems = [
+  {
+    title: 'Stable app packaging',
+    status: 'Required',
+    description:
+      'A public release should have clear desktop packaging, version labeling, and basic installation expectations before any download link is published.',
+  },
+  {
+    title: 'Documented support scope',
+    status: 'Required',
+    description:
+      'Support expectations should explain what help is available for the app, what remains user responsibility, and what printer-specific issues are outside scope.',
+  },
+  {
+    title: 'Data and backup guidance',
+    status: 'Required',
+    description:
+      'Local-first data behavior, backup recommendations, and export expectations should be documented clearly before public availability.',
+  },
+  {
+    title: 'Release notes and limitations',
+    status: 'Required',
+    description:
+      'The first public release should list known limitations, supported workflows, and conservative notes about model coverage and future catalog expansion.',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Is BMR PrintCare publicly available?',
+    answer:
+      'No. The app is still in development, and the website does not provide real download links yet. Public release messaging will be updated only when the app, documentation, and support expectations are ready.',
+  },
+  {
+    question: 'Which printers are supported?',
+    answer:
+      'BMR PrintCare is planned as a manufacturer-independent maintenance tracker. Supported printer models, profile presets, and official catalog details are expected to expand over time, but the current website does not claim finalized model coverage.',
+  },
+  {
+    question: 'What does local-first data mean?',
+    answer:
+      'Local-first means the product direction favors user-controlled desktop records instead of requiring cloud storage. Future documentation should explain data location, backups, exports, and limitations before release.',
+  },
+  {
+    question: 'What maintenance records will the app track?',
+    answer:
+      'The planned workflow focuses on dated maintenance events, notes, parts and consumables records, preventive reminders, and printer-specific history. It is not positioned as automatic diagnostics or a replacement for manual inspection.',
+  },
+  {
+    question: 'Is the documentation final?',
+    answer:
+      'No. The documentation hub is an early static structure that explains intended workflows. Final installation instructions and release notes should be added only when public availability is ready.',
+  },
+  {
+    question: 'Is BMR PrintCare affiliated with printer manufacturers?',
+    answer:
+      'No. BMR PrintCare is independent and is not affiliated with, endorsed by, sponsored by, or officially connected to any 3D printer manufacturer.',
   },
 ];
 ---
 
 <BaseLayout
   title="Support | BMR PrintCare"
-  description="Support placeholder for BMR PrintCare with future help resources and documentation links."
+  description="Static support hub for BMR PrintCare with documentation links, conservative release readiness notes, FAQ content, and manufacturer independence guidance."
 >
   <main class="page-shell">
     <section class="page-hero" aria-labelledby="support-title">
       <p class="section-eyebrow">Support</p>
-      <h1 id="support-title">Support resources are being prepared.</h1>
+      <h1 id="support-title">Support guidance for a product still in development.</h1>
       <p>
-        The app is not publicly available yet, so support is currently limited to website structure, documentation drafts,
-        and future planning. This page will later guide users toward release notes and clear contact options.
+        BMR PrintCare is not publicly available yet. This support hub explains where to start, what information is
+        currently documented, and what needs to be ready before a public release or download page can provide real files.
+      </p>
+      <div class="hero-actions" aria-label="Support quick links">
+        <a class="primary-link" href="/docs/">Read the documentation</a>
+        <a class="secondary-link" href="/download/">Review release preparation</a>
+      </div>
+    </section>
+
+    <section class="feature-section" aria-labelledby="before-support-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Before asking for support</p>
+        <h2 id="before-support-title">Start with the current static resources.</h2>
+        <p>
+          These steps keep support expectations clear while the app, release process, and final documentation are still
+          being prepared.
+        </p>
+      </div>
+      <section class="content-grid" aria-label="Before support checklist">
+        {beforeSupportItems.map((item) => (
+          <article class="content-card">
+            <span class="status-pill">Suggested</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </section>
+    </section>
+
+    <section class="content-panel" aria-labelledby="docs-links-title">
+      <h2 id="docs-links-title">Documentation links</h2>
+      <p>
+        The documentation hub is the best place to understand the planned maintenance workflow. It is still a draft and
+        intentionally avoids public installation instructions.
+      </p>
+      <ul class="link-list">
+        <li><a href="/docs/getting-started/">Getting started guide</a></li>
+        <li><a href="/docs/printer-profiles/">Printer profiles guide</a></li>
+        <li><a href="/docs/maintenance-history/">Maintenance history guide</a></li>
+        <li><a href="/docs/preventive-maintenance/">Preventive maintenance guide</a></li>
+        <li><a href="/docs/parts-and-consumables/">Parts and consumables guide</a></li>
+        <li><a href="/docs/local-first-data/">Local-first data guide</a></li>
+      </ul>
+    </section>
+
+    <section class="feature-section" aria-labelledby="release-readiness-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Release readiness</p>
+        <h2 id="release-readiness-title">What should be true before public release?</h2>
+        <p>
+          Download messaging should remain conservative until these basics are in place. This checklist is public-facing
+          planning, not a release announcement.
+        </p>
+      </div>
+      <ReleaseChecklist items={releaseReadinessItems} ariaLabel="Support release readiness checklist" />
+    </section>
+
+    <section class="feature-section" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">FAQ</p>
+        <h2 id="faq-title">Common questions while release work continues.</h2>
+      </div>
+      <FaqList items={faqItems} ariaLabel="Support frequently asked questions" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Current limitations</h2>
+      <p>
+        There are no real download files, public release notes, support ticket forms, checkout flows, newsletter signup
+        forms, legal pages, manufacturer catalogs, cloud sync claims, automatic diagnostics, or direct printer
+        integrations on this website. These topics should only be added when the underlying product and copy are ready.
       </p>
     </section>
 
-    <section class="content-grid" aria-label="Planned support topics">
-      {supportTopics.map((topic) => (
-        <article class="content-card">
-          <span class="status-pill">Coming soon</span>
-          <h2>{topic.title}</h2>
-          <p>{topic.description}</p>
-        </article>
-      ))}
-    </section>
-
-    <section class="content-panel" aria-labelledby="support-links-title">
-      <h2 id="support-links-title">Helpful starting points</h2>
+    <section class="content-panel" aria-labelledby="independence-title">
+      <h2 id="independence-title">Manufacturer independence</h2>
+      <p>
+        BMR PrintCare is independent and is not affiliated with, endorsed by, sponsored by, or officially connected to any
+        3D printer manufacturer. Printer names may be relevant to future user-created records, but this website should
+        not imply official partnership or manufacturer approval.
+      </p>
       <ul class="link-list">
-        <li><a href="/features/">Review the feature overview</a></li>
-        <li><a href="/docs/">Visit the documentation hub</a></li>
-        <li><a href="/docs/getting-started/">Read the getting started draft</a></li>
-        <li><a href="/docs/local-first-data/">Understand local-first data direction</a></li>
+        <li><a href="/features/">Review feature positioning</a></li>
         <li><a href="/roadmap/">Review the roadmap</a></li>
+        <li><a href="/download/">Review release preparation</a></li>
       </ul>
     </section>
   </main>
