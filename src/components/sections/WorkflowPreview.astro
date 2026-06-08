@@ -1,0 +1,71 @@
+---
+const steps = [
+  'Add a printer profile',
+  'Create maintenance tasks',
+  'Record service events',
+  'Review upcoming care',
+];
+---
+
+<section id="workflow" class="section-shell" aria-labelledby="workflow-title">
+  <div class="section-heading">
+    <p class="section-eyebrow">Workflow preview</p>
+    <h2 id="workflow-title">A simple loop for planned maintenance.</h2>
+  </div>
+  <ol class="workflow-list">
+    {steps.map((step, index) => (
+      <li>
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <strong>{step}</strong>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .workflow-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    min-height: 10rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.25rem;
+    background: linear-gradient(180deg, rgba(21, 29, 46, 0.82), rgba(16, 22, 36, 0.64));
+  }
+
+  span {
+    color: var(--color-accent);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+  }
+
+  strong {
+    display: block;
+    margin-top: 2.5rem;
+    font-size: 1.3rem;
+    line-height: 1.1;
+  }
+
+  @media (max-width: 900px) {
+    .workflow-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .workflow-list {
+      grid-template-columns: 1fr;
+    }
+
+    li {
+      min-height: auto;
+    }
+  }
+</style>
