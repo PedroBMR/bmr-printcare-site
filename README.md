@@ -2,13 +2,13 @@
 
 Official website and documentation hub for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 6 — Legal and Compliance Placeholder Pages**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, and preliminary legal/compliance placeholder pages for future review.
+This repository is currently in **Milestone 7 — Visual Polish, Responsiveness, and Accessibility Pass**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, and a lightweight visual/accessibility polish pass across the static site.
 
 ## Tech stack
 
 - [Astro](https://astro.build/) for the website framework
 - TypeScript for safer project configuration and future code
-- Plain CSS for global styles, section styling, layout styling, documentation styling, support styling, release checklist styling, and design tokens
+- Plain CSS for global styles, section styling, layout styling, documentation styling, support styling, release checklist styling, accessibility states, responsive behavior, and design tokens
 
 ## Project structure
 
@@ -64,7 +64,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 - `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Roadmap, Download, and Support.
 - `SiteFooter.astro` provides product links, resource links, draft legal links, the manufacturer independence note, and the copyright notice.
 
-`BaseLayout.astro` imports the global stylesheet and renders the shared header and footer around every page.
+`BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, and renders the shared header and footer around every page.
 
 ## Current routes
 
@@ -222,10 +222,30 @@ Milestone 6 focuses only on legal and compliance placeholder pages for future re
 - Reinforce local-first data direction without overstating final implementation details.
 - Reinforce that BMR PrintCare is independent from 3D printer manufacturers.
 
-## Milestone 7 suggestions
 
-Milestone 7 should continue only after product and release requirements become clearer. Good next steps include:
+## Milestone 7 scope
 
+Milestone 7 focuses only on visual polish, responsive behavior, and accessibility basics for the existing static website. It does not redesign the site from scratch, rewrite the public copy, add integrations, add real downloads, or change the meaning of legal/compliance pages.
+
+The polish pass includes:
+
+- shared visible focus states for links and controls;
+- a skip link that points keyboard users to the main page content;
+- reduced-motion handling for smooth scrolling, transitions, and hover movement;
+- slightly refined spacing, card surfaces, CTA sizing, and page rhythm;
+- improved header wrapping for small screens without JavaScript;
+- improved footer column behavior on tablet and mobile widths;
+- more consistent docs, support, download, and legal page reading rhythm;
+- conservative CSS utilities only where they keep the project simple and beginner-friendly.
+
+The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and BMR PrintCare remains independent from 3D printer manufacturers.
+
+## Milestone 8 suggestions
+
+Milestone 8 should continue only after the visual/accessibility pass has been reviewed and product or release requirements become clearer. Good next steps include:
+
+- Review the Milestone 7 polish in real browsers and on physical mobile/tablet devices.
+- Run a basic accessibility review with keyboard navigation and automated tooling once the site is deployed or previewed.
 - Review legal placeholders with an attorney or qualified reviewer and update them based on actual distribution, support, hosting, and data practices.
 - Define a real support contact flow before adding contact forms, ticketing, or email collection.
 - Add release notes only if a public or private build process exists.
