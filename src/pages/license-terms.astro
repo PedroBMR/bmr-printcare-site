@@ -1,0 +1,53 @@
+---
+import LegalLayout from '../components/legal/LegalLayout.astro';
+import LegalSection from '../components/legal/LegalSection.astro';
+---
+
+<LegalLayout
+  title="Draft License Terms | BMR PrintCare"
+  description="Preliminary license terms placeholder for BMR PrintCare while the final software license and distribution model remain undecided."
+  eyebrow="Draft license terms"
+  heading="Preliminary license placeholder for future app distribution."
+  intro="This page records the current license-term status without selecting a final desktop app license or distribution model."
+  currentPath="/license-terms/"
+>
+  <LegalSection title="No final app license selected">
+    <p>
+      No final software license for the BMR PrintCare desktop app is selected in this website repository. This page is a
+      preliminary placeholder and should not be treated as an open-source license, proprietary license, end-user license
+      agreement, or commercial purchase agreement.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Repository and website status">
+    <p>
+      The website repository is marked private in its package metadata and does not include a dedicated license file at
+      this stage. Future project owners should decide and document whether website code, app code, documentation, and
+      brand assets have separate licensing rules.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Future desktop app distribution">
+    <p>
+      Before any desktop installer, binary, package, app store listing, or private beta build is distributed, the project
+      should publish reviewed license terms that explain permitted use, restrictions, updates, support expectations,
+      warranty limitations, and termination rules if applicable.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Third-party dependencies">
+    <p>
+      BMR PrintCare may rely on third-party dependencies for the website, desktop app, packaging, or documentation. Those
+      dependencies can have their own licenses and notices. A future release should include a dependency notice process
+      and any required attributions before distribution.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Commercial model not decided here">
+    <p>
+      This placeholder does not announce paid plans, subscriptions, purchases, commercial licensing, app store
+      distribution, or public availability. Release status remains described on the <a href="/download/">release
+      preparation page</a>, with broader sequencing on the <a href="/roadmap/">roadmap</a>.
+    </p>
+  </LegalSection>
+</LegalLayout>

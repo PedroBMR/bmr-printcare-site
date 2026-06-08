@@ -2,7 +2,7 @@
 
 Official website and documentation hub for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 5 — Support, Release Readiness and Download Messaging**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, and a release-preparation download placeholder with no real download links.
+This repository is currently in **Milestone 6 — Legal and Compliance Placeholder Pages**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, and preliminary legal/compliance placeholder pages for future review.
 
 ## Tech stack
 
@@ -18,6 +18,7 @@ src/
     content/       Reusable content cards, grids, notes, FAQ, and release checklist components
     docs/          Reusable documentation cards, grid, layout, and navigation
     layout/        Shared site header and footer components
+    legal/         Reusable legal placeholder layout, section, and draft notice components
     sections/      Reusable homepage landing page sections
   layouts/         Page layouts used by routes
   pages/           Static Astro routes
@@ -52,10 +53,16 @@ The documentation hub uses reusable docs components in `src/components/docs/`:
 - `DocsLayout.astro`
 - `DocsNav.astro`
 
+The legal placeholder pages use reusable legal components in `src/components/legal/`:
+
+- `LegalLayout.astro` provides the shared legal-page shell, draft notice placement, and cross-links between legal, support, download, and roadmap pages.
+- `LegalNotice.astro` marks legal copy as preliminary, not final legal advice, and subject to review.
+- `LegalSection.astro` keeps legal content sections consistent and simple.
+
 The shared site chrome is composed from layout components in `src/components/layout/`:
 
 - `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Roadmap, Download, and Support.
-- `SiteFooter.astro` provides product links, resource links, future legal placeholders, the manufacturer independence note, and the copyright notice.
+- `SiteFooter.astro` provides product links, resource links, draft legal links, the manufacturer independence note, and the copyright notice.
 
 `BaseLayout.astro` imports the global stylesheet and renders the shared header and footer around every page.
 
@@ -74,7 +81,12 @@ The shared site chrome is composed from layout components in `src/components/lay
 | `/docs/local-first-data` | Guide draft for local-first data direction, backups, exports, and legal-page readiness. | Draft |
 | `/roadmap` | Public roadmap placeholder for website, documentation, support, and release planning. | Updated placeholder |
 | `/download` | Conservative release-preparation placeholder that states public release is not available yet and provides no real download links. | Placeholder |
-| `/support` | Static support hub with documentation links, FAQ, current limitations, release-readiness notes, and manufacturer independence guidance. | Expanded hub |
+| `/support` | Static support hub with documentation links, FAQ, current limitations, release-readiness notes, draft legal links, and manufacturer independence guidance. | Expanded hub |
+| `/privacy` | Preliminary privacy notice covering current static-site data collection status, local-first data direction, and future review needs. | Draft placeholder |
+| `/terms` | Preliminary terms of use covering website use, development status, acceptable use, and future updates. | Draft placeholder |
+| `/license-terms` | Preliminary license terms placeholder noting that no final app license or distribution model has been selected. | Draft placeholder |
+| `/refund-policy` | Preliminary refund policy placeholder noting that there are no purchases, paid plans, checkout, or public app release yet. | Draft placeholder |
+| `/manufacturer-disclaimer` | Manufacturer independence disclaimer stating no affiliation, sponsorship, endorsement, or official partnership with printer manufacturers. | Draft placeholder |
 
 ## Documentation structure
 
@@ -131,11 +143,19 @@ The `/features` page explains these areas in English:
 
 The site should avoid claims about direct printer integrations, cloud sync, AI features, automatic diagnostics, mobile apps, paid plans, or official manufacturer partnerships unless a later milestone explicitly adds accurate supporting material.
 
-## Future route notes
+## Legal and compliance placeholders
 
-Future routes may include `/catalogs`, `/privacy`, `/terms`, `/license-terms`, `/refund-policy`, and `/manufacturer-disclaimer`.
+Milestone 6 adds preliminary legal/compliance routes for planning and future attorney review:
 
-Legal pages are intentionally kept as documented future routes for now. They should be created in a later milestone when the product, availability model, support expectations, and required legal copy are clearer. The `/download` page exists now, but only as conservative release-preparation messaging.
+- `/privacy` describes the current static website status, the local-first desktop app direction, and the need to document real hosting/logging details before launch.
+- `/terms` describes draft website-use expectations, product-development status, acceptable use, warranty-style caution, and future update needs.
+- `/license-terms` records that no final app license or distribution model has been selected in this website repository.
+- `/refund-policy` states that the current site has no purchases, paid plans, checkout, app store distribution, license keys, or public download links.
+- `/manufacturer-disclaimer` reinforces that BMR PrintCare is independent and is not affiliated with, sponsored by, endorsed by, approved by, or officially connected to any 3D printer manufacturer.
+
+These pages are **draft placeholders only**. They are not final legal advice, do not claim compliance with LGPD, GDPR, CCPA, or any other law, and should be reviewed before public release, payment processing, app distribution, analytics, support intake, or commercial availability.
+
+Future routes may still include `/catalogs`. The `/download` page remains conservative release-preparation messaging only.
 
 ## Getting started
 
@@ -183,33 +203,33 @@ Check for whitespace errors before committing:
 git diff --check
 ```
 
-Optionally start the dev server and open the homepage, support hub, documentation hub, or release-preparation placeholder in a browser:
+Optionally start the dev server and open the homepage, support hub, documentation hub, release-preparation placeholder, or draft legal pages in a browser:
 
 ```bash
 npm run dev
 ```
 
-## Milestone 5 scope
+## Milestone 6 scope
 
-Milestone 5 focuses only on support, release readiness, and conservative download messaging:
+Milestone 6 focuses only on legal and compliance placeholder pages for future review:
 
-- Expand `/support` from a placeholder into a useful static support hub.
-- Add FAQ content for availability, supported printers, local-first data, maintenance records, documentation status, and manufacturer independence.
-- Add release-readiness checklist content without announcing a public release.
-- Create `/download` as a placeholder route for release preparation only.
-- Add `/download` to shared navigation because the page now exists, while avoiding “Download now” language.
-- Add internal links between Support, Docs, Roadmap, Features, and Download.
-- Keep the site static, beginner-friendly, maintainable, and manufacturer-independent.
-- Avoid real download links, backend features, checkout, analytics, authentication, newsletter integration, full legal pages, manufacturer logos, endorsement claims, and public availability claims.
+- Create `/privacy`, `/terms`, `/license-terms`, `/refund-policy`, and `/manufacturer-disclaimer` as static Astro routes.
+- Add reusable legal components for a shared legal-page shell, draft notice, and content sections.
+- Add draft legal links to the footer.
+- Add cross-links between legal pages, Support, Download, and Roadmap where helpful.
+- Keep all legal copy conservative, preliminary, and subject to review.
+- Avoid claiming full legal compliance, public availability, paid plans, final software licensing, app store distribution, or refunds before those items exist.
+- Reinforce local-first data direction without overstating final implementation details.
+- Reinforce that BMR PrintCare is independent from 3D printer manufacturers.
 
-## Milestone 6 suggestions
+## Milestone 7 suggestions
 
-Milestone 6 should continue only after the product and release requirements are clearer. Good next steps include:
+Milestone 7 should continue only after product and release requirements become clearer. Good next steps include:
 
-- Decide whether accurate legal placeholder pages are ready to draft.
-- Add real release notes only if a public or private build process exists.
-- Add installation documentation only when the supported desktop platforms and packaging approach are known.
-- Expand support instructions only when the support channel and expected response scope are defined.
+- Review legal placeholders with an attorney or qualified reviewer and update them based on actual distribution, support, hosting, and data practices.
+- Define a real support contact flow before adding contact forms, ticketing, or email collection.
+- Add release notes only if a public or private build process exists.
+- Add installation documentation only when supported desktop platforms and packaging approach are known.
 - Add more concrete printer profile or catalog documentation only after implemented app behavior is verified.
 
 ## Brand and manufacturer disclaimer

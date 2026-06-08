@@ -1,0 +1,71 @@
+---
+import LegalLayout from '../components/legal/LegalLayout.astro';
+import LegalSection from '../components/legal/LegalSection.astro';
+---
+
+<LegalLayout
+  title="Draft Privacy Notice | BMR PrintCare"
+  description="Preliminary privacy notice placeholder for BMR PrintCare, including local-first data direction and static website data collection status."
+  eyebrow="Draft privacy notice"
+  heading="Preliminary privacy notice for future review."
+  intro="This draft explains the current privacy direction for the static website and the planned local-first desktop app while BMR PrintCare is still in development."
+  currentPath="/privacy/"
+>
+  <LegalSection title="Current status">
+    <p>
+      BMR PrintCare is still in development, and the app is not publicly available yet. This privacy notice is a
+      preliminary placeholder intended to guide future review before any public release, payment flow, analytics setup,
+      newsletter, support intake, or account system is added.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Local-first data direction">
+    <p>
+      BMR PrintCare is designed with a local-first direction for desktop maintenance tracking. The intended product
+      direction is that printer profiles, maintenance records, parts notes, reminders, and related app data are primarily
+      managed on the user's own device rather than requiring a hosted account by default.
+    </p>
+    <p>
+      Final technical details, storage behavior, backup options, export behavior, and any optional sync or support flows
+      remain subject to implementation and legal review. Users should plan to maintain their own backups when the app is
+      eventually released.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Website data collection status">
+    <p>
+      The current public website is a static Astro site. It does not include account registration, checkout, analytics,
+      newsletter signup, contact forms, authentication, or backend data collection in the repository at this stage.
+    </p>
+    <p>
+      Hosting providers, browsers, or network infrastructure may still process basic technical information such as IP
+      addresses, request times, user agents, and security logs. A future production deployment should document the actual
+      hosting provider and log retention details before launch.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="No compliance claim">
+    <p>
+      This draft does not claim that BMR PrintCare is compliant with LGPD, GDPR, CCPA, or any other privacy law. Future
+      legal review should determine which laws apply, what disclosures are required, and whether additional privacy
+      controls are needed before public availability.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Future changes">
+    <p>
+      If future milestones add analytics, crash reporting, support forms, email updates, licensing systems, payment
+      processors, cloud features, or app distribution platforms, this notice should be updated before those features are
+      launched. Related release status is listed on the <a href="/download/">release preparation page</a> and planned
+      work is summarized on the <a href="/roadmap/">roadmap</a>.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Support reference">
+    <p>
+      Until a final support channel is selected, privacy-related questions should be treated as part of the general
+      product readiness work described in the <a href="/support/">support hub</a>. A reviewed contact method should be
+      added before public launch.
+    </p>
+  </LegalSection>
+</LegalLayout>

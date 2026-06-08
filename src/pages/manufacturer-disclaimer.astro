@@ -1,0 +1,53 @@
+---
+import LegalLayout from '../components/legal/LegalLayout.astro';
+import LegalSection from '../components/legal/LegalSection.astro';
+---
+
+<LegalLayout
+  title="Manufacturer Disclaimer | BMR PrintCare"
+  description="Draft manufacturer independence disclaimer for BMR PrintCare, clarifying no affiliation, sponsorship, endorsement, or official partnership with printer manufacturers."
+  eyebrow="Manufacturer disclaimer"
+  heading="BMR PrintCare is independent from printer manufacturers."
+  intro="This preliminary disclaimer clarifies the intended manufacturer-independence position for the website, documentation, and future desktop app."
+  currentPath="/manufacturer-disclaimer/"
+>
+  <LegalSection title="Independence statement">
+    <p>
+      BMR PrintCare is an independent project. It is not affiliated with, sponsored by, endorsed by, approved by, or
+      officially connected to Bambu Lab, Creality, Prusa, Anycubic, or any other 3D printer manufacturer.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Manufacturer names and compatibility context">
+    <p>
+      Manufacturer names, printer names, material names, or model references may be used in future documentation or app
+      interfaces only for compatibility, organization, user-entered records, or general context. Such references should
+      not imply official partnership, certification, support, endorsement, or access to proprietary manufacturer systems.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Trademarks">
+    <p>
+      Manufacturer names, product names, logos, and trademarks belong to their respective owners. This website should not
+      use manufacturer logos or brand assets unless a future written authorization and reviewed usage guideline permits
+      that use.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Printer data may change">
+    <p>
+      Official printer catalogs, supported model lists, replacement part references, firmware behavior, maintenance
+      recommendations, and safety guidance may change over time. Users should verify important maintenance and safety
+      information with official manufacturer documentation and qualified service resources.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Scope of BMR PrintCare">
+    <p>
+      BMR PrintCare is planned as a maintenance tracking tool, not an official manufacturer service portal. It should not
+      be presented as direct printer control, automatic diagnostics, warranty service, or a substitute for manufacturer
+      manuals. Related positioning appears in the <a href="/features/">features overview</a>, the
+      <a href="/support/">support hub</a>, and the <a href="/terms/">draft terms of use</a>.
+    </p>
+  </LegalSection>
+</LegalLayout>
