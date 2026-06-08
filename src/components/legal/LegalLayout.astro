@@ -124,14 +124,15 @@ const supportLinks: LegalLink[] = [
   .legal-sidebar a {
     color: var(--color-text-muted);
     font-weight: 800;
-    text-decoration: none;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.25em;
   }
 
   .legal-sidebar a:hover,
   .legal-sidebar a:focus-visible,
   .legal-sidebar a[aria-current='page'] {
     color: var(--color-text);
-    outline: none;
+    text-decoration-color: rgba(57, 208, 255, 0.55);
   }
 
   @media (max-width: 900px) {

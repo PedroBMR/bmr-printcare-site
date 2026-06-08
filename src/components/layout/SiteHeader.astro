@@ -12,7 +12,7 @@ const currentPath = Astro.url.pathname;
 const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
 ---
 
-<header class="site-header">
+<header class="site-header" role="banner">
   <nav class="site-nav" aria-label="Primary navigation">
     <a class="brand-link" href="/" aria-label="BMR PrintCare home">
       <span class="brand-mark" aria-hidden="true">BMR</span>
@@ -45,6 +45,7 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
     border-bottom: 1px solid rgba(148, 163, 184, 0.14);
     background: rgba(7, 10, 18, 0.78);
     backdrop-filter: blur(18px);
+    overflow-x: clip;
   }
 
   .site-nav {
@@ -54,7 +55,7 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
     justify-content: space-between;
     gap: 1rem;
     margin: 0 auto;
-    padding: 1rem var(--space-page);
+    padding: 0.9rem var(--space-page);
   }
 
   .brand-link {
@@ -102,6 +103,7 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 0.35rem;
+    min-width: 0;
   }
 
   .nav-links a {
@@ -111,11 +113,18 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
     color: var(--color-text-muted);
     font-size: 0.9rem;
     font-weight: 800;
+    text-align: center;
     text-decoration: none;
     transition:
       border-color 180ms ease,
       background 180ms ease,
       color 180ms ease;
+  }
+
+  .brand-link:focus-visible,
+  .nav-links a:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 0.22rem;
   }
 
   .nav-links a:hover,
@@ -124,13 +133,13 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
     border-color: rgba(57, 208, 255, 0.26);
     background: rgba(57, 208, 255, 0.08);
     color: var(--color-text);
-    outline: none;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 760px) {
     .site-nav {
       align-items: flex-start;
       flex-direction: column;
+      gap: 0.85rem;
     }
 
     .nav-links {
@@ -139,8 +148,19 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
     }
 
     .nav-links a {
-      flex: 1 1 auto;
-      text-align: center;
+      flex: 1 1 calc(33.333% - 0.35rem);
+      min-width: 6.25rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .brand-text span {
+      display: none;
+    }
+
+    .nav-links a {
+      flex-basis: calc(50% - 0.35rem);
+      padding-inline: 0.65rem;
     }
   }
 </style>

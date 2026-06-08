@@ -43,7 +43,7 @@ const features = [
 <style>
   .feature-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -52,7 +52,9 @@ const features = [
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     padding: 1.25rem;
-    background: rgba(16, 22, 36, 0.72);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 32%),
+      rgba(16, 22, 36, 0.72);
   }
 
   .feature-card span {
@@ -94,7 +96,7 @@ const features = [
   .feature-overview-link:hover,
   .feature-overview-link:focus-visible {
     border-color: rgba(57, 208, 255, 0.62);
-    outline: none;
+    background: rgba(57, 208, 255, 0.12);
   }
 
   @media (max-width: 980px) {
