@@ -2,7 +2,7 @@
 
 Official website and documentation hub for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 7 — Visual Polish, Responsiveness, and Accessibility Pass**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, and a lightweight visual/accessibility polish pass across the static site.
+This repository is currently in **Milestone 8 — SEO, Metadata, and Deployment Preparation**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, a lightweight visual/accessibility polish pass, and static SEO/deployment preparation basics.
 
 ## Tech stack
 
@@ -13,6 +13,8 @@ This repository is currently in **Milestone 7 — Visual Polish, Responsiveness,
 ## Project structure
 
 ```text
+docs/             Short project documentation, including deployment preparation checklists
+public/           Static SEO and browser support files such as robots.txt, favicon.svg, and site.webmanifest
 src/
   components/
     content/       Reusable content cards, grids, notes, FAQ, and release checklist components
@@ -64,7 +66,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 - `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Roadmap, Download, and Support.
 - `SiteFooter.astro` provides product links, resource links, draft legal links, the manufacturer independence note, and the copyright notice.
 
-`BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, and renders the shared header and footer around every page.
+`BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, renders the shared header and footer around every page, and manages page metadata including title, description, Open Graph basics, Twitter/X summary-card basics, optional `noindex`, safe canonical URLs when `site` is configured, favicon, manifest, and theme color.
 
 ## Current routes
 
@@ -209,6 +211,54 @@ Optionally start the dev server and open the homepage, support hub, documentatio
 npm run dev
 ```
 
+## Deployment preparation
+
+BMR PrintCare is still in development, and the public app release is not available yet. Deployment preparation for the website should stay static and conservative.
+
+### Local production build
+
+Build the static website:
+
+```bash
+npm run build
+```
+
+Astro writes the production output to `dist/`. That generated directory is the expected static output for deployment.
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+### Deployment options to evaluate later
+
+Evaluate static hosting options only when the launch plan and production domain are confirmed. Reasonable options to compare later include:
+
+- Netlify;
+- Vercel;
+- Cloudflare Pages;
+- GitHub Pages;
+- another static host that can serve the generated `dist/` directory.
+
+Do not add analytics, tracking scripts, cookies, checkout, authentication, contact forms, newsletter integrations, public downloads, installers, binaries, or signup forms as part of this static deployment preparation milestone.
+
+### Pre-deploy checklist
+
+Before any deployment candidate is shared publicly:
+
+- run `npm run build`;
+- run `npx astro check`;
+- run `git diff --check`;
+- preview the generated site with `npm run preview` when possible;
+- confirm route titles and meta descriptions are present;
+- confirm draft legal pages remain preliminary and do not claim full legal compliance;
+- confirm `/download` still avoids real download links and states that public release is not available yet;
+- confirm manufacturer independence language remains visible and no manufacturer logos are used;
+- recheck canonical URL and sitemap strategy against the final production domain before adding sitemap output.
+
+See `docs/deployment-checklist.md` for a short checklist that can be copied into release notes or issue tracking later.
+
 ## Milestone 6 scope
 
 Milestone 6 focuses only on legal and compliance placeholder pages for future review:
@@ -240,12 +290,30 @@ The polish pass includes:
 
 The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and BMR PrintCare remains independent from 3D printer manufacturers.
 
-## Milestone 8 suggestions
+## Milestone 8 scope
 
-Milestone 8 should continue only after the visual/accessibility pass has been reviewed and product or release requirements become clearer. Good next steps include:
+Milestone 8 focuses only on SEO, metadata, static browser support files, and deployment preparation. It does not redesign the site, add integrations, add analytics, add a sitemap, add public downloads, or change the meaning of the preliminary legal/compliance pages.
 
-- Review the Milestone 7 polish in real browsers and on physical mobile/tablet devices.
-- Run a basic accessibility review with keyboard navigation and automated tooling once the site is deployed or previewed.
+The SEO and deployment pass includes:
+
+- shared metadata support in `BaseLayout.astro`;
+- page-specific titles and meta descriptions across public routes;
+- Open Graph and Twitter/X summary-card basics;
+- optional `noindex` metadata for preliminary legal pages;
+- safe canonical handling based on the configured Astro `site` value;
+- static `robots.txt`, `site.webmanifest`, and `favicon.svg` files;
+- README deployment preparation instructions;
+- a short `docs/deployment-checklist.md` file.
+
+The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and BMR PrintCare remains independent from 3D printer manufacturers.
+
+## Milestone 9 suggestions
+
+Milestone 9 should continue only after SEO/deployment preparation has been reviewed. Good next steps include:
+
+- Review generated metadata in a deployed preview environment.
+- Confirm the final production domain before adding sitemap output or changing canonical strategy.
+- Review the favicon and browser metadata in real browsers.
 - Review legal placeholders with an attorney or qualified reviewer and update them based on actual distribution, support, hosting, and data practices.
 - Define a real support contact flow before adding contact forms, ticketing, or email collection.
 - Add release notes only if a public or private build process exists.

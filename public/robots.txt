@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# No sitemap is listed until the production domain and launch strategy are confirmed.
