@@ -1,0 +1,20 @@
+---
+import FeatureCard from './FeatureCard.astro';
+
+interface FeatureItem {
+  title: string;
+  description: string;
+  status?: string;
+}
+
+interface Props {
+  items: FeatureItem[];
+  ariaLabel: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+
+<div class="feature-detail-grid" aria-label={ariaLabel}>
+  {items.map((item) => <FeatureCard title={item.title} description={item.description} status={item.status} />)}
+</div>
