@@ -2,7 +2,15 @@
 
 Official website and documentation hub for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 8 — SEO, Metadata, and Deployment Preparation**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, a lightweight visual/accessibility polish pass, and static SEO/deployment preparation basics.
+This repository is currently in **Milestone 9 — Final Review and Launch Readiness Checklist**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, and final launch-readiness review notes.
+
+## Current status
+
+- The website is static and beginner-friendly. It does not include backend services, authentication, analytics, tracking pixels, cookies, checkout, newsletter integration, contact forms, or third-party scripts.
+- The BMR PrintCare desktop app is still in development and is not publicly available yet.
+- The `/download` route is a release-preparation placeholder only. It does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
+- Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, or payment processing.
+- BMR PrintCare is independent and must not imply official partnership, endorsement, sponsorship, approval, affiliation, official manufacturer support, or access to proprietary manufacturer systems.
 
 ## Tech stack
 
@@ -13,7 +21,7 @@ This repository is currently in **Milestone 8 — SEO, Metadata, and Deployment 
 ## Project structure
 
 ```text
-docs/             Short project documentation, including deployment preparation checklists
+docs/             Short project documentation, including deployment and launch readiness checklists
 public/           Static SEO and browser support files such as robots.txt, favicon.svg, and site.webmanifest
 src/
   components/
@@ -184,6 +192,7 @@ Astro will print the local URL, usually `http://localhost:4321`.
 | `npm run preview` | Preview the production build locally. |
 | `npm run astro` | Run Astro CLI commands. |
 | `npx astro check` | Run Astro diagnostics and TypeScript checks. |
+| `npm run check:links` | Check generated HTML in `dist/` for expected routes and internal links after `npm run build`. |
 
 ## Testing the setup
 
@@ -197,6 +206,12 @@ Run Astro diagnostics and TypeScript checks:
 
 ```bash
 npx astro check
+```
+
+After building, check generated HTML route coverage and internal links:
+
+```bash
+npm run check:links
 ```
 
 Check for whitespace errors before committing:
@@ -249,6 +264,7 @@ Before any deployment candidate is shared publicly:
 
 - run `npm run build`;
 - run `npx astro check`;
+- run `npm run check:links` after `npm run build`;
 - run `git diff --check`;
 - preview the generated site with `npm run preview` when possible;
 - confirm route titles and meta descriptions are present;
@@ -257,7 +273,7 @@ Before any deployment candidate is shared publicly:
 - confirm manufacturer independence language remains visible and no manufacturer logos are used;
 - recheck canonical URL and sitemap strategy against the final production domain before adding sitemap output.
 
-See `docs/deployment-checklist.md` for a short checklist that can be copied into release notes or issue tracking later.
+See `docs/deployment-checklist.md` for deployment preparation notes and `docs/launch-readiness-checklist.md` for the Milestone 9 final review checklist.
 
 ## Milestone 6 scope
 
@@ -307,11 +323,21 @@ The SEO and deployment pass includes:
 
 The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and BMR PrintCare remains independent from 3D printer manufacturers.
 
-## Milestone 9 suggestions
+## Milestone 9 final review notes
 
-Milestone 9 should continue only after SEO/deployment preparation has been reviewed. Good next steps include:
+Milestone 9 focuses only on final static-site review and launch-readiness documentation. It does not redesign the site, rewrite the public copy, add integrations, add analytics, add a backend, add real downloads, add payment links, add signup forms, or change the preliminary legal/compliance meaning.
 
-- Review generated metadata in a deployed preview environment.
+The final review pass includes:
+
+- route coverage review for the homepage, feature page, documentation hub, documentation guides, roadmap, support, download placeholder, and draft legal pages;
+- generated HTML internal-link checking through `npm run check:links` after `npm run build`;
+- conservative-claims review for phrases such as “Download now”, official manufacturer support, automatic diagnostics, AI-powered features, cloud sync, public availability, official partnership, and LGPD/GDPR compliance claims;
+- README status updates that clarify the website is static, the app is still in development, public release is not available yet, legal pages are preliminary, and no analytics/backend/downloads are implemented;
+- a launch readiness checklist in `docs/launch-readiness-checklist.md`.
+
+Recommended next steps after Milestone 9:
+
+- Review generated metadata in a deployed preview environment only after a real hosting target exists.
 - Confirm the final production domain before adding sitemap output or changing canonical strategy.
 - Review the favicon and browser metadata in real browsers.
 - Review legal placeholders with an attorney or qualified reviewer and update them based on actual distribution, support, hosting, and data practices.
