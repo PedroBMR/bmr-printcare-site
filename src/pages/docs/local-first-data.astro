@@ -1,0 +1,46 @@
+---
+import DocsLayout from '../../components/docs/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Local-First Data | BMR PrintCare Docs"
+  description="Local-first data guide draft for BMR PrintCare documentation."
+  heading="Local-first data is the current product direction."
+  intro="BMR PrintCare is being positioned as a local-first desktop app. This page explains the current direction for local data ownership and responsible expectations while implementation details are still in progress."
+>
+  <section class="docs-section" aria-labelledby="local-first-title">
+    <h2 id="local-first-title">What local-first means here</h2>
+    <p>
+      Local-first means the product direction favors keeping maintenance records on the user&apos;s own desktop environment
+      rather than requiring a cloud account for basic record keeping. Exact storage, backup, and export behavior should
+      be documented only when implemented and verified.
+    </p>
+  </section>
+
+  <section class="docs-section" aria-labelledby="data-expectations-title">
+    <h2 id="data-expectations-title">Responsible expectations</h2>
+    <ul class="plain-list">
+      <li>Users should plan backups for important maintenance records.</li>
+      <li>Future documentation should clearly explain where records are stored before public release.</li>
+      <li>Export and restore behavior should not be promised until implemented.</li>
+      <li>Cloud sync, accounts, and mobile apps are not part of the current website scope.</li>
+    </ul>
+  </section>
+
+  <section class="docs-section" aria-labelledby="privacy-direction-title">
+    <h2 id="privacy-direction-title">Privacy and legal notes</h2>
+    <p>
+      Full legal pages are intentionally not part of this milestone. Future privacy and terms pages should be added only
+      when the product behavior, availability model, support expectations, and legal copy are accurate.
+    </p>
+  </section>
+
+  <section class="content-panel" aria-labelledby="local-next-title">
+    <h2 id="local-next-title">Related documentation</h2>
+    <ul class="link-list">
+      <li><a href="/docs/getting-started/">Return to getting started</a></li>
+      <li><a href="/features/">Review local-first feature positioning</a></li>
+      <li><a href="/support/">See current support expectations</a></li>
+    </ul>
+  </section>
+</DocsLayout>

@@ -1,0 +1,21 @@
+---
+import DocsCard from './DocsCard.astro';
+
+interface DocsItem {
+  title: string;
+  description: string;
+  href: string;
+  status?: string;
+}
+
+interface Props {
+  items: DocsItem[];
+  ariaLabel: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+
+<div class="docs-grid" aria-label={ariaLabel}>
+  {items.map((item) => <DocsCard title={item.title} description={item.description} href={item.href} status={item.status} />)}
+</div>

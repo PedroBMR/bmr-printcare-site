@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DocsNav from './DocsNav.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow?: string;
+  heading: string;
+  intro: string;
+}
+
+const { title, description, eyebrow = 'Documentation in progress', heading, intro } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="page-shell docs-page">
+    <section class="page-hero docs-hero" aria-labelledby="docs-page-title">
+      <p class="section-eyebrow">{eyebrow}</p>
+      <h1 id="docs-page-title">{heading}</h1>
+      <p>{intro}</p>
+    </section>
+
+    <div class="docs-layout">
+      <DocsNav />
+      <article class="docs-content">
+        <slot />
+      </article>
+    </div>
+  </main>
+</BaseLayout>
