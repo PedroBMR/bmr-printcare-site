@@ -1,0 +1,40 @@
+<section class="section-shell solution-section" aria-labelledby="solution-title">
+  <p class="section-eyebrow">The solution</p>
+  <div class="solution-grid">
+    <h2 id="solution-title">A focused desktop workspace for printer care records.</h2>
+    <p>
+      BMR PrintCare is being shaped as a practical maintenance hub: add printers, track service events, connect part
+      changes to real history, and keep routine care visible before failures interrupt printing.
+    </p>
+  </div>
+</section>
+
+<style>
+  .solution-section {
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius-card) + 0.5rem);
+    padding: clamp(1.5rem, 5vw, 3rem);
+    background:
+      linear-gradient(135deg, rgba(57, 208, 255, 0.12), rgba(124, 58, 237, 0.12)),
+      rgba(16, 22, 36, 0.58);
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: end;
+  }
+
+  p:not(.section-eyebrow) {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+  }
+
+  @media (max-width: 760px) {
+    .solution-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

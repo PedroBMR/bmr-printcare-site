@@ -8,6 +8,7 @@ html {
   min-height: 100%;
   background: var(--color-background);
   font-family: var(--font-sans);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -16,11 +17,94 @@ body {
   background:
     radial-gradient(circle at top left, rgba(57, 208, 255, 0.16), transparent 32rem),
     radial-gradient(circle at top right, rgba(124, 58, 237, 0.18), transparent 28rem),
+    linear-gradient(180deg, rgba(7, 10, 18, 0), var(--color-background) 48rem),
     var(--color-background);
   color: var(--color-text);
   line-height: 1.5;
 }
 
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+  content: '';
+}
+
 a {
   color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-page {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7rem);
+  width: min(100%, 76rem);
+  margin: 0 auto;
+  padding: 0 var(--space-page) clamp(4rem, 8vw, 7rem);
+}
+
+.section-shell {
+  width: 100%;
+}
+
+.section-eyebrow {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  max-width: 48rem;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.section-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: rgba(16, 22, 36, 0.72);
+  box-shadow: var(--shadow-soft);
+}
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+@media (max-width: 760px) {
+  .home-page {
+    gap: 4rem;
+  }
+
+  .split-section {
+    grid-template-columns: 1fr;
+  }
 }

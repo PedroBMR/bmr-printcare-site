@@ -1,0 +1,220 @@
+<section class="hero-section section-shell" aria-labelledby="hero-title">
+  <div class="hero-content">
+    <p class="section-eyebrow">Local-first printer care</p>
+    <h1 id="hero-title">Maintenance tracking for serious 3D printing setups.</h1>
+    <p class="hero-copy">
+      BMR PrintCare helps makers, print farms, and repair-focused teams plan maintenance, record service history,
+      and keep printer care organized without depending on a cloud account.
+    </p>
+    <div class="hero-actions" aria-label="Primary landing page actions">
+      <a class="primary-action" href="#roadmap">Follow the roadmap</a>
+      <a class="secondary-action" href="#workflow">Preview the workflow</a>
+    </div>
+  </div>
+
+  <aside class="hero-panel" aria-label="Product status preview">
+    <div class="panel-header">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>Desktop app concept</span>
+    </div>
+    <div class="maintenance-card">
+      <span class="card-label">Next maintenance</span>
+      <strong>Lubricate motion system</strong>
+      <p>Track recurring tasks by printer, usage, and service notes.</p>
+    </div>
+    <dl class="hero-metrics">
+      <div>
+        <dt>Printers</dt>
+        <dd>Organized</dd>
+      </div>
+      <div>
+        <dt>Parts</dt>
+        <dd>Documented</dd>
+      </div>
+      <div>
+        <dt>Data</dt>
+        <dd>Local</dd>
+      </div>
+    </dl>
+  </aside>
+</section>
+
+<style>
+  .hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding-top: clamp(4rem, 9vw, 7rem);
+  }
+
+  .hero-content {
+    max-width: 48rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6.75rem);
+    letter-spacing: -0.075em;
+    line-height: 0.88;
+  }
+
+  .hero-copy {
+    max-width: 41rem;
+    margin: 1.5rem 0 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  .primary-action,
+  .secondary-action {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.85rem 1.15rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .primary-action {
+    background: linear-gradient(135deg, var(--color-accent), #8ae8ff);
+    color: #04111a;
+    box-shadow: 0 18px 50px rgba(57, 208, 255, 0.2);
+  }
+
+  .secondary-action {
+    border: 1px solid var(--color-border-strong);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text);
+  }
+
+  .hero-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: clamp(1.25rem, 4vw, 2rem);
+    background:
+      radial-gradient(circle at 20% 10%, rgba(57, 208, 255, 0.2), transparent 15rem),
+      linear-gradient(145deg, rgba(16, 22, 36, 0.95), rgba(21, 29, 46, 0.76));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-panel::after {
+    position: absolute;
+    inset: auto -25% -45% auto;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 999px;
+    background: rgba(124, 58, 237, 0.28);
+    content: '';
+    filter: blur(48px);
+  }
+
+  .panel-header,
+  .maintenance-card,
+  .hero-metrics {
+    position: relative;
+    z-index: 1;
+  }
+
+  .panel-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .status-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    box-shadow: 0 0 24px rgba(57, 208, 255, 0.75);
+  }
+
+  .maintenance-card {
+    margin-top: 2.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    background: rgba(7, 10, 18, 0.55);
+  }
+
+  .card-label {
+    display: block;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .maintenance-card strong {
+    display: block;
+    margin-top: 0.65rem;
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    line-height: 1;
+  }
+
+  .maintenance-card p {
+    margin: 0.9rem 0 0;
+    color: var(--color-text-muted);
+  }
+
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 0;
+  }
+
+  .hero-metrics div {
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 0.9rem;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .hero-metrics dt {
+    color: var(--color-text-soft);
+    font-size: 0.75rem;
+  }
+
+  .hero-metrics dd {
+    margin: 0.3rem 0 0;
+    font-weight: 800;
+  }
+
+  @media (max-width: 820px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      max-width: 9ch;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-actions,
+    .primary-action,
+    .secondary-action {
+      width: 100%;
+    }
+
+    .hero-metrics {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
