@@ -1,0 +1,117 @@
+---
+import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const releaseChecklistItems = [
+  {
+    title: 'Public release package',
+    status: 'Planned',
+    description:
+      'A future public release should provide clearly labeled desktop files only after packaging, version naming, and installation expectations are ready.',
+  },
+  {
+    title: 'Release notes',
+    status: 'Planned',
+    description:
+      'Release notes should describe what is included, what remains limited, and which workflows are ready for early users.',
+  },
+  {
+    title: 'Documentation updates',
+    status: 'In progress',
+    description:
+      'The docs should include installation guidance, first-run expectations, local data notes, backup guidance, and support boundaries before download links are added.',
+  },
+  {
+    title: 'Support expectations',
+    status: 'In progress',
+    description:
+      'Users should know how support will work, what information may be requested, and what printer-specific maintenance advice remains outside the app scope.',
+  },
+  {
+    title: 'Known limitations',
+    status: 'Required',
+    description:
+      'The website should list important limitations before public availability, including unsupported workflows and roadmap-only ideas.',
+  },
+  {
+    title: 'Independence language',
+    status: 'Required',
+    description:
+      'Release copy must stay clear that BMR PrintCare is independent and not affiliated with any 3D printer manufacturer.',
+  },
+];
+
+const expectations = [
+  'No real download links are available on this page yet.',
+  'No public availability date is promised by this placeholder.',
+  'Printer model coverage and official catalogs should expand carefully over time.',
+  'The app should remain focused on maintenance records, not automatic diagnostics or direct printer control.',
+];
+---
+
+<BaseLayout
+  title="Download and Release Preparation | BMR PrintCare"
+  description="Conservative BMR PrintCare download placeholder explaining that public release is not available yet and listing release-readiness requirements."
+>
+  <main class="page-shell">
+    <section class="page-hero" aria-labelledby="download-title">
+      <p class="section-eyebrow">Release preparation</p>
+      <h1 id="download-title">Public release is not available yet.</h1>
+      <p>
+        BMR PrintCare is still in development. This page exists to explain the planned release checklist and set careful
+        expectations before any real desktop download links are published.
+      </p>
+      <div class="hero-actions" aria-label="Release preparation links">
+        <a class="primary-link" href="/roadmap/">View the roadmap</a>
+        <a class="secondary-link" href="/support/">Read support guidance</a>
+      </div>
+    </section>
+
+    <section class="content-panel" aria-labelledby="availability-title">
+      <h2 id="availability-title">No public download yet</h2>
+      <p>
+        This is a placeholder page, not a download page. Do not expect installers, binaries, checksums, purchase links,
+        beta signup forms, or release dates here yet. Download messaging will be updated only when the app, documentation,
+        support expectations, and release notes are ready.
+      </p>
+    </section>
+
+    <section class="feature-section" aria-labelledby="checklist-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Planned release checklist</p>
+        <h2 id="checklist-title">What should be ready before files are published?</h2>
+        <p>
+          These items keep the release message practical, beginner-friendly, and conservative. They do not announce a
+          public launch date.
+        </p>
+      </div>
+      <ReleaseChecklist items={releaseChecklistItems} ariaLabel="Download release readiness checklist" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="expect-title">
+      <h2 id="expect-title">What to expect before download</h2>
+      <ul class="plain-list">
+        {expectations.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="content-panel" aria-labelledby="safety-title">
+      <h2 id="safety-title">Safety and data note</h2>
+      <p>
+        BMR PrintCare is planned as a local-first desktop maintenance tracker. Users should keep their own backups,
+        follow printer manuals and safety guidance, and treat maintenance reminders as helpful planning prompts rather
+        than guarantees or automatic diagnostics.
+      </p>
+    </section>
+
+    <section class="content-panel" aria-labelledby="next-links-title">
+      <h2 id="next-links-title">Helpful next links</h2>
+      <ul class="link-list">
+        <li><a href="/docs/">Read the documentation hub</a></li>
+        <li><a href="/features/">Review product features</a></li>
+        <li><a href="/roadmap/">Check the roadmap</a></li>
+        <li><a href="/support/">Use the support hub</a></li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>

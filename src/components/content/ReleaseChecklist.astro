@@ -1,0 +1,24 @@
+---
+interface ChecklistItem {
+  title: string;
+  description: string;
+  status?: string;
+}
+
+interface Props {
+  items: ChecklistItem[];
+  ariaLabel: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+
+<div class="release-checklist" aria-label={ariaLabel}>
+  {items.map((item) => (
+    <article class="release-checklist__item">
+      <span class="status-pill">{item.status ?? 'Planned'}</span>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+    </article>
+  ))}
+</div>

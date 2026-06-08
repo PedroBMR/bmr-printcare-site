@@ -1,0 +1,23 @@
+---
+import FaqItem from './FaqItem.astro';
+
+interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqEntry[];
+  ariaLabel: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+
+<div class="faq-list" aria-label={ariaLabel}>
+  {items.map((item) => (
+    <FaqItem question={item.question}>
+      <p>{item.answer}</p>
+    </FaqItem>
+  ))}
+</div>
