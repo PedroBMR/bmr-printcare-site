@@ -1,0 +1,144 @@
+---
+const navigationItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Docs', href: '/docs/' },
+  { label: 'Roadmap', href: '/roadmap/' },
+  { label: 'Support', href: '/support/' },
+];
+
+const currentPath = Astro.url.pathname;
+const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+---
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand-link" href="/" aria-label="BMR PrintCare home">
+      <span class="brand-mark" aria-hidden="true">BMR</span>
+      <span class="brand-text">
+        <strong>BMR PrintCare</strong>
+        <span>Local-first printer care</span>
+      </span>
+    </a>
+
+    <div class="nav-links">
+      {navigationItems.map((item) => {
+        const normalizedHref = item.href.endsWith('/') ? item.href : `${item.href}/`;
+        const isActive = normalizedPath === normalizedHref;
+
+        return (
+          <a href={item.href} aria-current={isActive ? 'page' : undefined}>
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(7, 10, 18, 0.78);
+    backdrop-filter: blur(18px);
+  }
+
+  .site-nav {
+    display: flex;
+    width: min(100%, 76rem);
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 1rem var(--space-page);
+  }
+
+  .brand-link {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.85rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: inline-grid;
+    width: 2.65rem;
+    height: 2.65rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid rgba(57, 208, 255, 0.38);
+    border-radius: 0.9rem;
+    background: linear-gradient(135deg, rgba(57, 208, 255, 0.16), rgba(124, 58, 237, 0.2));
+    color: var(--color-text);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    box-shadow: 0 16px 42px rgba(57, 208, 255, 0.12);
+  }
+
+  .brand-text {
+    display: grid;
+    gap: 0.08rem;
+  }
+
+  .brand-text strong {
+    font-size: 0.98rem;
+    line-height: 1.1;
+  }
+
+  .brand-text span {
+    color: var(--color-text-soft);
+    font-size: 0.78rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem;
+  }
+
+  .nav-links a {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 0.55rem 0.8rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible,
+  .nav-links a[aria-current='page'] {
+    border-color: rgba(57, 208, 255, 0.26);
+    background: rgba(57, 208, 255, 0.08);
+    color: var(--color-text);
+    outline: none;
+  }
+
+  @media (max-width: 640px) {
+    .site-nav {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .nav-links {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .nav-links a {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+  }
+</style>

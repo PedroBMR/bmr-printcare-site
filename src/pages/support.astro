@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const supportTopics = [
+  {
+    title: 'Product questions',
+    description: 'Future answers about the app scope, local-first approach, supported workflows, and public release status.',
+  },
+  {
+    title: 'Documentation help',
+    description: 'Links to beginner-friendly guides will appear here as the documentation hub grows.',
+  },
+  {
+    title: 'Manufacturer independence',
+    description: 'Support content will avoid endorsement claims and will not present BMR PrintCare as an official manufacturer tool.',
+  },
+];
+---
+
+<BaseLayout
+  title="Support | BMR PrintCare"
+  description="Support placeholder for BMR PrintCare with future help resources and documentation links."
+>
+  <main class="page-shell">
+    <section class="page-hero" aria-labelledby="support-title">
+      <p class="section-eyebrow">Support</p>
+      <h1 id="support-title">Support resources are being prepared.</h1>
+      <p>
+        The app is not publicly available yet, so support is currently limited to website structure and future planning.
+        This page will later guide users toward documentation, release notes, and clear contact options.
+      </p>
+    </section>
+
+    <section class="content-grid" aria-label="Planned support topics">
+      {supportTopics.map((topic) => (
+        <article class="content-card">
+          <span class="status-pill">Coming soon</span>
+          <h2>{topic.title}</h2>
+          <p>{topic.description}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="content-panel" aria-labelledby="support-links-title">
+      <h2 id="support-links-title">Helpful starting points</h2>
+      <ul class="link-list">
+        <li><a href="/docs/">Visit the documentation hub</a></li>
+        <li><a href="/roadmap/">Review the roadmap</a></li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>
