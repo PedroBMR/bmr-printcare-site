@@ -14,7 +14,13 @@ const resourceLinks = [
   { label: 'Maintenance workflow', href: '/#workflow' },
 ];
 
-const futureLegalRoutes = ['Privacy policy', 'Terms of use', 'License terms', 'Refund policy', 'Manufacturer disclaimer'];
+const legalLinks = [
+  { label: 'Privacy notice', href: '/privacy/' },
+  { label: 'Terms of use', href: '/terms/' },
+  { label: 'License terms', href: '/license-terms/' },
+  { label: 'Refund policy', href: '/refund-policy/' },
+  { label: 'Manufacturer disclaimer', href: '/manufacturer-disclaimer/' },
+];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -49,10 +55,10 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div>
-        <h3>Legal placeholders</h3>
-        <ul class="placeholder-list" aria-label="Future legal routes">
-          {futureLegalRoutes.map((route) => (
-            <li>{route}</li>
+        <h3>Legal drafts</h3>
+        <ul aria-label="Draft legal routes">
+          {legalLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
           ))}
         </ul>
       </div>
@@ -100,8 +106,7 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-brand p:not(.section-eyebrow),
-  .footer-bottom p,
-  .placeholder-list li {
+  .footer-bottom p {
     color: var(--color-text-muted);
   }
 

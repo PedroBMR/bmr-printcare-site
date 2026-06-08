@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const headingId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+---
+
+<section class="legal-section" aria-labelledby={headingId}>
+  <h2 id={headingId}>{title}</h2>
+  <slot />
+</section>
+
+<style>
+  .legal-section {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: clamp(1.25rem, 4vw, 1.75rem);
+    background: rgba(16, 22, 36, 0.58);
+    box-shadow: var(--shadow-soft);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  :global(.legal-section p),
+  :global(.legal-section li) {
+    color: var(--color-text-muted);
+  }
+
+  :global(.legal-section p) {
+    margin: 0.85rem 0 0;
+  }
+
+  :global(.legal-section ul) {
+    display: grid;
+    gap: 0.7rem;
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+  }
+
+  :global(.legal-section a) {
+    color: var(--color-text);
+    font-weight: 800;
+    text-decoration-color: rgba(57, 208, 255, 0.45);
+    text-underline-offset: 0.25em;
+  }
+</style>

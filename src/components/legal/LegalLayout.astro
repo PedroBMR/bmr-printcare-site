@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LegalNotice from './LegalNotice.astro';
+
+interface LegalLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  currentPath: string;
+}
+
+const { title, description, eyebrow, heading, intro, currentPath } = Astro.props;
+
+const legalLinks: LegalLink[] = [
+  { label: 'Privacy notice', href: '/privacy/' },
+  { label: 'Terms of use', href: '/terms/' },
+  { label: 'License terms', href: '/license-terms/' },
+  { label: 'Refund policy', href: '/refund-policy/' },
+  { label: 'Manufacturer disclaimer', href: '/manufacturer-disclaimer/' },
+];
+
+const supportLinks: LegalLink[] = [
+  { label: 'Support hub', href: '/support/' },
+  { label: 'Release preparation', href: '/download/' },
+  { label: 'Roadmap', href: '/roadmap/' },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="page-shell legal-page">
+    <section class="page-hero" aria-labelledby="legal-title">
+      <p class="section-eyebrow">{eyebrow}</p>
+      <h1 id="legal-title">{heading}</h1>
+      <p>{intro}</p>
+    </section>
+
+    <LegalNotice />
+
+    <div class="legal-content">
+      <article class="legal-main">
+        <slot />
+      </article>
+
+      <aside class="legal-sidebar" aria-label="Legal and support links">
+        <section>
+          <h2>Legal pages</h2>
+          <ul>
+            {legalLinks.map((link) => (
+              <li>
+                <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Helpful context</h2>
+          <ul>
+            {supportLinks.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .legal-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.32fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .legal-main {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .legal-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .legal-sidebar section {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1rem;
+    background: rgba(16, 22, 36, 0.72);
+  }
+
+  .legal-sidebar h2 {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .legal-sidebar ul {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0.9rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .legal-sidebar a {
+    color: var(--color-text-muted);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .legal-sidebar a:hover,
+  .legal-sidebar a:focus-visible,
+  .legal-sidebar a[aria-current='page'] {
+    color: var(--color-text);
+    outline: none;
+  }
+
+  @media (max-width: 900px) {
+    .legal-content {
+      grid-template-columns: 1fr;
+    }
+
+    .legal-sidebar {
+      position: static;
+    }
+  }
+</style>

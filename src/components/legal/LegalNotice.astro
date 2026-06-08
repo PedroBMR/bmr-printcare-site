@@ -1,0 +1,41 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'Draft notice' } = Astro.props;
+---
+
+<aside class="legal-notice" aria-label={title}>
+  <strong>{title}</strong>
+  <p>
+    This page is a preliminary placeholder for planning and later legal review. It is not final legal advice, does not
+    confirm compliance with any specific law, and may change before any public app release or commercial availability.
+  </p>
+</aside>
+
+<style>
+  .legal-notice {
+    display: grid;
+    gap: 0.65rem;
+    border: 1px solid rgba(57, 208, 255, 0.3);
+    border-radius: var(--radius-card);
+    padding: clamp(1rem, 3vw, 1.35rem);
+    background:
+      radial-gradient(circle at top right, rgba(57, 208, 255, 0.12), transparent 16rem),
+      rgba(16, 22, 36, 0.72);
+  }
+
+  strong {
+    color: var(--color-accent);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+</style>

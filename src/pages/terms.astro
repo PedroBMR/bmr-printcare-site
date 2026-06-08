@@ -1,0 +1,62 @@
+---
+import LegalLayout from '../components/legal/LegalLayout.astro';
+import LegalSection from '../components/legal/LegalSection.astro';
+---
+
+<LegalLayout
+  title="Draft Terms of Use | BMR PrintCare"
+  description="Preliminary terms of use placeholder for the static BMR PrintCare website and in-development desktop app."
+  eyebrow="Draft terms of use"
+  heading="Preliminary terms for the website and product direction."
+  intro="These draft terms are placeholders for future legal review and are written for a static website supporting a desktop app that is not publicly released yet."
+  currentPath="/terms/"
+>
+  <LegalSection title="Website use">
+    <p>
+      The BMR PrintCare website provides product positioning, documentation drafts, support-readiness notes, release
+      preparation information, and preliminary legal placeholders. Website content is provided for planning and general
+      information only while the app remains in development.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Product development status">
+    <p>
+      BMR PrintCare is not publicly available yet. The website does not currently provide installers, binaries, purchase
+      links, app store listings, beta signup forms, authentication, or paid plans. Any future release should include
+      reviewed terms, license information, support expectations, privacy information, and release notes before files are
+      published.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="No warranty-style claims">
+    <p>
+      Current website content should not be read as a promise that the app will prevent printer issues, diagnose failures,
+      control printers, replace manufacturer manuals, or guarantee maintenance outcomes. Maintenance records and reminders
+      are intended as planning aids only, and users remain responsible for printer safety, inspection, and manufacturer
+      guidance.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Acceptable use">
+    <p>
+      Visitors should not misuse the website, attempt to interfere with its static hosting, copy content in a misleading
+      way, imply manufacturer endorsement, or present draft documentation as final legal, safety, or technical guidance.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Related pages">
+    <p>
+      Privacy direction is summarized in the <a href="/privacy/">draft privacy notice</a>. Future commercial questions
+      should refer to the <a href="/refund-policy/">draft refund policy</a>, and manufacturer independence is explained
+      in the <a href="/manufacturer-disclaimer/">manufacturer disclaimer</a>.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Future updates">
+    <p>
+      These terms should be reviewed and updated before public release, commercial availability, license activation,
+      payment processing, app store distribution, or any support workflow that collects user information. Current release
+      readiness is tracked on the <a href="/download/">release preparation page</a>.
+    </p>
+  </LegalSection>
+</LegalLayout>
