@@ -2,7 +2,7 @@
 
 Website and documentation hub for PrintKeep by BMR, a local-first desktop app in development for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 10 — Rebranding Foundation and High-Priority Content Correction**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, and final launch-readiness review notes.
+This repository is currently in **Milestone 11 — Catalogs and Product Roadmap Expansion**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, final launch-readiness review notes, a planned catalogs route, and a product-focused roadmap expansion.
 
 ## Current status
 
@@ -12,6 +12,7 @@ This repository is currently in **Milestone 10 — Rebranding Foundation and Hig
 - Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, or payment processing.
 - PrintKeep by BMR is independent and must not imply partnership, endorsement, sponsorship, approval, affiliation, manufacturer service support, or access to proprietary manufacturer systems.
 - Public product naming should use **PrintKeep by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
+- BMR Verified Catalogs are planned optional content packs by BMR. They are not available yet, and paid catalog availability, pricing, licensing, and update periods are not final yet.
 
 
 ## Product naming
@@ -42,6 +43,7 @@ src/
     sections/      Reusable homepage landing page sections
   layouts/         Page layouts used by routes
   pages/           Static Astro routes
+    catalogs.astro Planned BMR Verified Catalogs route
     docs/          Documentation hub and beginner guide routes
   styles/          Global CSS and design tokens
 ```
@@ -82,8 +84,8 @@ The legal placeholder pages use reusable legal components in `src/components/leg
 
 The shared site chrome is composed from layout components in `src/components/layout/`:
 
-- `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Roadmap, Download, and Support.
-- `SiteFooter.astro` provides product links, resource links, draft legal links, the manufacturer independence note, and the copyright notice.
+- `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Catalogs, Roadmap, Download, and Support.
+- `SiteFooter.astro` provides product links, catalog/resource links, draft legal links, the manufacturer independence note, and the copyright notice.
 
 `BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, renders the shared header and footer around every page, and manages page metadata including title, description, Open Graph basics, Twitter/X summary-card basics, optional `noindex`, safe canonical URLs when `site` is configured, favicon, manifest, and theme color.
 
@@ -94,13 +96,14 @@ The shared site chrome is composed from layout components in `src/components/lay
 | `/` | Premium dark landing page for PrintKeep by BMR. | Live structure |
 | `/features` | Feature overview for product direction, core maintenance tracking, local-first positioning, and roadmap-only feature notes. | Initial content |
 | `/docs` | Documentation hub with links to beginner-friendly guide drafts and cross-links to Features, Roadmap, Download, and Support. | Expanded draft |
+| `/catalogs` | Planned BMR Verified Catalogs page explaining optional content packs, the first compatible-with-Bambu-Lab-printers concept, commercial-model caution, and manufacturer independence. | Planned content |
 | `/docs/getting-started` | Beginner overview for the intended maintenance workflow without public download instructions. | Draft |
 | `/docs/printer-profiles` | Guide draft explaining printer profiles and manufacturer-independent profile notes. | Draft |
 | `/docs/maintenance-history` | Guide draft for dated maintenance records, service notes, and practical history review. | Draft |
 | `/docs/preventive-maintenance` | Guide draft for preventive maintenance reminders and their limits. | Draft |
 | `/docs/parts-and-consumables` | Guide draft for replacement parts, consumables, and compatibility caution. | Draft |
 | `/docs/local-first-data` | Guide draft for local-first data direction, backups, exports, and legal-page readiness. | Draft |
-| `/roadmap` | Public roadmap placeholder for website, documentation, support, and release planning. | Updated placeholder |
+| `/roadmap` | Product-focused roadmap covering completed/in-progress work, current desktop maintenance focus, planned public release path, future catalog commercialization, and future expansion ideas. | Expanded roadmap |
 | `/download` | Conservative release-preparation placeholder that states public release is not available yet and provides no real download links. | Placeholder |
 | `/support` | Static support hub with documentation links, FAQ, current limitations, release-readiness notes, draft legal links, and manufacturer independence guidance. | Expanded hub |
 | `/privacy` | Preliminary privacy notice covering current static-site data collection status, local-first data direction, and future review needs. | Draft placeholder |
@@ -130,7 +133,7 @@ The app is still in development, so documentation should continue to use conserv
 
 ## Support and release structure
 
-Milestone 5 expands support and release messaging without changing the site into a product download portal.
+The support and release messaging avoids changing the site into a product download portal.
 
 The `/support` route now includes:
 
@@ -162,7 +165,24 @@ The `/features` page explains these areas in English:
 - future BMR Verified Catalogs;
 - future calibration and print-quality tracking as roadmap-only ideas.
 
-The site should avoid claims about direct printer integrations, cloud sync, AI features, automated diagnosis, mobile apps, paid plans, or manufacturer partnership claims unless a later milestone explicitly adds accurate supporting material.
+The site should avoid claims about direct printer integrations, cloud sync, AI features, machine-driven diagnosis, mobile apps, paid plans, or manufacturer partnership claims unless a later milestone explicitly adds accurate supporting material.
+
+
+## Catalogs and roadmap expansion
+
+Milestone 11 adds the `/catalogs` route and updates `/roadmap` from a website-progress placeholder into a product-focused roadmap. Catalog language should use **BMR Verified Catalogs**, **BMR-maintained verified catalogs**, or **verified catalog packs by BMR**. Do not describe catalog content as manufacturer-issued, manufacturer-authorized, or manufacturer-reviewed.
+
+The planned first catalog concept is **BMR Verified Catalog — Compatible with Bambu Lab Printers**. This phrasing is intended to describe a future BMR-created compatibility-oriented content pack without implying manufacturer affiliation, endorsement, sponsorship, review, or support.
+
+The planned product model is a free Core app for manual maintenance tracking, with optional paid verified catalogs for users who want ready-to-use printer-specific profiles, routines, parts, and guides. Paid catalog availability, pricing, licensing, and update periods are not final yet.
+
+The expanded roadmap now separates:
+
+- Completed / In progress website and app preparation;
+- Current development focus for the desktop maintenance core, profiles, tasks, history, parts, incidents, backup, and catalog foundation;
+- Planned public release path for the free Core desktop release and supporting guidance;
+- Future commercial path for verified catalogs, license keys, entitlements, early supporter/crowdfunding planning, and public paid catalog launch;
+- Future expansion ideas such as Maintenance Budget & Parts Planner, Calibration & Print Quality Suite, Print Quality Benchmark, optional accounts, optional sync, a mobile companion, and read-only integrations.
 
 ## Legal and compliance placeholders
 
@@ -176,7 +196,7 @@ Milestone 6 adds preliminary legal/compliance routes for planning and future att
 
 These pages are **draft placeholders only**. They are not final legal advice, do not claim compliance with LGPD, GDPR, CCPA, or any other law, and should be reviewed before public release, payment processing, app distribution, analytics, support intake, or commercial availability.
 
-Future routes may still include `/catalogs`. The `/download` page remains conservative release-preparation messaging only.
+Milestone 11 adds `/catalogs` as a planned-content route. The `/download` page remains conservative release-preparation messaging only.
 
 ## Getting started
 
