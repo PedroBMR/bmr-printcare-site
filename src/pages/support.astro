@@ -22,6 +22,54 @@ const beforeSupportItems = [
   },
 ];
 
+const futureSupportCategories = [
+  {
+    title: 'Installation issues',
+    status: 'Future/planned',
+    description:
+      'A future public build may need support notes for installer or portable package setup issues after release packaging is selected.',
+  },
+  {
+    title: 'App usage',
+    status: 'Future/planned',
+    description:
+      'Future app support may cover basic use of printer profiles, maintenance tasks, history, parts, incidents, and backup workflows.',
+  },
+  {
+    title: 'Backup and restore',
+    status: 'Future/planned',
+    description:
+      'Future support documentation should explain local backup and restore expectations after storage behavior is implemented.',
+  },
+  {
+    title: 'License activation',
+    status: 'Future/planned',
+    description:
+      'If license keys or entitlements are later introduced, support may include activation guidance after terms and privacy notices are reviewed.',
+  },
+  {
+    title: 'Catalog import',
+    status: 'Future/planned',
+    description:
+      'If verified catalogs are later launched, support may include import guidance and catalog-version context.',
+  },
+  {
+    title: 'Diagnostic export',
+    status: 'Future/planned',
+    description:
+      'If diagnostic export is implemented, support may explain how users can choose to export app logs for troubleshooting the app itself.',
+  },
+];
+
+const outOfScopeItems = [
+  'Printer repair, hands-on servicing, electrical work, or mechanical work instructions.',
+  'Warranty claims, warranty eligibility, replacement authorization, or manufacturer service coordination.',
+  'Manufacturer support channels, manufacturer documentation ownership, or manufacturer-approved troubleshooting.',
+  'Unsafe maintenance instructions or guidance that conflicts with printer manuals, safety notices, or qualified service advice.',
+  'Manufacturer-owned troubleshooting for printers, firmware, hardware faults, or print failures.',
+  'Direct printer control, remote commands, firmware modification, or machine operation.',
+];
+
 const releaseReadinessItems = [
   {
     title: 'Stable app packaging',
@@ -68,7 +116,7 @@ const faqItems = [
   {
     question: 'What maintenance records will the app track?',
     answer:
-      'The planned workflow focuses on dated maintenance events, notes, parts and consumables records, preventive reminders, and printer-specific history. It is not positioned as automated diagnosis or a replacement for manual inspection.',
+      'The planned workflow focuses on dated maintenance events, notes, parts and consumables records, preventive reminders, and printer-specific history. It is not positioned as machine-made fault findings or a replacement for manual inspection.',
   },
   {
     question: 'Is the documentation final?',
@@ -92,12 +140,13 @@ const faqItems = [
       <p class="section-eyebrow">Support</p>
       <h1 id="support-title">Support guidance for a product still in development.</h1>
       <p>
-        PrintKeep by BMR is not publicly available yet. This support hub explains where to start, what information is
-        currently documented, and what needs to be ready before a public release or download page can provide real files.
+        PrintKeep by BMR is not publicly available yet. The product is still in development. Public support is limited
+        to website information and development updates while app packaging, documentation, and legal review continue.
       </p>
       <div class="hero-actions" aria-label="Support quick links">
         <a class="primary-link" href={withBase('/docs/')}>Read the documentation</a>
         <a class="secondary-link" href={withBase('/download/')}>Review release preparation</a>
+        <a class="secondary-link" href={withBase('/roadmap/')}>View roadmap</a>
       </div>
     </section>
 
@@ -137,6 +186,42 @@ const faqItems = [
       </ul>
     </section>
 
+    <section class="content-panel" aria-labelledby="current-scope-title">
+      <h2 id="current-scope-title">Current support scope</h2>
+      <p>
+        The product is still in development. Public support is limited to website information and development updates.
+        There is no support ticket form, account help desk, installer support, license activation support, or paid support
+        program on this website yet.
+      </p>
+    </section>
+
+    <section class="feature-section" aria-labelledby="future-support-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Future/planned app support</p>
+        <h2 id="future-support-title">Categories that may be documented after public release.</h2>
+        <p>
+          These categories are future support planning only. They are not active support channels and do not imply the
+          related app features are available yet.
+        </p>
+      </div>
+      <ReleaseChecklist items={futureSupportCategories} ariaLabel="Future app support categories" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="out-of-scope-title">
+      <h2 id="out-of-scope-title">Out-of-scope support</h2>
+      <p>
+        PrintKeep by BMR is intended as a maintenance logbook and planning tool. It is not a printer repair service,
+        manufacturer support desk, warranty channel, safety authority, or direct printer controller.
+      </p>
+      <ul class="plain-list">
+        {outOfScopeItems.map((item) => <li>{item}</li>)}
+      </ul>
+      <p>
+        For safety-critical questions, users should follow printer manuals, manufacturer notices, and qualified service
+        resources instead of relying on website draft content.
+      </p>
+    </section>
+
     <section class="feature-section" aria-labelledby="release-readiness-title">
       <div class="section-heading">
         <p class="section-eyebrow">Release readiness</p>
@@ -161,7 +246,7 @@ const faqItems = [
       <h2 id="limitations-title">Current limitations</h2>
       <p>
         There are no real download files, public release notes, support ticket forms, checkout flows, newsletter signup
-        forms, final legal terms, manufacturer catalogs, cloud sync claims, automated diagnosis, or direct printer
+        forms, final legal terms, public manufacturer catalogs, cloud sync claims, machine-made fault finding, or direct printer
         integrations on this website. The legal pages are preliminary placeholders only and still require review before
         release or commercial availability.
       </p>

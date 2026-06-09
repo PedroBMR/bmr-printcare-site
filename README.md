@@ -2,14 +2,14 @@
 
 Website and documentation hub for PrintKeep by BMR, a local-first desktop app in development for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 11 — Catalogs and Product Roadmap Expansion**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, final launch-readiness review notes, a planned catalogs route, and a product-focused roadmap expansion.
+This repository is currently in **Milestone 12 — Download, Support, and Legal Consistency Update**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, final launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, and updated Download, Support, and legal consistency language.
 
 ## Current status
 
 - The website is static and beginner-friendly. It does not include backend services, authentication, analytics, tracking pixels, cookies, checkout, newsletter integration, contact forms, or third-party scripts.
 - The PrintKeep by BMR desktop app is still in development and is not publicly available yet.
-- The `/download` route is a release-preparation placeholder only. It does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
-- Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, or payment processing.
+- The `/download` route is a release-preparation placeholder only. It states that PrintKeep is not publicly available yet, describes the planned free desktop Core release focus, and does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
+- Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, licensing, accounts, cloud backup, mobile companion workflows, or payment processing.
 - PrintKeep by BMR is independent and must not imply partnership, endorsement, sponsorship, approval, affiliation, manufacturer service support, or access to proprietary manufacturer systems.
 - Public product naming should use **PrintKeep by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
 - BMR Verified Catalogs are planned optional content packs by BMR. They are not available yet, and paid catalog availability, pricing, licensing, and update periods are not final yet.
@@ -137,21 +137,25 @@ The support and release messaging avoids changing the site into a product downlo
 
 The `/support` route now includes:
 
-- a support hero with links to documentation and release preparation;
+- a support hero with links to documentation, release preparation, and the roadmap;
 - before-support guidance;
+- a clear current-support statement that public support is limited to website information and development updates;
+- future/planned app support categories for installation issues, app usage, backup/restore, license activation, catalog import, and diagnostic export;
+- out-of-scope support language for printer repair, warranty claims, manufacturer support, unsafe maintenance instructions, manufacturer-owned troubleshooting, and direct printer control;
 - direct documentation links;
 - a public-facing release-readiness checklist;
 - static FAQ content about app availability, supported printers, local-first data, maintenance records, documentation status, and manufacturer independence;
 - current limitations;
 - manufacturer independence guidance;
-- internal links to Features, Roadmap, Docs, and Download.
+- internal links to Features, Roadmap, Docs, Download, legal pages, and the Manufacturer Disclaimer.
 
 The `/download` route is a placeholder for release preparation only. It clearly states:
 
-- public release is not available yet;
+- PrintKeep is not publicly available yet;
+- the first public release is planned to focus on the free desktop Core: printer profiles, maintenance tasks, history, parts, incidents, and local backup;
 - there are no installers, binaries, purchase links, beta signup forms, checksums, or release dates yet;
 - no real download buttons or download files are published;
-- release notes, support expectations, documentation updates, known limitations, local-first data guidance, and independence language should be ready before real files are added.
+- the readiness checklist includes Windows build, version number, installer or portable package, release notes, known limitations, backup guidance, support scope, manufacturer disclaimer, privacy notice, and reviewed terms/license placeholders.
 
 ## Feature positioning
 
@@ -186,17 +190,36 @@ The expanded roadmap now separates:
 
 ## Legal and compliance placeholders
 
-Milestone 6 adds preliminary legal/compliance routes for planning and future attorney review:
+The preliminary legal/compliance routes remain draft placeholders for planning and future qualified review:
 
-- `/privacy` describes the current static website status, the local-first desktop app direction, and the need to document real hosting/logging details before launch.
-- `/terms` describes draft website-use expectations, product-development status, acceptable use, warranty-style caution, and future update needs.
-- `/license-terms` records that no final app license or distribution model has been selected in this website repository.
-- `/refund-policy` states that the current site has no purchases, paid plans, checkout, app store distribution, license keys, or public download links.
-- `/manufacturer-disclaimer` reinforces that PrintKeep by BMR is independent and is not affiliated with, sponsored by, endorsed by, or officially connected to any 3D printer manufacturer.
+- `/privacy` describes the current static website status, the local-first desktop app direction, conditional future categories such as license email, device hash, activation data, diagnostic logs, optional account, optional cloud backup, future mobile companion data, and print quality photos if implemented.
+- `/terms` describes draft website-use expectations, product-development status, preliminary website information, support boundaries, warranty-style caution, and future update needs before public release.
+- `/license-terms` records that no final app license, catalog license, license-key process, entitlement model, device activation model, account recovery model, or Founder-license model has been selected.
+- `/refund-policy` states that the current site has no purchases, paid plans, checkout, payment processor, app store distribution, license keys, or public download links, and that future paid catalogs or Early Supporter purchases need reviewed refund/commercial policy before launch.
+- `/manufacturer-disclaimer` reinforces that PrintKeep by BMR is independent; manufacturer names are for compatibility/context only; trademarks belong to their owners; and supported profiles or verified catalogs may change over time.
 
 These pages are **draft placeholders only**. They are not final legal advice, do not claim compliance with LGPD, GDPR, CCPA, or any other law, and should be reviewed before public release, payment processing, app distribution, analytics, support intake, or commercial availability.
 
-Milestone 11 adds `/catalogs` as a planned-content route. The `/download` page remains conservative release-preparation messaging only.
+Milestone 12 updates Download, Support, Privacy, Terms, License Terms, Refund Policy, and Manufacturer Disclaimer consistency without adding real downloads, purchases, accounts, backend services, analytics, forms, payment links, or final legal claims.
+
+## Milestone 12 scope
+
+Milestone 12 focuses on Download, Support, and Legal consistency. It does not redesign the site, add backend services, add analytics, add checkout, add forms, add real app downloads, create pricing pages, create an Early Supporters page, or claim the app is publicly available.
+
+The Milestone 12 pass includes:
+
+- `/download` wording that says PrintKeep is not publicly available yet and describes the planned free desktop Core release focus without real download links;
+- a release checklist covering Windows build, version number, installer or portable package, release notes, known limitations, backup guidance, support scope, manufacturer disclaimer, privacy notice, and reviewed terms/license placeholders;
+- `/support` wording that limits current public support to website information and development updates;
+- future/planned support categories for installation issues, app usage, backup/restore, license activation, catalog import, and diagnostic export;
+- out-of-scope support language for printer repair, warranty claims, manufacturer support, unsafe maintenance instructions, manufacturer-owned troubleshooting, and direct printer control;
+- legal-page consistency using PrintKeep by BMR as the product name while preserving preliminary/draft legal status and `noindex`;
+- planned/conditional privacy categories without implying current cloud, account, license, diagnostic, mobile, or quality-photo collection;
+- planned license model language for Free Core, paid verified catalogs, license keys, entitlements, device activation, future account claim/recovery, and possible Founder licenses if an Early Supporter program is later launched;
+- refund-policy caution that no purchases, paid plans, checkout, or payment processor currently exists and future paid catalogs or Early Supporter purchases require reviewed policy before launch;
+- strong manufacturer-independence language and internal links among Download, Support, Catalogs, Roadmap, and legal pages.
+
+Remaining follow-up tasks include Early Supporters/crowdfunding page planning, visual QA after deployment, and qualified legal review before any public release, payment flow, account flow, cloud feature, licensing system, or commercial launch.
 
 ## Getting started
 
@@ -368,7 +391,7 @@ The final review pass includes:
 
 - route coverage review for the homepage, feature page, documentation hub, documentation guides, roadmap, support, download placeholder, and draft legal pages;
 - generated HTML internal-link checking through `npm run check:links` after `npm run build`;
-- conservative-claims review for phrases such as immediate-download wording, manufacturer service support, automated diagnosis, machine-learning features, cloud sync, public availability, partnership, and jurisdiction-specific privacy compliance claims;
+- conservative-claims review for phrases such as immediate-download wording, manufacturer service support, machine-made fault finding, machine-learning features, cloud sync, public availability, partnership, and jurisdiction-specific privacy compliance claims;
 - README status updates that clarify the website is static, the app is still in development, public release is not available yet, legal pages are preliminary, and no analytics/backend/downloads are implemented;
 - a launch readiness checklist in `docs/launch-readiness-checklist.md`.
 
