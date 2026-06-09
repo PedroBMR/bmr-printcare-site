@@ -1,23 +1,18 @@
 ---
 import { withBase } from '../../utils/paths';
 
-const productLinks = [
+const primaryLinks = [
   { label: 'Home', href: '/' },
   { label: 'Features', href: '/features/' },
-  { label: 'Catalogs', href: '/catalogs/' },
-  { label: 'Roadmap', href: '/roadmap/' },
-  { label: 'Download status', href: '/download/' },
-  { label: 'Early Supporters', href: '/early-supporters/' },
+  { label: 'Docs', href: '/docs/' },
   { label: 'Support', href: '/support/' },
 ];
 
-const resourceLinks = [
-  { label: 'Documentation hub', href: '/docs/' },
+const planningLinks = [
   { label: 'Catalog planning', href: '/catalogs/' },
+  { label: 'Roadmap', href: '/roadmap/' },
   { label: 'Release preparation', href: '/download/' },
-  { label: 'Launch funding concept', href: '/early-supporters/' },
-  { label: 'Feature overview', href: '/features/' },
-  { label: 'Maintenance workflow', href: '/#workflow' },
+  { label: 'Early Supporters concept', href: '/early-supporters/' },
 ];
 
 const legalLinks = [
@@ -43,18 +38,18 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-links" aria-label="Footer navigation">
       <div>
-        <h3>Product</h3>
+        <h3>Start here</h3>
         <ul>
-          {productLinks.map((link) => (
+          {primaryLinks.map((link) => (
             <li><a href={withBase(link.href)}>{link.label}</a></li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h3>Resources</h3>
+        <h3>Planning status</h3>
         <ul>
-          {resourceLinks.map((link) => (
+          {planningLinks.map((link) => (
             <li><a href={withBase(link.href)}>{link.label}</a></li>
           ))}
         </ul>
@@ -118,7 +113,7 @@ const currentYear = new Date().getFullYear();
 
   .footer-links {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) minmax(0, 1.15fr);
     gap: 1rem;
   }
 
@@ -131,14 +126,15 @@ const currentYear = new Date().getFullYear();
 
   h3 {
     margin: 0;
-    font-size: 0.82rem;
+    color: var(--color-text-soft);
+    font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
   ul {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.58rem;
     margin: 1rem 0 0;
     padding: 0;
     list-style: none;
@@ -146,6 +142,7 @@ const currentYear = new Date().getFullYear();
 
   a {
     color: var(--color-text-muted);
+    line-height: 1.3;
     text-decoration-color: transparent;
     text-underline-offset: 0.25em;
   }

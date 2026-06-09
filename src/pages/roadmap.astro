@@ -168,58 +168,71 @@ const connectorIdeas = [
       </article>
     </section>
 
-    <section class="content-panel" aria-labelledby="budget-title">
-      <span class="status-pill">Future expansion</span>
-      <h2 id="budget-title">Maintenance Budget & Parts Planner</h2>
-      <p>
-        A future Maintenance Budget & Parts Planner is planned to help users record part costs, suppliers, delivery lead
-        times and expected replacement cycles.
-      </p>
-      <p>
-        If a nozzle is usually replaced every six months, PrintKeep may later help remind the user before the replacement
-        is due, show the last paid price, and suggest buying the part early enough to avoid downtime.
-      </p>
-    </section>
+    <section class="roadmap-section-group" aria-labelledby="future-details-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Future roadmap details</p>
+        <h2 id="future-details-title">Later ideas are grouped separately from current development work.</h2>
+        <p>
+          The following cards make the expanded roadmap easier to scan. They describe possible future directions and do
+          not announce availability, compatibility, pricing, or delivery dates.
+        </p>
+      </div>
 
-    <section class="content-panel" aria-labelledby="calibration-title">
-      <span class="status-pill">Future expansion</span>
-      <h2 id="calibration-title">Calibration & Print Quality Suite</h2>
-      <p>
-        After the maintenance core is complete, PrintKeep may expand into calibration and print quality tracking, helping
-        users record machine calibration, filament calibration, profiles and quality observations over time.
-      </p>
-      <ul class="plain-list roadmap-columns">
-        {calibrationSubareas.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
+      <div class="roadmap-detail-grid">
+        <article class="content-panel" aria-labelledby="budget-title">
+          <span class="status-pill">Future expansion</span>
+          <h2 id="budget-title">Maintenance Budget & Parts Planner</h2>
+          <p>
+            A future Maintenance Budget & Parts Planner is planned to help users record part costs, suppliers, delivery
+            lead times and expected replacement cycles.
+          </p>
+          <p>
+            If a nozzle is usually replaced every six months, PrintKeep may later help remind the user before the
+            replacement is due, show the last paid price, and suggest buying the part early enough to avoid downtime.
+          </p>
+        </article>
 
-    <section class="content-panel" aria-labelledby="benchmark-title">
-      <span class="status-pill">Future expansion</span>
-      <h2 id="benchmark-title">Print Quality Benchmark</h2>
-      <p>
-        A future Print Quality Benchmark may allow users to print a standard test model, upload reference photos, tag
-        visible defects and compare print quality over time after maintenance, calibration, part changes or filament
-        changes.
-      </p>
-      <ul class="plain-list roadmap-columns">
-        {benchmarkDetails.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
+        <article class="content-panel" aria-labelledby="calibration-title">
+          <span class="status-pill">Future expansion</span>
+          <h2 id="calibration-title">Calibration & Print Quality Suite</h2>
+          <p>
+            After the maintenance core is complete, PrintKeep may expand into calibration and print quality tracking,
+            helping users record machine calibration, filament calibration, profiles and quality observations over time.
+          </p>
+          <ul class="plain-list">
+            {calibrationSubareas.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
 
-    <section class="content-panel" aria-labelledby="connectors-title">
-      <span class="status-pill">Distant future</span>
-      <h2 id="connectors-title">Future optional read-only printer connectors</h2>
-      <p>
-        Future optional read-only printer connectors may help turn real printer usage into better maintenance reminders,
-        such as print-hour based routines or event-based care prompts.
-      </p>
-      <p>
-        PrintKeep is not planned as a printer control platform. Any future connector should support maintenance insight,
-        not replace slicers, dashboards or manufacturer tools.
-      </p>
-      <ul class="plain-list roadmap-columns">
-        {connectorIdeas.map((item) => <li>{item}</li>)}
-      </ul>
+        <article class="content-panel" aria-labelledby="benchmark-title">
+          <span class="status-pill">Future expansion</span>
+          <h2 id="benchmark-title">Print Quality Benchmark</h2>
+          <p>
+            A future Print Quality Benchmark may allow users to print a standard test model, upload reference photos, tag
+            visible defects and compare print quality over time after maintenance, calibration, part changes or filament
+            changes.
+          </p>
+          <ul class="plain-list">
+            {benchmarkDetails.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+
+        <article class="content-panel" aria-labelledby="connectors-title">
+          <span class="status-pill">Distant future</span>
+          <h2 id="connectors-title">Future optional read-only printer connectors</h2>
+          <p>
+            Future optional read-only printer connectors may help turn real printer usage into better maintenance
+            reminders, such as print-hour based routines or event-based care prompts.
+          </p>
+          <p>
+            PrintKeep is not planned as a printer control platform. Any future connector should support maintenance
+            insight, not replace slicers, dashboards or manufacturer tools.
+          </p>
+          <ul class="plain-list">
+            {connectorIdeas.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="content-panel" aria-labelledby="account-mobile-title">
