@@ -1,0 +1,107 @@
+---
+import { withBase } from '../utils/paths';
+import FeatureGrid from '../components/content/FeatureGrid.astro';
+import StatusNote from '../components/content/StatusNote.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const catalogPackItems = [
+  {
+    title: 'Structured printer profiles',
+    status: 'Planned content',
+    description:
+      'Verified catalog packs by BMR are intended to help users begin with printer-specific profile fields and baseline context instead of starting from an empty record.',
+  },
+  {
+    title: 'Suggested maintenance routines',
+    status: 'Planned content',
+    description:
+      'BMR-maintained verified catalogs may include suggested routine templates that users can review, adjust, or ignore based on their own printer, manuals, usage, and safety practices.',
+  },
+  {
+    title: 'Part records and guides',
+    status: 'Planned content',
+    description:
+      'Catalog content is planned to include starter part records, consumable notes, and guide references created by BMR to make manual maintenance tracking easier to organize.',
+  },
+];
+
+const releaseBoundaries = [
+  'Catalogs are optional planned content packs, not a required part of the maintenance logbook.',
+  'Catalogs are not available yet and should not be treated as final product availability, pricing, licensing, or update commitments.',
+  'Users should review catalog suggestions against their printer manual, safety guidance, installed parts, and real workshop conditions.',
+];
+---
+
+<BaseLayout
+  title="Catalogs | PrintKeep by BMR"
+  description="Planned BMR Verified Catalogs for PrintKeep by BMR, including cautious catalog roadmap language and manufacturer independence notes."
+>
+  <main class="page-shell feature-page">
+    <section class="page-hero" aria-labelledby="catalogs-title">
+      <p class="section-eyebrow">Catalogs</p>
+      <h1 id="catalogs-title">BMR Verified Catalogs are planned optional content packs.</h1>
+      <p>
+        PrintKeep by BMR is being developed as a local-first maintenance logbook. BMR Verified Catalogs are planned as
+        optional BMR-maintained verified catalogs that may later help users start with structured printer profiles,
+        suggested maintenance routines, part records and guides.
+      </p>
+      <div class="hero-actions" aria-label="Catalog page links">
+        <a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a>
+        <a class="secondary-link" href={withBase('/features/')}>Review features</a>
+      </div>
+    </section>
+
+    <section class="content-panel" aria-labelledby="catalog-concept-title">
+      <span class="status-pill">Planned first concept</span>
+      <h2 id="catalog-concept-title">BMR Verified Catalog — Compatible with Bambu Lab Printers</h2>
+      <p>
+        The planned first catalog concept is a verified catalog pack by BMR for users who maintain Bambu Lab printers.
+        The wording describes intended compatibility context only. It does not imply manufacturer affiliation,
+        endorsement, sponsorship, review, or support.
+      </p>
+    </section>
+
+    <section class="feature-section" aria-labelledby="catalog-includes-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Planned catalog scope</p>
+        <h2 id="catalog-includes-title">Catalogs are designed to speed up setup, not replace user judgment.</h2>
+        <p>
+          BMR-maintained verified catalogs are planned to provide practical starting points for manual maintenance
+          tracking. They should remain editable, optional, and clearly separate from the free Core app release path.
+        </p>
+      </div>
+      <FeatureGrid items={catalogPackItems} ariaLabel="Planned verified catalog content areas" />
+    </section>
+
+    <StatusNote title="Planned product model" tone="accent">
+      <p>
+        The planned product model is a free Core app for manual maintenance tracking, with optional paid verified catalogs
+        for users who want ready-to-use printer-specific profiles, routines, parts and guides.
+      </p>
+      <p>Paid catalog availability, pricing, licensing and update periods are not final yet.</p>
+    </StatusNote>
+
+    <section class="content-panel" aria-labelledby="catalog-boundaries-title">
+      <h2 id="catalog-boundaries-title">Catalog boundaries</h2>
+      <ul class="plain-list">
+        {releaseBoundaries.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <StatusNote title="Manufacturer independence note">
+      <p>
+        PrintKeep by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially
+        connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer.
+      </p>
+    </StatusNote>
+
+    <section class="content-panel" aria-labelledby="next-steps-title">
+      <h2 id="next-steps-title">Where catalog planning fits</h2>
+      <p>
+        Catalog work belongs after the maintenance core, documentation, release guidance, legal review, and catalog review
+        process are ready. See the <a href={withBase('/roadmap/')}>product roadmap</a> for current development focus,
+        future commercial path, and future expansion ideas.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

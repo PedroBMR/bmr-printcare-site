@@ -49,6 +49,7 @@ const expectedRoutes = [
   '/',
   '/features/',
   '/docs/',
+  '/catalogs/',
   '/docs/getting-started/',
   '/docs/printer-profiles/',
   '/docs/maintenance-history/',

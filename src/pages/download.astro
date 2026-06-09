@@ -45,8 +45,9 @@ const releaseChecklistItems = [
 const expectations = [
   'No real download links are available on this page yet.',
   'No public availability date is promised by this placeholder.',
-  'BMR-maintained verified catalog packs are planned to expand carefully over time.',
-  'The app should remain focused on maintenance records, not automated diagnosis or direct printer control.',
+  'The planned Free Core release path should focus on manual desktop maintenance tracking before optional paid catalogs are introduced.',
+  'BMR-maintained verified catalog packs are planned to expand carefully over time after review.',
+  'The app should remain focused on maintenance records, not machine-driven diagnosis or direct printer control.',
 ];
 ---
 
@@ -64,6 +65,7 @@ const expectations = [
       </p>
       <div class="hero-actions" aria-label="Release preparation links">
         <a class="primary-link" href={withBase('/roadmap/')}>View the roadmap</a>
+        <a class="secondary-link" href={withBase('/catalogs/')}>Review catalog planning</a>
         <a class="secondary-link" href={withBase('/support/')}>Read support guidance</a>
       </div>
     </section>
@@ -101,7 +103,7 @@ const expectations = [
       <p>
         PrintKeep by BMR is planned as a local-first desktop maintenance tracker. Users should keep their own backups,
         follow printer manuals and safety guidance, and treat maintenance reminders as helpful planning prompts rather
-        than assurances or automated diagnosis.
+        than assurances or machine-driven diagnosis.
       </p>
     </section>
 
@@ -125,6 +127,7 @@ const expectations = [
       <ul class="link-list">
         <li><a href={withBase('/docs/')}>Read the documentation hub</a></li>
         <li><a href={withBase('/features/')}>Review product features</a></li>
+        <li><a href={withBase('/catalogs/')}>Review catalog planning</a></li>
         <li><a href={withBase('/roadmap/')}>Check the roadmap</a></li>
         <li><a href={withBase('/support/')}>Use the support hub</a></li>
       </ul>
