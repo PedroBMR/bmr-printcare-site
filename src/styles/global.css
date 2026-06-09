@@ -9,8 +9,8 @@
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 160ms;
-  animation-timing-function: ease-out;
+  animation-duration: var(--motion-duration-fast);
+  animation-timing-function: var(--motion-ease-standard);
 }
 
 * {
@@ -108,7 +108,7 @@ a {
   font-weight: 900;
   text-decoration: none;
   box-shadow: var(--shadow-soft);
-  transition: transform 160ms ease;
+  transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
 }
 
 .skip-link:focus-visible {
@@ -185,6 +185,73 @@ main {
 .section-card {
   border-radius: var(--radius-card);
   padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* Milestone 20 motion utilities: lightweight CSS-only foundations for future visual milestones. */
+@keyframes motion-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-entrance-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-fade-up {
+  animation: motion-fade-up var(--motion-duration-entrance) var(--motion-ease-emphasized) both;
+  animation-delay: calc(var(--motion-entrance-stagger) * var(--motion-order, 0));
+}
+
+.motion-card-reveal {
+  animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-emphasized) both;
+  animation-delay: calc(var(--motion-entrance-stagger) * var(--motion-order, 0));
+}
+
+.motion-soft-hover,
+.motion-glow-hover {
+  transition:
+    border-color var(--motion-duration-base) var(--motion-ease-standard),
+    box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
+    opacity var(--motion-duration-base) var(--motion-ease-standard),
+    transform var(--motion-duration-base) var(--motion-ease-hover);
+}
+
+.motion-soft-hover:hover,
+.motion-soft-hover:focus-within {
+  transform: translateY(var(--motion-hover-raise)) scale(var(--motion-hover-scale));
+}
+
+.motion-glow-hover:hover,
+.motion-glow-hover:focus-within {
+  border-color: rgba(57, 208, 255, 0.4);
+  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(57, 208, 255, 0.08), 0 22px 70px rgba(57, 208, 255, 0.14);
+}
+
+.motion-ambient-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.motion-ambient-glow::before {
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 0%, rgba(57, 208, 255, 0.16), transparent 16rem),
+    radial-gradient(circle at 85% 12%, rgba(124, 58, 237, 0.16), transparent 18rem);
+  content: '';
+  transition: opacity var(--motion-duration-glow) var(--motion-ease-standard);
+}
+
+.motion-ambient-glow:hover::before,
+.motion-ambient-glow:focus-within::before {
+  opacity: var(--motion-glow-opacity);
 }
 
 h1,
@@ -429,10 +496,10 @@ h2 {
   text-align: center;
   text-decoration: none;
   transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
+    border-color var(--motion-duration-base) var(--motion-ease-standard),
+    background var(--motion-duration-base) var(--motion-ease-standard),
+    color var(--motion-duration-base) var(--motion-ease-standard),
+    transform var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .primary-link {
@@ -622,9 +689,9 @@ h2 {
   font-weight: 800;
   text-decoration: none;
   transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    color 180ms ease;
+    border-color var(--motion-duration-base) var(--motion-ease-standard),
+    background var(--motion-duration-base) var(--motion-ease-standard),
+    color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .docs-nav a:hover,
@@ -701,8 +768,8 @@ h2 {
     rgba(16, 22, 36, 0.72);
   text-decoration: none;
   transition:
-    border-color 180ms ease,
-    transform 180ms ease;
+    border-color var(--motion-duration-base) var(--motion-ease-standard),
+    transform var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .docs-card:hover,
@@ -819,6 +886,141 @@ h2 {
   color: var(--color-text-muted);
 }
 
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-page > .section-shell,
+  .page-shell:not(.docs-page):not(.legal-page) > :is(.page-hero, .status-banner, .feature-section, .content-panel, .content-grid, .status-note) {
+    animation: motion-fade-up var(--motion-duration-entrance) var(--motion-ease-emphasized) both;
+    animation-delay: calc(var(--motion-entrance-stagger) * var(--motion-order, 0));
+  }
+
+  .home-page > .section-shell:nth-child(1),
+  .page-shell > :is(.page-hero):nth-child(1) {
+    --motion-order: 0;
+  }
+
+  .home-page > .section-shell:nth-child(2),
+  .page-shell:not(.docs-page):not(.legal-page) > :nth-child(2) {
+    --motion-order: 1;
+  }
+
+  .home-page > .section-shell:nth-child(3),
+  .page-shell:not(.docs-page):not(.legal-page) > :nth-child(3) {
+    --motion-order: 2;
+  }
+
+  .home-page > .section-shell:nth-child(n + 4),
+  .page-shell:not(.docs-page):not(.legal-page) > :nth-child(n + 4) {
+    --motion-order: 3;
+  }
+
+  :is(.content-grid, .feature-detail-grid, .docs-grid, .release-checklist, .roadmap-detail-grid) > :nth-child(1) {
+    --motion-order: 0;
+  }
+
+  :is(.content-grid, .feature-detail-grid, .docs-grid, .release-checklist, .roadmap-detail-grid) > :nth-child(2) {
+    --motion-order: 1;
+  }
+
+  :is(.content-grid, .feature-detail-grid, .docs-grid, .release-checklist, .roadmap-detail-grid) > :nth-child(3) {
+    --motion-order: 2;
+  }
+
+  :is(.content-grid, .feature-detail-grid, .docs-grid, .release-checklist, .roadmap-detail-grid) > :nth-child(n + 4) {
+    --motion-order: 3;
+  }
+
+  :is(.content-grid, .feature-detail-grid, .docs-grid, .release-checklist, .roadmap-detail-grid) > :is(.content-card, .feature-detail-card, .docs-card, .release-checklist__item, .content-panel) {
+    animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-emphasized) both;
+    animation-delay: calc(var(--motion-entrance-stagger) * var(--motion-order, 0));
+  }
+}
+
+.primary-link,
+.secondary-link,
+.primary-action,
+.secondary-action,
+.feature-overview-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.primary-link::after,
+.primary-action::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 0 28%, rgba(255, 255, 255, 0.24) 45%, transparent 62% 100%);
+  content: '';
+  transform: translateX(-120%);
+  transition:
+    opacity var(--motion-duration-fast) var(--motion-ease-standard),
+    transform var(--motion-duration-slow) var(--motion-ease-emphasized);
+}
+
+.primary-link:hover::after,
+.primary-link:focus-visible::after,
+.primary-action:hover::after,
+.primary-action:focus-visible::after {
+  opacity: 0.58;
+  transform: translateX(120%);
+}
+
+:is(.primary-link, .secondary-link, .primary-action, .secondary-action, .feature-overview-link):hover,
+:is(.primary-link, .secondary-link, .primary-action, .secondary-action, .feature-overview-link):focus-visible {
+  transform: translateY(var(--motion-hover-raise));
+}
+
+:is(.content-card, .feature-detail-card, .docs-card, .release-checklist__item, .faq-item, .content-panel, .section-card, .status-note, .status-banner) {
+  transition:
+    border-color var(--motion-duration-base) var(--motion-ease-standard),
+    box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
+    transform var(--motion-duration-base) var(--motion-ease-hover),
+    background-color var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+:is(.content-card, .feature-detail-card, .docs-card, .release-checklist__item, .faq-item):hover,
+:is(.content-card, .feature-detail-card, .docs-card, .release-checklist__item, .faq-item):focus-within {
+  border-color: rgba(57, 208, 255, 0.36);
+  box-shadow: var(--shadow-soft), 0 18px 58px rgba(57, 208, 255, 0.1);
+  transform: translateY(var(--motion-hover-raise));
+}
+
+:is(.content-panel, .section-card, .status-note, .status-banner):hover,
+:is(.content-panel, .section-card, .status-note, .status-banner):focus-within {
+  border-color: rgba(57, 208, 255, 0.34);
+  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(57, 208, 255, 0.06), 0 20px 64px rgba(124, 58, 237, 0.1);
+}
+
+.status-banner,
+.status-note--accent {
+  position: relative;
+  isolation: isolate;
+}
+
+.status-banner::after,
+.status-note--accent::after {
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0.38;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(57, 208, 255, 0.14), rgba(124, 58, 237, 0.1));
+  content: '';
+  transition: opacity var(--motion-duration-glow) var(--motion-ease-standard);
+}
+
+.status-banner:hover::after,
+.status-banner:focus-within::after,
+.status-note--accent:hover::after,
+.status-note--accent:focus-within::after {
+  opacity: 0.62;
+}
+
 @media (max-width: 900px) {
   .split-section,
   .docs-layout,
@@ -897,5 +1099,27 @@ h2 {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .motion-fade-up,
+  .motion-card-reveal,
+  .home-page > .section-shell,
+  .page-shell > *,
+  :is(.content-grid, .feature-detail-grid, .docs-grid, .release-checklist, .roadmap-detail-grid) > * {
+    animation: none !important;
+  }
+
+  :is(.primary-link, .secondary-link, .primary-action, .secondary-action, .feature-overview-link, .content-card, .feature-detail-card, .docs-card, .release-checklist__item, .faq-item, .content-panel, .section-card, .status-note, .status-banner):hover,
+  :is(.primary-link, .secondary-link, .primary-action, .secondary-action, .feature-overview-link, .content-card, .feature-detail-card, .docs-card, .release-checklist__item, .faq-item, .content-panel, .section-card, .status-note, .status-banner):focus-visible,
+  :is(.content-card, .feature-detail-card, .docs-card, .release-checklist__item, .faq-item, .content-panel, .section-card, .status-note, .status-banner):focus-within {
+    transform: none !important;
+  }
+
+  .primary-link::after,
+  .primary-action::after,
+  .motion-ambient-glow::before,
+  .status-banner::after,
+  .status-note--accent::after {
+    opacity: 0 !important;
   }
 }

@@ -54,6 +54,15 @@
       radial-gradient(circle at 78% 20%, rgba(124, 58, 237, 0.16), transparent 21rem),
       linear-gradient(135deg, rgba(57, 208, 255, 0.12), rgba(124, 58, 237, 0.12)),
       rgba(16, 22, 36, 0.58);
+    transition:
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-glow) var(--motion-ease-standard);
+  }
+
+  .solution-section:hover,
+  .solution-section:focus-within {
+    border-color: rgba(57, 208, 255, 0.32);
+    box-shadow: 0 22px 70px rgba(124, 58, 237, 0.1);
   }
 
   .solution-copy {
@@ -78,6 +87,17 @@
       radial-gradient(circle at 95% 18%, rgba(124, 58, 237, 0.2), transparent 14rem),
       linear-gradient(145deg, rgba(7, 10, 18, 0.88), rgba(16, 22, 36, 0.82));
     box-shadow: var(--shadow-soft), var(--shadow-cyan);
+    transition:
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-hover);
+  }
+
+  .solution-preview:hover,
+  .solution-preview:focus-within {
+    border-color: rgba(57, 208, 255, 0.42);
+    box-shadow: var(--shadow-soft), var(--shadow-cyan), 0 0 0 1px rgba(57, 208, 255, 0.08);
+    transform: translateY(var(--motion-hover-raise));
   }
 
   .solution-preview::before {
