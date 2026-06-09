@@ -18,6 +18,12 @@
   --color-brand-violet: #7c3aed;
   --color-brand-violet-soft: #a78bfa;
 
+  --glow-cyan-soft: rgba(57, 208, 255, 0.14);
+  --glow-cyan-strong: rgba(57, 208, 255, 0.28);
+  --glow-blue-soft: rgba(37, 99, 255, 0.14);
+  --glow-violet-soft: rgba(124, 58, 237, 0.16);
+  --glow-violet-strong: rgba(167, 139, 250, 0.24);
+
   --gradient-brand: linear-gradient(135deg, #39d0ff 0%, #2563ff 45%, #7c3aed 100%);
   --gradient-violet-tech: linear-gradient(135deg, #39d0ff 0%, #2563ff 42%, #7c3aed 78%, #a78bfa 100%);
 
@@ -53,9 +59,13 @@
   --motion-duration-slow: 280ms;
   --motion-duration-entrance: 420ms;
   --motion-duration-glow: 260ms;
+  --motion-duration-ambient: 24s;
+  --motion-duration-glow-pulse: 6.5s;
+  --motion-duration-light-sweep: 16s;
   --motion-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
   --motion-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-ease-hover: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-ambient: cubic-bezier(0.45, 0, 0.25, 1);
   --motion-entrance-distance: 0.7rem;
   --motion-entrance-stagger: 70ms;
   --motion-hover-raise: -2px;
@@ -73,6 +83,9 @@
     --motion-duration-slow: 1ms;
     --motion-duration-entrance: 1ms;
     --motion-duration-glow: 1ms;
+    --motion-duration-ambient: 1ms;
+    --motion-duration-glow-pulse: 1ms;
+    --motion-duration-light-sweep: 1ms;
     --motion-entrance-distance: 0;
     --motion-entrance-stagger: 0ms;
     --motion-hover-raise: 0;

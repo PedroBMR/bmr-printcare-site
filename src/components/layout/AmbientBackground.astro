@@ -1,0 +1,195 @@
+<div class="ambient-background" aria-hidden="true">
+  <div class="ambient-background__orb ambient-background__orb--cyan"></div>
+  <div class="ambient-background__orb ambient-background__orb--blue"></div>
+  <div class="ambient-background__orb ambient-background__orb--violet"></div>
+  <div class="ambient-background__grid"></div>
+  <div class="ambient-background__wash"></div>
+  <div class="ambient-background__scan"></div>
+</div>
+
+<style>
+  .ambient-background {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 50% -12%, rgba(57, 208, 255, 0.12), transparent 34rem),
+      linear-gradient(180deg, rgba(7, 10, 18, 0), var(--color-background) 78%);
+    contain: strict;
+  }
+
+  .ambient-background__orb,
+  .ambient-background__grid,
+  .ambient-background__wash,
+  .ambient-background__scan {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .ambient-background__orb {
+    border-radius: 999px;
+    opacity: 0.68;
+    mix-blend-mode: screen;
+    filter: blur(26px);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+  }
+
+  .ambient-background__orb--cyan {
+    top: -8rem;
+    left: max(-8rem, calc(50% - 46rem));
+    width: clamp(22rem, 42vw, 42rem);
+    height: clamp(22rem, 42vw, 42rem);
+    background:
+      radial-gradient(circle at 45% 45%, rgba(57, 208, 255, 0.34), rgba(37, 99, 255, 0.14) 38%, transparent 68%);
+  }
+
+  .ambient-background__orb--blue {
+    top: 34vh;
+    right: max(-12rem, calc(50% - 52rem));
+    width: clamp(24rem, 46vw, 46rem);
+    height: clamp(24rem, 46vw, 46rem);
+    opacity: 0.46;
+    background:
+      radial-gradient(circle at 48% 48%, rgba(37, 99, 255, 0.28), rgba(57, 208, 255, 0.1) 42%, transparent 70%);
+  }
+
+  .ambient-background__orb--violet {
+    top: 4rem;
+    right: max(-10rem, calc(50% - 48rem));
+    width: clamp(18rem, 34vw, 34rem);
+    height: clamp(18rem, 34vw, 34rem);
+    opacity: 0.52;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.26), rgba(124, 58, 237, 0.16) 42%, transparent 72%);
+  }
+
+  .ambient-background__grid {
+    inset: -2px;
+    opacity: 0.58;
+    background-image:
+      linear-gradient(rgba(57, 208, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57, 208, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba(167, 139, 250, 0.026) 1px, transparent 1px);
+    background-position: 0 0, 0 0, 0 0;
+    background-size: 4.5rem 4.5rem, 4.5rem 4.5rem, 1.15rem 1.15rem;
+    mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.78) 42%, transparent 88%);
+    will-change: background-position, opacity;
+  }
+
+  .ambient-background__wash {
+    inset: -20% -15%;
+    opacity: 0.46;
+    background:
+      linear-gradient(112deg, transparent 0 21%, rgba(57, 208, 255, 0.08) 31%, transparent 43% 62%, rgba(124, 58, 237, 0.075) 72%, transparent 84%),
+      radial-gradient(ellipse at 48% 18%, rgba(255, 255, 255, 0.04), transparent 42%);
+    transform: translate3d(-4%, 0, 0) rotate(-2deg);
+    will-change: transform, opacity;
+  }
+
+  .ambient-background__scan {
+    inset: 0;
+    opacity: 0.18;
+    background:
+      repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 8px),
+      radial-gradient(circle at 50% 0%, rgba(57, 208, 255, 0.12), transparent 48rem);
+    mask-image: linear-gradient(to bottom, black, transparent 76%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ambient-background__orb--cyan {
+      animation: ambient-orb-cyan var(--motion-duration-ambient) var(--motion-ease-ambient) infinite alternate;
+    }
+
+    .ambient-background__orb--blue {
+      animation: ambient-orb-blue calc(var(--motion-duration-ambient) * 1.16) var(--motion-ease-ambient) infinite alternate;
+    }
+
+    .ambient-background__orb--violet {
+      animation: ambient-orb-violet calc(var(--motion-duration-ambient) * 0.92) var(--motion-ease-ambient) infinite alternate;
+    }
+
+    .ambient-background__grid {
+      animation: ambient-grid-drift calc(var(--motion-duration-ambient) * 1.35) linear infinite;
+    }
+
+    .ambient-background__wash {
+      animation: ambient-light-wash var(--motion-duration-light-sweep) var(--motion-ease-ambient) infinite alternate;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ambient-background__orb,
+    .ambient-background__grid,
+    .ambient-background__wash,
+    .ambient-background__scan {
+      animation: none;
+      transition: none;
+    }
+
+    .ambient-background__wash {
+      opacity: 0.22;
+      transform: none;
+    }
+  }
+
+  @keyframes ambient-orb-cyan {
+    from {
+      opacity: 0.54;
+      transform: translate3d(-1.4rem, -0.8rem, 0) scale(0.98);
+    }
+
+    to {
+      opacity: 0.74;
+      transform: translate3d(2.3rem, 1.4rem, 0) scale(1.04);
+    }
+  }
+
+  @keyframes ambient-orb-blue {
+    from {
+      opacity: 0.38;
+      transform: translate3d(1rem, 1.2rem, 0) scale(1);
+    }
+
+    to {
+      opacity: 0.56;
+      transform: translate3d(-2.4rem, -1rem, 0) scale(1.05);
+    }
+  }
+
+  @keyframes ambient-orb-violet {
+    from {
+      opacity: 0.38;
+      transform: translate3d(1.1rem, -1rem, 0) scale(0.98);
+    }
+
+    to {
+      opacity: 0.56;
+      transform: translate3d(-1.8rem, 1.4rem, 0) scale(1.03);
+    }
+  }
+
+  @keyframes ambient-grid-drift {
+    from {
+      background-position: 0 0, 0 0, 0 0;
+    }
+
+    to {
+      background-position: 4.5rem 4.5rem, 4.5rem 4.5rem, 1.15rem 1.15rem;
+    }
+  }
+
+  @keyframes ambient-light-wash {
+    from {
+      opacity: 0.28;
+      transform: translate3d(-5%, -1%, 0) rotate(-2deg);
+    }
+
+    to {
+      opacity: 0.5;
+      transform: translate3d(5%, 1.5%, 0) rotate(-1deg);
+    }
+  }
+</style>

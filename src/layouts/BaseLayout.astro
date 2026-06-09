@@ -2,6 +2,7 @@
 import { stripBase, withBase } from '../utils/paths';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
+import AmbientBackground from '../components/layout/AmbientBackground.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -43,6 +44,7 @@ const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site).href : unde
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
+    <AmbientBackground />
     <SiteHeader />
     <div id="main-content" tabindex="-1">
       <slot />
