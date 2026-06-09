@@ -56,7 +56,21 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
     background:
       linear-gradient(90deg, rgba(57, 208, 255, 0.07), transparent 28%, rgba(124, 58, 237, 0.06)),
       rgba(7, 10, 18, 0.86);
+    box-shadow: 0 1px 0 rgba(57, 208, 255, 0.08), 0 18px 54px rgba(7, 10, 18, 0.32);
     backdrop-filter: blur(18px);
+  }
+
+  .site-header::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 1px;
+    opacity: 0.82;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(57, 208, 255, 0.44), rgba(124, 58, 237, 0.28), transparent);
+    background-size: 220% 100%;
+    content: '';
   }
 
   .site-nav {
@@ -177,6 +191,30 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
   .nav-links a:hover,
   .nav-links a:focus-visible {
     transform: translateY(var(--motion-hover-raise));
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header::after {
+      animation: header-edge-glow var(--motion-duration-light-sweep) var(--motion-ease-ambient) infinite alternate;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header::after {
+      animation: none;
+    }
+  }
+
+  @keyframes header-edge-glow {
+    from {
+      background-position: 0% 50%;
+      opacity: 0.5;
+    }
+
+    to {
+      background-position: 100% 50%;
+      opacity: 0.86;
+    }
   }
 
   @media (max-width: 920px) {
