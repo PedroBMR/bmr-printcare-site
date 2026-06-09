@@ -2,7 +2,7 @@
 
 Milestone 10 final review checklist for the static NozzleNote by BMR website.
 
-NozzleNote by BMR is still in development. The website is a static public information and documentation hub only. Public app release, real download links, checkout, analytics, accounts, support intake, and production-domain-specific deployment settings are not implemented yet.
+NozzleNote by BMR is still in development. The website is a static public information and documentation hub only. Public app release, real download links, checkout, accounts, support intake, and production-domain-specific deployment settings beyond the root custom domain and optional GA4 build variable are not implemented yet.
 
 ## Local validation
 
@@ -32,7 +32,7 @@ NozzleNote by BMR is still in development. The website is a static public inform
 
 - [ ] Confirm the site states that the desktop app is still in development and not publicly available yet.
 - [ ] Confirm no real download buttons, release files, installers, binaries, payment links, signup forms, or license keys are present.
-- [ ] Confirm no backend, authentication, analytics, newsletter integration, checkout, cookies, tracking pixels, third-party scripts, or contact form endpoints have been added.
+- [ ] Confirm no backend, authentication, newsletter integration, checkout, cookies, tracking pixels, third-party scripts beyond the conditional standard GA4 Google tag, or contact form endpoints have been added.
 - [ ] Confirm product copy stays focused on maintenance records, printer profiles, service history, preventive planning, parts and consumables, and local-first data direction.
 - [ ] Confirm roadmap-only topics are described as planned or exploratory, not as currently available features.
 

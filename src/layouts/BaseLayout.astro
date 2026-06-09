@@ -3,6 +3,7 @@ import { stripBase, withBase } from '../utils/paths';
 import SiteFooter from '../components/layout/SiteFooter.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import AmbientBackground from '../components/layout/AmbientBackground.astro';
+import GoogleAnalytics from '../components/layout/GoogleAnalytics.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -41,6 +42,7 @@ const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site).href : unde
     <link rel="icon" type="image/png" sizes="32x32" href={withBase('/brand/favicon-32.png')} />
     <link rel="manifest" href={withBase('/site.webmanifest')} />
     <title>{title}</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>

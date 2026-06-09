@@ -1,6 +1,6 @@
 # GitHub Pages Custom-Domain Deployment
 
-This note records the GitHub Pages setup for the static NozzleNote by BMR website at the custom domain. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
+This note records the GitHub Pages setup for the static NozzleNote by BMR website at the custom domain. It is for browser review before public release and does not add backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims. GA4 is configured separately through a build-time public environment variable.
 
 ## Current build setup
 
@@ -11,7 +11,7 @@ This note records the GitHub Pages setup for the static NozzleNote by BMR websit
   - `npm run preview` serves the generated build locally.
   - `npm run check:links` validates generated root-domain routes, internal links, assets, and anchors after `dist/` exists.
 - Build output: Astro writes the generated static site to `dist/`.
-- Static behavior: no adapter, server runtime, backend, forms, analytics, checkout, downloads, or payment integrations are configured.
+- Static behavior: no adapter, server runtime, backend, forms, checkout, downloads, or payment integrations are configured. The only analytics integration is the conditional standard GA4 Google tag described in `docs/analytics-setup.md`.
 - Production custom domain: `https://nozzlenote.com/`.
 - Astro site URL: `astro.config.mjs` sets `site` to `https://nozzlenote.com` for canonical and Open Graph URLs on non-`noindex` pages.
 - Astro base path: no `base` is configured. Generated routes, internal links, static files, and Astro assets are emitted for the domain root.

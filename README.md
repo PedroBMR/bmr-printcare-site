@@ -6,7 +6,7 @@ This repository is currently in **Milestone 18 — Final Logo PNG Asset Integrat
 
 ## Current status
 
-- The website is static and beginner-friendly. It does not include backend services, authentication, analytics, tracking pixels, cookies, checkout, newsletter integration, contact forms, or third-party scripts.
+- The website is static and beginner-friendly. It does not include backend services, authentication, cookies, checkout, newsletter integration, contact forms, or third-party scripts beyond the conditional standard GA4 Google tag configured through `PUBLIC_GA_MEASUREMENT_ID`.
 - The NozzleNote by BMR desktop app is still in development and is not publicly available yet.
 - The `/download` route is a release-preparation placeholder only. It states that NozzleNote is not publicly available yet, describes the planned free desktop Core release focus, and does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
 - The `/early-supporters` route is a non-live planning placeholder for a possible future Early Supporter Campaign or Launch Fund. It does not collect payment, define final rewards, publish pledge tiers, provide licenses, or create account, catalog, mobile, or download access.
@@ -121,7 +121,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 
 ## Documentation structure
 
-The documentation system remains intentionally simple. The docs are regular static Astro pages under `src/pages/docs/`, supported by a small reusable docs layout and navigation component. The shared docs layout has a hub mode for `/docs/` and a compact article mode for individual guides so the sidebar and content shell feel stable across documentation navigation. There is no documentation engine, content collection, search integration, backend, authentication, analytics, checkout flow, or newsletter integration.
+The documentation system remains intentionally simple. The docs are regular static Astro pages under `src/pages/docs/`, supported by a small reusable docs layout and navigation component. The shared docs layout has a hub mode for `/docs/` and a compact article mode for individual guides so the sidebar and content shell feel stable across documentation navigation. There is no documentation engine, content collection, search integration, backend, authentication, checkout flow, or newsletter integration; GA4 is documented separately in `docs/analytics-setup.md`.
 
 The documentation hub currently covers these beginner topics:
 
