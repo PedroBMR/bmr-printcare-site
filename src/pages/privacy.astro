@@ -6,7 +6,7 @@ import LegalSection from '../components/legal/LegalSection.astro';
 
 <LegalLayout
   title="Draft Privacy Notice | PrintKeep by BMR"
-  description="Preliminary privacy notice placeholder for PrintKeep by BMR, including local-first data direction and static website data collection status."
+  description="Preliminary privacy notice placeholder for PrintKeep by BMR, including current static website status and conditional future data categories."
   eyebrow="Draft privacy notice"
   heading="Preliminary privacy notice for future review."
   intro="This draft explains the current privacy direction for the static website and the planned local-first desktop app while PrintKeep by BMR is still in development."
@@ -16,27 +16,15 @@ import LegalSection from '../components/legal/LegalSection.astro';
     <p>
       PrintKeep by BMR is still in development, and the app is not publicly available yet. This privacy notice is a
       preliminary placeholder intended to guide future review before any public release, payment flow, analytics setup,
-      newsletter, support intake, or account system is added.
+      newsletter, support intake, licensing system, cloud feature, mobile companion, or account system is added.
     </p>
   </LegalSection>
 
-  <LegalSection title="Local-first data direction">
-    <p>
-      PrintKeep by BMR is designed with a local-first direction for desktop maintenance tracking. The intended product
-      direction is that printer profiles, maintenance records, parts notes, reminders, and related app data are primarily
-      managed on the user's own device rather than requiring a hosted account by default.
-    </p>
-    <p>
-      Final technical details, storage behavior, backup options, export behavior, and any optional sync or support flows
-      remain subject to implementation and legal review. Users should plan to maintain their own backups when the app is
-      eventually released.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Website data collection status">
+  <LegalSection title="Current website data collection status">
     <p>
       The current public website is a static Astro site. It does not include account registration, checkout, analytics,
-      newsletter signup, contact forms, authentication, or backend data collection in the repository at this stage.
+      newsletter signup, contact forms, authentication, license activation, cloud backup, diagnostic upload, or backend
+      data collection in the repository at this stage.
     </p>
     <p>
       Hosting providers, browsers, or network infrastructure may still process basic technical information such as IP
@@ -45,20 +33,51 @@ import LegalSection from '../components/legal/LegalSection.astro';
     </p>
   </LegalSection>
 
+  <LegalSection title="Local-first data direction">
+    <p>
+      PrintKeep by BMR is designed with a local-first direction for desktop maintenance tracking. The intended product
+      direction is that printer profiles, maintenance records, parts notes, incidents, reminders, and related app data are
+      primarily managed on the user's own device rather than requiring a hosted account by default.
+    </p>
+    <p>
+      Final technical details, storage behavior, backup options, export behavior, and any optional sync or support flows
+      remain subject to implementation and legal review. Users should plan to maintain their own backups when the app is
+      eventually released.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="Future or conditional data categories">
+    <p>
+      The following categories are listed for planning only. They are not presented as current website collection, and
+      they should not be collected unless the related feature is implemented, documented, and reviewed first.
+    </p>
+    <ul>
+      <li>License email, if future license activation or purchase recovery is introduced.</li>
+      <li>Device hash or similar device identifier, if future device activation is introduced.</li>
+      <li>Activation data, entitlements, and license status, if future paid catalogs or license keys are introduced.</li>
+      <li>Diagnostic logs, if a future user-controlled diagnostic export or support workflow is implemented.</li>
+      <li>Optional account data, if a future account system is added.</li>
+      <li>Optional cloud backup data, if a future cloud backup feature is added.</li>
+      <li>Future mobile companion data, if a mobile companion workflow is implemented.</li>
+      <li>Print quality photos, only if a future photo-based quality history feature is implemented.</li>
+    </ul>
+  </LegalSection>
+
   <LegalSection title="No compliance claim">
     <p>
-      This draft does not claim that PrintKeep by BMR satisfies any specific privacy law. Future
-      legal review should determine which laws apply, what disclosures are required, and whether additional privacy
-      controls are needed before public availability.
+      This draft does not claim that PrintKeep by BMR satisfies any specific privacy law. Future legal review should
+      determine which laws apply, what disclosures are required, and whether additional privacy controls are needed before
+      public availability or any data-collecting feature launches.
     </p>
   </LegalSection>
 
   <LegalSection title="Future changes">
     <p>
       If future milestones add analytics, crash reporting, support forms, email updates, licensing systems, payment
-      processors, cloud features, or app distribution platforms, this notice should be updated before those features are
-      launched. Related release status is listed on the <a href={withBase('/download/')}>release preparation page</a> and planned
-      work is summarized on the <a href={withBase('/roadmap/')}>roadmap</a>.
+      processors, cloud features, mobile companion workflows, app distribution platforms, or quality-photo workflows, this
+      notice should be updated before those features are launched. Related release status is listed on the
+      <a href={withBase('/download/')}>release preparation page</a>, and planned work is summarized on the
+      <a href={withBase('/roadmap/')}>roadmap</a>.
     </p>
   </LegalSection>
 

@@ -5,49 +5,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releaseChecklistItems = [
   {
-    title: 'Public release package',
+    title: 'Windows build',
     status: 'Planned',
     description:
-      'A future public release should provide clearly labeled desktop files only after packaging, version naming, and installation expectations are ready.',
+      'The first public package is planned to start with a clearly labeled Windows desktop build after packaging work is ready.',
+  },
+  {
+    title: 'Version number',
+    status: 'Required',
+    description:
+      'Any future release should include a visible version number so documentation, known limitations, and support notes can refer to the same build.',
+  },
+  {
+    title: 'Installer or portable package',
+    status: 'Planned',
+    description:
+      'The package format is not final yet. A future release should explain whether users receive an installer, a portable package, or both.',
   },
   {
     title: 'Release notes',
-    status: 'Planned',
+    status: 'Required',
     description:
-      'Release notes should describe what is included, what remains limited, and which workflows are ready for early users.',
-  },
-  {
-    title: 'Documentation updates',
-    status: 'In progress',
-    description:
-      'The docs should include installation guidance, first-run expectations, local data notes, backup guidance, and support boundaries before download links are added.',
-  },
-  {
-    title: 'Support expectations',
-    status: 'In progress',
-    description:
-      'Users should know how support will work, what information may be requested, and what printer-specific maintenance advice remains outside the app scope.',
+      'Release notes should describe included Core workflows, what remains planned, and what is not available yet.',
   },
   {
     title: 'Known limitations',
     status: 'Required',
     description:
-      'The website should list important limitations before public availability, including unsupported workflows and roadmap-only ideas.',
+      'Known limitations should be listed before files are published, including unsupported workflows, roadmap-only ideas, and model coverage boundaries.',
   },
   {
-    title: 'Independence language',
+    title: 'Backup guidance',
     status: 'Required',
     description:
-      'Release copy must stay clear that PrintKeep by BMR is independent and not affiliated with any 3D printer manufacturer.',
+      'Local-first users should receive clear guidance for manual backups, restore expectations, and data-location notes before public files are posted.',
+  },
+  {
+    title: 'Support scope',
+    status: 'Required',
+    description:
+      'Support notes should clarify which app questions may be covered and which printer service, warranty, safety, or manufacturer issues remain outside scope.',
+  },
+  {
+    title: 'Manufacturer disclaimer',
+    status: 'Required',
+    description:
+      'Release copy must state that PrintKeep by BMR is independent and not affiliated with, endorsed by, sponsored by, or officially connected to manufacturers.',
+  },
+  {
+    title: 'Privacy notice',
+    status: 'Required',
+    description:
+      'Privacy language should be reviewed before any account, licensing, diagnostic, support intake, cloud, mobile, analytics, or payment workflow launches.',
+  },
+  {
+    title: 'Terms and license placeholders reviewed',
+    status: 'Required',
+    description:
+      'Draft terms, license, refund, and disclaimer pages should be reviewed before public distribution or any commercial flow is introduced.',
   },
 ];
 
 const expectations = [
-  'No real download links are available on this page yet.',
-  'No public availability date is promised by this placeholder.',
-  'The planned Free Core release path should focus on manual desktop maintenance tracking before optional paid catalogs are introduced.',
-  'BMR-maintained verified catalog packs are planned to expand carefully over time after review.',
-  'The app should remain focused on maintenance records, not machine-driven diagnosis or direct printer control.',
+  'PrintKeep is not publicly available yet.',
+  'No real download links, installers, binaries, checksums, purchase links, signup forms, or release dates are available from this page.',
+  'The first public release is planned to focus on the free desktop Core: printer profiles, maintenance tasks, history, parts, incidents, and local backup.',
+  'Optional paid verified catalogs are a future roadmap direction and are not part of a public checkout flow on this website.',
+  'The app is intended for maintenance records and planning, not direct printer control, manufacturer service, or machine-driven diagnosis.',
 ];
 ---
 
@@ -58,10 +82,11 @@ const expectations = [
   <main class="page-shell">
     <section class="page-hero" aria-labelledby="download-title">
       <p class="section-eyebrow">Release preparation</p>
-      <h1 id="download-title">Public release is not available yet.</h1>
+      <h1 id="download-title">PrintKeep is not publicly available yet.</h1>
       <p>
-        PrintKeep by BMR is still in development. This page exists to explain the planned release checklist and set careful
-        expectations before any real desktop download links are published.
+        PrintKeep by BMR is still in development. This page explains the planned release path for the first public desktop
+        Core and keeps expectations conservative until real release files, notes, support scope, and reviewed legal text
+        are ready.
       </p>
       <div class="hero-actions" aria-label="Release preparation links">
         <a class="primary-link" href={withBase('/roadmap/')}>View the roadmap</a>
@@ -73,9 +98,13 @@ const expectations = [
     <section class="content-panel" aria-labelledby="availability-title">
       <h2 id="availability-title">No public download yet</h2>
       <p>
-        This is a placeholder page, not a download page. Do not expect installers, binaries, checksums, purchase links,
-        beta signup forms, or release dates here yet. Download messaging will be updated only when the app, documentation,
-        support expectations, and release notes are ready.
+        This is a release-preparation placeholder, not a file download page. The first public release is planned to focus
+        on the free desktop Core: printer profiles, maintenance tasks, history, parts, incidents, and local backup. Those
+        plans remain in development and do not mean files are ready today.
+      </p>
+      <p>
+        Real download links should be added only after packaging, versioning, documentation, known limitations, backup
+        guidance, support boundaries, manufacturer-independence language, and draft legal placeholders are reviewed.
       </p>
     </section>
 
@@ -84,8 +113,8 @@ const expectations = [
         <p class="section-eyebrow">Planned release checklist</p>
         <h2 id="checklist-title">What should be ready before files are published?</h2>
         <p>
-          These items keep the release message practical, beginner-friendly, and conservative. They do not announce a
-          public launch date.
+          These items keep the release message practical, beginner-friendly, and cautious. They do not announce a launch
+          date or provide download files.
         </p>
       </div>
       <ReleaseChecklist items={releaseChecklistItems} ariaLabel="Download release readiness checklist" />
@@ -103,7 +132,7 @@ const expectations = [
       <p>
         PrintKeep by BMR is planned as a local-first desktop maintenance tracker. Users should keep their own backups,
         follow printer manuals and safety guidance, and treat maintenance reminders as helpful planning prompts rather
-        than assurances or machine-driven diagnosis.
+        than assurances, official service instructions, or machine-made fault findings.
       </p>
     </section>
 
@@ -111,7 +140,7 @@ const expectations = [
       <h2 id="legal-readiness-title">Legal readiness placeholders</h2>
       <p>
         Preliminary legal pages have been added for planning and future review. They are draft placeholders only and do
-        not announce public availability, paid plans, final license terms, or full legal compliance.
+        not announce public availability, paid plans, final license terms, refund terms, or legal compliance.
       </p>
       <ul class="link-list">
         <li><a href={withBase('/privacy/')}>Draft privacy notice</a></li>
@@ -125,11 +154,10 @@ const expectations = [
     <section class="content-panel" aria-labelledby="next-links-title">
       <h2 id="next-links-title">Helpful next links</h2>
       <ul class="link-list">
-        <li><a href={withBase('/docs/')}>Read the documentation hub</a></li>
-        <li><a href={withBase('/features/')}>Review product features</a></li>
-        <li><a href={withBase('/catalogs/')}>Review catalog planning</a></li>
-        <li><a href={withBase('/roadmap/')}>Check the roadmap</a></li>
-        <li><a href={withBase('/support/')}>Use the support hub</a></li>
+        <li><a href={withBase('/support/')}>Support scope and limitations</a></li>
+        <li><a href={withBase('/roadmap/')}>Roadmap and release sequencing</a></li>
+        <li><a href={withBase('/catalogs/')}>Planned verified catalog direction</a></li>
+        <li><a href={withBase('/manufacturer-disclaimer/')}>Manufacturer independence disclaimer</a></li>
       </ul>
     </section>
   </main>

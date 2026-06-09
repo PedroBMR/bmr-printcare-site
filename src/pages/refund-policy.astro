@@ -6,7 +6,7 @@ import LegalSection from '../components/legal/LegalSection.astro';
 
 <LegalLayout
   title="Draft Refund Policy | PrintKeep by BMR"
-  description="Preliminary refund policy placeholder explaining that PrintKeep by BMR currently has no purchases, paid plans, checkout, or public app release."
+  description="Preliminary refund policy placeholder explaining that PrintKeep by BMR currently has no purchases, paid plans, checkout, payment processor, or public app release."
   eyebrow="Draft refund policy"
   heading="Preliminary refund policy placeholder."
   intro="This draft avoids promising refunds or commercial terms before PrintKeep by BMR has a public release, purchase flow, or paid plan."
@@ -15,17 +15,25 @@ import LegalSection from '../components/legal/LegalSection.astro';
   <LegalSection title="No purchases currently available">
     <p>
       PrintKeep by BMR is still in development. The current website does not offer purchases, paid plans, subscriptions,
-      checkout, app store distribution, license keys, invoices, or public download links. Because there is no active
-      payment flow, there is no current refund process to request through this site.
+      checkout, payment processor integration, app store distribution, license keys, invoices, or public download links.
+      Because there is no active payment flow, there is no current refund process to request through this site.
+    </p>
+  </LegalSection>
+
+  <LegalSection title="No paid plans through this website">
+    <p>
+      No paid plans are currently available through the website. Future paid verified catalogs, catalog licenses, license
+      activation, Early Supporter purchases, or other commercial options would require reviewed commercial terms before
+      launch.
     </p>
   </LegalSection>
 
   <LegalSection title="Future policy required before commercial release">
     <p>
-      If a future milestone introduces paid access, app store distribution, subscriptions, one-time purchases, license
-      seats, trials, or paid support, a reviewed refund policy should be published before accepting payments. That policy
-      should explain eligibility, timing, platform-specific rules, exclusions, support contacts, and any applicable legal
-      requirements.
+      If a future milestone introduces paid catalogs, app store distribution, subscriptions, one-time purchases, license
+      seats, trials, Early Supporter purchases, or paid support, a reviewed refund and commercial policy should be
+      published before accepting payments. That future policy should explain eligibility, timing, platform-specific rules,
+      exclusions, support contacts, and any applicable legal requirements after the commercial model is finalized.
     </p>
   </LegalSection>
 
@@ -39,7 +47,8 @@ import LegalSection from '../components/legal/LegalSection.astro';
   <LegalSection title="Where to check status">
     <p>
       Current availability is explained on the <a href={withBase('/download/')}>release preparation page</a>. Support expectations
-      are drafted in the <a href={withBase('/support/')}>support hub</a>, and product sequencing is listed on the
+      are drafted in the <a href={withBase('/support/')}>support hub</a>, planned catalog direction appears on the
+      <a href={withBase('/catalogs/')}>catalogs page</a>, and product sequencing is listed on the
       <a href={withBase('/roadmap/')}>roadmap</a>.
     </p>
   </LegalSection>
