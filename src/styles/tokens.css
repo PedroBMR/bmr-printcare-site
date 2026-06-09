@@ -58,6 +58,7 @@
   --motion-duration-base: 190ms;
   --motion-duration-slow: 280ms;
   --motion-duration-entrance: 420ms;
+  --motion-duration-cinematic: 640ms;
   --motion-duration-glow: 260ms;
   --motion-duration-ambient: 24s;
   --motion-duration-glow-pulse: 6.5s;
@@ -82,6 +83,7 @@
     --motion-duration-base: 1ms;
     --motion-duration-slow: 1ms;
     --motion-duration-entrance: 1ms;
+    --motion-duration-cinematic: 1ms;
     --motion-duration-glow: 1ms;
     --motion-duration-ambient: 1ms;
     --motion-duration-glow-pulse: 1ms;
