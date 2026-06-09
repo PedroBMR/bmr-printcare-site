@@ -85,6 +85,9 @@ After deployment, review these items in desktop and mobile browsers:
 - Browser back/forward behavior feels normal.
 - `/features/` loads under the project base path.
 - `/docs/` and every guide page load under the project base path.
+- The docs hub keeps its broader overview treatment, while individual docs guides use the compact article header with the same sidebar shell.
+- Docs sidebar active states, Back to docs hub links, and guide-to-guide links remain inside `/bmr-printcare-site/`.
+- Docs navigation feels steady; browsers with cross-document View Transitions support should show a subtle transition, while reduced-motion users should not receive animated navigation.
 - `/roadmap/` loads under the project base path.
 - `/support/` loads under the project base path.
 - `/download/` clearly says public release is not available yet.

@@ -1,5 +1,15 @@
 @import './tokens.css';
 
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 160ms;
+  animation-timing-function: ease-out;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -310,8 +320,7 @@ h2 {
   padding-left: 1.2rem;
 }
 
-.feature-page,
-.docs-page {
+.feature-page {
   gap: clamp(3rem, 6vw, 5rem);
 }
 
@@ -410,8 +419,66 @@ h2 {
   color: var(--color-text-muted);
 }
 
-.docs-hero {
+.docs-page {
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.docs-page--article {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.docs-page-header {
+  display: grid;
+  gap: 1rem;
   max-width: 64rem;
+}
+
+.docs-page-header h1 {
+  margin: 0;
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.docs-page-header p:not(.section-eyebrow) {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.docs-page-header--hub h1 {
+  font-size: clamp(2.5rem, 7vw, 5.75rem);
+}
+
+.docs-page-header--hub p:not(.section-eyebrow) {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.docs-page-header--compact {
+  gap: 0.75rem;
+  max-width: 52rem;
+  padding-bottom: 0.25rem;
+}
+
+.docs-page-header--compact h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.docs-page-header--compact p:not(.section-eyebrow) {
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+}
+
+.docs-breadcrumb {
+  width: fit-content;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration-color: rgba(57, 208, 255, 0.38);
+}
+
+.docs-breadcrumb:hover,
+.docs-breadcrumb:focus-visible {
+  color: var(--color-text);
+  text-decoration-color: var(--color-accent);
 }
 
 .docs-layout {
@@ -423,6 +490,7 @@ h2 {
 
 .docs-nav {
   position: sticky;
+  view-transition-name: docs-sidebar;
   top: 6rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -484,6 +552,7 @@ h2 {
 
 .docs-content {
   display: grid;
+  view-transition-name: docs-content;
   gap: clamp(2rem, 5vw, 3rem);
   min-width: 0;
 }
@@ -491,6 +560,11 @@ h2 {
 .docs-section {
   display: grid;
   gap: 1rem;
+  max-width: 52rem;
+}
+
+.docs-page--article .content-panel {
+  max-width: 52rem;
 }
 
 .docs-section .section-heading p:not(.section-eyebrow),
@@ -511,6 +585,12 @@ h2 {
   font-size: clamp(1.65rem, 4vw, 3rem);
   letter-spacing: -0.045em;
   line-height: 1.04;
+}
+
+.docs-page--article .docs-section > h2 {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
 }
 
 .docs-grid {
@@ -663,6 +743,16 @@ h2 {
   .docs-nav {
     position: static;
   }
+
+  .docs-nav ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .docs-nav ul {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -687,6 +777,10 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }

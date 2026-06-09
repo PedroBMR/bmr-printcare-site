@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DocsNav from './DocsNav.astro';
+import { withBase } from '../../utils/paths';
 
 interface Props {
   title: string;
@@ -8,18 +9,30 @@ interface Props {
   eyebrow?: string;
   heading: string;
   intro: string;
+  mode?: 'hub' | 'article';
 }
 
-const { title, description, eyebrow = 'Documentation in progress', heading, intro } = Astro.props;
+const {
+  title,
+  description,
+  eyebrow = 'Documentation in progress',
+  heading,
+  intro,
+  mode = 'article',
+} = Astro.props;
+const isArticle = mode === 'article';
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="page-shell docs-page">
-    <section class="page-hero docs-hero" aria-labelledby="docs-page-title">
+  <main class:list={['page-shell', 'docs-page', isArticle && 'docs-page--article']}>
+    <header class:list={['docs-page-header', isArticle ? 'docs-page-header--compact' : 'docs-page-header--hub']} aria-labelledby="docs-page-title">
+      {isArticle && (
+        <a class="docs-breadcrumb" href={withBase('/docs/')}>← Back to docs hub</a>
+      )}
       <p class="section-eyebrow">{eyebrow}</p>
       <h1 id="docs-page-title">{heading}</h1>
       <p>{intro}</p>
-    </section>
+    </header>
 
     <div class="docs-layout">
       <DocsNav />

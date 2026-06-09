@@ -100,7 +100,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 
 ## Documentation structure
 
-The documentation system remains intentionally simple. The docs are regular static Astro pages under `src/pages/docs/`, supported by a small reusable docs layout and navigation component. There is no documentation engine, content collection, search integration, backend, authentication, analytics, checkout flow, or newsletter integration.
+The documentation system remains intentionally simple. The docs are regular static Astro pages under `src/pages/docs/`, supported by a small reusable docs layout and navigation component. The shared docs layout has a hub mode for `/docs/` and a compact article mode for individual guides so the sidebar and content shell feel stable across documentation navigation. There is no documentation engine, content collection, search integration, backend, authentication, analytics, checkout flow, or newsletter integration.
 
 The documentation hub currently covers these beginner topics:
 
