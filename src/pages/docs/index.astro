@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../utils/paths';
 import DocsGrid from '../../components/docs/DocsGrid.astro';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 
@@ -92,10 +93,10 @@ const beginnerGuides = [
       They should be treated as planned direction until a future milestone documents implemented behavior.
     </p>
     <ul class="link-list">
-      <li><a href="/features/">Review the feature overview</a></li>
-      <li><a href="/roadmap/">Check the public roadmap</a></li>
-      <li><a href="/download/">Review release preparation</a></li>
-      <li><a href="/support/">See current support expectations</a></li>
+      <li><a href={withBase('/features/')}>Review the feature overview</a></li>
+      <li><a href={withBase('/roadmap/')}>Check the public roadmap</a></li>
+      <li><a href={withBase('/download/')}>Review release preparation</a></li>
+      <li><a href={withBase('/support/')}>See current support expectations</a></li>
     </ul>
   </section>
 

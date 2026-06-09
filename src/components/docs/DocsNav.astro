@@ -1,4 +1,6 @@
 ---
+import { normalizeRoute, withBase } from '../../utils/paths';
+
 interface NavItem {
   href: string;
   label: string;
@@ -10,6 +12,7 @@ interface Props {
 }
 
 const { activePath = Astro.url.pathname } = Astro.props;
+const normalizedActivePath = normalizeRoute(activePath);
 
 const navItems: NavItem[] = [
   { href: '/docs/', label: 'Docs hub' },
@@ -26,11 +29,11 @@ const navItems: NavItem[] = [
   <p class="docs-nav__label">Documentation</p>
   <ul>
     {navItems.map((item) => {
-      const isActive = activePath === item.href;
+      const isActive = normalizedActivePath === normalizeRoute(item.href);
 
       return (
         <li>
-          <a href={item.href} aria-current={isActive ? 'page' : undefined}>
+          <a href={withBase(item.href)} aria-current={isActive ? 'page' : undefined}>
             <span>{item.label}</span>
             {item.status && <small>{item.status}</small>}
           </a>

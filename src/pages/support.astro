@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/paths';
 import FaqList from '../components/content/FaqList.astro';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -95,8 +96,8 @@ const faqItems = [
         currently documented, and what needs to be ready before a public release or download page can provide real files.
       </p>
       <div class="hero-actions" aria-label="Support quick links">
-        <a class="primary-link" href="/docs/">Read the documentation</a>
-        <a class="secondary-link" href="/download/">Review release preparation</a>
+        <a class="primary-link" href={withBase('/docs/')}>Read the documentation</a>
+        <a class="secondary-link" href={withBase('/download/')}>Review release preparation</a>
       </div>
     </section>
 
@@ -127,12 +128,12 @@ const faqItems = [
         intentionally avoids public installation instructions.
       </p>
       <ul class="link-list">
-        <li><a href="/docs/getting-started/">Getting started guide</a></li>
-        <li><a href="/docs/printer-profiles/">Printer profiles guide</a></li>
-        <li><a href="/docs/maintenance-history/">Maintenance history guide</a></li>
-        <li><a href="/docs/preventive-maintenance/">Preventive maintenance guide</a></li>
-        <li><a href="/docs/parts-and-consumables/">Parts and consumables guide</a></li>
-        <li><a href="/docs/local-first-data/">Local-first data guide</a></li>
+        <li><a href={withBase('/docs/getting-started/')}>Getting started guide</a></li>
+        <li><a href={withBase('/docs/printer-profiles/')}>Printer profiles guide</a></li>
+        <li><a href={withBase('/docs/maintenance-history/')}>Maintenance history guide</a></li>
+        <li><a href={withBase('/docs/preventive-maintenance/')}>Preventive maintenance guide</a></li>
+        <li><a href={withBase('/docs/parts-and-consumables/')}>Parts and consumables guide</a></li>
+        <li><a href={withBase('/docs/local-first-data/')}>Local-first data guide</a></li>
       </ul>
     </section>
 
@@ -173,11 +174,11 @@ const faqItems = [
         full compliance, public availability, purchases, or final licensing terms.
       </p>
       <ul class="link-list">
-        <li><a href="/privacy/">Read the draft privacy notice</a></li>
-        <li><a href="/terms/">Read the draft terms of use</a></li>
-        <li><a href="/license-terms/">Read the draft license terms</a></li>
-        <li><a href="/refund-policy/">Read the draft refund policy</a></li>
-        <li><a href="/manufacturer-disclaimer/">Read the manufacturer disclaimer</a></li>
+        <li><a href={withBase('/privacy/')}>Read the draft privacy notice</a></li>
+        <li><a href={withBase('/terms/')}>Read the draft terms of use</a></li>
+        <li><a href={withBase('/license-terms/')}>Read the draft license terms</a></li>
+        <li><a href={withBase('/refund-policy/')}>Read the draft refund policy</a></li>
+        <li><a href={withBase('/manufacturer-disclaimer/')}>Read the manufacturer disclaimer</a></li>
       </ul>
     </section>
 
@@ -189,10 +190,10 @@ const faqItems = [
         not imply official partnership or manufacturer approval.
       </p>
       <ul class="link-list">
-        <li><a href="/features/">Review feature positioning</a></li>
-        <li><a href="/roadmap/">Review the roadmap</a></li>
-        <li><a href="/download/">Review release preparation</a></li>
-        <li><a href="/manufacturer-disclaimer/">Read the manufacturer disclaimer</a></li>
+        <li><a href={withBase('/features/')}>Review feature positioning</a></li>
+        <li><a href={withBase('/roadmap/')}>Review the roadmap</a></li>
+        <li><a href={withBase('/download/')}>Review release preparation</a></li>
+        <li><a href={withBase('/manufacturer-disclaimer/')}>Read the manufacturer disclaimer</a></li>
       </ul>
     </section>
   </main>

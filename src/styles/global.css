@@ -9,7 +9,12 @@ html {
   background: var(--color-background);
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
   text-size-adjust: 100%;
+}
+
+:where([id]) {
+  scroll-margin-top: var(--anchor-offset);
 }
 
 body {
@@ -41,6 +46,7 @@ body::before {
 
 body > div[id='main-content'] {
   flex: 1;
+  scroll-margin-top: var(--anchor-offset);
 }
 
 body > div[id='main-content']:focus {

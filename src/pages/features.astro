@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/paths';
 import FeatureGrid from '../components/content/FeatureGrid.astro';
 import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -96,8 +97,8 @@ const roadmapOnlyItems = [
         today.
       </p>
       <div class="hero-actions" aria-label="Feature page links">
-        <a class="primary-link" href="/docs/">Read the docs plan</a>
-        <a class="secondary-link" href="/roadmap/">View roadmap</a>
+        <a class="primary-link" href={withBase('/docs/')}>Read the docs plan</a>
+        <a class="secondary-link" href={withBase('/roadmap/')}>View roadmap</a>
       </div>
     </section>
 
@@ -159,8 +160,8 @@ const roadmapOnlyItems = [
 
     <StatusNote title="Next steps for readers">
       <p>
-        Visit the <a href="/docs/">documentation hub</a> for planned guide structure, review the
-        <a href="/roadmap/">roadmap</a> for release direction, or use the <a href="/support/">support page</a> for
+        Visit the <a href={withBase('/docs/')}>documentation hub</a> for planned guide structure, review the
+        <a href={withBase('/roadmap/')}>roadmap</a> for release direction, or use the <a href={withBase('/support/')}>support page</a> for
         current support expectations while the app is still being prepared.
       </p>
     </StatusNote>

@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../../utils/paths';
+
 interface Props {
   title: string;
   description: string;
@@ -9,7 +11,7 @@ interface Props {
 const { title, description, href, status = 'Draft' } = Astro.props;
 ---
 
-<a class="docs-card" href={href}>
+<a class="docs-card" href={withBase(href)}>
   <span class="status-pill">{status}</span>
   <h3>{title}</h3>
   <p>{description}</p>

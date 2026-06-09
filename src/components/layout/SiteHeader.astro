@@ -1,4 +1,5 @@
 ---
+import { normalizeRoute, withBase } from '../../utils/paths';
 const navigationItems = [
   { label: 'Home', href: '/' },
   { label: 'Features', href: '/features/' },
@@ -8,13 +9,12 @@ const navigationItems = [
   { label: 'Support', href: '/support/' },
 ];
 
-const currentPath = Astro.url.pathname;
-const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const normalizedPath = normalizeRoute(Astro.url.pathname);
 ---
 
 <header class="site-header" role="banner">
   <nav class="site-nav" aria-label="Primary navigation">
-    <a class="brand-link" href="/" aria-label="BMR PrintCare home">
+    <a class="brand-link" href={withBase('/')} aria-label="BMR PrintCare home">
       <span class="brand-mark" aria-hidden="true">BMR</span>
       <span class="brand-text">
         <strong>BMR PrintCare</strong>
@@ -28,7 +28,7 @@ const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}
         const isActive = normalizedPath === normalizedHref;
 
         return (
-          <a href={item.href} aria-current={isActive ? 'page' : undefined}>
+          <a href={withBase(item.href)} aria-current={isActive ? 'page' : undefined}>
             {item.label}
           </a>
         );

@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/paths';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -62,8 +63,8 @@ const expectations = [
         expectations before any real desktop download links are published.
       </p>
       <div class="hero-actions" aria-label="Release preparation links">
-        <a class="primary-link" href="/roadmap/">View the roadmap</a>
-        <a class="secondary-link" href="/support/">Read support guidance</a>
+        <a class="primary-link" href={withBase('/roadmap/')}>View the roadmap</a>
+        <a class="secondary-link" href={withBase('/support/')}>Read support guidance</a>
       </div>
     </section>
 
@@ -111,21 +112,21 @@ const expectations = [
         not announce public availability, paid plans, final license terms, or full legal compliance.
       </p>
       <ul class="link-list">
-        <li><a href="/privacy/">Draft privacy notice</a></li>
-        <li><a href="/terms/">Draft terms of use</a></li>
-        <li><a href="/license-terms/">Draft license terms</a></li>
-        <li><a href="/refund-policy/">Draft refund policy</a></li>
-        <li><a href="/manufacturer-disclaimer/">Manufacturer disclaimer</a></li>
+        <li><a href={withBase('/privacy/')}>Draft privacy notice</a></li>
+        <li><a href={withBase('/terms/')}>Draft terms of use</a></li>
+        <li><a href={withBase('/license-terms/')}>Draft license terms</a></li>
+        <li><a href={withBase('/refund-policy/')}>Draft refund policy</a></li>
+        <li><a href={withBase('/manufacturer-disclaimer/')}>Manufacturer disclaimer</a></li>
       </ul>
     </section>
 
     <section class="content-panel" aria-labelledby="next-links-title">
       <h2 id="next-links-title">Helpful next links</h2>
       <ul class="link-list">
-        <li><a href="/docs/">Read the documentation hub</a></li>
-        <li><a href="/features/">Review product features</a></li>
-        <li><a href="/roadmap/">Check the roadmap</a></li>
-        <li><a href="/support/">Use the support hub</a></li>
+        <li><a href={withBase('/docs/')}>Read the documentation hub</a></li>
+        <li><a href={withBase('/features/')}>Review product features</a></li>
+        <li><a href={withBase('/roadmap/')}>Check the roadmap</a></li>
+        <li><a href={withBase('/support/')}>Use the support hub</a></li>
       </ul>
     </section>
   </main>

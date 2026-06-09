@@ -18,4 +18,5 @@
   --space-page: clamp(1rem, 4vw, 4rem);
   --radius-card: 1.5rem;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.35);
+  --anchor-offset: clamp(7rem, 14vw, 8.75rem);
 }
