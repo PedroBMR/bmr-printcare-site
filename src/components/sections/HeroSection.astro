@@ -178,9 +178,9 @@ import { withBase } from '../../utils/paths';
     text-align: center;
     text-decoration: none;
     transition:
-      border-color 180ms ease,
-      box-shadow 180ms ease,
-      transform 180ms ease;
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .primary-action {
@@ -219,6 +219,17 @@ import { withBase } from '../../utils/paths';
       radial-gradient(circle at 92% 18%, rgba(124, 58, 237, 0.2), transparent 17rem),
       linear-gradient(145deg, rgba(16, 22, 36, 0.96), rgba(21, 29, 46, 0.8));
     box-shadow: var(--shadow-soft), var(--shadow-violet);
+    transition:
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-hover);
+  }
+
+  .hero-panel:hover,
+  .hero-panel:focus-within {
+    border-color: rgba(57, 208, 255, 0.38);
+    box-shadow: var(--shadow-soft), var(--shadow-violet), 0 0 0 1px rgba(57, 208, 255, 0.08);
+    transform: translateY(var(--motion-hover-raise));
   }
 
   .hero-panel::before {

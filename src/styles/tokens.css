@@ -44,5 +44,39 @@
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.35);
   --shadow-cyan: 0 22px 70px rgba(57, 208, 255, 0.14);
   --shadow-violet: 0 24px 78px rgba(124, 58, 237, 0.18);
+
+  /* Milestone 20: motion foundation tokens. Keep motion short, intentional,
+     CSS-only, and safe to disable for reduced-motion users. */
+  --motion-duration-instant: 80ms;
+  --motion-duration-fast: 140ms;
+  --motion-duration-base: 190ms;
+  --motion-duration-slow: 280ms;
+  --motion-duration-entrance: 420ms;
+  --motion-duration-glow: 260ms;
+  --motion-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-hover: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-entrance-distance: 0.7rem;
+  --motion-entrance-stagger: 70ms;
+  --motion-hover-raise: -2px;
+  --motion-hover-scale: 1.012;
+  --motion-glow-opacity: 0.72;
+
   --anchor-offset: clamp(7rem, 14vw, 8.75rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-instant: 1ms;
+    --motion-duration-fast: 1ms;
+    --motion-duration-base: 1ms;
+    --motion-duration-slow: 1ms;
+    --motion-duration-entrance: 1ms;
+    --motion-duration-glow: 1ms;
+    --motion-entrance-distance: 0;
+    --motion-entrance-stagger: 0ms;
+    --motion-hover-raise: 0;
+    --motion-hover-scale: 1;
+    --motion-glow-opacity: 0;
+  }
 }

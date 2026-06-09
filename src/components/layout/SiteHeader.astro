@@ -77,6 +77,14 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
     border-radius: 1rem;
     color: var(--color-text);
     text-decoration: none;
+    transition:
+      color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-hover);
+  }
+
+  .brand-link:hover,
+  .brand-link:focus-visible {
+    transform: translateY(var(--motion-hover-raise));
   }
 
   .brand-mark {
@@ -91,6 +99,16 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
       radial-gradient(circle at 30% 20%, rgba(57, 208, 255, 0.14), transparent 62%),
       rgba(16, 22, 36, 0.72);
     box-shadow: 0 16px 42px rgba(57, 208, 255, 0.13), 0 12px 36px rgba(124, 58, 237, 0.1);
+    transition:
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-hover);
+  }
+
+  .brand-link:hover .brand-mark,
+  .brand-link:focus-visible .brand-mark {
+    border-color: rgba(57, 208, 255, 0.48);
+    box-shadow: 0 18px 48px rgba(57, 208, 255, 0.18), 0 14px 42px rgba(124, 58, 237, 0.14);
   }
 
   .brand-mark img {
@@ -136,9 +154,10 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
     text-decoration: none;
     white-space: nowrap;
     transition:
-      border-color 180ms ease,
-      background 180ms ease,
-      color 180ms ease;
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      background var(--motion-duration-base) var(--motion-ease-standard),
+      color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-hover);
   }
 
   .brand-link:focus-visible,
@@ -153,6 +172,11 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
     border-color: rgba(57, 208, 255, 0.26);
     background: rgba(57, 208, 255, 0.08);
     color: var(--color-text);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    transform: translateY(var(--motion-hover-raise));
   }
 
   @media (max-width: 920px) {
