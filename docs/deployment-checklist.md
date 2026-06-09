@@ -1,6 +1,6 @@
 # Deployment Checklist
 
-Use this short checklist before evaluating a static deployment for BMR PrintCare.
+Use this short checklist before evaluating a static deployment for PrintKeep by BMR.
 
 ## Local checks
 

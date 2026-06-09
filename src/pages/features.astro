@@ -9,7 +9,7 @@ const coreFeatures = [
     title: 'Maintenance history',
     status: 'Core direction',
     description:
-      'BMR PrintCare is designed to record service events, notes, dates, and maintenance context so owners can understand what changed over time.',
+      'PrintKeep by BMR is designed to record service events, notes, dates, and maintenance context so owners can understand what changed over time.',
   },
   {
     title: 'Preventive planning',
@@ -36,7 +36,7 @@ const profileFeatures = [
     title: 'Flexible model information',
     status: 'Planned',
     description:
-      'Profiles are intended to support manufacturer-independent model details without using logos or implying official manufacturer relationships.',
+      'Profiles are intended to support manufacturer-independent model details without using logos or implying manufacturer relationships.',
   },
   {
     title: 'Workshop context',
@@ -51,13 +51,13 @@ const directionItems = [
     title: 'Local-first data direction',
     status: 'Direction',
     description:
-      'BMR PrintCare is being positioned as a desktop app where maintenance records are primarily controlled by the user on their own machine.',
+      'PrintKeep by BMR is being positioned as a desktop app where maintenance records are primarily controlled by the user on their own machine.',
   },
   {
-    title: 'Future official catalogs',
-    status: 'Future idea',
+    title: 'BMR Verified Catalogs',
+    status: 'Planned',
     description:
-      'Official BMR PrintCare catalogs may later provide neutral starter data for maintenance categories, part types, and consumables, without manufacturer endorsement claims.',
+      'Verified catalogs are planned as optional content packs created by BMR to help users start with structured printer profiles, suggested maintenance routines, part records and guides.',
   },
   {
     title: 'Beginner-friendly workflow',
@@ -78,22 +78,22 @@ const roadmapOnlyItems = [
     title: 'Print-quality tracking',
     status: 'Roadmap only',
     description:
-      'Print-quality observations may become a future tracking area, but BMR PrintCare does not currently promise automatic diagnostics or AI analysis.',
+      'Print-quality observations may become a future tracking area, but PrintKeep by BMR does not currently promise automated diagnosis or machine-learning analysis.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Features | BMR PrintCare"
-  description="Feature overview for BMR PrintCare, an independent local-first desktop app in development for 3D printer maintenance tracking."
+  title="Features | PrintKeep by BMR"
+  description="Feature overview for PrintKeep by BMR, an independent local-first desktop app in development for 3D printer maintenance tracking."
 >
   <main class="page-shell feature-page">
     <section class="page-hero" aria-labelledby="features-title">
       <p class="section-eyebrow">Feature overview</p>
       <h1 id="features-title">Maintenance tracking for printer owners who want clear records.</h1>
       <p>
-        BMR PrintCare is still in development. These feature notes describe the current product direction for a
-        local-first desktop maintenance tracker, not a public release announcement or a guarantee that every item is live
+        PrintKeep by BMR is still in development. These feature notes describe the current product direction for a
+        local-first desktop maintenance tracker, not a public release announcement or a claim that every item is live
         today.
       </p>
       <div class="hero-actions" aria-label="Feature page links">
@@ -120,7 +120,7 @@ const roadmapOnlyItems = [
         <h2 id="printer-profiles-title">One maintenance context per printer.</h2>
         <p>
           Printer profiles are intended to keep information organized without depending on a specific manufacturer
-          ecosystem, cloud account, or official hardware partnership.
+          ecosystem, cloud account, or hardware partnership.
         </p>
       </div>
       <FeatureGrid items={profileFeatures} ariaLabel="Printer profile feature details" />
@@ -131,8 +131,8 @@ const roadmapOnlyItems = [
         <p class="section-eyebrow">Product direction</p>
         <h2 id="direction-title">Local-first, independent, and intentionally simple.</h2>
         <p>
-          BMR PrintCare should stay approachable for personal users and small workshops. The site avoids promises about
-          direct printer integrations, cloud sync, mobile apps, AI features, automatic diagnostics, or paid plans.
+          PrintKeep by BMR should stay approachable for personal users and small workshops. The site avoids promises about
+          direct printer integrations, cloud sync, mobile apps, machine-learning features, automated diagnosis, or paid plans.
         </p>
       </div>
       <FeatureGrid items={directionItems} ariaLabel="Product direction feature areas" />
@@ -152,9 +152,9 @@ const roadmapOnlyItems = [
 
     <StatusNote title="Manufacturer independence note" tone="accent">
       <p>
-        BMR PrintCare is an independent product. It is not affiliated with, endorsed by, sponsored by, or officially
-        connected to any 3D printer manufacturer. Manufacturer names may only be used in future descriptive text when
-        necessary and must not imply partnership or endorsement.
+        PrintKeep by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially
+        connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. Manufacturer names may
+        only be used in future descriptive text when necessary and must not imply partnership or endorsement.
       </p>
     </StatusNote>
 

@@ -1,16 +1,26 @@
-# BMR PrintCare Website
+# PrintKeep by BMR Website
 
-Official website and documentation hub for BMR PrintCare, a local-first desktop app for 3D printer maintenance tracking.
+Website and documentation hub for PrintKeep by BMR, a local-first desktop app in development for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 9 — Final Review and Launch Readiness Checklist**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, and final launch-readiness review notes.
+This repository is currently in **Milestone 10 — Rebranding Foundation and High-Priority Content Correction**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, and final launch-readiness review notes.
 
 ## Current status
 
 - The website is static and beginner-friendly. It does not include backend services, authentication, analytics, tracking pixels, cookies, checkout, newsletter integration, contact forms, or third-party scripts.
-- The BMR PrintCare desktop app is still in development and is not publicly available yet.
+- The PrintKeep by BMR desktop app is still in development and is not publicly available yet.
 - The `/download` route is a release-preparation placeholder only. It does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
 - Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, or payment processing.
-- BMR PrintCare is independent and must not imply official partnership, endorsement, sponsorship, approval, affiliation, official manufacturer support, or access to proprietary manufacturer systems.
+- PrintKeep by BMR is independent and must not imply partnership, endorsement, sponsorship, approval, affiliation, manufacturer service support, or access to proprietary manufacturer systems.
+- Public product naming should use **PrintKeep by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
+
+
+## Product naming
+
+- Public commercial product name: **PrintKeep by BMR**.
+- Short display brand: **PrintKeep** with secondary text **by BMR**.
+- Legacy/internal project reference: **BMR PrintCare**. Use it only when necessary for historical or repository context.
+- Suggested transition note when appropriate: “PrintKeep by BMR was previously developed under the internal project name BMR PrintCare.”
+- Public copy should not treat BMR PrintCare as the final product name.
 
 ## Tech stack
 
@@ -41,6 +51,7 @@ The homepage is composed from small section components in `src/components/sectio
 - `HeroSection.astro`
 - `ProblemSection.astro`
 - `SolutionSection.astro`
+- `ProductScopeSection.astro`
 - `FeatureHighlights.astro`
 - `LocalFirstSection.astro`
 - `WorkflowPreview.astro`
@@ -80,7 +91,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 
 | Route | Purpose | Status |
 | --- | --- | --- |
-| `/` | Premium dark landing page for BMR PrintCare. | Live structure |
+| `/` | Premium dark landing page for PrintKeep by BMR. | Live structure |
 | `/features` | Feature overview for product direction, core maintenance tracking, local-first positioning, and roadmap-only feature notes. | Initial content |
 | `/docs` | Documentation hub with links to beginner-friendly guide drafts and cross-links to Features, Roadmap, Download, and Support. | Expanded draft |
 | `/docs/getting-started` | Beginner overview for the intended maintenance workflow without public download instructions. | Draft |
@@ -96,7 +107,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 | `/terms` | Preliminary terms of use covering website use, development status, acceptable use, and future updates. | Draft placeholder |
 | `/license-terms` | Preliminary license terms placeholder noting that no final app license or distribution model has been selected. | Draft placeholder |
 | `/refund-policy` | Preliminary refund policy placeholder noting that there are no purchases, paid plans, checkout, or public app release yet. | Draft placeholder |
-| `/manufacturer-disclaimer` | Manufacturer independence disclaimer stating no affiliation, sponsorship, endorsement, or official partnership with printer manufacturers. | Draft placeholder |
+| `/manufacturer-disclaimer` | Manufacturer independence disclaimer stating no affiliation, sponsorship, endorsement, or partnership with printer manufacturers. | Draft placeholder |
 
 ## Documentation structure
 
@@ -148,10 +159,10 @@ The `/features` page explains these areas in English:
 - preventive maintenance planning;
 - parts and consumables records;
 - local-first data direction;
-- future official catalogs;
+- future BMR Verified Catalogs;
 - future calibration and print-quality tracking as roadmap-only ideas.
 
-The site should avoid claims about direct printer integrations, cloud sync, AI features, automatic diagnostics, mobile apps, paid plans, or official manufacturer partnerships unless a later milestone explicitly adds accurate supporting material.
+The site should avoid claims about direct printer integrations, cloud sync, AI features, automated diagnosis, mobile apps, paid plans, or manufacturer partnership claims unless a later milestone explicitly adds accurate supporting material.
 
 ## Legal and compliance placeholders
 
@@ -161,7 +172,7 @@ Milestone 6 adds preliminary legal/compliance routes for planning and future att
 - `/terms` describes draft website-use expectations, product-development status, acceptable use, warranty-style caution, and future update needs.
 - `/license-terms` records that no final app license or distribution model has been selected in this website repository.
 - `/refund-policy` states that the current site has no purchases, paid plans, checkout, app store distribution, license keys, or public download links.
-- `/manufacturer-disclaimer` reinforces that BMR PrintCare is independent and is not affiliated with, sponsored by, endorsed by, approved by, or officially connected to any 3D printer manufacturer.
+- `/manufacturer-disclaimer` reinforces that PrintKeep by BMR is independent and is not affiliated with, sponsored by, endorsed by, or officially connected to any 3D printer manufacturer.
 
 These pages are **draft placeholders only**. They are not final legal advice, do not claim compliance with LGPD, GDPR, CCPA, or any other law, and should be reviewed before public release, payment processing, app distribution, analytics, support intake, or commercial availability.
 
@@ -228,7 +239,7 @@ npm run dev
 
 ## Deployment preparation
 
-BMR PrintCare is still in development, and the public app release is not available yet. Deployment preparation for the website should stay static and conservative.
+PrintKeep by BMR is still in development, and the public app release is not available yet. Deployment preparation for the website should stay static and conservative.
 
 ### Local production build
 
@@ -258,7 +269,7 @@ The project page URL requires the Astro `base` value `/bmr-printcare-site/`. Int
 
 Deployment uses GitHub Actions through `.github/workflows/deploy-github-pages.yml`; do not commit the generated `dist/` directory. Pedro must set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** in the repository settings, then push to `main` or run the workflow manually.
 
-The configured `site` remains `https://bmrprintcare.com` so non-draft canonical and Open Graph URLs continue to point at the intended production-domain direction rather than the temporary GitHub Pages URL. Recheck that tradeoff before public launch or before moving the site to a root production domain. Do not add sitemap output until the production domain strategy is confirmed.
+The configured `site` remains `https://bmrprintcare.com` so non-draft canonical and Open Graph URLs continue to point at the legacy production-domain placeholder rather than the temporary GitHub Pages URL. Recheck that tradeoff before public launch or before moving the site to a root production domain. Do not add sitemap output until the production domain strategy is confirmed.
 
 See `docs/deployment-preview.md` for detailed GitHub Pages settings, workflow behavior, preview risks, and the manual visual test checklist.
 
@@ -292,7 +303,7 @@ Milestone 6 focuses only on legal and compliance placeholder pages for future re
 - Keep all legal copy conservative, preliminary, and subject to review.
 - Avoid claiming full legal compliance, public availability, paid plans, final software licensing, app store distribution, or refunds before those items exist.
 - Reinforce local-first data direction without overstating final implementation details.
-- Reinforce that BMR PrintCare is independent from 3D printer manufacturers.
+- Reinforce that PrintKeep by BMR is independent from 3D printer manufacturers.
 
 
 ## Milestone 7 scope
@@ -310,7 +321,7 @@ The polish pass includes:
 - more consistent docs, support, download, and legal page reading rhythm;
 - conservative CSS utilities only where they keep the project simple and beginner-friendly.
 
-The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and BMR PrintCare remains independent from 3D printer manufacturers.
+The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and PrintKeep by BMR remains independent from 3D printer manufacturers.
 
 ## Milestone 8 scope
 
@@ -327,7 +338,7 @@ The SEO and deployment pass includes:
 - README deployment preparation instructions;
 - a short `docs/deployment-checklist.md` file.
 
-The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and BMR PrintCare remains independent from 3D printer manufacturers.
+The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and PrintKeep by BMR remains independent from 3D printer manufacturers.
 
 ## Milestone 9 final review notes
 
@@ -337,7 +348,7 @@ The final review pass includes:
 
 - route coverage review for the homepage, feature page, documentation hub, documentation guides, roadmap, support, download placeholder, and draft legal pages;
 - generated HTML internal-link checking through `npm run check:links` after `npm run build`;
-- conservative-claims review for phrases such as “Download now”, official manufacturer support, automatic diagnostics, AI-powered features, cloud sync, public availability, official partnership, and LGPD/GDPR compliance claims;
+- conservative-claims review for phrases such as immediate-download wording, manufacturer service support, automated diagnosis, machine-learning features, cloud sync, public availability, partnership, and jurisdiction-specific privacy compliance claims;
 - README status updates that clarify the website is static, the app is still in development, public release is not available yet, legal pages are preliminary, and no analytics/backend/downloads are implemented;
 - a launch readiness checklist in `docs/launch-readiness-checklist.md`.
 
@@ -354,4 +365,4 @@ Recommended next steps after Milestone 9:
 
 ## Brand and manufacturer disclaimer
 
-BMR PrintCare is an independent product. This website must not use manufacturer logos or imply official partnership, endorsement, sponsorship, or affiliation with Bambu Lab, Creality, Prusa, Anycubic, or any other 3D printer manufacturer.
+PrintKeep by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. This website must not use manufacturer logos or imply partnership, endorsement, sponsorship, or affiliation.

@@ -1,21 +1,30 @@
+---
+import { withBase } from '../../utils/paths';
+---
+
 <section class="hero-section section-shell" aria-labelledby="hero-title">
   <div class="hero-content">
-    <p class="section-eyebrow">Local-first printer care</p>
-    <h1 id="hero-title">Maintenance tracking for serious 3D printing setups.</h1>
+    <p class="section-eyebrow">Local-first maintenance logbook</p>
+    <h1 id="hero-title">3D printer maintenance, without the guesswork.</h1>
     <p class="hero-copy">
-      BMR PrintCare helps makers, print farms, and repair-focused teams plan maintenance, record service history,
-      and keep printer care organized without depending on a cloud account.
+      Track maintenance, parts, costs and history for your 3D printers — locally, privately and with verified catalogs.
     </p>
+    <ul class="trust-chips" aria-label="Product trust principles">
+      <li>Local-first</li>
+      <li>Verified catalogs</li>
+      <li>Backup-ready</li>
+    </ul>
+    <p class="hero-microcopy">Your maintenance data is planned to stay on your device by default.</p>
     <div class="hero-actions" aria-label="Primary landing page actions">
-      <a class="primary-action" href="#roadmap">Follow the roadmap</a>
-      <a class="secondary-action" href="#workflow">Preview the workflow</a>
+      <a class="primary-action" href={withBase('/roadmap/')}>View roadmap</a>
+      <a class="secondary-action" href={withBase('/features/')}>Read product direction</a>
     </div>
   </div>
 
   <aside class="hero-panel" aria-label="Product status preview">
     <div class="panel-header">
       <span class="status-dot" aria-hidden="true"></span>
-      <span>Desktop app concept</span>
+      <span>Desktop app in development</span>
     </div>
     <div class="maintenance-card">
       <span class="card-label">Next maintenance</span>
@@ -25,7 +34,7 @@
     <dl class="hero-metrics">
       <div>
         <dt>Printers</dt>
-        <dd>Organized</dd>
+        <dd>1–5 setups</dd>
       </div>
       <div>
         <dt>Parts</dt>
@@ -64,6 +73,32 @@
     margin: 1.5rem 0 0;
     color: var(--color-text-muted);
     font-size: clamp(1.05rem, 2vw, 1.25rem);
+  }
+
+  .trust-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .trust-chips li {
+    border: 1px solid rgba(57, 208, 255, 0.28);
+    border-radius: 999px;
+    padding: 0.5rem 0.8rem;
+    background: rgba(57, 208, 255, 0.08);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 900;
+  }
+
+  .hero-microcopy {
+    max-width: 36rem;
+    margin: 0.9rem 0 0;
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
   }
 
   .hero-actions {
@@ -162,27 +197,26 @@
     border: 1px solid var(--color-border);
     border-radius: 1.25rem;
     padding: 1.25rem;
-    background: rgba(7, 10, 18, 0.55);
+    background: rgba(255, 255, 255, 0.045);
   }
 
   .card-label {
-    display: block;
     color: var(--color-accent);
     font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
+    font-weight: 900;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
   .maintenance-card strong {
     display: block;
-    margin-top: 0.65rem;
-    font-size: clamp(1.45rem, 3vw, 2.1rem);
-    line-height: 1;
+    margin-top: 0.8rem;
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
   }
 
   .maintenance-card p {
-    margin: 0.9rem 0 0;
+    margin: 0.65rem 0 0;
     color: var(--color-text-muted);
   }
 
@@ -221,12 +255,6 @@
   }
 
   @media (max-width: 520px) {
-    .hero-actions,
-    .primary-action,
-    .secondary-action {
-      width: 100%;
-    }
-
     .hero-metrics {
       grid-template-columns: 1fr;
     }

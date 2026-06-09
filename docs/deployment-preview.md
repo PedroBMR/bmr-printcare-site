@@ -1,6 +1,6 @@
 # GitHub Pages Preview Deployment
 
-This note records the Post-Milestone 9 GitHub Pages preview setup for the static BMR PrintCare website. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
+This note records the Post-Milestone 9 GitHub Pages preview setup for the static PrintKeep by BMR website. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
 
 ## Current build setup
 
@@ -14,7 +14,7 @@ This note records the Post-Milestone 9 GitHub Pages preview setup for the static
 - Static behavior: no adapter, server runtime, backend, forms, analytics, checkout, downloads, or payment integrations are configured.
 - GitHub Pages preview URL: `https://PedroBMR.github.io/bmr-printcare-site/`.
 - Astro base path: `astro.config.mjs` sets `base` to `/bmr-printcare-site/` so generated internal links and static assets work from the GitHub Pages project URL.
-- Configured canonical site URL: `astro.config.mjs` still sets `site` to `https://bmrprintcare.com` because the intended production domain is expected to be reviewed separately later.
+- Configured canonical site URL: `astro.config.mjs` still sets `site` to `https://bmrprintcare.com` because the legacy production domain placeholder is expected to be reviewed separately later.
 - Sitemap output is intentionally not configured yet.
 
 ## Current public routes
@@ -71,7 +71,7 @@ In the GitHub repository settings:
 
 The preview is served from `https://PedroBMR.github.io/bmr-printcare-site/`, but non-`noindex` pages continue to emit canonical and Open Graph URLs for `https://bmrprintcare.com`.
 
-This is intentional for now because `bmrprintcare.com` is still the intended production-domain direction, and the GitHub Pages URL is only a preview. Before public launch, recheck whether the production domain is live, whether canonical URLs should remain on `bmrprintcare.com`, and whether a sitemap should be added. Do not add sitemap output until the final domain and launch strategy are confirmed.
+This is intentional for now because `bmrprintcare.com` remains a legacy production-domain placeholder to review later, and the GitHub Pages URL is only a preview. Before public launch, recheck whether the production domain is live, whether canonical URLs should remain on `bmrprintcare.com`, and whether a sitemap should be added. Do not add sitemap output until the final domain and launch strategy are confirmed.
 
 ## Manual visual test checklist
 
@@ -101,5 +101,5 @@ After deployment, review these items in desktop and mobile browsers:
 
 - GitHub Pages previews may be publicly reachable. Share the URL carefully.
 - Because the project uses `/bmr-printcare-site/` as an Astro base path, local preview and future production-domain deployment strategy should be rechecked before launch on a root domain.
-- If the final production site uses `https://bmrprintcare.com/` at the domain root, remove or adjust the Astro `base` value as part of that deployment change and rerun the full link and visual checks.
+- If a final production site uses a domain root, remove or adjust the Astro `base` value as part of that deployment change and rerun the full link and visual checks.
 - Legal pages are preliminary and must be reviewed before commercial launch, payments, analytics, accounts, app distribution, or public release.
