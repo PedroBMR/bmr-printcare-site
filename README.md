@@ -1,27 +1,27 @@
-# PrintKeep by BMR Website
+# NozzleNote by BMR Website
 
-Website and documentation hub for PrintKeep by BMR, a local-first desktop app in development for 3D printer maintenance tracking.
+Website and documentation hub for NozzleNote by BMR, a local-first desktop app in development for 3D printer maintenance tracking. NozzleNote is a local-first maintenance logbook for 3D printers — built to track routines, parts, costs, incidents and print quality over time.
 
-This repository is currently in **Milestone 13 — Early Supporters and Launch Funding Preparation**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, final launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, updated Download, Support, and legal consistency language, and a non-live Early Supporters launch-funding planning route.
+This repository is currently in **Milestone 16 — NozzleNote Final Rebrand and Visual Direction Preparation**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, a non-live Early Supporters planning route, the final NozzleNote by BMR public rebrand, and a future AI Designer intake document.
 
 ## Current status
 
 - The website is static and beginner-friendly. It does not include backend services, authentication, analytics, tracking pixels, cookies, checkout, newsletter integration, contact forms, or third-party scripts.
-- The PrintKeep by BMR desktop app is still in development and is not publicly available yet.
-- The `/download` route is a release-preparation placeholder only. It states that PrintKeep is not publicly available yet, describes the planned free desktop Core release focus, and does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
+- The NozzleNote by BMR desktop app is still in development and is not publicly available yet.
+- The `/download` route is a release-preparation placeholder only. It states that NozzleNote is not publicly available yet, describes the planned free desktop Core release focus, and does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
 - The `/early-supporters` route is a non-live planning placeholder for a possible future Early Supporter Campaign or Launch Fund. It does not collect payment, define final rewards, publish pledge tiers, provide licenses, or create account, catalog, mobile, or download access.
 - Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, licensing, accounts, cloud backup, mobile companion workflows, or payment processing.
-- PrintKeep by BMR is independent and must not imply partnership, endorsement, sponsorship, approval, affiliation, manufacturer service support, or access to proprietary manufacturer systems.
-- Public product naming should use **PrintKeep by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
+- NozzleNote by BMR is independent and must not imply partnership, endorsement, sponsorship, approval, affiliation, manufacturer service support, or access to proprietary manufacturer systems.
+- Public product naming should use **NozzleNote by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
 - BMR Verified Catalogs are planned optional content packs by BMR. They are not available yet, and paid catalog availability, pricing, licensing, and update periods are not final yet.
 
 
 ## Product naming
 
-- Public commercial product name: **PrintKeep by BMR**.
-- Short display brand: **PrintKeep** with secondary text **by BMR**.
+- Public commercial product name: **NozzleNote by BMR**.
+- Short display brand: **NozzleNote** with secondary text **by BMR**.
 - Legacy/internal project reference: **BMR PrintCare**. Use it only when necessary for historical or repository context.
-- Suggested transition note when appropriate: “PrintKeep by BMR was previously developed under the internal project name BMR PrintCare.”
+- Suggested transition note when appropriate: “NozzleNote by BMR was previously developed under the internal project name BMR PrintCare.”
 - Public copy should not treat BMR PrintCare as the final product name.
 
 ## Tech stack
@@ -95,7 +95,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 
 | Route | Purpose | Status |
 | --- | --- | --- |
-| `/` | Premium dark landing page for PrintKeep by BMR. | Live structure |
+| `/` | Premium dark landing page for NozzleNote by BMR. | Live structure |
 | `/features` | Feature overview for product direction, core maintenance tracking, local-first positioning, and roadmap-only feature notes. | Initial content |
 | `/docs` | Documentation hub with links to beginner-friendly guide drafts and cross-links to Features, Roadmap, Download, and Support. | Expanded draft |
 | `/catalogs` | Planned BMR Verified Catalogs page explaining optional content packs, the first compatible-with-Bambu-Lab-printers concept, commercial-model caution, and manufacturer independence. | Planned content |
@@ -154,7 +154,7 @@ The `/support` route now includes:
 
 The `/download` route is a placeholder for release preparation only. It clearly states:
 
-- PrintKeep is not publicly available yet;
+- NozzleNote is not publicly available yet;
 - the first public release is planned to focus on the free desktop Core: printer profiles, maintenance tasks, history, parts, incidents, and local backup;
 - there are no installers, binaries, purchase links, beta signup forms, checksums, or release dates yet;
 - no real download buttons or download files are published;
@@ -199,7 +199,7 @@ The preliminary legal/compliance routes remain draft placeholders for planning a
 - `/terms` describes draft website-use expectations, product-development status, preliminary website information, support boundaries, warranty-style caution, and future update needs before public release.
 - `/license-terms` records that no final app license, catalog license, license-key process, entitlement model, device activation model, account recovery model, or Founder-license model has been selected.
 - `/refund-policy` states that the current site has no purchases, paid plans, checkout, payment processor, app store distribution, license keys, or public download links, and that future paid catalogs or Early Supporter purchases need reviewed refund/commercial policy before launch.
-- `/manufacturer-disclaimer` reinforces that PrintKeep by BMR is independent; manufacturer names are for compatibility/context only; trademarks belong to their owners; and supported profiles or verified catalogs may change over time.
+- `/manufacturer-disclaimer` reinforces that NozzleNote by BMR is independent; manufacturer names are for compatibility/context only; trademarks belong to their owners; and supported profiles or verified catalogs may change over time.
 
 These pages are **draft placeholders only**. They are not final legal advice, do not claim compliance with LGPD, GDPR, CCPA, or any other law, and should be reviewed before public release, payment processing, app distribution, analytics, support intake, or commercial availability.
 
@@ -211,12 +211,12 @@ Milestone 12 focuses on Download, Support, and Legal consistency. It does not re
 
 The Milestone 12 pass includes:
 
-- `/download` wording that says PrintKeep is not publicly available yet and describes the planned free desktop Core release focus without real download links;
+- `/download` wording that says NozzleNote is not publicly available yet and describes the planned free desktop Core release focus without real download links;
 - a release checklist covering Windows build, version number, installer or portable package, release notes, known limitations, backup guidance, support scope, manufacturer disclaimer, privacy notice, and reviewed terms/license placeholders;
 - `/support` wording that limits current public support to website information and development updates;
 - future/planned support categories for installation issues, app usage, backup/restore, license activation, catalog import, and diagnostic export;
 - out-of-scope support language for printer repair, warranty claims, manufacturer support, unsafe maintenance instructions, manufacturer-owned troubleshooting, and direct printer control;
-- legal-page consistency using PrintKeep by BMR as the product name while preserving preliminary/draft legal status and `noindex`;
+- legal-page consistency using NozzleNote by BMR as the product name while preserving preliminary/draft legal status and `noindex`;
 - planned/conditional privacy categories without implying current cloud, account, license, diagnostic, mobile, or quality-photo collection;
 - planned license model language for Free Core, paid verified catalogs, license keys, entitlements, device activation, future account claim/recovery, and possible Founder licenses if an Early Supporter program is later launched;
 - refund-policy caution that no purchases, paid plans, checkout, or payment processor currently exists and future paid catalogs or Early Supporter purchases require reviewed policy before launch;
@@ -231,7 +231,7 @@ Milestone 13 focuses on Early Supporters and launch funding preparation only. It
 
 The Milestone 13 pass includes:
 
-- `/early-supporters` as a static placeholder titled “PrintKeep Early Supporter Campaign”;
+- `/early-supporters` as a static placeholder titled “NozzleNote Early Supporter Campaign”;
 - cautious positioning that a future early supporter campaign may help fund code signing, documentation, catalog packaging, website polish, release testing, and final launch preparation;
 - clear status language that the campaign is not live yet, rewards are not final, no payment is collected, and no purchase, pledge, license, catalog, account, mobile access, or public release is available through the page;
 - possible reward examples under review, including Founder badge, early access, a defined BMR Verified Catalog license, printable maintenance kit, name in credits, and All Access for a defined period;
@@ -243,6 +243,23 @@ The Milestone 13 pass includes:
 - expected generated-route coverage for `/early-supporters/` in `scripts/check-internal-links.mjs`.
 
 Remaining follow-up tasks include visual QA after deployment, qualified legal review before any commercial flow, real campaign planning, final reward definition, support-scope definition, payment/refund workflow review, license activation planning, and product release planning.
+
+
+## Milestone 16 scope
+
+Milestone 16 finalizes the public commercial rebrand from NozzleNote's earlier naming to **NozzleNote by BMR** and prepares the repository for a future AI Designer visual direction pass. It does not redesign the site, add backend services, add analytics, add checkout, add forms, add real app downloads, create pricing pages, make the Early Supporters campaign live, add manufacturer logos, or claim public app availability.
+
+The Milestone 16 pass includes:
+
+- public website copy, metadata, Open Graph site name, web manifest, favicon accessibility labels, docs, legal drafts, support, download, catalogs, roadmap, and Early Supporters language using **NozzleNote by BMR**;
+- `https://nozzlenote.com` preserved as the production domain with root-relative internal routes and no production base path;
+- `public/CNAME` preserved with `nozzlenote.com` for GitHub Pages custom-domain artifacts;
+- BMR Verified Catalog language kept cautious, independent, and clearly planned rather than currently available;
+- manufacturer independence language preserved across public pages;
+- `docs/design-direction-intake.md` added so a future AI Designer can provide visual personality, palette, typography, logo/wordmark, icon, illustration, section, card, CTA, mobile, accessibility, examples, and avoid-list direction before visual changes are implemented;
+- comments in `src/styles/tokens.css` and `src/styles/global.css` documenting where future visual tokens and global visual structure should live.
+
+Remaining follow-up tasks include visual QA after deployment, qualified legal review before any commercial flow, and a separate visual-direction implementation milestone after the AI Designer output is reviewed.
 
 ## Getting started
 
@@ -305,7 +322,7 @@ npm run dev
 
 ## Deployment preparation
 
-PrintKeep by BMR is still in development, and the public app release is not available yet. Deployment preparation for the website should stay static and conservative.
+NozzleNote by BMR is still in development, and the public app release is not available yet. Deployment preparation for the website should stay static and conservative.
 
 ### Local production build
 
@@ -335,7 +352,7 @@ The custom domain serves the site from the domain root. `astro.config.mjs` sets 
 
 Deployment uses GitHub Actions through `.github/workflows/deploy-github-pages.yml`; do not commit the generated `dist/` directory. The repository includes `public/CNAME` with `nozzlenote.com` so the generated Pages artifact preserves the custom-domain setting. Pedro must set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**, confirm the custom domain is `nozzlenote.com`, then push to `main` or run the workflow manually.
 
-The old GitHub Project Pages path `https://PedroBMR.github.io/bmr-printcare-site/` is no longer the target deployment path for production. The site should not depend on `/bmr-printcare-site/` in production.
+The old GitHub Project Pages preview path is no longer the target deployment path for production. The site should not depend on a repository base path in production.
 
 See `docs/deployment-preview.md` for detailed GitHub Pages settings, workflow behavior, custom-domain risks, and the manual visual test checklist.
 
@@ -369,7 +386,7 @@ Milestone 6 focuses only on legal and compliance placeholder pages for future re
 - Keep all legal copy conservative, preliminary, and subject to review.
 - Avoid claiming full legal compliance, public availability, paid plans, final software licensing, app store distribution, or refunds before those items exist.
 - Reinforce local-first data direction without overstating final implementation details.
-- Reinforce that PrintKeep by BMR is independent from 3D printer manufacturers.
+- Reinforce that NozzleNote by BMR is independent from 3D printer manufacturers.
 
 
 ## Milestone 7 scope
@@ -387,7 +404,7 @@ The polish pass includes:
 - more consistent docs, support, download, and legal page reading rhythm;
 - conservative CSS utilities only where they keep the project simple and beginner-friendly.
 
-The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and PrintKeep by BMR remains independent from 3D printer manufacturers.
+The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and NozzleNote by BMR remains independent from 3D printer manufacturers.
 
 ## Milestone 8 scope
 
@@ -404,7 +421,7 @@ The SEO and deployment pass includes:
 - README deployment preparation instructions;
 - a short `docs/deployment-checklist.md` file.
 
-The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and PrintKeep by BMR remains independent from 3D printer manufacturers.
+The app is still in development, the public release is not available yet, legal pages remain preliminary placeholders, and NozzleNote by BMR remains independent from 3D printer manufacturers.
 
 ## Milestone 9 final review notes
 
@@ -431,4 +448,4 @@ Recommended next steps after Milestone 9:
 
 ## Brand and manufacturer disclaimer
 
-PrintKeep by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. This website must not use manufacturer logos or imply partnership, endorsement, sponsorship, or affiliation.
+NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. This website must not use manufacturer logos or imply partnership, endorsement, sponsorship, or affiliation.

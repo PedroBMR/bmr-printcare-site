@@ -1,4 +1,6 @@
 :root {
+  /* Future visual direction note: keep brand-level colors, type defaults, spacing, radii,
+     shadows, and focus tokens centralized here until an AI Designer direction is approved. */
   color-scheme: dark;
 
   --color-background: #070a12;

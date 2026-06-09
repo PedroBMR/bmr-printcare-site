@@ -1,6 +1,6 @@
 # Deployment Checklist
 
-Use this short checklist before evaluating a static deployment for PrintKeep by BMR.
+Use this short checklist before evaluating a static deployment for NozzleNote by BMR.
 
 ## Local checks
 

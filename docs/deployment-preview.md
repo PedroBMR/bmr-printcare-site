@@ -1,6 +1,6 @@
 # GitHub Pages Custom-Domain Deployment
 
-This note records the GitHub Pages setup for the static PrintKeep by BMR website at the custom domain. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
+This note records the GitHub Pages setup for the static NozzleNote by BMR website at the custom domain. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
 
 ## Current build setup
 
@@ -104,11 +104,11 @@ After deployment, review these items in desktop and mobile browsers:
 - Reduced-motion behavior remains respected.
 - Favicon and web manifest load from `/favicon.svg` and `/site.webmanifest`.
 - Generated Astro assets load from `/_astro/...`.
-- `https://nozzlenote.com/bmr-printcare-site/` is not expected to be a valid production route.
+- Repository-base-path URLs are not expected to be valid production routes.
 
 ## Deployment risks
 
 - GitHub Pages deployments may be publicly reachable. Share the URL carefully.
-- The old GitHub Project Pages URL with `/bmr-printcare-site/` is no longer the production target after the custom-domain move.
+- The old GitHub Project Pages preview path is no longer the production target after the custom-domain move.
 - If a future secondary preview needs the old Project Pages URL, reintroduce base-path support only through an explicit preview-specific configuration so production remains rooted at `https://nozzlenote.com/`.
 - Legal pages are preliminary and must be reviewed before commercial launch, payments, analytics, accounts, app distribution, or public release.
