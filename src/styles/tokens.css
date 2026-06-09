@@ -8,6 +8,7 @@
   --color-surface-raised: #151d2e;
   --color-surface-muted: #151d2e;
   --color-surface-glass: rgba(16, 22, 36, 0.76);
+  --color-surface-premium: rgba(13, 19, 32, 0.86);
 
   --color-text: #f8fafc;
   --color-text-muted: #a7b0c0;
@@ -50,6 +51,8 @@
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.35);
   --shadow-cyan: 0 22px 70px rgba(57, 208, 255, 0.14);
   --shadow-violet: 0 24px 78px rgba(124, 58, 237, 0.18);
+  --shadow-premium-card: 0 18px 54px rgba(0, 0, 0, 0.32), 0 1px 0 rgba(255, 255, 255, 0.035) inset;
+  --shadow-premium-hover: 0 24px 76px rgba(0, 0, 0, 0.38), 0 20px 68px rgba(57, 208, 255, 0.1);
 
   /* Milestone 20: motion foundation tokens. Keep motion short, intentional,
      CSS-only, and safe to disable for reduced-motion users. */
@@ -71,6 +74,7 @@
   --motion-entrance-stagger: 70ms;
   --motion-hover-raise: -2px;
   --motion-hover-scale: 1.012;
+  --motion-hover-raise-panel: -3px;
   --motion-glow-opacity: 0.72;
 
   --anchor-offset: clamp(7rem, 14vw, 8.75rem);
@@ -92,6 +96,7 @@
     --motion-entrance-stagger: 0ms;
     --motion-hover-raise: 0;
     --motion-hover-scale: 1;
+    --motion-hover-raise-panel: 0;
     --motion-glow-opacity: 0;
   }
 }

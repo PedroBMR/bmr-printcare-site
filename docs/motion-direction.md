@@ -46,6 +46,28 @@ The hero now uses:
 
 The mockup animation intentionally stays subtle: slow glow breathing, a gentle floating/depth transform, a status pulse, an active row highlight, and a slow scanline. These effects are decorative and do not communicate required information.
 
+## Milestone 23 cross-site microinteractions and page polish
+
+Milestone 23 extends the Premium Violet Tech treatment beyond the homepage hero without rebuilding the site or adding a heavy animation system. The pass remains CSS-only and focuses on restrained polish for internal pages, homepage sections after the hero, docs navigation, status panels, CTAs, and reusable card patterns.
+
+The cross-site polish includes:
+
+- premium internal page heroes with subtle technical grid texture, cyan/violet edge lighting, and corner-rail geometry;
+- refined card depth using shared premium shadows, soft border glow, and non-interactive corner accents;
+- section-level rhythm through small cyan/violet rails on feature and roadmap groups;
+- smoother hover/focus treatment for cards, panels, docs navigation, legal sidebar links, link lists, and page CTAs;
+- continued use of staged page-load reveal utilities for non-doc, non-legal marketing pages;
+- a cautious treatment for download, catalogs, support, roadmap, and early supporter pages so visual polish does not imply public availability, manufacturer-provided catalogs, live payment, or final legal status.
+
+New/expanded tokens added in `src/styles/tokens.css`:
+
+- `--color-surface-premium` for darker high-emphasis glass panels;
+- `--shadow-premium-card` for static premium card depth;
+- `--shadow-premium-hover` for restrained hover/focus elevation;
+- `--motion-hover-raise-panel` for slightly stronger but still small panel hover lift.
+
+The implementation intentionally keeps decorative elements as CSS pseudo-elements where possible. They are non-interactive, do not carry information, and avoid adding extra DOM nodes or assets.
+
 ## Reduced-motion rules
 
 Reduced-motion users should receive the same information and controls without motion-dependent behavior.
@@ -58,6 +80,7 @@ Current rules:
 - page-load reveal animations are removed;
 - ambient background movement is disabled/frozen;
 - Milestone 22 hero entrance, float, pulse, sweep, scanline, glint, and active-row breathing are disabled;
+- Milestone 23 page-hero grid drift, card hover lift, card corner-accent transitions, sweep/breathe effects, and link/card transform effects are disabled or reduced to static states;
 - pulsing lights and sweeping glows are disabled or hidden;
 - hover transforms are removed for shared motion targets;
 - CTA shine and ambient glow pseudo-elements are hidden;
@@ -71,33 +94,33 @@ The hero heading remains split into controlled line blocks to avoid awkward punc
 
 ## Performance notes for later verification
 
-Milestones 21 and 22 intentionally keep the implementation lightweight:
+Milestones 21, 22, and 23 intentionally keep the implementation lightweight:
 
 - no raster background assets were added;
 - no external animation dependencies were added;
 - no canvas, WebGL, video, or audio was added;
 - animations favor transform, opacity, background-position, and limited box-shadow/border-color breathing;
 - large blurred elements are limited to a few global/hero gradients rather than many repeated DOM nodes;
-- infinite animations are limited to global ambient layers and a small number of high-impact hero shell effects.
+- infinite animations are limited to global ambient layers, a small number of high-impact hero shell effects, and very limited page-hero/panel texture movement;
+- Milestone 23 does not add JavaScript scroll libraries, third-party animation dependencies, raster/video backgrounds, canvas, or WebGL.
 
 A later performance milestone should verify mobile paint/composite cost, scroll smoothness, battery impact, Lighthouse behavior, and whether any blurred gradients, scanlines, or hero glows need to be simplified on lower-end devices.
 
-## What is intentionally deferred to Milestone 23/performance milestones
+## What remains deferred to performance and later storytelling milestones
 
-Milestone 22 does not implement:
+Milestone 23 still does not implement:
 
-- a full cross-site animation pass;
+- formal animation performance optimization or a final motion budget;
 - complex scroll-driven storytelling;
 - animated product walkthrough scenes;
 - particle systems;
 - canvas or WebGL rendering;
 - audio or video;
 - broad independent forever-animation on every card;
-- final performance optimization or a formal animation performance budget;
 - changes to analytics behavior or custom analytics events.
 
 Recommended next milestones:
 
-1. **Milestone 23 section-level storytelling** — add controlled narrative motion only where it clarifies product direction, after the hero has been visually approved.
-2. **Cross-site microinteraction expansion** — refine reusable component-level motion after visual QA.
-3. **Performance verification** — validate animation cost, paint/composite behavior, reduced-motion behavior, and mobile smoothness before heavier effects ship.
+1. **Performance verification** — validate animation cost, paint/composite behavior, reduced-motion behavior, and mobile smoothness before heavier effects ship.
+2. **Section-level storytelling** — consider controlled narrative motion only where it clarifies product direction and remains CSS-first.
+3. **Animation budget** — decide which ambient, hero, and cross-site effects should remain enabled on lower-end mobile devices.
