@@ -15,21 +15,22 @@ import LegalSection from '../components/legal/LegalSection.astro';
   <LegalSection title="Current status">
     <p>
       NozzleNote by BMR is still in development, and the app is not publicly available yet. This privacy notice is a
-      preliminary placeholder intended to guide future review before any public release, payment flow, analytics setup,
+      preliminary placeholder intended to guide future review before any public release, payment flow, expanded analytics,
       newsletter, support intake, licensing system, cloud feature, mobile companion, or account system is added.
     </p>
   </LegalSection>
 
   <LegalSection title="Current website data collection status">
     <p>
-      The current public website is a static Astro site. It does not include account registration, checkout, analytics,
-      newsletter signup, contact forms, authentication, license activation, cloud backup, diagnostic upload, or backend
-      data collection in the repository at this stage.
+      The current public website is a static Astro site. It conditionally includes the standard GA4 Google tag when
+      `PUBLIC_GA_MEASUREMENT_ID` is configured for the build. The repository does not include account registration,
+      checkout, newsletter signup, contact forms, authentication, license activation, cloud backup, diagnostic upload,
+      custom analytics events, or backend data collection at this stage.
     </p>
     <p>
-      Hosting providers, browsers, or network infrastructure may still process basic technical information such as IP
-      addresses, request times, user agents, and security logs. A future production deployment should document the actual
-      hosting provider and log retention details before launch.
+      Google Analytics, hosting providers, browsers, or network infrastructure may still process basic technical information
+      such as IP addresses, request times, user agents, pageview activity, and security logs. A future production
+      deployment should document the actual analytics, hosting, and log retention details before launch.
     </p>
   </LegalSection>
 
@@ -73,7 +74,7 @@ import LegalSection from '../components/legal/LegalSection.astro';
 
   <LegalSection title="Future changes">
     <p>
-      If future milestones add analytics, crash reporting, support forms, email updates, licensing systems, payment
+      If future milestones add expanded analytics, crash reporting, support forms, email updates, licensing systems, payment
       processors, cloud features, mobile companion workflows, app distribution platforms, or quality-photo workflows, this
       notice should be updated before those features are launched. Related release status is listed on the
       <a href={withBase('/download/')}>release preparation page</a>, and planned work is summarized on the

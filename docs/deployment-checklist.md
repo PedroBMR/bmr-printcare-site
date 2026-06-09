@@ -15,7 +15,7 @@ Use this short checklist before evaluating a static deployment for NozzleNote by
 - Confirm every public route has a clear title and meta description.
 - Confirm draft legal pages remain preliminary and do not claim final legal compliance.
 - Confirm the download page still says the public app release is not available yet.
-- Confirm no real installers, binaries, payment links, signup forms, analytics, cookies, or tracking scripts were added.
+- Confirm no real installers, binaries, payment links, signup forms, cookies, or tracking scripts beyond the conditional standard GA4 Google tag were added.
 - Confirm manufacturer independence language remains visible and no manufacturer logos are used.
 
 ## Deployment checks
@@ -23,4 +23,4 @@ Use this short checklist before evaluating a static deployment for NozzleNote by
 - Deploy only the generated `dist/` directory for static hosting.
 - Recheck the configured production domain before relying on canonical URLs or sitemap output.
 - Evaluate static hosts such as Netlify, Vercel, Cloudflare Pages, GitHub Pages, or similar providers later.
-- Do not add a sitemap, analytics, contact forms, checkout, or public downloads until the launch plan is confirmed.
+- Do not add a sitemap, analytics beyond the conditional standard GA4 Google tag, contact forms, checkout, or public downloads until the launch plan is confirmed.
