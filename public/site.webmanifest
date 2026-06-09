@@ -1,6 +1,6 @@
 {
-  "name": "PrintKeep by BMR",
-  "short_name": "PrintKeep by BMR",
+  "name": "NozzleNote by BMR",
+  "short_name": "NozzleNote by BMR",
   "description": "A local-first desktop app in development for 3D printer maintenance tracking.",
   "start_url": "/",
   "display": "standalone",

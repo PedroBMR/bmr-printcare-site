@@ -1,5 +1,9 @@
 @import './tokens.css';
 
+/* Future visual direction note: global structure, accessibility defaults, and shared
+   page patterns live here; component-specific styling should remain local unless a
+   later design-system milestone consolidates it. */
+
 @view-transition {
   navigation: auto;
 }

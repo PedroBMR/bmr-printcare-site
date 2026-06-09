@@ -1,8 +1,8 @@
 # Launch Readiness Checklist
 
-Milestone 10 final review checklist for the static PrintKeep by BMR website.
+Milestone 10 final review checklist for the static NozzleNote by BMR website.
 
-PrintKeep by BMR is still in development. The website is a static public information and documentation hub only. Public app release, real download links, checkout, analytics, accounts, support intake, and production-domain-specific deployment settings are not implemented yet.
+NozzleNote by BMR is still in development. The website is a static public information and documentation hub only. Public app release, real download links, checkout, analytics, accounts, support intake, and production-domain-specific deployment settings are not implemented yet.
 
 ## Local validation
 
