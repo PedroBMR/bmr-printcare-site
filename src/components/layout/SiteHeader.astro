@@ -16,8 +16,15 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
 <header class="site-header" role="banner">
   <nav class="site-nav" aria-label="Primary navigation">
     <a class="brand-link" href={withBase('/')} aria-label="NozzleNote by BMR home">
-      <span class="brand-mark brand-mark--text" aria-hidden="true">
-        <span>N</span><span>N</span>
+      <span class="brand-mark" aria-hidden="true">
+        <img
+          src={withBase('/brand/nozzlenote-nn-symbol-64.png')}
+          alt=""
+          width="64"
+          height="64"
+          loading="eager"
+          decoding="async"
+        />
       </span>
       <span class="brand-text">
         <strong>NozzleNote</strong>
@@ -78,33 +85,19 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
     height: 2.65rem;
     flex: 0 0 auto;
     place-items: center;
-    border: 1px solid rgba(57, 208, 255, 0.34);
+    border: 1px solid rgba(57, 208, 255, 0.28);
     border-radius: 0.95rem;
     background:
-      radial-gradient(circle at 30% 20%, rgba(57, 208, 255, 0.16), transparent 62%),
+      radial-gradient(circle at 30% 20%, rgba(57, 208, 255, 0.14), transparent 62%),
       rgba(16, 22, 36, 0.72);
     box-shadow: 0 16px 42px rgba(57, 208, 255, 0.13), 0 12px 36px rgba(124, 58, 237, 0.1);
   }
 
-  .brand-mark--text {
-    grid-template-columns: repeat(2, auto);
-    gap: 0.02rem;
-    color: transparent;
-    font-size: 1rem;
-    font-weight: 950;
-    letter-spacing: -0.18em;
-    line-height: 1;
-  }
-
-  .brand-mark--text span {
-    background: var(--gradient-violet-tech);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(57, 208, 255, 0.24));
-  }
-
-  .brand-mark--text span + span {
-    transform: translateX(-0.08rem);
+  .brand-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .brand-text {
@@ -192,10 +185,6 @@ const normalizedPath = normalizeRoute(Astro.url.pathname);
     .brand-mark {
       width: 2.35rem;
       height: 2.35rem;
-    }
-
-    .brand-mark--text {
-      font-size: 0.92rem;
     }
   }
 </style>

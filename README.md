@@ -2,7 +2,7 @@
 
 Website and documentation hub for NozzleNote by BMR, a local-first desktop app in development for 3D printer maintenance tracking. NozzleNote is a local-first maintenance logbook for 3D printers — built to track routines, parts, costs, incidents and print quality over time.
 
-This repository is currently in **Milestone 16 — NozzleNote Final Rebrand and Visual Direction Preparation**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, a non-live Early Supporters planning route, the final NozzleNote by BMR public rebrand, and a future AI Designer intake document.
+This repository is currently in **Milestone 18 — Final Logo PNG Asset Integration**. It contains the Astro + TypeScript foundation, the structured Premium Violet Tech landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, static SEO/deployment preparation basics, launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, a non-live Early Supporters planning route, the final NozzleNote by BMR public rebrand, and integrated final raster NN logo assets that were manually uploaded to `public/brand/`.
 
 ## Current status
 
@@ -15,6 +15,10 @@ This repository is currently in **Milestone 16 — NozzleNote Final Rebrand and 
 - Public product naming should use **NozzleNote by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
 - BMR Verified Catalogs are planned optional content packs by BMR. They are not available yet, and paid catalog availability, pricing, licensing, and update periods are not final yet.
 
+
+## Brand assets
+
+The final NozzleNote NN raster PNG assets were manually uploaded to `public/brand/` and are now integrated without adding new binary files in the Milestone 18 code changes. The shared header and subtle hero preview identity use `/brand/nozzlenote-nn-symbol-64.png`; the web manifest references `/brand/nozzlenote-nn-symbol-192.png` and `/brand/nozzlenote-nn-symbol-512.png`; and `/brand/favicon-32.png` is available as a PNG favicon fallback while `/favicon.svg` remains the primary scalable favicon.
 
 ## Product naming
 
@@ -34,7 +38,7 @@ This repository is currently in **Milestone 16 — NozzleNote Final Rebrand and 
 
 ```text
 docs/             Short project documentation, including deployment and launch readiness checklists
-public/           Static SEO and browser support files such as robots.txt, favicon.svg, and site.webmanifest
+public/           Static SEO, browser support, and brand files such as robots.txt, favicon.svg, site.webmanifest, and public/brand PNG logo assets
 src/
   components/
     content/       Reusable content cards, grids, notes, FAQ, and release checklist components
@@ -89,7 +93,7 @@ The shared site chrome is composed from layout components in `src/components/lay
 - `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Catalogs, Roadmap, Download, and Support. Early Supporters is intentionally left out of the primary header to avoid crowding the navigation.
 - `SiteFooter.astro` provides product links, catalog/resource links, Early Supporters links, draft legal links, the manufacturer independence note, and the copyright notice.
 
-`BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, renders the shared header and footer around every page, and manages page metadata including title, description, Open Graph basics, Twitter/X summary-card basics, optional `noindex`, safe canonical URLs when `site` is configured, favicon, manifest, and theme color.
+`BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, renders the shared header and footer around every page, and manages page metadata including title, description, Open Graph basics, Twitter/X summary-card basics, optional `noindex`, safe canonical URLs when `site` is configured, the SVG primary favicon, PNG favicon fallback, manifest, and theme color.
 
 ## Current routes
 
@@ -417,7 +421,7 @@ The SEO and deployment pass includes:
 - Open Graph and Twitter/X summary-card basics;
 - optional `noindex` metadata for preliminary legal pages;
 - safe canonical handling based on the configured Astro `site` value;
-- static `robots.txt`, `site.webmanifest`, and `favicon.svg` files;
+- static `robots.txt`, `site.webmanifest`, `favicon.svg`, and `public/brand/` PNG logo asset references;
 - README deployment preparation instructions;
 - a short `docs/deployment-checklist.md` file.
 
@@ -439,7 +443,7 @@ Recommended next steps after Milestone 9:
 
 - Review generated metadata in a deployed preview environment only after a real hosting target exists.
 - Confirm the final production domain before adding sitemap output or changing canonical strategy.
-- Review the favicon and browser metadata in real browsers.
+- Review the favicon, PNG app icons, header logo, and browser metadata in real browsers.
 - Review legal placeholders with an attorney or qualified reviewer and update them based on actual distribution, support, hosting, and data practices.
 - Define a real support contact flow before adding contact forms, ticketing, or email collection.
 - Add release notes only if a public or private build process exists.
