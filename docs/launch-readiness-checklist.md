@@ -1,8 +1,8 @@
 # Launch Readiness Checklist
 
-Milestone 9 final review checklist for the static BMR PrintCare website.
+Milestone 10 final review checklist for the static PrintKeep by BMR website.
 
-BMR PrintCare is still in development. The website is a static public information and documentation hub only. Public app release, real download links, checkout, analytics, accounts, support intake, and production-domain-specific deployment settings are not implemented yet.
+PrintKeep by BMR is still in development. The website is a static public information and documentation hub only. Public app release, real download links, checkout, analytics, accounts, support intake, and production-domain-specific deployment settings are not implemented yet.
 
 ## Local validation
 
@@ -16,10 +16,10 @@ BMR PrintCare is still in development. The website is a static public informatio
 
 - [ ] Confirm public copy remains in English.
 - [ ] Confirm the homepage, Features, Docs, Roadmap, Support, and Download pages use conservative language for an app that is still in development.
-- [ ] Confirm the Download page does not contain “Download now”, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
-- [ ] Confirm support copy does not promise real-time support, ticket handling, official manufacturer support, automatic diagnostics, AI-powered analysis, cloud sync, or public availability.
+- [ ] Confirm the Download page does not contain immediate-download wording, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
+- [ ] Confirm support copy does not promise real-time support, ticket handling, manufacturer service support, automated diagnosis, machine-learning analysis, cloud sync, or public availability.
 - [ ] Confirm documentation pages avoid public installation instructions until a real release process exists.
-- [ ] Confirm manufacturer names, if mentioned, are used only for compatibility context and do not imply affiliation, sponsorship, endorsement, approval, official partnership, or access to proprietary systems.
+- [ ] Confirm manufacturer names, if mentioned, are used only for compatibility context and do not imply affiliation, sponsorship, endorsement, approval, partnership, or access to proprietary systems.
 
 ## Legal review
 

@@ -24,7 +24,7 @@ const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site).href : unde
     {noindex && <meta name="robots" content="noindex, follow" />}
     {canonicalUrl && !noindex && <link rel="canonical" href={canonicalUrl} />}
 
-    <meta property="og:site_name" content="BMR PrintCare" />
+    <meta property="og:site_name" content="PrintKeep by BMR" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
