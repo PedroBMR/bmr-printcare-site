@@ -258,7 +258,7 @@ Start the local development server:
 npm run dev
 ```
 
-Astro will print the local URL. Because the GitHub Pages preview uses the `/bmr-printcare-site/` Astro base path, open the base-path URL Astro reports, usually `http://localhost:4321/bmr-printcare-site/`.
+Astro will print the local URL. The production deployment is served from the domain root, so local development and preview checks should open the root URL Astro reports, usually `http://localhost:4321/` for development or the root path shown by `npm run preview`.
 
 ## Available commands
 
@@ -269,7 +269,7 @@ Astro will print the local URL. Because the GitHub Pages preview uses the `/bmr-
 | `npm run preview` | Preview the production build locally. |
 | `npm run astro` | Run Astro CLI commands. |
 | `npx astro check` | Run Astro diagnostics and TypeScript checks. |
-| `npm run check:links` | Check generated HTML in `dist/` for expected routes, base-prefixed internal links, assets, and anchors after `npm run build`. |
+| `npm run check:links` | Check generated HTML in `dist/` for expected root-domain routes, internal links, assets, and anchors after `npm run build`. |
 
 ## Testing the setup
 
@@ -323,21 +323,21 @@ Preview the production build locally:
 npm run preview
 ```
 
-### GitHub Pages preview
+### GitHub Pages custom-domain deployment
 
-This repository is configured for a GitHub Pages project preview at:
+This repository is configured for GitHub Pages deployment at the custom production domain:
 
 ```text
-https://PedroBMR.github.io/bmr-printcare-site/
+https://nozzlenote.com/
 ```
 
-The project page URL requires the Astro `base` value `/bmr-printcare-site/`. Internal links, footer links, documentation links, legal links, the favicon, the web manifest, and generated Astro assets are emitted with that base path for preview deployment.
+The custom domain serves the site from the domain root. `astro.config.mjs` sets `site` to `https://nozzlenote.com` and does not set an Astro `base` path, so internal links, footer links, documentation links, legal links, the favicon, the web manifest, and generated Astro assets are emitted from root paths such as `/features/`, `/favicon.svg`, and `/_astro/...`.
 
-Deployment uses GitHub Actions through `.github/workflows/deploy-github-pages.yml`; do not commit the generated `dist/` directory. Pedro must set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** in the repository settings, then push to `main` or run the workflow manually.
+Deployment uses GitHub Actions through `.github/workflows/deploy-github-pages.yml`; do not commit the generated `dist/` directory. The repository includes `public/CNAME` with `nozzlenote.com` so the generated Pages artifact preserves the custom-domain setting. Pedro must set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**, confirm the custom domain is `nozzlenote.com`, then push to `main` or run the workflow manually.
 
-The configured `site` remains `https://bmrprintcare.com` so non-draft canonical and Open Graph URLs continue to point at the legacy production-domain placeholder rather than the temporary GitHub Pages URL. Recheck that tradeoff before public launch or before moving the site to a root production domain. Do not add sitemap output until the production domain strategy is confirmed.
+The old GitHub Project Pages path `https://PedroBMR.github.io/bmr-printcare-site/` is no longer the target deployment path for production. The site should not depend on `/bmr-printcare-site/` in production.
 
-See `docs/deployment-preview.md` for detailed GitHub Pages settings, workflow behavior, preview risks, and the manual visual test checklist.
+See `docs/deployment-preview.md` for detailed GitHub Pages settings, workflow behavior, custom-domain risks, and the manual visual test checklist.
 
 Do not add analytics, tracking scripts, cookies, checkout, authentication, contact forms, newsletter integrations, public downloads, installers, binaries, or signup forms as part of this static deployment preview task.
 
@@ -347,14 +347,14 @@ Before any deployment candidate is shared publicly:
 
 - run `npm run build`;
 - run `npx astro check`;
-- run `npm run check:links` after `npm run build` to validate base-prefixed routes, assets, and anchors;
+- run `npm run check:links` after `npm run build` to validate root-domain routes, assets, and anchors;
 - run `git diff --check`;
-- preview the generated site with `npm run preview` when possible and open the `/bmr-printcare-site/` base path;
+- preview the generated site with `npm run preview` when possible and open the root path;
 - confirm route titles and meta descriptions are present;
 - confirm draft legal pages remain preliminary and do not claim full legal compliance;
 - confirm `/download` still avoids real download links and states that public release is not available yet;
 - confirm manufacturer independence language remains visible and no manufacturer logos are used;
-- recheck the `/bmr-printcare-site/` base path, canonical URL behavior, and sitemap strategy against the final production domain before public launch or root-domain deployment.
+- recheck root-path asset loading, canonical URL behavior, and sitemap strategy against `https://nozzlenote.com/` before public launch changes.
 
 See `docs/deployment-checklist.md` for deployment preparation notes and `docs/launch-readiness-checklist.md` for the Milestone 9 final review checklist.
 
