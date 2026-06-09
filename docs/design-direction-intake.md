@@ -1,6 +1,6 @@
 # Premium Violet Tech Visual Direction Implementation
 
-Milestone 17 applies the approved **Premium Violet Tech** direction to NozzleNote by BMR while preserving the existing product strategy, cautious roadmap language, root-domain deployment, and preliminary legal posture.
+Milestones 17 and 18 apply the approved **Premium Violet Tech** direction to NozzleNote by BMR while preserving the existing product strategy, cautious roadmap language, root-domain deployment, and preliminary legal posture.
 
 ## Applied visual direction
 
@@ -31,11 +31,11 @@ Global reusable patterns should continue to live in `src/styles/global.css`, inc
 
 ## Logo and asset handling
 
-Pedro provided final raster PNG logo assets for the NozzleNote NN mark, but they are **not committed in this Codex PR** because the Codex Pull Request flow does not support binary files. This milestone therefore keeps the visual direction text/code-only.
+Pedro manually uploaded the final raster PNG logo assets for the NozzleNote NN mark into `public/brand/`, including the header-sized `nozzlenote-nn-symbol-64.png`, app-icon exports at 192px and 512px, and the 32px PNG favicon fallback.
 
-The site currently uses a temporary source-controlled NN identity made from text/CSS in the header and hero preview, plus an SVG-only favicon at `public/favicon.svg`. This temporary mark keeps the cyan-to-blue-to-violet direction without adding binary files.
+Milestone 18 integrates those already-uploaded assets without adding, modifying, or replacing binary files. The shared header now uses `/brand/nozzlenote-nn-symbol-64.png` as a compact decorative NN symbol beside the readable `NozzleNote` / `by BMR` text lockup. The hero maintenance workspace preview also uses the same real NN mark subtly inside the mock interface, rather than the temporary text/CSS mark.
 
-Final PNG and/or exported SVG brand assets should be added later in a manual asset commit or a separate workflow that supports binary files. When that happens, update the header, hero preview if still needed, favicon, and `public/site.webmanifest` to point at the final approved assets.
+`public/favicon.svg` remains the primary scalable favicon. `public/brand/favicon-32.png` is referenced as an alternate PNG favicon, and `public/site.webmanifest` now includes `/brand/nozzlenote-nn-symbol-192.png` and `/brand/nozzlenote-nn-symbol-512.png` while preserving `NozzleNote by BMR` and `NozzleNote` naming.
 
 ## Preserved constraints
 
@@ -47,7 +47,7 @@ Final PNG and/or exported SVG brand assets should be added later in a manual ass
 
 ## Open future design work
 
-- Replace the temporary text/CSS and SVG-only identity with official optimized brand exports when available.
+- Visually audit the integrated PNG logo exports after deployment at the root custom domain.
 - Consider a dedicated wordmark/lockup export if future branding needs a full horizontal logo beyond the header text lockup.
 - Audit small favicon/app-icon rendering on real devices after deployment.
 - Consider a lightweight hosted font only if it improves the interface without hurting performance; the current system stack remains acceptable and intentionally non-decorative.
