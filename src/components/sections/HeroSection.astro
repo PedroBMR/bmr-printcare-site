@@ -12,8 +12,8 @@ import { withBase } from '../../utils/paths';
     </p>
     <ul class="trust-chips" aria-label="Product trust principles">
       <li>Local-first</li>
-      <li>Planned catalogs</li>
-      <li>Backup-ready</li>
+      <li>Verified catalogs planned</li>
+      <li>Private by default</li>
     </ul>
     <p class="hero-microcopy">Your maintenance data is planned to stay on your device by default.</p>
     <div class="hero-actions" aria-label="Primary landing page actions">
@@ -22,24 +22,61 @@ import { withBase } from '../../utils/paths';
     </div>
   </div>
 
-  <aside class="hero-panel" aria-label="Product status preview">
+  <aside class="hero-panel" aria-label="Product maintenance workspace preview">
+    <div class="panel-brand" aria-label="NozzleNote by BMR preview identity">
+      <span class="panel-brand-mark" aria-hidden="true"><span>N</span><span>N</span></span>
+      <div>
+        <strong>NozzleNote</strong>
+        <span>by BMR</span>
+      </div>
+    </div>
+
     <div class="panel-header">
       <span class="status-dot" aria-hidden="true"></span>
       <span>Desktop app in development</span>
     </div>
-    <div class="maintenance-card">
+
+    <div class="maintenance-card next-card">
       <span class="card-label">Next maintenance</span>
       <strong>Lubricate motion system</strong>
       <p>Track recurring tasks by printer, usage, and service notes.</p>
     </div>
+
+    <div class="workspace-grid" aria-label="Maintenance workspace cards">
+      <section class="mini-card" aria-labelledby="history-preview-title">
+        <span class="card-label">Recent service log</span>
+        <h2 id="history-preview-title">History</h2>
+        <ul>
+          <li><span>Cleaned nozzle path</span><strong>Logged</strong></li>
+          <li><span>Replaced PTFE tube</span><strong>Parts</strong></li>
+          <li><span>Checked belt tension</span><strong>Notes</strong></li>
+        </ul>
+      </section>
+
+      <section class="mini-card violet-card" aria-labelledby="parts-preview-title">
+        <span class="card-label">Parts & costs</span>
+        <h2 id="parts-preview-title">Summary</h2>
+        <dl>
+          <div>
+            <dt>Consumables</dt>
+            <dd>Tracked</dd>
+          </div>
+          <div>
+            <dt>Catalog packs</dt>
+            <dd>Planned</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
     <dl class="hero-metrics">
       <div>
         <dt>Printers</dt>
         <dd>1–5 setups</dd>
       </div>
       <div>
-        <dt>Parts</dt>
-        <dd>Documented</dd>
+        <dt>Records</dt>
+        <dd>Maintenance</dd>
       </div>
       <div>
         <dt>Data</dt>
@@ -52,7 +89,7 @@ import { withBase } from '../../utils/paths';
 <style>
   .hero-section {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.88fr);
     gap: clamp(2rem, 6vw, 5rem);
     align-items: center;
     padding-top: clamp(4rem, 9vw, 7rem);
@@ -87,12 +124,17 @@ import { withBase } from '../../utils/paths';
 
   .trust-chips li {
     border: 1px solid rgba(57, 208, 255, 0.28);
-    border-radius: 999px;
+    border-radius: var(--radius-control);
     padding: 0.5rem 0.8rem;
     background: rgba(57, 208, 255, 0.08);
     color: var(--color-text);
     font-size: 0.9rem;
     font-weight: 900;
+  }
+
+  .trust-chips li:nth-child(2) {
+    border-color: rgba(124, 58, 237, 0.35);
+    background: rgba(124, 58, 237, 0.1);
   }
 
   .hero-microcopy {
@@ -115,9 +157,9 @@ import { withBase } from '../../utils/paths';
     min-height: 3rem;
     align-items: center;
     justify-content: center;
-    border-radius: 999px;
+    border-radius: var(--radius-control);
     padding: 0.85rem 1.15rem;
-    font-weight: 800;
+    font-weight: 900;
     text-align: center;
     text-decoration: none;
     transition:
@@ -127,14 +169,15 @@ import { withBase } from '../../utils/paths';
   }
 
   .primary-action {
-    background: linear-gradient(135deg, var(--color-accent), #8ae8ff);
-    color: #04111a;
-    box-shadow: 0 18px 50px rgba(57, 208, 255, 0.2);
+    border: 1px solid rgba(57, 208, 255, 0.5);
+    background: var(--gradient-brand);
+    color: var(--color-text);
+    box-shadow: 0 18px 50px rgba(37, 99, 255, 0.22);
   }
 
   .secondary-action {
     border: 1px solid var(--color-border-strong);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(16, 22, 36, 0.66);
     color: var(--color-text);
   }
 
@@ -142,21 +185,35 @@ import { withBase } from '../../utils/paths';
   .primary-action:focus-visible,
   .secondary-action:hover,
   .secondary-action:focus-visible {
-    border-color: rgba(57, 208, 255, 0.62);
-    box-shadow: 0 18px 50px rgba(57, 208, 255, 0.18);
+    border-color: rgba(57, 208, 255, 0.72);
+    box-shadow: var(--shadow-cyan);
     transform: translateY(-1px);
   }
 
   .hero-panel {
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
+    border: 1px solid rgba(57, 208, 255, 0.24);
+    border-radius: calc(var(--radius-card) + 0.35rem);
     padding: clamp(1.25rem, 4vw, 2rem);
     background:
-      radial-gradient(circle at 20% 10%, rgba(57, 208, 255, 0.2), transparent 15rem),
-      linear-gradient(145deg, rgba(16, 22, 36, 0.95), rgba(21, 29, 46, 0.76));
-    box-shadow: var(--shadow-soft);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 30%),
+      radial-gradient(circle at 18% 8%, rgba(57, 208, 255, 0.22), transparent 15rem),
+      radial-gradient(circle at 92% 18%, rgba(124, 58, 237, 0.2), transparent 17rem),
+      linear-gradient(145deg, rgba(16, 22, 36, 0.96), rgba(21, 29, 46, 0.8));
+    box-shadow: var(--shadow-soft), var(--shadow-violet);
+  }
+
+  .hero-panel::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(57, 208, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57, 208, 255, 0.05) 1px, transparent 1px);
+    background-size: 2.25rem 2.25rem;
+    mask-image: linear-gradient(to bottom, black, transparent 86%);
+    content: '';
   }
 
   .hero-panel::after {
@@ -170,11 +227,66 @@ import { withBase } from '../../utils/paths';
     filter: blur(48px);
   }
 
+  .panel-brand,
   .panel-header,
   .maintenance-card,
+  .workspace-grid,
   .hero-metrics {
     position: relative;
     z-index: 1;
+  }
+
+  .panel-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .panel-brand-mark {
+    display: inline-grid;
+    width: 3.4rem;
+    height: 3.4rem;
+    grid-template-columns: repeat(2, auto);
+    place-content: center;
+    gap: 0.02rem;
+    border: 1px solid rgba(57, 208, 255, 0.3);
+    border-radius: 1.1rem;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(57, 208, 255, 0.14), transparent 62%),
+      rgba(7, 10, 18, 0.34);
+    color: transparent;
+    font-size: 1.35rem;
+    font-weight: 950;
+    letter-spacing: -0.18em;
+    line-height: 1;
+    box-shadow: 0 14px 24px rgba(57, 208, 255, 0.16), 0 12px 26px rgba(124, 58, 237, 0.12);
+  }
+
+  .panel-brand-mark span {
+    background: var(--gradient-violet-tech);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .panel-brand-mark span + span {
+    transform: translateX(-0.08rem);
+  }
+
+  .panel-brand div {
+    display: grid;
+    gap: 0.08rem;
+  }
+
+  .panel-brand strong {
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+  }
+
+  .panel-brand span {
+    color: var(--color-text-soft);
+    font-size: 0.8rem;
+    font-weight: 900;
   }
 
   .panel-header {
@@ -193,17 +305,29 @@ import { withBase } from '../../utils/paths';
     box-shadow: 0 0 24px rgba(57, 208, 255, 0.75);
   }
 
-  .maintenance-card {
-    margin-top: 2.5rem;
+  .maintenance-card,
+  .mini-card,
+  .hero-metrics div {
     border: 1px solid var(--color-border);
+    background: rgba(7, 10, 18, 0.32);
+  }
+
+  .maintenance-card {
+    margin-top: 1.2rem;
     border-radius: 1.25rem;
     padding: 1.25rem;
-    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .next-card {
+    border-color: rgba(57, 208, 255, 0.28);
+    background:
+      radial-gradient(circle at top right, rgba(57, 208, 255, 0.12), transparent 12rem),
+      rgba(7, 10, 18, 0.34);
   }
 
   .card-label {
     color: var(--color-accent);
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -221,18 +345,76 @@ import { withBase } from '../../utils/paths';
     color: var(--color-text-muted);
   }
 
+  .workspace-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 0.85rem;
+    margin-top: 0.85rem;
+  }
+
+  .mini-card {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .mini-card h2 {
+    margin: 0.4rem 0 0;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+  }
+
+  .mini-card ul,
+  .mini-card dl {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0.9rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mini-card li,
+  .mini-card dl div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .mini-card strong,
+  .mini-card dd {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+
+  .mini-card dt {
+    color: var(--color-text-muted);
+  }
+
+  .violet-card {
+    border-color: rgba(124, 58, 237, 0.28);
+    background:
+      radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.16), transparent 10rem),
+      rgba(7, 10, 18, 0.32);
+  }
+
+  .violet-card .card-label {
+    color: var(--color-brand-violet-soft);
+  }
+
   .hero-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
-    margin: 1rem 0 0;
+    margin: 0.85rem 0 0;
   }
 
   .hero-metrics div {
-    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 0.9rem;
-    background: rgba(255, 255, 255, 0.035);
   }
 
   .hero-metrics dt {
@@ -241,21 +423,34 @@ import { withBase } from '../../utils/paths';
   }
 
   .hero-metrics dd {
-    margin: 0.3rem 0 0;
-    font-weight: 800;
+    margin: 0.35rem 0 0;
+    color: var(--color-text);
+    font-weight: 900;
   }
 
-  @media (max-width: 820px) {
+  @media (max-width: 900px) {
     .hero-section {
       grid-template-columns: 1fr;
+      padding-top: 3rem;
     }
 
-    h1 {
-      max-width: 9ch;
+    .hero-panel {
+      max-width: 38rem;
     }
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 560px) {
+    h1 {
+      font-size: clamp(2.7rem, 17vw, 4.25rem);
+    }
+
+    .hero-actions,
+    .primary-action,
+    .secondary-action {
+      width: 100%;
+    }
+
+    .workspace-grid,
     .hero-metrics {
       grid-template-columns: 1fr;
     }

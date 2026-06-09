@@ -1,8 +1,7 @@
 @import './tokens.css';
 
-/* Future visual direction note: global structure, accessibility defaults, and shared
-   page patterns live here; component-specific styling should remain local unless a
-   later design-system milestone consolidates it. */
+/* Premium Violet Tech global structure, accessibility defaults, and shared page patterns.
+   Component-specific styling remains local unless a later design-system milestone consolidates it. */
 
 @view-transition {
   navigation: auto;
@@ -37,8 +36,9 @@ body {
   flex-direction: column;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(57, 208, 255, 0.16), transparent 32rem),
-    radial-gradient(circle at top right, rgba(124, 58, 237, 0.18), transparent 28rem),
+    radial-gradient(circle at 12% 0%, rgba(57, 208, 255, 0.18), transparent 30rem),
+    radial-gradient(circle at 84% 6%, rgba(124, 58, 237, 0.16), transparent 28rem),
+    radial-gradient(circle at 55% 42rem, rgba(37, 99, 255, 0.08), transparent 34rem),
     linear-gradient(180deg, rgba(7, 10, 18, 0), var(--color-background) 48rem),
     var(--color-background);
   color: var(--color-text);
@@ -51,9 +51,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 4rem 4rem;
+    linear-gradient(rgba(57, 208, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 208, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(167, 139, 250, 0.025) 1px, transparent 1px);
+  background-size: 4rem 4rem, 4rem 4rem, 1rem 1rem;
   mask-image: linear-gradient(to bottom, black, transparent 72%);
   content: '';
 }
@@ -77,6 +78,11 @@ a:hover {
   color: var(--color-text);
 }
 
+::selection {
+  background: rgba(57, 208, 255, 0.26);
+  color: var(--color-text);
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -85,6 +91,7 @@ a {
 :where(a, button, [tabindex]):focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 0.22rem;
+  box-shadow: 0 0 0 0.28rem rgba(57, 208, 255, 0.14);
 }
 
 .skip-link {
@@ -169,8 +176,9 @@ main {
 .faq-item {
   border: 1px solid var(--color-border);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 32%),
-    rgba(16, 22, 36, 0.72);
+    radial-gradient(circle at 12% 0%, rgba(57, 208, 255, 0.075), transparent 16rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 34%),
+    var(--color-surface-glass);
   box-shadow: var(--shadow-soft);
 }
 
@@ -281,15 +289,18 @@ h2 {
   padding: clamp(1.5rem, 4vw, 2rem);
   background:
     radial-gradient(circle at top right, rgba(57, 208, 255, 0.12), transparent 18rem),
-    rgba(16, 22, 36, 0.62);
+    radial-gradient(circle at bottom left, rgba(124, 58, 237, 0.075), transparent 16rem),
+    rgba(16, 22, 36, 0.68);
+  box-shadow: var(--shadow-soft);
 }
 
 .status-pill {
   display: inline-flex;
   width: fit-content;
   align-items: center;
+  gap: 0.4rem;
   border: 1px solid rgba(57, 208, 255, 0.32);
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   padding: 0.45rem 0.7rem;
   background: rgba(57, 208, 255, 0.08);
   color: var(--color-accent);
@@ -297,6 +308,15 @@ h2 {
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.status-pill::before {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 16px currentColor;
+  content: '';
 }
 
 .link-list {
@@ -343,8 +363,10 @@ h2 {
   border-radius: calc(var(--radius-card) + 0.25rem);
   padding: clamp(1.2rem, 3vw, 1.5rem);
   background:
+    linear-gradient(135deg, rgba(57, 208, 255, 0.12), rgba(124, 58, 237, 0.08)),
     radial-gradient(circle at top right, rgba(57, 208, 255, 0.14), transparent 18rem),
-    rgba(16, 22, 36, 0.7);
+    rgba(16, 22, 36, 0.76);
+  box-shadow: var(--shadow-cyan);
 }
 
 .status-banner p {
@@ -404,14 +426,15 @@ h2 {
 }
 
 .primary-link {
-  border: 1px solid rgba(57, 208, 255, 0.42);
-  background: linear-gradient(135deg, rgba(57, 208, 255, 0.18), rgba(124, 58, 237, 0.2));
-  color: var(--color-text);
+  border: 1px solid rgba(57, 208, 255, 0.5);
+  background: var(--gradient-brand);
+  color: #f8fafc;
+  box-shadow: 0 18px 48px rgba(37, 99, 255, 0.18);
 }
 
 .secondary-link {
   border: 1px solid var(--color-border);
-  background: rgba(16, 22, 36, 0.52);
+  background: rgba(16, 22, 36, 0.62);
   color: var(--color-text-muted);
 }
 
@@ -421,6 +444,7 @@ h2 {
 .secondary-link:focus-visible {
   border-color: rgba(57, 208, 255, 0.68);
   color: var(--color-text);
+  box-shadow: var(--shadow-cyan);
   transform: translateY(-1px);
 }
 
@@ -451,7 +475,10 @@ h2 {
   border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-card) + 0.25rem);
   padding: clamp(1.35rem, 4vw, 2rem);
-  background: rgba(16, 22, 36, 0.66);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 36%),
+    rgba(16, 22, 36, 0.72);
+  box-shadow: var(--shadow-soft);
 }
 
 .status-note--accent {
@@ -549,7 +576,9 @@ h2 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   padding: 1rem;
-  background: rgba(16, 22, 36, 0.76);
+  background:
+    radial-gradient(circle at top left, rgba(57, 208, 255, 0.09), transparent 12rem),
+    rgba(16, 22, 36, 0.82);
   box-shadow: var(--shadow-soft);
 }
 
@@ -828,6 +857,15 @@ h2 {
   .primary-link,
   .secondary-link {
     width: 100%;
+  }
+
+  .content-card,
+  .feature-detail-card,
+  .docs-card,
+  .release-checklist__item,
+  .content-panel,
+  .status-banner {
+    border-radius: 1.15rem;
   }
 }
 

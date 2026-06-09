@@ -1,11 +1,11 @@
 {
   "name": "NozzleNote by BMR",
-  "short_name": "NozzleNote by BMR",
+  "short_name": "NozzleNote",
   "description": "A local-first desktop app in development for 3D printer maintenance tracking.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#0b1020",
+  "background_color": "#070A12",
+  "theme_color": "#070A12",
   "icons": [
     {
       "src": "/favicon.svg",
