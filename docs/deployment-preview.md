@@ -1,6 +1,6 @@
-# GitHub Pages Preview Deployment
+# GitHub Pages Custom-Domain Deployment
 
-This note records the Post-Milestone 9 GitHub Pages preview setup for the static PrintKeep by BMR website. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
+This note records the GitHub Pages setup for the static PrintKeep by BMR website at the custom domain. It is for browser review before public release and does not add analytics, backend services, checkout, forms, downloads, installers, binaries, manufacturer logos, or partnership claims.
 
 ## Current build setup
 
@@ -9,35 +9,38 @@ This note records the Post-Milestone 9 GitHub Pages preview setup for the static
   - `npm run dev` starts the local Astro development server.
   - `npm run build` generates the production static site.
   - `npm run preview` serves the generated build locally.
-  - `npm run check:links` validates generated routes, base-prefixed internal links, assets, and anchors after `dist/` exists.
+  - `npm run check:links` validates generated root-domain routes, internal links, assets, and anchors after `dist/` exists.
 - Build output: Astro writes the generated static site to `dist/`.
 - Static behavior: no adapter, server runtime, backend, forms, analytics, checkout, downloads, or payment integrations are configured.
-- GitHub Pages preview URL: `https://PedroBMR.github.io/bmr-printcare-site/`.
-- Astro base path: `astro.config.mjs` sets `base` to `/bmr-printcare-site/` so generated internal links and static assets work from the GitHub Pages project URL.
-- Configured canonical site URL: `astro.config.mjs` still sets `site` to `https://bmrprintcare.com` because the legacy production domain placeholder is expected to be reviewed separately later.
+- Production custom domain: `https://nozzlenote.com/`.
+- Astro site URL: `astro.config.mjs` sets `site` to `https://nozzlenote.com` for canonical and Open Graph URLs on non-`noindex` pages.
+- Astro base path: no `base` is configured. Generated routes, internal links, static files, and Astro assets are emitted for the domain root.
+- Custom-domain artifact support: `public/CNAME` contains only `nozzlenote.com`, so the generated Pages artifact includes the required CNAME file.
 - Sitemap output is intentionally not configured yet.
 
 ## Current public routes
 
-The current page files generate these browser routes under the GitHub Pages project base path:
+The current page files generate these browser routes from the custom-domain root:
 
-- `/bmr-printcare-site/`
-- `/bmr-printcare-site/features/`
-- `/bmr-printcare-site/docs/`
-- `/bmr-printcare-site/docs/getting-started/`
-- `/bmr-printcare-site/docs/printer-profiles/`
-- `/bmr-printcare-site/docs/maintenance-history/`
-- `/bmr-printcare-site/docs/preventive-maintenance/`
-- `/bmr-printcare-site/docs/parts-and-consumables/`
-- `/bmr-printcare-site/docs/local-first-data/`
-- `/bmr-printcare-site/roadmap/`
-- `/bmr-printcare-site/support/`
-- `/bmr-printcare-site/download/`
-- `/bmr-printcare-site/privacy/`
-- `/bmr-printcare-site/terms/`
-- `/bmr-printcare-site/license-terms/`
-- `/bmr-printcare-site/refund-policy/`
-- `/bmr-printcare-site/manufacturer-disclaimer/`
+- `/`
+- `/features/`
+- `/docs/`
+- `/catalogs/`
+- `/docs/getting-started/`
+- `/docs/printer-profiles/`
+- `/docs/maintenance-history/`
+- `/docs/preventive-maintenance/`
+- `/docs/parts-and-consumables/`
+- `/docs/local-first-data/`
+- `/roadmap/`
+- `/early-supporters/`
+- `/support/`
+- `/download/`
+- `/privacy/`
+- `/terms/`
+- `/license-terms/`
+- `/refund-policy/`
+- `/manufacturer-disclaimer/`
 
 ## GitHub Pages workflow
 
@@ -55,7 +58,7 @@ The workflow:
 8. uploads `dist/` as a GitHub Pages artifact;
 9. deploys the artifact with the official `actions/deploy-pages` action.
 
-Do not commit the generated `dist/` folder for this preview.
+Do not commit the generated `dist/` folder for this deployment.
 
 ## Manual GitHub settings Pedro must configure
 
@@ -63,43 +66,49 @@ In the GitHub repository settings:
 
 1. Open **Settings → Pages**.
 2. Set **Build and deployment → Source** to **GitHub Actions**.
-3. Confirm the repository is named `bmr-printcare-site` under the `PedroBMR` account if the expected preview URL should be `https://PedroBMR.github.io/bmr-printcare-site/`.
-4. Push to `main` or run the workflow manually from the **Actions** tab.
-5. Wait for the deployment to finish and open the Pages URL shown by the workflow.
+3. Confirm **Custom domain** is exactly `nozzlenote.com`.
+4. Confirm the DNS check passes and **Enforce HTTPS** is enabled once GitHub allows it.
+5. Push to `main` or run the workflow manually from the **Actions** tab.
+6. Wait for the deployment to finish and open the Pages URL shown by the workflow.
+7. Open `https://nozzlenote.com/` and confirm CSS, JavaScript, favicon, manifest, and Astro assets load from root paths, not from the old project path.
 
-## Canonical and Open Graph tradeoff
+## Canonical and Open Graph behavior
 
-The preview is served from `https://PedroBMR.github.io/bmr-printcare-site/`, but non-`noindex` pages continue to emit canonical and Open Graph URLs for `https://bmrprintcare.com`.
+The production deployment is served from `https://nozzlenote.com/`, and non-`noindex` pages emit canonical and Open Graph URLs using that domain.
 
-This is intentional for now because `bmrprintcare.com` remains a legacy production-domain placeholder to review later, and the GitHub Pages URL is only a preview. Before public launch, recheck whether the production domain is live, whether canonical URLs should remain on `bmrprintcare.com`, and whether a sitemap should be added. Do not add sitemap output until the final domain and launch strategy are confirmed.
+Draft legal pages should keep their existing `noindex` behavior. Do not add sitemap output until the final launch strategy is confirmed.
 
 ## Manual visual test checklist
 
 After deployment, review these items in desktop and mobile browsers:
 
-- Homepage loads under `/bmr-printcare-site/`.
-- Header links work.
-- Footer links work.
+- Homepage loads at `https://nozzlenote.com/` with full styling.
+- Header links work from the domain root.
+- Footer links work from the domain root.
 - Home CTAs go to the correct route or section.
 - In-page anchor links scroll smoothly and land below the sticky header.
 - Browser back/forward behavior feels normal.
-- `/features/` loads under the project base path.
-- `/docs/` and every guide page load under the project base path.
+- `/features/` loads from the domain root.
+- `/catalogs/` loads from the domain root.
+- `/docs/` and every guide page load from the domain root.
 - The docs hub keeps its broader overview treatment, while individual docs guides use the compact article header with the same sidebar shell.
-- Docs sidebar active states, Back to docs hub links, and guide-to-guide links remain inside `/bmr-printcare-site/`.
+- Docs sidebar active states, Back to docs hub links, and guide-to-guide links remain rooted under `/docs/`.
 - Docs navigation feels steady; browsers with cross-document View Transitions support should show a subtle transition, while reduced-motion users should not receive animated navigation.
-- `/roadmap/` loads under the project base path.
-- `/support/` loads under the project base path.
+- `/roadmap/` loads from the domain root.
+- `/support/` loads from the domain root.
 - `/download/` clearly says public release is not available yet.
+- `/early-supporters/` remains a planning placeholder, not a live campaign.
 - Legal pages remain preliminary or draft.
 - Manufacturer independence disclaimer is visible.
 - Mobile navigation wraps without breaking.
 - Reduced-motion behavior remains respected.
-- Favicon and web manifest load from the project base path.
+- Favicon and web manifest load from `/favicon.svg` and `/site.webmanifest`.
+- Generated Astro assets load from `/_astro/...`.
+- `https://nozzlenote.com/bmr-printcare-site/` is not expected to be a valid production route.
 
-## Preview risks
+## Deployment risks
 
-- GitHub Pages previews may be publicly reachable. Share the URL carefully.
-- Because the project uses `/bmr-printcare-site/` as an Astro base path, local preview and future production-domain deployment strategy should be rechecked before launch on a root domain.
-- If a final production site uses a domain root, remove or adjust the Astro `base` value as part of that deployment change and rerun the full link and visual checks.
+- GitHub Pages deployments may be publicly reachable. Share the URL carefully.
+- The old GitHub Project Pages URL with `/bmr-printcare-site/` is no longer the production target after the custom-domain move.
+- If a future secondary preview needs the old Project Pages URL, reintroduce base-path support only through an explicit preview-specific configuration so production remains rooted at `https://nozzlenote.com/`.
 - Legal pages are preliminary and must be reviewed before commercial launch, payments, analytics, accounts, app distribution, or public release.
