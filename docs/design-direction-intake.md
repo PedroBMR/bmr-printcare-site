@@ -1,34 +1,54 @@
-# Design Direction Intake for Future AI Designer
+# Premium Violet Tech Visual Direction Implementation
 
-NozzleNote by BMR is structurally ready for a future visual identity pass, but this milestone intentionally keeps the existing dark/premium base intact. The next AI Designer should provide direction before new fonts, images, logos, large illustration assets, or a broader design system are added.
+Milestone 17 applies the approved **Premium Violet Tech** direction to NozzleNote by BMR while preserving the existing product strategy, cautious roadmap language, root-domain deployment, and preliminary legal posture.
 
-## Current product positioning
+## Applied visual direction
 
-NozzleNote is a local-first maintenance logbook for 3D printers — built to track routines, parts, costs, incidents and print quality over time.
+- The site now uses a darker premium graphite base with layered cyan/blue technical glows and restrained violet signature moments.
+- Cyan/blue remains the technical foundation for focus, links, active navigation, grid lines, release/status emphasis, and primary interface clarity.
+- Violet is intentionally controlled and used for brand/future accents, premium depth, planned-catalog moments, and selected surface glows rather than every component.
+- Cards, panels, docs navigation, status banners, roadmap surfaces, CTAs, hover states, and focus states were refined in the shared global CSS so Home, Features, Catalogs, Docs, Roadmap, Download, Support, Early Supporters, and legal pages share the same visual system.
+- The homepage hero now presents a maintenance workspace/logbook metaphor with next maintenance, recent service log, parts/cost summary, local data, and planned catalog cues. It does not show slicer, live printer-control, marketplace, or manufacturer-software visuals.
 
-The site should continue to communicate that the desktop app is in development, public release is not available yet, BMR Verified Catalogs are planned optional content packs, and NozzleNote by BMR is independent from printer manufacturers.
+## Palette and pattern locations
 
-## Designer output requested
+Future visual tokens should continue to live in `src/styles/tokens.css`. The current core tokens include:
 
-Please provide a concise visual direction package that covers:
+- `--color-background: #070A12`
+- `--color-surface: #101624`
+- `--color-surface-raised: #151D2E`
+- `--color-text: #F8FAFC`
+- `--color-text-muted: #A7B0C0`
+- `--color-text-soft: #778195`
+- `--color-brand-cyan: #39D0FF`
+- `--color-brand-blue: #2563FF`
+- `--color-brand-violet: #7C3AED`
+- `--color-brand-violet-soft: #A78BFA`
+- `--gradient-brand`
+- `--gradient-violet-tech`
 
-- **Visual personality:** describe the desired feel, such as trustworthy workshop tool, premium desktop utility, precise maintenance record, calm technical dashboard, or another direction.
-- **Color palette:** define primary, secondary, neutral, surface, border, text, focus, success, warning, and danger colors with accessible contrast guidance for the dark base.
-- **Typography direction:** recommend type personality, hierarchy, weight usage, spacing, and whether the current system-font stack should remain or be replaced later.
-- **Logo/wordmark direction:** propose how “NozzleNote” and “by BMR” should be handled, including mark concepts, wordmark proportions, favicon simplification, and small-size behavior.
-- **Icon style:** specify stroke/fill style, corner radius, line weight, metaphor set, and whether icons should feel mechanical, notebook-like, printer-care-focused, or dashboard-like.
-- **Illustration style:** define whether illustrations should be abstract UI panels, maintenance diagrams, simple 3D printer silhouettes, exploded parts, or avoided entirely.
-- **Homepage section treatment:** guide the hero, proof/status bands, feature grids, roadmap callouts, catalog planning content, disclaimer placement, and future release-preparation sections.
-- **Card treatment:** define border strength, elevation, surface gradients, hover behavior, density, and how status labels should appear.
-- **CTA/button style:** define primary and secondary button shape, contrast, motion, disabled/planned states, and treatment for non-live pages such as Download and Early Supporters.
-- **Mobile behavior:** specify navigation behavior, hero stacking, card spacing, touch target sizes, long-page scanning, and legal/documentation readability.
-- **Accessibility constraints:** keep keyboard-visible focus states, maintain readable contrast, avoid relying on color alone for status, preserve semantic headings, and support reduced-motion preferences if motion is expanded later.
-- **Examples/references:** include 3–5 visual references with notes on what to borrow and what not to copy.
-- **Things to avoid:** avoid manufacturer logos, partnership-like visuals, “official” catalog cues, medical/legal compliance badges, live-commerce styling before launch, fake app screenshots, overpromising AI/automation, and visual claims that imply public availability.
+Global reusable patterns should continue to live in `src/styles/global.css`, including shared card surfaces, button/CTA treatments, focus states, status banners, docs readability patterns, roadmap grids, and reduced-motion behavior.
 
-## Implementation handoff notes
+## Logo and asset handling
 
-- Keep visual tokens centralized in `src/styles/tokens.css` where practical.
-- Keep layout, typography defaults, component styling, focus states, and responsive behavior in `src/styles/global.css` or component-local styles until a larger design system is justified.
-- The current site uses root-relative URLs for the `https://nozzlenote.com` custom domain. Visual updates should not reintroduce a GitHub Project Pages base path.
-- Future visual work should be implemented as a separate milestone after the AI Designer direction is reviewed.
+Pedro provided final raster PNG logo assets for the NozzleNote NN mark, but they are **not committed in this Codex PR** because the Codex Pull Request flow does not support binary files. This milestone therefore keeps the visual direction text/code-only.
+
+The site currently uses a temporary source-controlled NN identity made from text/CSS in the header and hero preview, plus an SVG-only favicon at `public/favicon.svg`. This temporary mark keeps the cyan-to-blue-to-violet direction without adding binary files.
+
+Final PNG and/or exported SVG brand assets should be added later in a manual asset commit or a separate workflow that supports binary files. When that happens, update the header, hero preview if still needed, favicon, and `public/site.webmanifest` to point at the final approved assets.
+
+## Preserved constraints
+
+- Public copy remains in English and continues to use `NozzleNote by BMR` or `NozzleNote`.
+- Planned/future language remains cautious for paid catalogs, accounts, mobile companion, integrations, calibration, print quality tracking, cloud sync, and public downloads.
+- Catalog language remains based on verified catalogs / BMR Verified Catalogs / BMR-maintained verified catalog packs, not manufacturer catalog claims.
+- Legal pages remain preliminary/draft and should remain noindexed where configured.
+- Root-domain deployment remains the target: `https://nozzlenote.com`, no repository base path, and `public/CNAME` remains `nozzlenote.com`.
+
+## Open future design work
+
+- Replace the temporary text/CSS and SVG-only identity with official optimized brand exports when available.
+- Consider a dedicated wordmark/lockup export if future branding needs a full horizontal logo beyond the header text lockup.
+- Audit small favicon/app-icon rendering on real devices after deployment.
+- Consider a lightweight hosted font only if it improves the interface without hurting performance; the current system stack remains acceptable and intentionally non-decorative.
+- Continue refining per-page imagery only with maintenance-logbook metaphors, avoiding slicer, printer-control, marketplace, manufacturer, or partnership cues.
