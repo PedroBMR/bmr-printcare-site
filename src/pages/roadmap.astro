@@ -94,6 +94,7 @@ const connectorIdeas = [
       <div class="hero-actions" aria-label="Roadmap page links">
         <a class="primary-link" href={withBase('/catalogs/')}>Explore catalog planning</a>
         <a class="secondary-link" href={withBase('/download/')}>Read release preparation</a>
+        <a class="secondary-link" href={withBase('/early-supporters/')}>Early Supporters concept</a>
       </div>
     </section>
 
@@ -145,11 +146,13 @@ const connectorIdeas = [
         <span class="status-pill">Future roadmap</span>
         <h2>Future commercial path</h2>
         <p>
-          Paid catalog work is a future path and should only move forward after review. Paid catalog availability, pricing,
-          licensing and update periods are not final yet.
+          Paid catalog work is a future path and should only move forward after review. An early supporter or crowdfunding-style
+          campaign may later become a future commercial path to help fund launch preparation, but it is not live and rewards
+          are not final. Paid catalog availability, pricing, licensing and update periods are not final yet.
         </p>
         <ul class="plain-list">
           {commercialPathItems.map((item) => <li>{item}</li>)}
+          <li><a href={withBase('/early-supporters/')}>Review the Early Supporters planning placeholder</a></li>
         </ul>
       </article>
 
