@@ -1,0 +1,160 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const fundingUses = [
+  'Code signing preparation for future desktop builds',
+  'Beginner-friendly documentation and release notes',
+  'Catalog packaging, boundaries, and review workflows',
+  'Website polish for launch-readiness messaging',
+  'Release testing, known-limitations notes, and final launch preparation',
+];
+
+const currentLimits = [
+  'The campaign is not live yet.',
+  'Rewards are not final and remain under review.',
+  'No payment is being collected through this website.',
+  'No purchase, pledge, license, catalog, account, or mobile access is currently available through this page.',
+  'PrintKeep by BMR is still in development, and public release is not available yet.',
+];
+
+const rewardIdeas = [
+  'Founder badge',
+  'Early access, if a reviewed build and support scope are ready',
+  'BMR Verified Catalog license with defined scope and duration',
+  'Printable maintenance kit',
+  'Name in credits, if consent and display rules are defined',
+  'All Access for a defined period, not indefinite access to every future catalog',
+];
+
+const explicitBoundaries = [
+  'No indefinite all-inclusive promise is being offered here.',
+  'No access to every future catalog is promised.',
+  'No firm delivery date is stated.',
+  'No manufacturer affiliation, endorsement, sponsorship, approval, or support is implied.',
+  'No mobile companion is available from this page.',
+];
+
+const launchRequirements = [
+  'Reviewed terms',
+  'Reviewed refund and commercial policy',
+  'Clear reward definitions',
+  'Support scope for contributors and users',
+  'Product build status and known limitations',
+  'Catalog scope, update period, and compatibility boundaries',
+  'Delivery expectations without firm dates',
+  'Manufacturer disclaimer and trademark boundaries',
+  'Privacy notice for any future account, licensing, support, or payment workflow',
+  'License activation plan, including recovery and device-limit expectations if used',
+];
+---
+
+<BaseLayout
+  title="PrintKeep Early Supporter Campaign | PrintKeep by BMR"
+  description="Future early supporter campaign placeholder for PrintKeep by BMR explaining cautious launch funding preparation, non-live status, possible reward ideas under review, and legal readiness needs."
+>
+  <main class="page-shell feature-page">
+    <section class="page-hero" aria-labelledby="early-supporters-title">
+      <p class="section-eyebrow">Future launch funding concept</p>
+      <h1 id="early-supporters-title">PrintKeep Early Supporter Campaign</h1>
+      <p>
+        A future early supporter campaign may help fund the final launch stage of PrintKeep by BMR. This page is a
+        planning placeholder only: the campaign is not live yet, rewards are not final, and no payment is being collected
+        through this website.
+      </p>
+      <div class="hero-actions" aria-label="Early supporter page links">
+        <a class="primary-link" href={withBase('/roadmap/')}>View the roadmap</a>
+        <a class="secondary-link" href={withBase('/download/')}>Read release preparation</a>
+        <a class="secondary-link" href={withBase('/support/')}>Review support scope</a>
+      </div>
+    </section>
+
+    <section class="content-panel" aria-labelledby="purpose-title">
+      <span class="status-pill">In development</span>
+      <h2 id="purpose-title">What a future campaign could help fund</h2>
+      <p>
+        If launched later, an early supporter or launch fund campaign could help with final launch preparation rather
+        than changing planned features into promises of availability. Possible funding uses include:
+      </p>
+      <ul class="plain-list">
+        {fundingUses.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="content-panel" aria-labelledby="not-live-title">
+      <span class="status-pill">Not live</span>
+      <h2 id="not-live-title">Current status and limits</h2>
+      <p>
+        This page does not create a checkout, pledge, license, download, account, catalog, or mobile workflow. It exists
+        so future campaign planning can stay transparent and cautious before any commercial launch decision.
+      </p>
+      <ul class="plain-list">
+        {currentLimits.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="feature-section" aria-labelledby="reward-ideas-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Examples under review</p>
+        <h2 id="reward-ideas-title">Possible future reward ideas are not final.</h2>
+        <p>
+          These examples are under review and subject to change. They are not purchase offers, final tiers, prices,
+          delivery commitments, or license terms.
+        </p>
+      </div>
+      <section class="content-grid" aria-label="Possible early supporter reward ideas under review">
+        {rewardIdeas.map((item) => (
+          <article class="content-card">
+            <span class="status-pill">Under review</span>
+            <h3>{item}</h3>
+            <p>
+              Any future version would need clear definitions, reviewed terms, support boundaries, and delivery
+              expectations before launch.
+            </p>
+          </article>
+        ))}
+      </section>
+    </section>
+
+    <section class="content-panel" aria-labelledby="boundaries-title">
+      <span class="status-pill">Important boundaries</span>
+      <h2 id="boundaries-title">What this page does not promise</h2>
+      <p>
+        Future campaign planning should avoid broad or indefinite promises. The following boundaries apply to this
+        placeholder:
+      </p>
+      <ul class="plain-list">
+        {explicitBoundaries.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="content-panel" aria-labelledby="before-launch-title">
+      <span class="status-pill">Required before launch</span>
+      <h2 id="before-launch-title">What must be ready before any campaign launch</h2>
+      <p>
+        Before any early supporter campaign accepts money or defines final rewards, the project should have reviewed
+        commercial, legal, support, product, catalog, privacy, and activation details.
+      </p>
+      <ul class="plain-list roadmap-columns">
+        {launchRequirements.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="content-panel" aria-labelledby="related-links-title">
+      <h2 id="related-links-title">Related planning pages</h2>
+      <p>
+        These pages explain current development direction, release posture, catalog planning, support limits, and draft
+        legal placeholders that would need review before any future campaign.
+      </p>
+      <ul class="link-list">
+        <li><a href={withBase('/roadmap/')}>Roadmap</a></li>
+        <li><a href={withBase('/download/')}>Download and release preparation</a></li>
+        <li><a href={withBase('/catalogs/')}>Catalogs</a></li>
+        <li><a href={withBase('/support/')}>Support</a></li>
+        <li><a href={withBase('/refund-policy/')}>Refund Policy</a></li>
+        <li><a href={withBase('/license-terms/')}>License Terms</a></li>
+        <li><a href={withBase('/manufacturer-disclaimer/')}>Manufacturer Disclaimer</a></li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>

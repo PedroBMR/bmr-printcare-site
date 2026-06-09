@@ -2,13 +2,14 @@
 
 Website and documentation hub for PrintKeep by BMR, a local-first desktop app in development for 3D printer maintenance tracking.
 
-This repository is currently in **Milestone 12 — Download, Support, and Legal Consistency Update**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, final launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, and updated Download, Support, and legal consistency language.
+This repository is currently in **Milestone 13 — Early Supporters and Launch Funding Preparation**. It contains the Astro + TypeScript foundation, the structured dark landing page, shared site navigation, conservative feature positioning, beginner-friendly documentation drafts, an expanded static support hub, a release-preparation download placeholder with no real download links, preliminary legal/compliance placeholder pages for future review, visual/accessibility polish, static SEO/deployment preparation basics, final launch-readiness review notes, a planned catalogs route, a product-focused roadmap expansion, updated Download, Support, and legal consistency language, and a non-live Early Supporters launch-funding planning route.
 
 ## Current status
 
 - The website is static and beginner-friendly. It does not include backend services, authentication, analytics, tracking pixels, cookies, checkout, newsletter integration, contact forms, or third-party scripts.
 - The PrintKeep by BMR desktop app is still in development and is not publicly available yet.
 - The `/download` route is a release-preparation placeholder only. It states that PrintKeep is not publicly available yet, describes the planned free desktop Core release focus, and does not provide real download links, installers, binaries, checksums, purchase links, beta signup forms, or release dates.
+- The `/early-supporters` route is a non-live planning placeholder for a possible future Early Supporter Campaign or Launch Fund. It does not collect payment, define final rewards, publish pledge tiers, provide licenses, or create account, catalog, mobile, or download access.
 - Legal and compliance pages are preliminary draft placeholders and remain subject to qualified review before commercial launch, app distribution, analytics, support intake, licensing, accounts, cloud backup, mobile companion workflows, or payment processing.
 - PrintKeep by BMR is independent and must not imply partnership, endorsement, sponsorship, approval, affiliation, manufacturer service support, or access to proprietary manufacturer systems.
 - Public product naming should use **PrintKeep by BMR**. The legacy/internal project name **BMR PrintCare** may appear only where needed to explain earlier repository or project history.
@@ -44,6 +45,7 @@ src/
   layouts/         Page layouts used by routes
   pages/           Static Astro routes
     catalogs.astro Planned BMR Verified Catalogs route
+    early-supporters.astro Future launch-funding planning placeholder
     docs/          Documentation hub and beginner guide routes
   styles/          Global CSS and design tokens
 ```
@@ -84,8 +86,8 @@ The legal placeholder pages use reusable legal components in `src/components/leg
 
 The shared site chrome is composed from layout components in `src/components/layout/`:
 
-- `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Catalogs, Roadmap, Download, and Support.
-- `SiteFooter.astro` provides product links, catalog/resource links, draft legal links, the manufacturer independence note, and the copyright notice.
+- `SiteHeader.astro` provides the primary navigation: Home, Features, Docs, Catalogs, Roadmap, Download, and Support. Early Supporters is intentionally left out of the primary header to avoid crowding the navigation.
+- `SiteFooter.astro` provides product links, catalog/resource links, Early Supporters links, draft legal links, the manufacturer independence note, and the copyright notice.
 
 `BaseLayout.astro` imports the global stylesheet, provides the shared skip link target, renders the shared header and footer around every page, and manages page metadata including title, description, Open Graph basics, Twitter/X summary-card basics, optional `noindex`, safe canonical URLs when `site` is configured, favicon, manifest, and theme color.
 
@@ -103,7 +105,8 @@ The shared site chrome is composed from layout components in `src/components/lay
 | `/docs/preventive-maintenance` | Guide draft for preventive maintenance reminders and their limits. | Draft |
 | `/docs/parts-and-consumables` | Guide draft for replacement parts, consumables, and compatibility caution. | Draft |
 | `/docs/local-first-data` | Guide draft for local-first data direction, backups, exports, and legal-page readiness. | Draft |
-| `/roadmap` | Product-focused roadmap covering completed/in-progress work, current desktop maintenance focus, planned public release path, future catalog commercialization, and future expansion ideas. | Expanded roadmap |
+| `/roadmap` | Product-focused roadmap covering completed/in-progress work, current desktop maintenance focus, planned public release path, future catalog commercialization, future launch-funding planning, and future expansion ideas. | Expanded roadmap |
+| `/early-supporters` | Static placeholder for a possible future Early Supporter Campaign or Launch Fund, with non-live campaign status, reward examples under review, safety boundaries, and pre-launch readiness requirements. | Planning placeholder |
 | `/download` | Conservative release-preparation placeholder that states public release is not available yet and provides no real download links. | Placeholder |
 | `/support` | Static support hub with documentation links, FAQ, current limitations, release-readiness notes, draft legal links, and manufacturer independence guidance. | Expanded hub |
 | `/privacy` | Preliminary privacy notice covering current static-site data collection status, local-first data direction, and future review needs. | Draft placeholder |
@@ -220,6 +223,26 @@ The Milestone 12 pass includes:
 - strong manufacturer-independence language and internal links among Download, Support, Catalogs, Roadmap, and legal pages.
 
 Remaining follow-up tasks include Early Supporters/crowdfunding page planning, visual QA after deployment, and qualified legal review before any public release, payment flow, account flow, cloud feature, licensing system, or commercial launch.
+
+
+## Milestone 13 scope
+
+Milestone 13 focuses on Early Supporters and launch funding preparation only. It does not add backend services, analytics, checkout, payment processing, forms, newsletter signup, real downloads, installers, binaries, payment links, manufacturer logos, partnership claims, pricing pages, real pledge tiers, payment buttons, or live campaign claims.
+
+The Milestone 13 pass includes:
+
+- `/early-supporters` as a static placeholder titled “PrintKeep Early Supporter Campaign”;
+- cautious positioning that a future early supporter campaign may help fund code signing, documentation, catalog packaging, website polish, release testing, and final launch preparation;
+- clear status language that the campaign is not live yet, rewards are not final, no payment is collected, and no purchase, pledge, license, catalog, account, mobile access, or public release is available through the page;
+- possible reward examples under review, including Founder badge, early access, a defined BMR Verified Catalog license, printable maintenance kit, name in credits, and All Access for a defined period;
+- explicit boundaries against indefinite all-inclusive access, every-future-catalog promises, firm delivery dates, manufacturer support or affiliation claims, and current mobile availability claims;
+- a pre-campaign launch readiness checklist covering reviewed terms, reviewed refund/commercial policy, clear reward definitions, support scope, product build status, catalog scope, delivery expectations, manufacturer disclaimer, privacy notice, and license activation planning;
+- internal links from Early Supporters to Roadmap, Download, Catalogs, Support, Refund Policy, License Terms, and Manufacturer Disclaimer;
+- a roadmap cross-link that presents early supporter/crowdfunding planning as a future commercial path, not a live campaign;
+- footer links to the Early Supporters placeholder while keeping the primary header unchanged to avoid navigation crowding;
+- expected generated-route coverage for `/early-supporters/` in `scripts/check-internal-links.mjs`.
+
+Remaining follow-up tasks include visual QA after deployment, qualified legal review before any commercial flow, real campaign planning, final reward definition, support-scope definition, payment/refund workflow review, license activation planning, and product release planning.
 
 ## Getting started
 

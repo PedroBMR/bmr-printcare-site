@@ -57,6 +57,7 @@ const expectedRoutes = [
   '/docs/parts-and-consumables/',
   '/docs/local-first-data/',
   '/roadmap/',
+  '/early-supporters/',
   '/support/',
   '/download/',
   '/privacy/',
