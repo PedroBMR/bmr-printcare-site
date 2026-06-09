@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/paths';
 import LegalLayout from '../components/legal/LegalLayout.astro';
 import LegalSection from '../components/legal/LegalSection.astro';
 ---
@@ -37,9 +38,9 @@ import LegalSection from '../components/legal/LegalSection.astro';
 
   <LegalSection title="Where to check status">
     <p>
-      Current availability is explained on the <a href="/download/">release preparation page</a>. Support expectations
-      are drafted in the <a href="/support/">support hub</a>, and product sequencing is listed on the
-      <a href="/roadmap/">roadmap</a>.
+      Current availability is explained on the <a href={withBase('/download/')}>release preparation page</a>. Support expectations
+      are drafted in the <a href={withBase('/support/')}>support hub</a>, and product sequencing is listed on the
+      <a href={withBase('/roadmap/')}>roadmap</a>.
     </p>
   </LegalSection>
 </LegalLayout>

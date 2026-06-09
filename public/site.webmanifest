@@ -2,15 +2,16 @@
   "name": "BMR PrintCare",
   "short_name": "BMR PrintCare",
   "description": "A local-first desktop app in development for 3D printer maintenance tracking.",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#0b1020",
   "theme_color": "#0b1020",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
-  ]
+  ],
+  "scope": "."
 }

@@ -2,6 +2,27 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const distDir = path.resolve('dist');
+const astroConfig = existsSync('astro.config.mjs') ? readFileSync('astro.config.mjs', 'utf8') : '';
+const baseMatch = astroConfig.match(/base:\s*['\"]([^'\"]+)['\"]/);
+const configuredBase = baseMatch ? baseMatch[1] : '/';
+const basePath = configuredBase.endsWith('/') ? configuredBase : `${configuredBase}/`;
+const baseWithoutTrailingSlash = basePath === '/' ? '' : basePath.replace(/\/$/, '');
+
+const stripBase = (targetPath) => {
+  if (!baseWithoutTrailingSlash) {
+    return targetPath || '/';
+  }
+
+  if (targetPath === baseWithoutTrailingSlash) {
+    return '/';
+  }
+
+  if (targetPath.startsWith(`${baseWithoutTrailingSlash}/`)) {
+    return targetPath.slice(baseWithoutTrailingSlash.length) || '/';
+  }
+
+  return targetPath || '/';
+};
 
 if (!existsSync(distDir)) {
   console.error('dist/ was not found. Run `npm run build` before running this check.');
@@ -45,7 +66,7 @@ const expectedRoutes = [
 ];
 
 const routeToFile = (route) => {
-  const cleanRoute = route.split('#')[0].split('?')[0];
+  const cleanRoute = stripBase(route.split('#')[0].split('?')[0]);
 
   if (cleanRoute === '/' || cleanRoute === '') {
     return path.join(distDir, 'index.html');
@@ -55,7 +76,7 @@ const routeToFile = (route) => {
   return path.join(distDir, normalized, 'index.html');
 };
 
-const assetToFile = (assetPath) => path.join(distDir, assetPath.replace(/^\//, ''));
+const assetToFile = (assetPath) => path.join(distDir, stripBase(assetPath).replace(/^\//, ''));
 
 const getIds = (html) => {
   const ids = new Set();
@@ -105,7 +126,7 @@ for (const file of htmlFiles) {
     }
 
     const [targetWithoutQuery, hash] = value.split('#');
-    const target = targetWithoutQuery.split('?')[0];
+    const target = stripBase(targetWithoutQuery.split('?')[0]);
 
     if (!target) {
       continue;
@@ -139,4 +160,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`Checked ${htmlFiles.length} generated HTML files and ${expectedRoutes.length} expected routes.`);
+console.log(`Checked ${htmlFiles.length} generated HTML files and ${expectedRoutes.length} expected routes with base ${basePath}.`);

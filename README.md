@@ -181,7 +181,7 @@ Start the local development server:
 npm run dev
 ```
 
-Astro will print the local URL, usually `http://localhost:4321`.
+Astro will print the local URL. Because the GitHub Pages preview uses the `/bmr-printcare-site/` Astro base path, open the base-path URL Astro reports, usually `http://localhost:4321/bmr-printcare-site/`.
 
 ## Available commands
 
@@ -192,7 +192,7 @@ Astro will print the local URL, usually `http://localhost:4321`.
 | `npm run preview` | Preview the production build locally. |
 | `npm run astro` | Run Astro CLI commands. |
 | `npx astro check` | Run Astro diagnostics and TypeScript checks. |
-| `npm run check:links` | Check generated HTML in `dist/` for expected routes and internal links after `npm run build`. |
+| `npm run check:links` | Check generated HTML in `dist/` for expected routes, base-prefixed internal links, assets, and anchors after `npm run build`. |
 
 ## Testing the setup
 
@@ -246,17 +246,23 @@ Preview the production build locally:
 npm run preview
 ```
 
-### Deployment options to evaluate later
+### GitHub Pages preview
 
-Evaluate static hosting options only when the launch plan and production domain are confirmed. Reasonable options to compare later include:
+This repository is configured for a GitHub Pages project preview at:
 
-- Netlify;
-- Vercel;
-- Cloudflare Pages;
-- GitHub Pages;
-- another static host that can serve the generated `dist/` directory.
+```text
+https://PedroBMR.github.io/bmr-printcare-site/
+```
 
-Do not add analytics, tracking scripts, cookies, checkout, authentication, contact forms, newsletter integrations, public downloads, installers, binaries, or signup forms as part of this static deployment preparation milestone.
+The project page URL requires the Astro `base` value `/bmr-printcare-site/`. Internal links, footer links, documentation links, legal links, the favicon, the web manifest, and generated Astro assets are emitted with that base path for preview deployment.
+
+Deployment uses GitHub Actions through `.github/workflows/deploy-github-pages.yml`; do not commit the generated `dist/` directory. Pedro must set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** in the repository settings, then push to `main` or run the workflow manually.
+
+The configured `site` remains `https://bmrprintcare.com` so non-draft canonical and Open Graph URLs continue to point at the intended production-domain direction rather than the temporary GitHub Pages URL. Recheck that tradeoff before public launch or before moving the site to a root production domain. Do not add sitemap output until the production domain strategy is confirmed.
+
+See `docs/deployment-preview.md` for detailed GitHub Pages settings, workflow behavior, preview risks, and the manual visual test checklist.
+
+Do not add analytics, tracking scripts, cookies, checkout, authentication, contact forms, newsletter integrations, public downloads, installers, binaries, or signup forms as part of this static deployment preview task.
 
 ### Pre-deploy checklist
 
@@ -264,14 +270,14 @@ Before any deployment candidate is shared publicly:
 
 - run `npm run build`;
 - run `npx astro check`;
-- run `npm run check:links` after `npm run build`;
+- run `npm run check:links` after `npm run build` to validate base-prefixed routes, assets, and anchors;
 - run `git diff --check`;
-- preview the generated site with `npm run preview` when possible;
+- preview the generated site with `npm run preview` when possible and open the `/bmr-printcare-site/` base path;
 - confirm route titles and meta descriptions are present;
 - confirm draft legal pages remain preliminary and do not claim full legal compliance;
 - confirm `/download` still avoids real download links and states that public release is not available yet;
 - confirm manufacturer independence language remains visible and no manufacturer logos are used;
-- recheck canonical URL and sitemap strategy against the final production domain before adding sitemap output.
+- recheck the `/bmr-printcare-site/` base path, canonical URL behavior, and sitemap strategy against the final production domain before public launch or root-domain deployment.
 
 See `docs/deployment-checklist.md` for deployment preparation notes and `docs/launch-readiness-checklist.md` for the Milestone 9 final review checklist.
 

@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/paths';
 import LegalLayout from '../components/legal/LegalLayout.astro';
 import LegalSection from '../components/legal/LegalSection.astro';
 ---
@@ -46,8 +47,8 @@ import LegalSection from '../components/legal/LegalSection.astro';
     <p>
       BMR PrintCare is planned as a maintenance tracking tool, not an official manufacturer service portal. It should not
       be presented as direct printer control, automatic diagnostics, warranty service, or a substitute for manufacturer
-      manuals. Related positioning appears in the <a href="/features/">features overview</a>, the
-      <a href="/support/">support hub</a>, and the <a href="/terms/">draft terms of use</a>.
+      manuals. Related positioning appears in the <a href={withBase('/features/')}>features overview</a>, the
+      <a href={withBase('/support/')}>support hub</a>, and the <a href={withBase('/terms/')}>draft terms of use</a>.
     </p>
   </LegalSection>
 </LegalLayout>

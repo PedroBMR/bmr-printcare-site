@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../utils/paths';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 ---
 
@@ -39,9 +40,9 @@ import DocsLayout from '../../components/docs/DocsLayout.astro';
   <section class="content-panel" aria-labelledby="preventive-next-title">
     <h2 id="preventive-next-title">Related documentation</h2>
     <ul class="link-list">
-      <li><a href="/docs/maintenance-history/">Record completed maintenance</a></li>
-      <li><a href="/docs/parts-and-consumables/">Document replacement parts</a></li>
-      <li><a href="/features/">Review planned feature areas</a></li>
+      <li><a href={withBase('/docs/maintenance-history/')}>Record completed maintenance</a></li>
+      <li><a href={withBase('/docs/parts-and-consumables/')}>Document replacement parts</a></li>
+      <li><a href={withBase('/features/')}>Review planned feature areas</a></li>
     </ul>
   </section>
 </DocsLayout>

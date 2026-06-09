@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../../utils/paths';
+
 const productLinks = [
   { label: 'Home', href: '/' },
   { label: 'Features', href: '/features/' },
@@ -40,7 +42,7 @@ const currentYear = new Date().getFullYear();
         <h3>Product</h3>
         <ul>
           {productLinks.map((link) => (
-            <li><a href={link.href}>{link.label}</a></li>
+            <li><a href={withBase(link.href)}>{link.label}</a></li>
           ))}
         </ul>
       </div>
@@ -49,7 +51,7 @@ const currentYear = new Date().getFullYear();
         <h3>Resources</h3>
         <ul>
           {resourceLinks.map((link) => (
-            <li><a href={link.href}>{link.label}</a></li>
+            <li><a href={withBase(link.href)}>{link.label}</a></li>
           ))}
         </ul>
       </div>
@@ -58,7 +60,7 @@ const currentYear = new Date().getFullYear();
         <h3>Legal drafts</h3>
         <ul aria-label="Draft legal routes">
           {legalLinks.map((link) => (
-            <li><a href={link.href}>{link.label}</a></li>
+            <li><a href={withBase(link.href)}>{link.label}</a></li>
           ))}
         </ul>
       </div>
