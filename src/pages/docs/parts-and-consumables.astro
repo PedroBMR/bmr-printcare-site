@@ -1,49 +1,27 @@
 ---
-import { withBase } from '../../utils/paths';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 ---
 
 <DocsLayout
-  title="Parts and Consumables | NozzleNote by BMR Docs"
-  description="Parts and consumables guide for NozzleNote by BMR, covering planned tracking for replacements, supplies, vendors, and compatibility notes."
-  heading="Parts and consumables notes should support clear maintenance history."
-  intro="This draft guide explains how NozzleNote by BMR is intended to help users remember part replacements and consumable details without acting as a manufacturer parts catalog."
+  title="Parts and Consumables — Preview | NozzleNote by BMR"
+  description="Parts and consumables documentation preview for NozzleNote by BMR."
+  eyebrow="Documentation preview"
+  heading="Parts and consumables preview."
+  intro="NozzleNote by BMR is in development, so this guide is an early documentation preview rather than final product instructions."
 >
-  <section class="docs-section" aria-labelledby="parts-purpose-title">
-    <h2 id="parts-purpose-title">Why track parts and consumables</h2>
-    <p>
-      Parts and consumables records are planned to make maintenance history easier to interpret. If a user replaces a
-      nozzle, tube, fan, build plate, lubricant, filter, or other item, a short note can help explain later performance
-      changes or repeat maintenance needs.
-    </p>
-  </section>
-
-  <section class="docs-section" aria-labelledby="parts-details-title">
-    <h2 id="parts-details-title">Helpful details to record</h2>
+  <section class="docs-section" aria-labelledby="overview-title">
+    <h2 id="overview-title">Current direction</h2>
     <ul class="plain-list">
-      <li>What was replaced or used.</li>
-      <li>The date of the change.</li>
-      <li>Optional supplier, batch, cost, or compatibility notes when useful.</li>
-      <li>Why the change was made and what changed afterward.</li>
+      <li>Parts records may include nozzles, build surfaces, filters, lubricant, replacement parts, vendors, and notes.</li>
+      <li>Catalog content is planned as optional and is not available yet.</li>
+      <li>Compatibility should be narrow and model-specific once coverage is defined.</li>
+
     </ul>
   </section>
 
-  <section class="docs-section" aria-labelledby="catalog-limits-title">
-    <h2 id="catalog-limits-title">Catalog and compatibility limits</h2>
-    <p>
-      Any future catalog language should be treated carefully. Verified catalogs are planned as optional content packs created
-      by BMR to help users start with structured printer profiles, suggested maintenance routines, part records and
-      guides. NozzleNote by BMR should not imply manufacturer partnership, compatibility certification, or endorsement.
-      Users should confirm parts and consumables with their printer documentation and trusted suppliers.
-    </p>
-  </section>
-
-  <section class="content-panel" aria-labelledby="parts-next-title">
-    <h2 id="parts-next-title">Related documentation</h2>
-    <ul class="link-list">
-      <li><a href={withBase('/docs/maintenance-history/')}>Connect parts to maintenance history</a></li>
-      <li><a href={withBase('/docs/local-first-data/')}>Understand local-first data direction</a></li>
-      <li><a href={withBase('/roadmap/')}>Review future catalog direction</a></li>
-    </ul>
+  <section class="content-panel" aria-labelledby="status-title">
+    <span class="status-pill">Preview</span>
+    <h2 id="status-title">Not final release documentation.</h2>
+    <p>Public app screenshots, final workflows, downloads, paid plans, verified catalogs, account features, and support desk procedures are not available yet.</p>
   </section>
 </DocsLayout>

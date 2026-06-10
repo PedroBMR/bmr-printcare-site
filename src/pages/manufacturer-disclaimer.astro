@@ -1,56 +1,11 @@
 ---
-import { withBase } from '../utils/paths';
 import LegalLayout from '../components/legal/LegalLayout.astro';
 import LegalSection from '../components/legal/LegalSection.astro';
 ---
-
-<LegalLayout
-  title="Manufacturer Disclaimer | NozzleNote by BMR"
-  description="Draft manufacturer independence disclaimer for NozzleNote by BMR, clarifying no affiliation, sponsorship, endorsement, or official connection with printer manufacturers."
-  eyebrow="Manufacturer disclaimer"
-  heading="NozzleNote by BMR is independent from printer manufacturers."
-  intro="This preliminary disclaimer clarifies the intended manufacturer-independence position for the website, documentation, and future desktop app."
-  currentPath="/manufacturer-disclaimer/"
->
-  <LegalSection title="Independence statement">
-    <p>
-      NozzleNote by BMR is independent. It is not affiliated with, endorsed by, sponsored by, or officially connected to
-      Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Manufacturer names and compatibility context">
-    <p>
-      Manufacturer names, printer names, material names, or model references may be used in future documentation or app
-      interfaces only for compatibility, organization, user-entered records, or general context. Such references should
-      not imply affiliation, sponsorship, endorsement, certification, support, review, partnership, or access to
-      proprietary manufacturer systems.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Trademarks">
-    <p>
-      Manufacturer names, product names, logos, and trademarks belong to their respective owners. This website should not
-      use manufacturer logos or brand assets unless a future written authorization and reviewed usage guideline permits
-      that use.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Printer data may change">
-    <p>
-      Supported printer profiles, verified catalogs, replacement part references, firmware behavior, maintenance
-      recommendations, and safety guidance may change over time. Users should verify important maintenance and safety
-      information with manufacturer documentation and qualified service resources.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Scope of NozzleNote by BMR">
-    <p>
-      NozzleNote by BMR is planned as a maintenance tracking tool, not a manufacturer service portal. It should not be
-      presented as direct printer control, machine-made fault diagnosis, warranty service, official service guidance, or a
-      substitute for manufacturer manuals. Related positioning appears in the <a href={withBase('/features/')}>features overview</a>,
-      the <a href={withBase('/support/')}>support hub</a>, the <a href={withBase('/catalogs/')}>catalogs page</a>, and the
-      <a href={withBase('/terms/')}>draft terms of use</a>.
-    </p>
-  </LegalSection>
+<LegalLayout title="Manufacturer Disclaimer | NozzleNote by BMR" description="Manufacturer independence disclaimer for NozzleNote by BMR. NozzleNote is not affiliated with or endorsed by any 3D printer manufacturer." eyebrow="Manufacturer disclaimer" heading="Independent product, not a manufacturer service portal." intro="This page clarifies how manufacturer and product names may be referenced for user-owned equipment and future compatibility context." currentPath="/manufacturer-disclaimer/">
+  <LegalSection title="Independence statement"><p>NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. Manufacturer and product names may be referenced only to help users describe their own equipment or future compatibility context.</p></LegalSection>
+  <LegalSection title="Compatibility context"><p>Future compatibility language should be narrow and model-specific, such as compatible with selected Bambu Lab printer models only after coverage is defined. Broad compatibility claims should not be used.</p></LegalSection>
+  <LegalSection title="Trademarks and names"><p>Manufacturer names, printer family names, and product names belong to their respective owners. References do not imply endorsement, review, approval, certification, sponsorship, or support.</p></LegalSection>
+  <LegalSection title="Printer data may change"><p>Printer specifications, parts, firmware, maintenance guidance, and manufacturer documentation may change. Users should consult the relevant manufacturer documentation and qualified help where appropriate.</p></LegalSection>
+  <LegalSection title="Not a service portal"><p>NozzleNote is being developed for maintenance tracking and recordkeeping. It is not a manufacturer service portal, warranty channel, repair service, safety system, or remote printer controller.</p></LegalSection>
 </LegalLayout>

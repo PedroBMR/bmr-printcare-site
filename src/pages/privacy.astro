@@ -1,92 +1,11 @@
 ---
-import { withBase } from '../utils/paths';
 import LegalLayout from '../components/legal/LegalLayout.astro';
 import LegalSection from '../components/legal/LegalSection.astro';
 ---
-
-<LegalLayout
-  title="Draft Privacy Notice | NozzleNote by BMR"
-  description="Preliminary privacy notice placeholder for NozzleNote by BMR, including current static website status and conditional future data categories."
-  eyebrow="Draft privacy notice"
-  heading="Preliminary privacy notice for future review."
-  intro="This draft explains the current privacy direction for the static website and the planned local-first desktop app while NozzleNote by BMR is still in development."
-  currentPath="/privacy/"
->
-  <LegalSection title="Current status">
-    <p>
-      NozzleNote by BMR is still in development, and the app is not publicly available yet. This privacy notice is a
-      preliminary placeholder intended to guide future review before any public release, payment flow, expanded analytics,
-      newsletter, support intake, licensing system, cloud feature, mobile companion, or account system is added.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Current website data collection status">
-    <p>
-      The current public website is a static Astro site. It conditionally includes the standard GA4 Google tag when
-      `PUBLIC_GA_MEASUREMENT_ID` is configured for the build. The repository does not include account registration,
-      checkout, newsletter signup, contact forms, authentication, license activation, cloud backup, diagnostic upload,
-      custom analytics events, or backend data collection at this stage.
-    </p>
-    <p>
-      Google Analytics, hosting providers, browsers, or network infrastructure may still process basic technical information
-      such as IP addresses, request times, user agents, pageview activity, and security logs. A future production
-      deployment should document the actual analytics, hosting, and log retention details before launch.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Local-first data direction">
-    <p>
-      NozzleNote by BMR is designed with a local-first direction for desktop maintenance tracking. The intended product
-      direction is that printer profiles, maintenance records, parts notes, incidents, reminders, and related app data are
-      primarily managed on the user's own device rather than requiring a hosted account by default.
-    </p>
-    <p>
-      Final technical details, storage behavior, backup options, export behavior, and any optional sync or support flows
-      remain subject to implementation and legal review. Users should plan to maintain their own backups when the app is
-      eventually released.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Future or conditional data categories">
-    <p>
-      The following categories are listed for planning only. They are not presented as current website collection, and
-      they should not be collected unless the related feature is implemented, documented, and reviewed first.
-    </p>
-    <ul>
-      <li>License email, if future license activation or purchase recovery is introduced.</li>
-      <li>Device hash or similar device identifier, if future device activation is introduced.</li>
-      <li>Activation data, entitlements, and license status, if future paid catalogs or license keys are introduced.</li>
-      <li>Diagnostic logs, if a future user-controlled diagnostic export or support workflow is implemented.</li>
-      <li>Optional account data, if a future account system is added.</li>
-      <li>Optional cloud backup data, if a future cloud backup feature is added.</li>
-      <li>Future mobile companion data, if a mobile companion workflow is implemented.</li>
-      <li>Print quality photos, only if a future photo-based quality history feature is implemented.</li>
-    </ul>
-  </LegalSection>
-
-  <LegalSection title="No compliance claim">
-    <p>
-      This draft does not claim that NozzleNote by BMR satisfies any specific privacy law. Future legal review should
-      determine which laws apply, what disclosures are required, and whether additional privacy controls are needed before
-      public availability or any data-collecting feature launches.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Future changes">
-    <p>
-      If future milestones add expanded analytics, crash reporting, support forms, email updates, licensing systems, payment
-      processors, cloud features, mobile companion workflows, app distribution platforms, or quality-photo workflows, this
-      notice should be updated before those features are launched. Related release status is listed on the
-      <a href={withBase('/download/')}>release preparation page</a>, and planned work is summarized on the
-      <a href={withBase('/roadmap/')}>roadmap</a>.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Support reference">
-    <p>
-      Until a final support channel is selected, privacy-related questions should be treated as part of the general
-      product readiness work described in the <a href={withBase('/support/')}>support hub</a>. A reviewed contact method should be
-      added before public launch.
-    </p>
-  </LegalSection>
+<LegalLayout title="Privacy Notice | NozzleNote by BMR" description="Preliminary privacy notice for NozzleNote by BMR, including current conditional GA4 website analytics disclosure and planned local-first app data direction." eyebrow="Privacy notice" heading="Privacy Notice — preliminary, with current website analytics disclosure." intro="This notice is preliminary and will need review before public app release or commercial availability. GA4 website analytics may be active when a valid measurement ID is configured." currentPath="/privacy/">
+  <LegalSection title="Current website data collection"><p>This static website does not provide accounts, checkout, support forms, newsletter forms, app downloads, license activation, cloud sync, or mobile app features. It does not intentionally collect names, emails, printer records, maintenance records, payment data, license data, or support messages through site forms.</p></LegalSection>
+  <LegalSection title="Google Analytics 4"><p>When PUBLIC_GA_MEASUREMENT_ID is configured with a valid ID, the website loads standard Google Analytics 4 for basic website measurement. GA4 may measure page views, traffic sources, referrers, scroll behavior, outbound clicks, and general engagement. The GA4 script is conditional and is not rendered when the measurement ID is missing or invalid.</p><p>No custom analytics events containing personal data are configured. Names, emails, printer records, maintenance records, license data, payment data, support messages, and user-submitted personal content should not be sent to GA4.</p></LegalSection>
+  <LegalSection title="Analytics limits"><ul><li>No advertising, remarketing, Google Signals, User-ID tracking, Google Ads linking, custom dimensions, e-commerce tracking, manual link-click instrumentation, form instrumentation, or manual personal-data collection has been added.</li><li>A future cookie or analytics consent layer should allow visitors to accept, reject, or manage non-essential analytics cookies where required.</li><li>Website browsing is not described as private by default. That language is reserved for planned app maintenance records and local-first app data.</li></ul></LegalSection>
+  <LegalSection title="Local-first app data direction"><p>NozzleNote by BMR is being developed with app maintenance records planned to stay local by default. Public app behavior, backups, exports, account features, license activation, cloud sync, mobile app functionality, and support workflows are not final and should be documented before release.</p></LegalSection>
+  <LegalSection title="Future or conditional data categories"><p>Future app, account, license, payment, support, cloud, mobile, catalog, or campaign features may require additional data categories and reviewed privacy language before launch. Contact placeholder: [insert contact email before production launch].</p></LegalSection>
 </LegalLayout>

@@ -1,47 +1,27 @@
 ---
-import { withBase } from '../../utils/paths';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 ---
 
 <DocsLayout
-  title="Maintenance History | NozzleNote by BMR Docs"
-  description="Maintenance history guide for NozzleNote by BMR, covering planned dated service records, notes, parts, and practical review limits."
-  heading="Maintenance history should make past work easier to review."
-  intro="This guide outlines the planned record-keeping approach for maintenance events. The exact app interface may change while NozzleNote by BMR remains in development."
+  title="Maintenance History — Preview | NozzleNote by BMR"
+  description="Maintenance history documentation preview for NozzleNote by BMR."
+  eyebrow="Documentation preview"
+  heading="Maintenance history preview."
+  intro="NozzleNote by BMR is in development, so this guide is an early documentation preview rather than final product instructions."
 >
-  <section class="docs-section" aria-labelledby="history-purpose-title">
-    <h2 id="history-purpose-title">What a maintenance record is for</h2>
-    <p>
-      A maintenance record is intended to capture what happened, when it happened, and why it mattered. Good records can
-      help users understand repeated issues, remember replaced parts, and review past actions before making new changes.
-    </p>
-  </section>
-
-  <section class="docs-section" aria-labelledby="record-examples-title">
-    <h2 id="record-examples-title">Examples of useful notes</h2>
+  <section class="docs-section" aria-labelledby="overview-title">
+    <h2 id="overview-title">Current direction</h2>
     <ul class="plain-list">
-      <li>Cleaning, lubrication, belt checks, or visual inspections.</li>
-      <li>Nozzle, tube, fan, sensor, or build surface replacement notes.</li>
-      <li>Symptoms observed before maintenance and results observed afterward.</li>
-      <li>Parts, consumables, or settings that may be useful to remember later.</li>
+      <li>Maintenance history is planned for dated service notes, parts used, observations, and follow-up context.</li>
+      <li>Records are intended to help users review what changed over time.</li>
+      <li>NozzleNote does not replace inspection, repair judgement, manufacturer documentation, or safety procedures.</li>
+
     </ul>
   </section>
 
-  <section class="docs-section" aria-labelledby="record-tone-title">
-    <h2 id="record-tone-title">Keep records practical</h2>
-    <p>
-      The most useful notes are usually short, specific, and dated. NozzleNote by BMR is not planned as an automatic
-      diagnostic system, so users should still rely on careful inspection, manufacturer guidance, and responsible repair
-      practices.
-    </p>
-  </section>
-
-  <section class="content-panel" aria-labelledby="history-next-title">
-    <h2 id="history-next-title">Related documentation</h2>
-    <ul class="link-list">
-      <li><a href={withBase('/docs/preventive-maintenance/')}>Understand preventive maintenance</a></li>
-      <li><a href={withBase('/docs/parts-and-consumables/')}>Track parts and consumables</a></li>
-      <li><a href={withBase('/roadmap/')}>Review roadmap-only topics</a></li>
-    </ul>
+  <section class="content-panel" aria-labelledby="status-title">
+    <span class="status-pill">Preview</span>
+    <h2 id="status-title">Not final release documentation.</h2>
+    <p>Public app screenshots, final workflows, downloads, paid plans, verified catalogs, account features, and support desk procedures are not available yet.</p>
   </section>
 </DocsLayout>

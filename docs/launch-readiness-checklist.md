@@ -10,7 +10,7 @@ NozzleNote by BMR is still in development. The website is a static public inform
 - [ ] Run `npx astro check` and resolve Astro or TypeScript diagnostics.
 - [ ] Run `npm run check:links` after the production build to verify generated route coverage and root-relative internal links.
 - [ ] Run `git diff --check` before committing to catch whitespace errors.
-- [ ] Inspect generated HTML for key routes in `dist/`, including `/`, `/features/`, `/docs/`, `/support/`, `/download/`, and the draft legal pages.
+- [ ] Inspect generated HTML for key routes in `dist/`, including `/`, `/features/`, `/docs/`, `/support/`, `/download/`, and the preliminary legal pages.
 
 ## Content review
 
@@ -23,7 +23,7 @@ NozzleNote by BMR is still in development. The website is a static public inform
 
 ## Legal review
 
-- [ ] Confirm `/privacy/`, `/terms/`, `/license-terms/`, `/refund-policy/`, and `/manufacturer-disclaimer/` remain clearly marked as preliminary or draft.
+- [ ] Confirm `/privacy/`, `/terms/`, `/license-terms/`, `/refund-policy/`, and `/manufacturer-disclaimer/` remain clearly marked as preliminary.
 - [ ] Confirm legal pages do not claim LGPD compliance, GDPR compliance, CCPA compliance, full legal compliance, final licensing, payment terms, refunds, or app-store distribution.
 - [ ] Confirm legal pages are reviewed by a qualified legal reviewer before public commercial launch, payment processing, analytics, account features, or app distribution.
 - [ ] Confirm the manufacturer disclaimer remains visible and conservative.
@@ -48,6 +48,6 @@ NozzleNote by BMR is still in development. The website is a static public inform
 
 - [ ] Visit the deployed homepage and all main public routes.
 - [ ] Verify header, footer, documentation navigation, legal cross-links, support links, and download-status links on the deployed site.
-- [ ] Recheck page titles, descriptions, favicon, manifest, and noindex behavior for draft legal pages.
+- [ ] Recheck page titles, descriptions, favicon, manifest, and noindex behavior for preliminary legal pages.
 - [ ] Reconfirm there are no broken internal links after hosting configuration is applied.
 - [ ] Reconfirm release messaging before sharing the site publicly: the app is still in development and public release is not available yet.

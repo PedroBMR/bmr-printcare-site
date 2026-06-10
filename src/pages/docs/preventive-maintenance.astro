@@ -1,48 +1,27 @@
 ---
-import { withBase } from '../../utils/paths';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 ---
 
 <DocsLayout
-  title="Preventive Maintenance | NozzleNote by BMR Docs"
-  description="Preventive maintenance guide for NozzleNote by BMR, covering planned reminders for routine printer care without replacing inspection."
-  heading="Preventive maintenance is planned as a reminder workflow."
-  intro="NozzleNote by BMR is intended to support routine maintenance planning, but it should not be presented as a safety system, automatic diagnostic tool, or replacement for manufacturer guidance."
+  title="Preventive Maintenance — Preview | NozzleNote by BMR"
+  description="Preventive maintenance documentation preview for NozzleNote by BMR."
+  eyebrow="Documentation preview"
+  heading="Preventive maintenance preview."
+  intro="NozzleNote by BMR is in development, so this guide is an early documentation preview rather than final product instructions."
 >
-  <section class="docs-section" aria-labelledby="preventive-purpose-title">
-    <h2 id="preventive-purpose-title">Purpose of preventive planning</h2>
-    <p>
-      Preventive maintenance planning is designed to help users remember routine checks before small issues become harder
-      to understand. The planned workflow is conservative: create reminders, review the printer, record what happened,
-      and adjust future notes based on real observations.
-    </p>
-  </section>
-
-  <section class="docs-section" aria-labelledby="task-examples-title">
-    <h2 id="task-examples-title">Possible routine tasks</h2>
+  <section class="docs-section" aria-labelledby="overview-title">
+    <h2 id="overview-title">Current direction</h2>
     <ul class="plain-list">
-      <li>Visual inspection before a long print job.</li>
-      <li>Cleaning dust, filament debris, or residue from accessible areas.</li>
-      <li>Checking belts, motion, fans, cable paths, or build surfaces according to manufacturer guidance.</li>
-      <li>Reviewing previous notes before replacing a part or changing a maintenance interval.</li>
+      <li>Preventive tasks are planned as editable prompts for routine care.</li>
+      <li>Prompts should not be treated as safety guarantees or machine-made fault findings.</li>
+      <li>Users remain responsible for checking printer condition and manufacturer documentation.</li>
+
     </ul>
   </section>
 
-  <section class="docs-section" aria-labelledby="limits-title">
-    <h2 id="limits-title">Important limits</h2>
-    <p>
-      Planned reminders should be treated as prompts only. They cannot confirm that a printer is safe, correctly tuned,
-      or free of faults. Users remain responsible for inspection, safety, repair decisions, and following manufacturer
-      printer documentation.
-    </p>
-  </section>
-
-  <section class="content-panel" aria-labelledby="preventive-next-title">
-    <h2 id="preventive-next-title">Related documentation</h2>
-    <ul class="link-list">
-      <li><a href={withBase('/docs/maintenance-history/')}>Record completed maintenance</a></li>
-      <li><a href={withBase('/docs/parts-and-consumables/')}>Document replacement parts</a></li>
-      <li><a href={withBase('/features/')}>Review planned feature areas</a></li>
-    </ul>
+  <section class="content-panel" aria-labelledby="status-title">
+    <span class="status-pill">Preview</span>
+    <h2 id="status-title">Not final release documentation.</h2>
+    <p>Public app screenshots, final workflows, downloads, paid plans, verified catalogs, account features, and support desk procedures are not available yet.</p>
   </section>
 </DocsLayout>
