@@ -339,10 +339,7 @@ import { withBase } from '../../utils/paths';
       radial-gradient(circle at 16% 6%, rgba(57, 208, 255, 0.25), transparent 15rem),
       radial-gradient(circle at 90% 15%, rgba(124, 58, 237, 0.24), transparent 17rem),
       linear-gradient(145deg, rgba(16, 22, 36, 0.97), rgba(21, 29, 46, 0.84));
-    box-shadow:
-      var(--shadow-soft),
-      0 26px 90px rgba(57, 208, 255, 0.13),
-      0 24px 88px rgba(124, 58, 237, 0.17);
+    box-shadow: var(--shadow-hero-panel);
     transform-style: preserve-3d;
     transition:
       border-color var(--motion-duration-base) var(--motion-ease-standard),
@@ -381,7 +378,7 @@ import { withBase } from '../../utils/paths';
     border-radius: 999px;
     background: rgba(124, 58, 237, 0.3);
     content: '';
-    filter: blur(48px);
+    filter: blur(34px);
   }
 
   .panel-edge-light,
@@ -689,9 +686,9 @@ import { withBase } from '../../utils/paths';
       --hero-reveal-order: 3;
       transform: translate3d(1rem, 1.1rem, 0) rotateX(4deg) rotateY(-5deg) scale(0.985);
       animation-name: hero-panel-reveal, hero-panel-float;
-      animation-duration: var(--motion-duration-cinematic), 8s;
+      animation-duration: var(--motion-duration-cinematic), 9s;
       animation-timing-function: var(--motion-ease-emphasized), var(--motion-ease-ambient);
-      animation-delay: calc(120ms + var(--motion-entrance-stagger) * var(--hero-reveal-order, 0)), 820ms;
+      animation-delay: calc(120ms + var(--motion-entrance-stagger) * var(--hero-reveal-order, 0)), 900ms;
       animation-fill-mode: both, none;
       animation-iteration-count: 1, infinite;
       animation-direction: normal, alternate;
@@ -779,18 +776,10 @@ import { withBase } from '../../utils/paths';
   @keyframes hero-panel-float {
     from {
       transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-      box-shadow:
-        var(--shadow-soft),
-        0 24px 78px rgba(57, 208, 255, 0.11),
-        0 22px 78px rgba(124, 58, 237, 0.14);
     }
 
     to {
-      transform: translate3d(0, -0.38rem, 0) rotateX(1deg) rotateY(-1.2deg);
-      box-shadow:
-        var(--shadow-soft),
-        0 30px 92px rgba(57, 208, 255, 0.15),
-        0 28px 92px rgba(124, 58, 237, 0.18);
+      transform: translate3d(0, -0.32rem, 0) rotateX(0.8deg) rotateY(-1deg);
     }
   }
 
@@ -871,13 +860,11 @@ import { withBase } from '../../utils/paths';
 
   @keyframes hero-active-row-breathe {
     from {
-      border-color: rgba(57, 208, 255, 0.18);
-      box-shadow: 0 0 18px rgba(57, 208, 255, 0.06);
+      opacity: 0.82;
     }
 
     to {
-      border-color: rgba(57, 208, 255, 0.32);
-      box-shadow: 0 0 26px rgba(57, 208, 255, 0.1);
+      opacity: 1;
     }
   }
 
@@ -921,6 +908,13 @@ import { withBase } from '../../utils/paths';
 
     .hero-panel {
       border-radius: 1.4rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-panel::after,
+    .panel-edge-light,
+    .panel-scanline {
+      display: none;
     }
   }
 

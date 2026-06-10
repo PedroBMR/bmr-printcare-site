@@ -124,3 +124,21 @@ Recommended next milestones:
 1. **Performance verification** — validate animation cost, paint/composite behavior, reduced-motion behavior, and mobile smoothness before heavier effects ship.
 2. **Section-level storytelling** — consider controlled narrative motion only where it clarifies product direction and remains CSS-first.
 3. **Animation budget** — decide which ambient, hero, and cross-site effects should remain enabled on lower-end mobile devices.
+
+## Milestone 24 performance verification note
+
+Milestone 24 completed a performance-oriented review of the motion and lighting system added in Milestones 21 through 23. The Premium Violet Tech direction remains intact, but the most sensitive decorative effects were tightened before any future visual/storytelling expansion.
+
+Changes made during the pass:
+
+- the global ambient grid and internal page hero grid now drift with transform-based motion instead of animating `background-position`;
+- ambient `will-change` hints are scoped to the desktop/tablet no-preference animation path instead of remaining permanently active;
+- small-screen ambient rendering is simplified by lowering blur/opacity, freezing movement, and removing the heaviest secondary layers;
+- the homepage hero panel no longer animates `box-shadow` during its infinite float;
+- the active service-log row uses opacity-only breathing instead of border/shadow breathing;
+- cross-site panel sweep/breathe effects are limited to larger screens with normal motion preferences;
+- touch/mobile hover paths avoid hover lift transforms that are not useful on coarse-pointer devices.
+
+Reduced-motion behavior was rechecked as part of the milestone. Reduced-motion users should continue to receive static premium visuals without cinematic entrance, float, pulse, sweep/glint, scanline, grid drift, or hover-transform motion.
+
+Future visual/storytelling milestones should continue to preserve this budget: use CSS-first transform/opacity motion, avoid broad continuous animations, keep mobile simpler than desktop, and re-run the performance checklist in `docs/performance-notes.md` before adding heavier effects.
