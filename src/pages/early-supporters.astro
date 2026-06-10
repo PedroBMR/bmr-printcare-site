@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../utils/paths';
+import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const fundingUses = [
@@ -76,6 +77,25 @@ const launchRequirements = [
         delivery dates, accounts, downloads, or catalog purchases on this page. Any future campaign details remain under
         review and subject to change.
       </p>
+    </section>
+
+    <section class="content-panel content-panel--preview" aria-labelledby="supporter-preview-title">
+      <div>
+        <span class="status-pill">Future concept</span>
+        <h2 id="supporter-preview-title">Previewing direction without making the campaign live.</h2>
+        <p>
+          This placeholder keeps the page product-oriented while preserving the important boundary that no supporter
+          campaign, rewards, payment, catalog purchase, or delivery commitment is active.
+        </p>
+      </div>
+      <AppPreviewFrame
+        title="Future supporter concept preview"
+        label="App preview placeholder"
+        status="Not live"
+        pattern="campaign"
+        variant="compact"
+        caption="Future-direction preview placeholder only. It is not a live campaign screen, payment flow, or final reward preview."
+      />
     </section>
 
     <section class="content-panel" aria-labelledby="purpose-title">

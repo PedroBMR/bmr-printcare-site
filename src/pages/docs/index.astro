@@ -1,6 +1,7 @@
 ---
 import { withBase } from '../../utils/paths';
 import DocsGrid from '../../components/docs/DocsGrid.astro';
+import AppPreviewFrame from '../../components/content/AppPreviewFrame.astro';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 
 const beginnerGuides = [
@@ -62,11 +63,23 @@ const beginnerGuides = [
     <DocsGrid items={beginnerGuides} ariaLabel="Beginner documentation guides" />
   </section>
 
-  <section class="docs-section" aria-labelledby="docs-workflow-title">
+  <section class="docs-section docs-section--with-preview" aria-labelledby="docs-workflow-title">
     <div class="section-heading">
       <p class="section-eyebrow">Maintenance workflow</p>
       <h2 id="docs-workflow-title">A simple path through the planned product.</h2>
+      <p>
+        The preview is intentionally schematic so docs can explain the product concept without presenting final app
+        screenshots before the desktop app is ready.
+      </p>
     </div>
+    <AppPreviewFrame
+      title="Documentation workflow preview"
+      label="Guide UI preview"
+      status="Preview placeholder"
+      pattern="docs"
+      variant="compact"
+      caption="Lightweight documentation preview placeholder. Final screenshots will be added closer to release."
+    />
     <ol class="docs-steps">
       <li>
         <strong>Create a printer profile.</strong>

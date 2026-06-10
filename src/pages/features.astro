@@ -1,6 +1,7 @@
 ---
 import { withBase } from '../utils/paths';
 import FeatureGrid from '../components/content/FeatureGrid.astro';
+import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -113,6 +114,32 @@ const roadmapOnlyItems = [
         </p>
       </div>
       <FeatureGrid items={coreFeatures} ariaLabel="Core maintenance feature areas" />
+      <div class="preview-cluster preview-cluster--three" aria-label="Core maintenance interface preview placeholders">
+        <AppPreviewFrame
+          title="Maintenance history preview"
+          label="UI preview"
+          status="Preview placeholder"
+          pattern="history"
+          variant="compact"
+          caption="Preview placeholder for dated maintenance records; not a final app screenshot."
+        />
+        <AppPreviewFrame
+          title="Preventive maintenance preview"
+          label="UI preview"
+          status="In development"
+          pattern="preventive"
+          variant="compact"
+          caption="Preview placeholder for planned routine care prompts; not a released feature claim."
+        />
+        <AppPreviewFrame
+          title="Parts and consumables preview"
+          label="UI preview"
+          status="Preview placeholder"
+          pattern="parts"
+          variant="compact"
+          caption="Preview placeholder for parts, costs, and consumables records."
+        />
+      </div>
     </section>
 
     <section class="feature-section" aria-labelledby="printer-profiles-title">
@@ -124,7 +151,17 @@ const roadmapOnlyItems = [
           ecosystem, cloud account, or hardware partnership.
         </p>
       </div>
-      <FeatureGrid items={profileFeatures} ariaLabel="Printer profile feature details" />
+      <div class="feature-preview-split">
+        <FeatureGrid items={profileFeatures} ariaLabel="Printer profile feature details" />
+        <AppPreviewFrame
+          title="Printer profile panel"
+          label="Desktop app preview"
+          status="Preview placeholder"
+          pattern="profiles"
+          variant="panel"
+          caption="Interface preview placeholder showing the intended profile concept without implying final screenshots are ready."
+        />
+      </div>
     </section>
 
     <section class="feature-section" aria-labelledby="direction-title">
@@ -136,7 +173,17 @@ const roadmapOnlyItems = [
           direct printer integrations, cloud sync, mobile apps, machine-learning features, machine-driven diagnosis, or paid plans.
         </p>
       </div>
-      <FeatureGrid items={directionItems} ariaLabel="Product direction feature areas" />
+      <div class="feature-preview-split feature-preview-split--reverse">
+        <FeatureGrid items={directionItems} ariaLabel="Product direction feature areas" />
+        <AppPreviewFrame
+          title="Local-first data direction"
+          label="App preview placeholder"
+          status="Direction"
+          pattern="local"
+          variant="panel"
+          caption="Preview placeholder for local-first record organization and backup planning; final app behavior will be documented closer to release."
+        />
+      </div>
     </section>
 
     <section class="feature-section" aria-labelledby="roadmap-only-title">
@@ -148,7 +195,17 @@ const roadmapOnlyItems = [
           until the app, documentation, and release scope are ready.
         </p>
       </div>
-      <FeatureGrid items={roadmapOnlyItems} ariaLabel="Roadmap-only feature ideas" />
+      <div class="feature-preview-split">
+        <FeatureGrid items={roadmapOnlyItems} ariaLabel="Roadmap-only feature ideas" />
+        <AppPreviewFrame
+          title="Future quality notes"
+          label="Roadmap UI preview"
+          status="Roadmap only"
+          pattern="plannedQuality"
+          variant="compact"
+          caption="Roadmap preview placeholder only. Calibration and print-quality tracking are not presented as live features."
+        />
+      </div>
     </section>
 
     <StatusNote title="Manufacturer independence note" tone="accent">

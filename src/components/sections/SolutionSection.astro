@@ -1,3 +1,7 @@
+---
+import AppPreviewFrame from '../content/AppPreviewFrame.astro';
+---
+
 <section class="section-shell solution-section" aria-labelledby="solution-title">
   <div class="solution-copy">
     <p class="section-eyebrow">The solution</p>
@@ -8,37 +12,14 @@
     </p>
   </div>
 
-  <aside class="solution-preview" aria-label="Desktop app preview placeholder">
-    <div class="preview-topline">
-      <span>Desktop app preview</span>
-      <strong>Placeholder</strong>
-    </div>
-    <div class="preview-window" aria-hidden="true">
-      <div class="preview-sidebar">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="preview-content">
-        <div class="preview-header"></div>
-        <div class="preview-card preview-card--wide">
-          <span></span>
-          <strong></strong>
-          <i></i>
-        </div>
-        <div class="preview-row">
-          <div class="preview-card"><span></span><strong></strong></div>
-          <div class="preview-card"><span></span><strong></strong></div>
-        </div>
-        <div class="preview-list">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-    <p>Interface preview placeholder. Final app screenshots will be added closer to release.</p>
-  </aside>
+  <AppPreviewFrame
+    title="NozzleNote maintenance workspace"
+    label="Desktop app preview"
+    status="Preview placeholder"
+    pattern="maintenance"
+    variant="desktop"
+    caption="Interface preview placeholder. Final app screenshots will be added closer to release."
+  />
 </section>
 
 <style>
@@ -76,204 +57,8 @@
     font-size: clamp(1.05rem, 2vw, 1.25rem);
   }
 
-  .solution-preview {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(57, 208, 255, 0.28);
-    border-radius: calc(var(--radius-card) + 0.2rem);
-    padding: clamp(1rem, 3vw, 1.35rem);
-    background:
-      radial-gradient(circle at 18% 6%, rgba(57, 208, 255, 0.16), transparent 12rem),
-      radial-gradient(circle at 95% 18%, rgba(124, 58, 237, 0.2), transparent 14rem),
-      linear-gradient(145deg, rgba(7, 10, 18, 0.88), rgba(16, 22, 36, 0.82));
-    box-shadow: var(--shadow-soft), var(--shadow-cyan);
-    transition:
-      border-color var(--motion-duration-base) var(--motion-ease-standard),
-      box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
-      transform var(--motion-duration-base) var(--motion-ease-hover);
-  }
-
-  .solution-preview:hover,
-  .solution-preview:focus-within {
-    border-color: rgba(57, 208, 255, 0.42);
-    box-shadow: var(--shadow-soft), var(--shadow-cyan), 0 0 0 1px rgba(57, 208, 255, 0.08);
-    transform: translateY(var(--motion-hover-raise));
-  }
-
-  .solution-preview::before {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(57, 208, 255, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(57, 208, 255, 0.045) 1px, transparent 1px);
-    background-size: 2rem 2rem;
-    mask-image: linear-gradient(to bottom, black, transparent 78%);
-    content: '';
-  }
-
-  .preview-topline,
-  .preview-window,
-  .solution-preview p {
-    position: relative;
-    z-index: 1;
-  }
-
-  .preview-topline {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-
-  .preview-topline span,
-  .preview-topline strong {
-    border-radius: 999px;
-    font-size: 0.76rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .preview-topline span {
-    color: var(--color-accent);
-  }
-
-  .preview-topline strong {
-    border: 1px solid rgba(167, 139, 250, 0.32);
-    padding: 0.38rem 0.58rem;
-    background: rgba(124, 58, 237, 0.1);
-    color: var(--color-brand-violet-soft);
-  }
-
-  .preview-window {
-    display: grid;
-    grid-template-columns: 4.25rem minmax(0, 1fr);
-    min-height: 17rem;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1.15rem;
-    background: rgba(7, 10, 18, 0.44);
-  }
-
-  .preview-sidebar {
-    display: grid;
-    align-content: start;
-    gap: 0.65rem;
-    border-right: 1px solid rgba(57, 208, 255, 0.12);
-    padding: 1rem 0.8rem;
-    background: rgba(16, 22, 36, 0.5);
-  }
-
-  .preview-sidebar span,
-  .preview-header,
-  .preview-card span,
-  .preview-card strong,
-  .preview-card i,
-  .preview-list span {
-    display: block;
-    border-radius: 999px;
-    background: rgba(167, 139, 250, 0.24);
-  }
-
-  .preview-sidebar span {
-    width: 100%;
-    height: 0.55rem;
-  }
-
-  .preview-sidebar span:first-child {
-    background: rgba(57, 208, 255, 0.5);
-  }
-
-  .preview-content {
-    display: grid;
-    gap: 0.85rem;
-    align-content: start;
-    padding: 1rem;
-  }
-
-  .preview-header {
-    width: min(16rem, 76%);
-    height: 0.8rem;
-    background: rgba(57, 208, 255, 0.34);
-  }
-
-  .preview-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.85rem;
-  }
-
-  .preview-card {
-    display: grid;
-    gap: 0.7rem;
-    min-height: 4.2rem;
-    border: 1px solid rgba(57, 208, 255, 0.16);
-    border-radius: 0.9rem;
-    padding: 0.85rem;
-    background: rgba(16, 22, 36, 0.6);
-  }
-
-  .preview-card--wide {
-    min-height: 5rem;
-    border-color: rgba(57, 208, 255, 0.24);
-  }
-
-  .preview-card span {
-    width: 5rem;
-    height: 0.52rem;
-    background: rgba(57, 208, 255, 0.34);
-  }
-
-  .preview-card strong {
-    width: 80%;
-    height: 0.72rem;
-  }
-
-  .preview-card i {
-    width: 54%;
-    height: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .preview-list {
-    display: grid;
-    gap: 0.55rem;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 0.9rem;
-    padding: 0.8rem;
-  }
-
-  .preview-list span {
-    height: 0.52rem;
-    background: rgba(255, 255, 255, 0.11);
-  }
-
-  .solution-preview p {
-    margin-top: 1rem;
-    font-size: 0.92rem;
-  }
-
-  @media (max-width: 820px) {
+  @media (max-width: 900px) {
     .solution-section {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .preview-window {
-      grid-template-columns: 1fr;
-    }
-
-    .preview-sidebar {
-      grid-template-columns: repeat(3, 1fr);
-      border-right: 0;
-      border-bottom: 1px solid rgba(57, 208, 255, 0.12);
-    }
-
-    .preview-row {
       grid-template-columns: 1fr;
     }
   }

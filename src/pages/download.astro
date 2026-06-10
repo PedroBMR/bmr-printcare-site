@@ -1,6 +1,7 @@
 ---
 import { withBase } from '../utils/paths';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
+import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releaseChecklistItems = [
@@ -102,6 +103,25 @@ const expectations = [
         <strong>No installer, binary, checksum, checkout, signup form, or release date is published here.</strong> This
         page is a readiness checklist for future release preparation, not an active download flow.
       </p>
+    </section>
+
+    <section class="content-panel content-panel--preview" aria-labelledby="download-preview-title">
+      <div>
+        <span class="status-pill">In development</span>
+        <h2 id="download-preview-title">A release-preparation preview, not a live download.</h2>
+        <p>
+          The visual below is an app preview placeholder to communicate the planned desktop Core direction while making
+          clear that final screenshots and public release files are not available yet.
+        </p>
+      </div>
+      <AppPreviewFrame
+        title="Release preparation preview"
+        label="Desktop app preview"
+        status="Preview placeholder"
+        pattern="release"
+        variant="compact"
+        caption="App preview placeholder only. Final screenshots and real release assets will be added closer to release."
+      />
     </section>
 
     <section class="content-panel" aria-labelledby="availability-title">

@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../utils/paths';
+import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const completedItems = [
@@ -118,15 +119,25 @@ const connectorIdeas = [
       </section>
     </section>
 
-    <section class="content-panel" aria-labelledby="current-focus-title">
-      <h2 id="current-focus-title">Current development focus</h2>
-      <p>
-        The current focus is the desktop maintenance core and the data structures needed to make manual printer care
-        records useful before expanding into paid catalog content or optional connected workflows.
-      </p>
-      <ul class="plain-list roadmap-columns">
-        {currentFocusItems.map((item) => <li>{item}</li>)}
-      </ul>
+    <section class="content-panel content-panel--preview" aria-labelledby="current-focus-title">
+      <div>
+        <h2 id="current-focus-title">Current development focus</h2>
+        <p>
+          The current focus is the desktop maintenance core and the data structures needed to make manual printer care
+          records useful before expanding into paid catalog content or optional connected workflows.
+        </p>
+        <ul class="plain-list roadmap-columns">
+          {currentFocusItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <AppPreviewFrame
+        title="Roadmap focus preview"
+        label="Product direction preview"
+        status="In development"
+        pattern="maintenance"
+        variant="compact"
+        caption="Roadmap preview placeholder for the desktop maintenance core; not a final screenshot or release claim."
+      />
     </section>
 
     <section class="content-grid" aria-label="Release and commercial path roadmap">
