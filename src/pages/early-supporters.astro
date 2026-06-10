@@ -1,189 +1,24 @@
 ---
 import { withBase } from '../utils/paths';
-import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
+import FeatureGrid from '../components/content/FeatureGrid.astro';
+import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const fundingUses = [
-  'Code signing preparation for future desktop builds',
-  'Beginner-friendly documentation and release notes',
-  'Catalog packaging, boundaries, and review workflows',
-  'Website polish for launch-readiness messaging',
-  'Release testing, known-limitations notes, and final launch preparation',
+const funding = [
+  { title: 'Release preparation', status: 'Possible future use', description: 'A future campaign could help fund testing, packaging, screenshots, documentation, and support preparation.' },
+  { title: 'Catalog research', status: 'Possible future use', description: 'Funds could support careful content organization for optional verified catalogs after scope and review.' },
+  { title: 'Documentation and support', status: 'Possible future use', description: 'A campaign could help improve guides and future support materials before public availability.' },
 ];
-
-const currentLimits = [
-  'The campaign is not live yet.',
-  'Rewards are not final and remain under review.',
-  'No payment is being collected through this website.',
-  'No purchase, pledge, license, catalog, account, or mobile access is currently available through this page.',
-  'NozzleNote by BMR is still in development, and public release is not available yet.',
-];
-
-const rewardIdeas = [
-  'Founder badge',
-  'Early access, if a reviewed build and support scope are ready',
-  'BMR Verified Catalog license with defined scope and duration',
-  'Printable maintenance kit',
-  'Name in credits, if consent and display rules are defined',
-  'All Access for a defined period, not indefinite access to every future catalog',
-];
-
-const explicitBoundaries = [
-  'No indefinite all-inclusive promise is being offered here.',
-  'No access to every future catalog is promised.',
-  'No firm delivery date is stated.',
-  'No manufacturer affiliation, endorsement, sponsorship, approval, or support is implied.',
-  'No mobile companion is available from this page.',
-];
-
-const launchRequirements = [
-  'Reviewed terms',
-  'Reviewed refund and commercial policy',
-  'Clear reward definitions',
-  'Support scope for contributors and users',
-  'Product build status and known limitations',
-  'Catalog scope, update period, and compatibility boundaries',
-  'Delivery expectations without firm dates',
-  'Manufacturer disclaimer and trademark boundaries',
-  'Privacy notice for any future account, licensing, support, or payment workflow',
-  'License activation plan, including recovery and device-limit expectations if used',
+const limits = [
+  { title: 'No payment', status: 'Not live', description: 'There is no pledge form, payment button, checkout, or supporter purchase on this page.' },
+  { title: 'No final rewards', status: 'Not promised', description: 'Reward ideas are not final and do not promise app access, licenses, catalogs, mobile access, or delivery dates.' },
+  { title: 'Review required', status: 'Before launch', description: 'Any campaign would need reviewed terms, refund language, delivery expectations, privacy language, and support scope.' },
 ];
 ---
-
-<BaseLayout
-  title="NozzleNote Early Supporter Campaign | NozzleNote by BMR"
-  description="Future early supporter campaign placeholder for NozzleNote by BMR explaining cautious launch funding preparation, non-live status, possible reward ideas under review, and legal readiness needs."
->
+<BaseLayout title="Early Supporters | NozzleNote by BMR" description="Early Supporters planning for NozzleNote by BMR. No campaign, payment, pledge form, final reward, or delivery date is live.">
   <main class="page-shell feature-page">
-    <section class="page-hero" aria-labelledby="early-supporters-title">
-      <p class="section-eyebrow">Future launch funding concept</p>
-      <h1 id="early-supporters-title">NozzleNote Early Supporter Campaign</h1>
-      <p>
-        A future early supporter campaign may help fund the final launch stage of NozzleNote by BMR. This page is a
-        planning placeholder only: the campaign is not live yet, rewards are not final, and no payment is being collected
-        through this website.
-      </p>
-      <div class="hero-actions" aria-label="Early supporter page links">
-        <a class="primary-link" href={withBase('/roadmap/')}>View the roadmap</a>
-        <a class="secondary-link" href={withBase('/download/')}>Read release preparation</a>
-        <a class="secondary-link" href={withBase('/support/')}>Review support scope</a>
-      </div>
-    </section>
-
-    <section class="status-banner" aria-label="Early Supporters status summary">
-      <span class="status-pill">Not live / no payment</span>
-      <p>
-        <strong>This is not a live campaign.</strong> There are no payment buttons, pledge forms, prices, final rewards,
-        delivery dates, accounts, downloads, or catalog purchases on this page. Any future campaign details remain under
-        review and subject to change.
-      </p>
-    </section>
-
-    <section class="content-panel content-panel--preview" aria-labelledby="supporter-preview-title">
-      <div>
-        <span class="status-pill">Future concept</span>
-        <h2 id="supporter-preview-title">Previewing direction without making the campaign live.</h2>
-        <p>
-          This placeholder keeps the page product-oriented while preserving the important boundary that no supporter
-          campaign, rewards, payment, catalog purchase, or delivery commitment is active.
-        </p>
-      </div>
-      <AppPreviewFrame
-        title="Future supporter concept preview"
-        label="App preview placeholder"
-        status="Not live"
-        pattern="campaign"
-        variant="compact"
-        caption="Future-direction preview placeholder only. It is not a live campaign screen, payment flow, or final reward preview."
-      />
-    </section>
-
-    <section class="content-panel" aria-labelledby="purpose-title">
-      <span class="status-pill">In development</span>
-      <h2 id="purpose-title">What a future campaign could help fund</h2>
-      <p>
-        If launched later, an early supporter or launch fund campaign could help with final launch preparation rather
-        than changing planned features into promises of availability. Possible funding uses include:
-      </p>
-      <ul class="plain-list">
-        {fundingUses.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <section class="content-panel" aria-labelledby="not-live-title">
-      <span class="status-pill">Not live</span>
-      <h2 id="not-live-title">Current status and limits</h2>
-      <p>
-        This page does not create a checkout, pledge, license, download, account, catalog, or mobile workflow. It exists
-        so future campaign planning can stay transparent and cautious before any commercial launch decision.
-      </p>
-      <ul class="plain-list">
-        {currentLimits.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <section class="feature-section" aria-labelledby="reward-ideas-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Examples under review</p>
-        <h2 id="reward-ideas-title">Possible future reward ideas are not final.</h2>
-        <p>
-          These examples are under review and subject to change. They are not purchase offers, final tiers, prices,
-          delivery commitments, or license terms.
-        </p>
-      </div>
-      <section class="content-grid" aria-label="Possible early supporter reward ideas under review">
-        {rewardIdeas.map((item) => (
-          <article class="content-card">
-            <span class="status-pill">Under review</span>
-            <h3>{item}</h3>
-            <p>
-              Any future version would need clear definitions, reviewed terms, support boundaries, and delivery
-              expectations before launch.
-            </p>
-          </article>
-        ))}
-      </section>
-    </section>
-
-    <section class="content-panel" aria-labelledby="boundaries-title">
-      <span class="status-pill">Important boundaries</span>
-      <h2 id="boundaries-title">What this page does not promise</h2>
-      <p>
-        Future campaign planning should avoid broad or indefinite promises. The following boundaries apply to this
-        placeholder:
-      </p>
-      <ul class="plain-list">
-        {explicitBoundaries.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <section class="content-panel" aria-labelledby="before-launch-title">
-      <span class="status-pill">Required before launch</span>
-      <h2 id="before-launch-title">What must be ready before any campaign launch</h2>
-      <p>
-        Before any early supporter campaign accepts money or defines final rewards, the project should have reviewed
-        commercial, legal, support, product, catalog, privacy, and activation details.
-      </p>
-      <ul class="plain-list roadmap-columns">
-        {launchRequirements.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <section class="content-panel" aria-labelledby="related-links-title">
-      <h2 id="related-links-title">Related planning pages</h2>
-      <p>
-        These pages explain current development direction, release posture, catalog planning, support limits, and draft
-        legal placeholders that would need review before any future campaign.
-      </p>
-      <ul class="link-list">
-        <li><a href={withBase('/roadmap/')}>Roadmap</a></li>
-        <li><a href={withBase('/download/')}>Download and release preparation</a></li>
-        <li><a href={withBase('/catalogs/')}>Catalogs</a></li>
-        <li><a href={withBase('/support/')}>Support</a></li>
-        <li><a href={withBase('/refund-policy/')}>Refund Policy</a></li>
-        <li><a href={withBase('/license-terms/')}>License Terms</a></li>
-        <li><a href={withBase('/manufacturer-disclaimer/')}>Manufacturer Disclaimer</a></li>
-      </ul>
-    </section>
+    <section class="page-hero" aria-labelledby="supporters-title"><p class="section-eyebrow">Early Supporters concept</p><h1 id="supporters-title">A future supporter campaign is not live.</h1><p>This page describes what a future campaign could support. It does not accept payments, promises rewards, sell licenses, or provide app or catalog access.</p><div class="hero-actions"><a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a><a class="secondary-link" href={withBase('/pricing/')}>Pricing direction</a></div></section>
+    <StatusNote title="No payment status" tone="accent"><p>No pledge form, payment button, checkout, campaign, supporter tier, reward, or delivery schedule is active.</p></StatusNote>
+    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">What a future campaign could help fund</p><h2>Potential support areas remain preliminary.</h2></div><FeatureGrid items={funding} ariaLabel="Potential future supporter campaign funding areas" /></section>
+    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">Current limits</p><h2>What this page does not promise.</h2></div><FeatureGrid items={limits} ariaLabel="Early supporter limitations" /></section>
   </main>
 </BaseLayout>

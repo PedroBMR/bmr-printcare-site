@@ -42,7 +42,7 @@ Milestone 18 integrates those already-uploaded assets without adding, modifying,
 - Public copy remains in English and continues to use `NozzleNote by BMR` or `NozzleNote`.
 - Planned/future language remains cautious for paid catalogs, accounts, mobile companion, integrations, calibration, print quality tracking, cloud sync, and public downloads.
 - Catalog language remains based on verified catalogs / BMR Verified Catalogs / BMR-maintained verified catalog packs, not manufacturer catalog claims.
-- Legal pages remain preliminary/draft and should remain noindexed where configured.
+- Legal pages remain preliminary and should remain noindexed where configured.
 - Root-domain deployment remains the target: `https://nozzlenote.com`, no repository base path, and `public/CNAME` remains `nozzlenote.com`.
 
 ## Open future design work

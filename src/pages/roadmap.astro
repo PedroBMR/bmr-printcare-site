@@ -1,277 +1,41 @@
 ---
 import { withBase } from '../utils/paths';
-import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
+import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
+import FeatureGrid from '../components/content/FeatureGrid.astro';
+import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const completedItems = [
-  {
-    title: 'Website foundation',
-    status: 'Completed',
-    description: 'Static Astro foundation, GitHub Pages custom-domain deployment, landing page sections, and reusable layout components.',
-  },
-  {
-    title: 'Documentation structure',
-    status: 'Completed',
-    description: 'Improved documentation hub, static guide pages, and smoother docs navigation for early product education.',
-  },
-  {
-    title: 'Support and legal placeholders',
-    status: 'In progress',
-    description: 'Support guidance and preliminary legal pages exist as draft placeholders for future review before public release.',
-  },
-  {
-    title: 'App development in progress',
-    status: 'In progress',
-    description: 'NozzleNote by BMR remains in development as a local-first desktop maintenance logbook for 3D printer owners.',
-  },
+const currentItems = [
+  { title: 'Public website foundation', status: 'Completed', description: 'Root-domain deployment, Premium Violet Tech direction, preview placeholders, conditional GA4, and page structure are in place.' },
+  { title: 'Content alignment', status: 'In progress', description: 'Public copy is being aligned to cautious product, commercial, documentation, and preliminary legal language.' },
+  { title: 'Release preparation', status: 'In development', description: 'The app, screenshots, installers, support workflow, and reviewed legal/commercial terms are not public yet.' },
 ];
-
-const currentFocusItems = [
-  'Desktop maintenance core',
-  'Printer profiles',
-  'Tasks',
-  'History',
-  'Parts',
-  'Incidents',
-  'Backup',
-  'Catalog foundation',
+const releasePath = [
+  { title: 'Finish app behavior', status: 'Planned', description: 'Validate printer profiles, maintenance history, preventive maintenance, parts records, local data behavior, and backup direction.' },
+  { title: 'Prepare public assets', status: 'Planned', description: 'Add real screenshots, release notes, installer information, checksums if needed, and platform requirements only when available.' },
+  { title: 'Review legal and support pages', status: 'Required', description: 'Commercial terms, privacy details, support expectations, refunds, and license terms need qualified review before paid features.' },
+  { title: 'Publish download path', status: 'Future', description: 'A public download path will appear only after files exist and release preparation is complete.' },
 ];
-
-const releasePathItems = [
-  'Free Core public desktop release',
-  'Website + docs + support guidance',
-  'No paid catalog until reviewed',
-];
-
-const commercialPathItems = [
-  'BMR Verified Catalog — Compatible with Bambu Lab Printers',
-  'License key activation',
-  'Entitlements',
-  'Early supporter / crowdfunding campaign',
-  'Public paid catalog launch',
-];
-
-const expansionItems = [
-  'Maintenance Budget & Parts Planner',
-  'Calibration & Print Quality Suite',
-  'Print Quality Benchmark',
-  'Optional account',
-  'Optional sync',
-  'Mobile companion',
-  'Read-only integrations',
-];
-
-const calibrationSubareas = [
-  'Machine Calibration',
-  'Filament Calibration',
-  'Filament Profiles',
-  'Calibration History',
-  'Print Quality Benchmark',
-];
-
-const benchmarkDetails = ['manual comparison', 'photo history', 'defect tags', 'quality notes'];
-
-const connectorIdeas = [
-  'OctoPrint',
-  'Klipper / Moonraker',
-  'PrusaLink',
-  'Bambu-related integration, if technically and legally appropriate',
+const futureCards = [
+  { title: 'Maintenance Budget & Parts Planner', status: 'Future expansion', description: 'May later help users estimate recurring parts and consumables needs without promising full accounting or procurement automation.' },
+  { title: 'Calibration & Print Quality Suite', status: 'Roadmap-only', description: 'May later organize calibration notes and print-quality observations; no AI diagnosis or photo analysis is promised.' },
+  { title: 'Print Quality Benchmark', status: 'Roadmap-only', description: 'May later provide structured benchmark notes, not automatic quality scoring or guaranteed issue detection.' },
+  { title: 'Optional read-only printer connectors', status: 'Future evaluation', description: 'May later explore limited read-only integrations. No direct printer integration, remote control, or cloud sync is live.' },
+  { title: 'Account, license, sync and mobile', status: 'Future planning', description: 'These areas remain planning-only and would require reviewed privacy, security, commercial, and support language before launch.' },
+  { title: 'Future commercial path', status: 'Preliminary', description: 'Core, Pro, verified catalogs, and bundles are pricing direction only. No active paid plan or catalog exists.' },
 ];
 ---
-
-<BaseLayout
-  title="Product Roadmap | NozzleNote by BMR"
-  description="Product-focused roadmap for NozzleNote by BMR covering current development direction, planned release path, future verified catalogs, and future expansion ideas."
->
+<BaseLayout title="Roadmap | NozzleNote by BMR" description="Roadmap for NozzleNote by BMR, an independent 3D printer maintenance tracking app in development. No dates, downloads, paid plans, or integrations are live yet.">
   <main class="page-shell feature-page">
     <section class="page-hero" aria-labelledby="roadmap-title">
-      <p class="section-eyebrow">Product roadmap</p>
-      <h1 id="roadmap-title">Current direction, planned work, and future ideas are separated.</h1>
-      <p>
-        NozzleNote by BMR is being developed as a local-first maintenance logbook for 3D printer owners. This roadmap uses
-        cautious planning language and should not be read as a promise of availability, pricing, release dates,
-        manufacturer support, or future integrations.
-      </p>
-      <div class="hero-actions" aria-label="Roadmap page links">
-        <a class="primary-link" href={withBase('/catalogs/')}>Explore catalog planning</a>
-        <a class="secondary-link" href={withBase('/download/')}>Read release preparation</a>
-        <a class="secondary-link" href={withBase('/early-supporters/')}>Early Supporters concept</a>
-      </div>
+      <p class="section-eyebrow">Roadmap</p>
+      <h1 id="roadmap-title">Current focus, planned release path, and future ideas.</h1>
+      <p>NozzleNote by BMR is in development. This roadmap avoids firm dates and separates completed website work from app release preparation and future expansion areas.</p>
+      <div class="hero-actions"><a class="primary-link" href={withBase('/download/')}>Read release preparation</a><a class="secondary-link" href={withBase('/pricing/')}>View pricing direction</a></div>
     </section>
-
-    <section class="feature-section" aria-labelledby="completed-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Completed / In progress</p>
-        <h2 id="completed-title">Website groundwork exists while the app continues toward a desktop core.</h2>
-        <p>
-          These items describe current project state. Legal content remains preliminary and the public desktop app is not
-          published yet.
-        </p>
-      </div>
-      <section class="content-grid" aria-label="Completed and in-progress roadmap areas">
-        {completedItems.map((item) => (
-          <article class="content-card">
-            <span class="status-pill">{item.status}</span>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
-      </section>
-    </section>
-
-    <section class="content-panel content-panel--preview" aria-labelledby="current-focus-title">
-      <div>
-        <h2 id="current-focus-title">Current development focus</h2>
-        <p>
-          The current focus is the desktop maintenance core and the data structures needed to make manual printer care
-          records useful before expanding into paid catalog content or optional connected workflows.
-        </p>
-        <ul class="plain-list roadmap-columns">
-          {currentFocusItems.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-      <AppPreviewFrame
-        title="Roadmap focus preview"
-        label="Product direction preview"
-        status="In development"
-        pattern="maintenance"
-        variant="compact"
-        caption="Roadmap preview placeholder for the desktop maintenance core; not a final screenshot or release claim."
-      />
-    </section>
-
-    <section class="content-grid" aria-label="Release and commercial path roadmap">
-      <article class="content-card">
-        <span class="status-pill">Planned</span>
-        <h2>Planned public release path</h2>
-        <p>
-          The release path is intended to start with a free Core desktop app for manual maintenance tracking and clear
-          website, docs, and support guidance.
-        </p>
-        <ul class="plain-list">
-          {releasePathItems.map((item) => <li>{item}</li>)}
-        </ul>
-      </article>
-
-      <article class="content-card">
-        <span class="status-pill">Future roadmap</span>
-        <h2>Future commercial path</h2>
-        <p>
-          Paid catalog work is a future path and should only move forward after review. An early supporter or crowdfunding-style
-          campaign may later become a future commercial path to help fund launch preparation, but it is not live and rewards
-          are not final. Paid catalog availability, pricing, licensing and update periods are not final yet.
-        </p>
-        <ul class="plain-list">
-          {commercialPathItems.map((item) => <li>{item}</li>)}
-          <li><a href={withBase('/early-supporters/')}>Review the Early Supporters planning placeholder</a></li>
-        </ul>
-      </article>
-
-      <article class="content-card">
-        <span class="status-pill">Future expansion</span>
-        <h2>Future expansion areas</h2>
-        <p>
-          These ideas may later extend NozzleNote after the maintenance core is complete. They are not current features.
-        </p>
-        <ul class="plain-list">
-          {expansionItems.map((item) => <li>{item}</li>)}
-        </ul>
-      </article>
-    </section>
-
-    <section class="roadmap-section-group" aria-labelledby="future-details-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Future roadmap details</p>
-        <h2 id="future-details-title">Later ideas are grouped separately from current development work.</h2>
-        <p>
-          The following cards make the expanded roadmap easier to scan. They describe possible future directions and do
-          not announce availability, compatibility, pricing, or delivery dates.
-        </p>
-      </div>
-
-      <div class="roadmap-detail-grid">
-        <article class="content-panel" aria-labelledby="budget-title">
-          <span class="status-pill">Future expansion</span>
-          <h2 id="budget-title">Maintenance Budget & Parts Planner</h2>
-          <p>
-            A future Maintenance Budget & Parts Planner is planned to help users record part costs, suppliers, delivery
-            lead times and expected replacement cycles.
-          </p>
-          <p>
-            If a nozzle is usually replaced every six months, NozzleNote may later help remind the user before the
-            replacement is due, show the last paid price, and suggest buying the part early enough to avoid downtime.
-          </p>
-        </article>
-
-        <article class="content-panel" aria-labelledby="calibration-title">
-          <span class="status-pill">Future expansion</span>
-          <h2 id="calibration-title">Calibration & Print Quality Suite</h2>
-          <p>
-            After the maintenance core is complete, NozzleNote may expand into calibration and print quality tracking,
-            helping users record machine calibration, filament calibration, profiles and quality observations over time.
-          </p>
-          <ul class="plain-list">
-            {calibrationSubareas.map((item) => <li>{item}</li>)}
-          </ul>
-        </article>
-
-        <article class="content-panel" aria-labelledby="benchmark-title">
-          <span class="status-pill">Future expansion</span>
-          <h2 id="benchmark-title">Print Quality Benchmark</h2>
-          <p>
-            A future Print Quality Benchmark may allow users to print a standard test model, upload reference photos, tag
-            visible defects and compare print quality over time after maintenance, calibration, part changes or filament
-            changes.
-          </p>
-          <ul class="plain-list">
-            {benchmarkDetails.map((item) => <li>{item}</li>)}
-          </ul>
-        </article>
-
-        <article class="content-panel" aria-labelledby="connectors-title">
-          <span class="status-pill">Distant future</span>
-          <h2 id="connectors-title">Future optional read-only printer connectors</h2>
-          <p>
-            Future optional read-only printer connectors may help turn real printer usage into better maintenance
-            reminders, such as print-hour based routines or event-based care prompts.
-          </p>
-          <p>
-            NozzleNote is not planned as a printer control platform. Any future connector should support maintenance
-            insight, not replace slicers, dashboards or manufacturer tools.
-          </p>
-          <ul class="plain-list">
-            {connectorIdeas.map((item) => <li>{item}</li>)}
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="content-panel" aria-labelledby="account-mobile-title">
-      <span class="status-pill">Future roadmap</span>
-      <h2 id="account-mobile-title">Future account, license, sync, and mobile language</h2>
-      <p>
-        A future optional NozzleNote account may help users recover licenses, manage activated devices, link older license
-        keys, and prepare optional sync or mobile features.
-      </p>
-      <p>
-        Before a full account system exists, paid catalogs may be activated through license keys and device activation.
-      </p>
-      <p>
-        A future mobile companion may help users review tasks, scan QR codes, record quick incidents and receive
-        maintenance reminders after account and sync infrastructure exists.
-      </p>
-    </section>
-
-    <section class="content-panel" aria-labelledby="roadmap-note-title">
-      <h2 id="roadmap-note-title">Release note</h2>
-      <p>
-        No real download links are published yet. Future milestones should add availability details only when the app,
-        documentation, support expectations, and basic legal pages are reviewed. Planned BMR Verified Catalogs are
-        described on the <a href={withBase('/catalogs/')}>catalogs page</a>, the current feature direction is summarized
-        on the <a href={withBase('/features/')}>features page</a>, early guide drafts are available in the
-        <a href={withBase('/docs/')}>documentation hub</a>, and current availability notes are listed on the
-        <a href={withBase('/download/')}>release preparation page</a>.
-      </p>
-    </section>
+    <StatusNote title="Release note" tone="accent"><p>No public download, paid catalog, Pro plan, account system, cloud sync, mobile app, or printer integration is live. Future items may change before release.</p></StatusNote>
+    <section class="roadmap-section-group"><div class="section-heading"><p class="section-eyebrow">Completed / in progress</p><h2>Website foundation and current development focus.</h2></div><ReleaseChecklist items={currentItems} ariaLabel="Completed and in-progress roadmap items" /></section>
+    <section class="roadmap-section-group"><div class="section-heading"><p class="section-eyebrow">Planned public release path</p><h2>What needs to happen before files are public.</h2></div><ReleaseChecklist items={releasePath} ariaLabel="Planned public release path" /></section>
+    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">Future expansion areas</p><h2>Ideas under consideration after the foundation is ready.</h2><p>These cards are roadmap-only unless a future release explicitly implements them.</p></div><FeatureGrid items={futureCards} ariaLabel="Future expansion roadmap cards" /></section>
   </main>
 </BaseLayout>

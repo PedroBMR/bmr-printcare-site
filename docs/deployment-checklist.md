@@ -13,7 +13,7 @@ Use this short checklist before evaluating a static deployment for NozzleNote by
 ## Content checks
 
 - Confirm every public route has a clear title and meta description.
-- Confirm draft legal pages remain preliminary and do not claim final legal compliance.
+- Confirm preliminary legal pages remain preliminary and do not claim final legal compliance.
 - Confirm the download page still says the public app release is not available yet.
 - Confirm no real installers, binaries, payment links, signup forms, cookies, or tracking scripts beyond the conditional standard GA4 Google tag were added.
 - Confirm manufacturer independence language remains visible and no manufacturer logos are used.

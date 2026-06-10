@@ -76,7 +76,7 @@ In the GitHub repository settings:
 
 The production deployment is served from `https://nozzlenote.com/`, and non-`noindex` pages emit canonical and Open Graph URLs using that domain.
 
-Draft legal pages should keep their existing `noindex` behavior. Do not add sitemap output until the final launch strategy is confirmed.
+Preliminary legal pages should keep their existing `noindex` behavior. Do not add sitemap output until the final launch strategy is confirmed.
 
 ## Manual visual test checklist
 
@@ -98,7 +98,7 @@ After deployment, review these items in desktop and mobile browsers:
 - `/support/` loads from the domain root.
 - `/download/` clearly says public release is not available yet.
 - `/early-supporters/` remains a planning placeholder, not a live campaign.
-- Legal pages remain preliminary or draft.
+- Legal pages remain preliminary.
 - Manufacturer independence disclaimer is visible.
 - Mobile navigation wraps without breaking.
 - Reduced-motion behavior remains respected.

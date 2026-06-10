@@ -1,75 +1,11 @@
 ---
-import { withBase } from '../utils/paths';
 import LegalLayout from '../components/legal/LegalLayout.astro';
 import LegalSection from '../components/legal/LegalSection.astro';
 ---
-
-<LegalLayout
-  title="Draft Terms of Use | NozzleNote by BMR"
-  description="Preliminary terms of use placeholder for the static NozzleNote by BMR website and in-development desktop app."
-  eyebrow="Draft terms of use"
-  heading="Preliminary terms for the website and product direction."
-  intro="These draft terms are placeholders for future legal review and are written for a static website supporting a desktop app that is not publicly released yet."
-  currentPath="/terms/"
->
-  <LegalSection title="Website use">
-    <p>
-      The NozzleNote by BMR website provides product positioning, documentation drafts, support-readiness notes, release
-      preparation information, roadmap context, catalog planning, and preliminary legal placeholders. Website information
-      is preliminary and provided for planning and general information only while the app remains in development.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Product development status">
-    <p>
-      NozzleNote by BMR is still in development and is not publicly available yet. The website does not currently provide
-      installers, binaries, purchase links, app store listings, beta signup forms, authentication, checkout, or paid plans.
-      Any future release should include reviewed terms, license information, support expectations, privacy information,
-      known limitations, backup guidance, and release notes before files are published.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="No warranty-style claims">
-    <p>
-      Current website content should not be read as a promise that the app will prevent printer issues, diagnose failures,
-      control printers, replace manufacturer manuals, provide warranty support, or produce specific maintenance outcomes.
-      Maintenance records and reminders are intended as planning aids only, and users remain responsible for printer
-      safety, inspection, and manufacturer guidance.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Support boundaries">
-    <p>
-      NozzleNote by BMR does not provide support for unsafe maintenance instructions, manufacturer warranty matters,
-      manufacturer service channels, printer repair, direct printer control, firmware changes, or manufacturer-owned
-      troubleshooting procedures. Current public support is limited to website information and development updates, as
-      described in the <a href={withBase('/support/')}>support hub</a>.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Acceptable use">
-    <p>
-      Visitors should not misuse the website, attempt to interfere with its static hosting, copy content in a misleading
-      way, imply manufacturer endorsement, or present draft documentation as final legal, safety, or technical guidance.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Related pages">
-    <p>
-      Privacy direction is summarized in the <a href={withBase('/privacy/')}>draft privacy notice</a>. Future commercial questions
-      should refer to the <a href={withBase('/refund-policy/')}>draft refund policy</a>, future license planning appears in the
-      <a href={withBase('/license-terms/')}>draft license terms</a>, and manufacturer independence is explained in the
-      <a href={withBase('/manufacturer-disclaimer/')}>manufacturer disclaimer</a>.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Future updates">
-    <p>
-      These terms may change before public release and should be reviewed before commercial availability, license
-      activation, payment processing, app store distribution, account features, support workflows that collect user
-      information, or any public release. Current release readiness is tracked on the
-      <a href={withBase('/download/')}>release preparation page</a>, with broader sequencing on the
-      <a href={withBase('/roadmap/')}>roadmap</a>.
-    </p>
-  </LegalSection>
+<LegalLayout title="Terms of Use | NozzleNote by BMR" description="Preliminary terms placeholder for NozzleNote by BMR while the app, downloads, paid plans, and support workflows are not public." eyebrow="Terms of use" heading="Terms of Use — preliminary placeholder." intro="These terms are not final legal terms. They are planning copy for a product that is still in development and will require review before release or commercial availability." currentPath="/terms/">
+  <LegalSection title="No public release yet"><p>No public download, paid plan, checkout, license activation, account system, cloud sync, mobile app, support desk, or verified catalog is currently offered through this website.</p></LegalSection>
+  <LegalSection title="No commercial commitment"><p>Roadmap, pricing, catalog, and supporter pages describe preliminary direction only. They do not create a purchase offer, subscription, license entitlement, delivery commitment, or refund process.</p></LegalSection>
+  <LegalSection title="Maintenance and safety responsibility"><p>NozzleNote is planned as a maintenance tracking and recordkeeping tool. Users remain responsible for printer safety, maintenance decisions, repair work, warranty questions, and consulting manufacturer documentation or qualified help.</p></LegalSection>
+  <LegalSection title="Manufacturer independence"><p>NozzleNote by BMR is independent and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to any 3D printer manufacturer.</p></LegalSection>
+  <LegalSection title="Future paid features"><p>Any future paid app editions, verified catalogs, bundles, license terms, activation limits, update periods, refund policy, and support terms must be reviewed before commercial release.</p></LegalSection>
 </LegalLayout>

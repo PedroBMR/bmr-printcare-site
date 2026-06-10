@@ -6,223 +6,72 @@ import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const coreFeatures = [
-  {
-    title: 'Maintenance history',
-    status: 'Core direction',
-    description:
-      'NozzleNote by BMR is designed to record service events, notes, dates, and maintenance context so owners can understand what changed over time.',
-  },
-  {
-    title: 'Preventive planning',
-    status: 'Core direction',
-    description:
-      'The app is intended to help users plan recurring care routines before small wear, skipped checks, or forgotten replacements become bigger problems.',
-  },
-  {
-    title: 'Parts and consumables records',
-    status: 'Core direction',
-    description:
-      'Users should be able to keep practical records for replaced parts, wear items, nozzles, build surfaces, filters, lubricants, and other workshop consumables.',
-  },
+  { title: 'Maintenance history', status: 'Core direction', description: 'Record dated maintenance events, service notes, parts used, consumables, observations, and follow-up context for each printer.' },
+  { title: 'Preventive maintenance', status: 'Core direction', description: 'Plan recurring care prompts for cleaning, inspection, lubrication, replacement checks, and other routine work without treating reminders as safety guarantees.' },
+  { title: 'Parts and consumables', status: 'Core direction', description: 'Keep practical records for nozzles, build surfaces, filters, lubricant, replacement parts, vendors, and notes that help explain printer history.' },
 ];
 
 const profileFeatures = [
-  {
-    title: 'Printer-specific records',
-    status: 'In development',
-    description:
-      'Printer profiles are planned as the starting point for maintenance tracking, with each printer keeping its own care history and notes.',
-  },
-  {
-    title: 'Flexible model information',
-    status: 'Planned',
-    description:
-      'Profiles are intended to support manufacturer-independent model details without using logos or implying manufacturer relationships.',
-  },
-  {
-    title: 'Workshop context',
-    status: 'Planned',
-    description:
-      'Future profile fields may help users capture location, usage notes, installed parts, and other information that makes maintenance records easier to interpret.',
-  },
+  { title: 'Printer profiles', status: 'In development', description: 'Printer profiles are planned as the starting point for manufacturer-independent printer identity, setup notes, installed parts, and maintenance context.' },
+  { title: 'Flexible model details', status: 'Planned', description: 'Future profile fields may describe selected printer families and user-owned equipment without manufacturer logos or partnership claims.' },
+  { title: 'Workshop context', status: 'Planned', description: 'Profiles may later capture usage notes, location, accessories, and other context that makes maintenance records easier to interpret.' },
 ];
 
 const directionItems = [
-  {
-    title: 'Local-first data direction',
-    status: 'Direction',
-    description:
-      'NozzleNote by BMR is being positioned as a desktop app where maintenance records are primarily controlled by the user on their own machine.',
-  },
-  {
-    title: 'BMR Verified Catalogs',
-    status: 'Planned',
-    description:
-      'Verified catalogs are planned as optional content packs created by BMR to help users start with structured printer profiles, suggested maintenance routines, part records and guides.',
-  },
-  {
-    title: 'Beginner-friendly workflow',
-    status: 'Product goal',
-    description:
-      'The website and app direction prioritize clear labels, conservative claims, and practical maintenance organization over complex automation.',
-  },
+  { title: 'Local-first app data', status: 'Direction', description: 'NozzleNote is being developed as a desktop app with maintenance records planned to stay local by default.' },
+  { title: 'Verified catalogs', status: 'Planned optional content', description: 'BMR Verified Catalogs are planned as optional content packs maintained by BMR for content quality and organization, not manufacturer approval.' },
+  { title: 'Conservative workflow', status: 'Product goal', description: 'The product direction favors clear records, careful labels, and human review over broad compatibility or automated diagnosis promises.' },
 ];
 
 const roadmapOnlyItems = [
-  {
-    title: 'Calibration tracking',
-    status: 'Roadmap only',
-    description:
-      'Calibration notes and related history are potential future roadmap items and should not be treated as live product features yet.',
-  },
-  {
-    title: 'Print-quality tracking',
-    status: 'Roadmap only',
-    description:
-      'Print-quality observations may become a future tracking area, but NozzleNote by BMR does not currently promise machine-made fault findings or machine-learning analysis.',
-  },
+  { title: 'Calibration tracking', status: 'Roadmap-only', description: 'Calibration notes and related history are future ideas, not current release commitments.' },
+  { title: 'Print-quality tracking', status: 'Roadmap-only', description: 'Print-quality observations may be explored later; no photo analysis, AI diagnosis, or automatic fault detection is promised.' },
+  { title: 'Direct printer integrations', status: 'Roadmap-only', description: 'Optional read-only connectors may be evaluated in the future, but no live integration, cloud sync, mobile app, or account system exists.' },
 ];
 ---
 
 <BaseLayout
   title="Features | NozzleNote by BMR"
-  description="Feature overview for NozzleNote by BMR, an independent local-first desktop app in development for 3D printer maintenance tracking."
+  description="Feature direction for NozzleNote by BMR, an independent desktop app in development for local-first 3D printer maintenance tracking."
 >
   <main class="page-shell feature-page">
     <section class="page-hero" aria-labelledby="features-title">
       <p class="section-eyebrow">Feature overview</p>
-      <h1 id="features-title">Maintenance tracking for printer owners who want clear records.</h1>
+      <h1 id="features-title">Clear maintenance records before bigger product promises.</h1>
       <p>
-        NozzleNote by BMR is still in development. These feature notes describe the current product direction for a
-        local-first desktop maintenance tracker, not a public release announcement or a claim that every item is live
-        today.
+        NozzleNote by BMR is being developed as an independent desktop maintenance tracker. This page separates core direction from planned and roadmap-only ideas.
       </p>
       <div class="hero-actions" aria-label="Feature page links">
-        <a class="primary-link" href={withBase('/docs/')}>Read the docs plan</a>
-        <a class="secondary-link" href={withBase('/catalogs/')}>View catalog planning</a>
+        <a class="primary-link" href={withBase('/docs/')}>Read docs</a>
         <a class="secondary-link" href={withBase('/roadmap/')}>View roadmap</a>
+        <a class="secondary-link" href={withBase('/pricing/')}>View pricing direction</a>
       </div>
     </section>
 
-    <section class="feature-section" aria-labelledby="core-maintenance-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Core maintenance tracking</p>
-        <h2 id="core-maintenance-title">Built around the care work that happens between prints.</h2>
-        <p>
-          The main product area is structured maintenance tracking: profiles, history, preventive planning, and records
-          for parts or consumables that affect printer reliability.
-        </p>
-      </div>
-      <FeatureGrid items={coreFeatures} ariaLabel="Core maintenance feature areas" />
-      <div class="preview-cluster preview-cluster--three" aria-label="Core maintenance interface preview placeholders">
-        <AppPreviewFrame
-          title="Maintenance history preview"
-          label="UI preview"
-          status="Preview placeholder"
-          pattern="history"
-          variant="compact"
-          caption="Preview placeholder for dated maintenance records; not a final app screenshot."
-        />
-        <AppPreviewFrame
-          title="Preventive maintenance preview"
-          label="UI preview"
-          status="In development"
-          pattern="preventive"
-          variant="compact"
-          caption="Preview placeholder for planned routine care prompts; not a released feature claim."
-        />
-        <AppPreviewFrame
-          title="Parts and consumables preview"
-          label="UI preview"
-          status="Preview placeholder"
-          pattern="parts"
-          variant="compact"
-          caption="Preview placeholder for parts, costs, and consumables records."
-        />
-      </div>
+    <section class="feature-section" aria-labelledby="core-title">
+      <div class="section-heading"><p class="section-eyebrow">Core maintenance tracking</p><h2 id="core-title">The planned foundation is a practical service history.</h2><p>Core features focus on records users can review and maintain themselves.</p></div>
+      <FeatureGrid items={coreFeatures} ariaLabel="Core maintenance tracking features" />
     </section>
 
-    <section class="feature-section" aria-labelledby="printer-profiles-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Printer profiles</p>
-        <h2 id="printer-profiles-title">One maintenance context per printer.</h2>
-        <p>
-          Printer profiles are intended to keep information organized without depending on a specific manufacturer
-          ecosystem, cloud account, or hardware partnership.
-        </p>
-      </div>
-      <div class="feature-preview-split">
-        <FeatureGrid items={profileFeatures} ariaLabel="Printer profile feature details" />
-        <AppPreviewFrame
-          title="Printer profile panel"
-          label="Desktop app preview"
-          status="Preview placeholder"
-          pattern="profiles"
-          variant="panel"
-          caption="Interface preview placeholder showing the intended profile concept without implying final screenshots are ready."
-        />
-      </div>
+    <section class="feature-section" aria-labelledby="profiles-title">
+      <div class="section-heading"><p class="section-eyebrow">Printer profiles</p><h2 id="profiles-title">Each printer needs its own context.</h2><p>Profiles are planned to organize printer-specific history without implying manufacturer affiliation.</p></div>
+      <FeatureGrid items={profileFeatures} ariaLabel="Printer profile features" />
     </section>
 
     <section class="feature-section" aria-labelledby="direction-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Product direction</p>
-        <h2 id="direction-title">Local-first, independent, and intentionally simple.</h2>
-        <p>
-          NozzleNote by BMR should stay approachable for personal users and small workshops. The site avoids promises about
-          direct printer integrations, cloud sync, mobile apps, machine-learning features, machine-driven diagnosis, or paid plans.
-        </p>
-      </div>
-      <div class="feature-preview-split feature-preview-split--reverse">
-        <FeatureGrid items={directionItems} ariaLabel="Product direction feature areas" />
-        <AppPreviewFrame
-          title="Local-first data direction"
-          label="App preview placeholder"
-          status="Direction"
-          pattern="local"
-          variant="panel"
-          caption="Preview placeholder for local-first record organization and backup planning; final app behavior will be documented closer to release."
-        />
-      </div>
+      <div class="section-heading"><p class="section-eyebrow">Product direction</p><h2 id="direction-title">Local-first records and optional future content.</h2><p>Future resources must remain clearly labeled until they are implemented and reviewed.</p></div>
+      <FeatureGrid items={directionItems} ariaLabel="Product direction items" />
     </section>
 
     <section class="feature-section" aria-labelledby="roadmap-only-title">
-      <div class="section-heading">
-        <p class="section-eyebrow">Roadmap-only features</p>
-        <h2 id="roadmap-only-title">Some ideas are future planning, not current features.</h2>
-        <p>
-          Calibration and print-quality tracking are useful areas to explore later, but they should remain roadmap items
-          until the app, documentation, and release scope are ready.
-        </p>
-      </div>
-      <div class="feature-preview-split">
-        <FeatureGrid items={roadmapOnlyItems} ariaLabel="Roadmap-only feature ideas" />
-        <AppPreviewFrame
-          title="Future quality notes"
-          label="Roadmap UI preview"
-          status="Roadmap only"
-          pattern="plannedQuality"
-          variant="compact"
-          caption="Roadmap preview placeholder only. Calibration and print-quality tracking are not presented as live features."
-        />
-      </div>
+      <div class="section-heading"><p class="section-eyebrow">Roadmap-only features</p><h2 id="roadmap-only-title">Exploration areas are not live features.</h2><p>These ideas may change, ship later, or never ship.</p></div>
+      <FeatureGrid items={roadmapOnlyItems} ariaLabel="Roadmap-only feature ideas" />
     </section>
 
-    <StatusNote title="Manufacturer independence note" tone="accent">
-      <p>
-        NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially
-        connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. Manufacturer names may
-        only be used in future descriptive text when necessary and must not imply partnership or endorsement.
-      </p>
-    </StatusNote>
+    <AppPreviewFrame title="Feature overview preview" label="Interface preview" status="Preview placeholder" pattern="maintenance" variant="desktop" caption="Feature overview placeholder. Final screenshots will be added closer to release." />
 
-    <StatusNote title="Next steps for readers">
-      <p>
-        Visit the <a href={withBase('/docs/')}>documentation hub</a> for planned guide structure, review
-        <a href={withBase('/catalogs/')}>catalog planning</a>, check the
-        <a href={withBase('/roadmap/')}>roadmap</a> for release direction, or use the <a href={withBase('/support/')}>support page</a> for
-        current support expectations while the app is still being prepared.
-      </p>
+    <StatusNote title="Manufacturer independence" tone="accent">
+      <p>NozzleNote by BMR is independent and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to any 3D printer manufacturer.</p>
     </StatusNote>
   </main>
 </BaseLayout>

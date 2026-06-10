@@ -5,6 +5,7 @@ const primaryLinks = [
   { label: 'Home', href: '/' },
   { label: 'Features', href: '/features/' },
   { label: 'Docs', href: '/docs/' },
+  { label: 'Pricing direction', href: '/pricing/' },
   { label: 'Support', href: '/support/' },
 ];
 
@@ -22,7 +23,7 @@ const legalLinks = [
   { label: 'Refund policy', href: '/refund-policy/' },
   { label: 'Manufacturer disclaimer', href: '/manufacturer-disclaimer/' },
 ];
-const currentYear = new Date().getFullYear();
+const currentYear = 2026;
 ---
 
 <footer class="site-footer" role="contentinfo">
@@ -31,8 +32,7 @@ const currentYear = new Date().getFullYear();
       <p class="section-eyebrow">NozzleNote by BMR</p>
       <h2 id="footer-brand-title">Independent desktop maintenance tracking for 3D printer care.</h2>
       <p>
-        Public release is planned, but the app is not publicly available yet. Website content and documentation are being
-        prepared in small, transparent milestones.
+        NozzleNote by BMR is in development. Public download, paid plans, verified catalogs, account features, and app support are not live yet.
       </p>
     </section>
 
@@ -56,8 +56,8 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div>
-        <h3>Legal drafts</h3>
-        <ul aria-label="Draft legal routes">
+        <h3>Legal</h3>
+        <ul aria-label="Preliminary legal routes">
           {legalLinks.map((link) => (
             <li><a href={withBase(link.href)}>{link.label}</a></li>
           ))}
@@ -67,8 +67,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-bottom">
       <p>
-        NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially
-        connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer.
+        NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer. Manufacturer and product names may be referenced only to help users describe their own equipment or future compatibility context.
       </p>
       <p>&copy; {currentYear} NozzleNote by BMR. All rights reserved.</p>
     </div>

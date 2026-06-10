@@ -1,56 +1,9 @@
 ---
-import { withBase } from '../utils/paths';
 import LegalLayout from '../components/legal/LegalLayout.astro';
 import LegalSection from '../components/legal/LegalSection.astro';
 ---
-
-<LegalLayout
-  title="Draft Refund Policy | NozzleNote by BMR"
-  description="Preliminary refund policy placeholder explaining that NozzleNote by BMR currently has no purchases, paid plans, checkout, payment processor, or public app release."
-  eyebrow="Draft refund policy"
-  heading="Preliminary refund policy placeholder."
-  intro="This draft avoids promising refunds or commercial terms before NozzleNote by BMR has a public release, purchase flow, or paid plan."
-  currentPath="/refund-policy/"
->
-  <LegalSection title="No purchases currently available">
-    <p>
-      NozzleNote by BMR is still in development. The current website does not offer purchases, paid plans, subscriptions,
-      checkout, payment processor integration, app store distribution, license keys, invoices, or public download links.
-      Because there is no active payment flow, there is no current refund process to request through this site.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="No paid plans through this website">
-    <p>
-      No paid plans are currently available through the website. Future paid verified catalogs, catalog licenses, license
-      activation, Early Supporter purchases, or other commercial options would require reviewed commercial terms before
-      launch.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Future policy required before commercial release">
-    <p>
-      If a future milestone introduces paid catalogs, app store distribution, subscriptions, one-time purchases, license
-      seats, trials, Early Supporter purchases, or paid support, a reviewed refund and commercial policy should be
-      published before accepting payments. That future policy should explain eligibility, timing, platform-specific rules,
-      exclusions, support contacts, and any applicable legal requirements after the commercial model is finalized.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="No app store or processor terms yet">
-    <p>
-      This placeholder does not describe Apple, Microsoft, Stripe, PayPal, marketplace, reseller, or other payment
-      processor refund rules because no such distribution or checkout integration is currently part of the website.
-    </p>
-  </LegalSection>
-
-  <LegalSection title="Where to check status">
-    <p>
-      Current availability is explained on the <a href={withBase('/download/')}>release preparation page</a>. Support expectations
-      are drafted in the <a href={withBase('/support/')}>support hub</a>, planned catalog direction appears on the
-      <a href={withBase('/catalogs/')}>catalogs page</a>, future launch funding planning is described on the
-      <a href={withBase('/early-supporters/')}>Early Supporters placeholder</a>, and product sequencing is listed on the
-      <a href={withBase('/roadmap/')}>roadmap</a>.
-    </p>
-  </LegalSection>
+<LegalLayout title="Refund Policy | NozzleNote by BMR" description="Preliminary refund policy placeholder for NozzleNote by BMR. No purchases or paid plans are currently available." eyebrow="Refund policy" heading="Refund Policy — no purchases currently available." intro="This is a preliminary placeholder because NozzleNote by BMR is not selling anything through this website yet." currentPath="/refund-policy/">
+  <LegalSection title="No purchases currently available"><p>There are no paid plans, paid catalogs, checkout flows, payment links, app store purchases, subscriptions, or license sales through this website today.</p></LegalSection>
+  <LegalSection title="Future policy required"><p>A reviewed refund policy will be required before any commercial release, paid catalog, Pro plan, bundle, license activation, or supporter campaign is launched.</p></LegalSection>
+  <LegalSection title="No processor or app store terms yet"><p>No Stripe, PayPal, app store, payment processor, or marketplace refund terms are active for NozzleNote by BMR through this website.</p></LegalSection>
 </LegalLayout>

@@ -8,7 +8,7 @@ interface Props {
   status?: string;
 }
 
-const { title, description, href, status = 'Draft' } = Astro.props;
+const { title, description, href, status = 'Preview' } = Astro.props;
 ---
 
 <a class="docs-card" href={withBase(href)}>

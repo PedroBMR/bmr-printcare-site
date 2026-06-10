@@ -1,52 +1,27 @@
 ---
-import { withBase } from '../../utils/paths';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 ---
 
 <DocsLayout
-  title="Getting Started | NozzleNote by BMR Docs"
-  description="Getting started guide for the in-development NozzleNote by BMR maintenance workflow, with no public download instructions yet."
-  heading="Getting started with the planned maintenance workflow."
-  intro="This guide explains the intended first steps for NozzleNote by BMR at a high level. It does not include installation or download instructions because the app is still in development and is not publicly available yet."
+  title="Getting Started — Preview | NozzleNote by BMR"
+  description="Getting started with the NozzleNote by BMR documentation preview."
+  eyebrow="Documentation preview"
+  heading="Getting started preview."
+  intro="NozzleNote by BMR is in development, so this guide is an early documentation preview rather than final product instructions."
 >
-  <section class="docs-section" aria-labelledby="what-is-title">
-    <h2 id="what-is-title">What NozzleNote by BMR is designed to help with</h2>
-    <p>
-      NozzleNote by BMR is intended to help owners and small workshops keep structured maintenance records for 3D printers.
-      The focus is practical record keeping: printer profiles, dated maintenance history, preventive planning, and parts
-      notes that can be reviewed later.
-    </p>
-    <p>
-      It should be treated as a maintenance documentation tool, not as a replacement for manufacturer instructions,
-      qualified repair judgment, or careful hands-on inspection.
-    </p>
-  </section>
-
-  <section class="docs-section" aria-labelledby="before-use-title">
-    <h2 id="before-use-title">Before using the app</h2>
+  <section class="docs-section" aria-labelledby="overview-title">
+    <h2 id="overview-title">Current direction</h2>
     <ul class="plain-list">
-      <li>Keep following the safety and maintenance guidance supplied with your printer.</li>
-      <li>Collect basic printer details, such as a nickname, model description, purchase date, and workshop notes.</li>
-      <li>Think about the maintenance events you already track manually, such as nozzle changes or belt checks.</li>
-      <li>Plan a simple backup habit for any local records once the app becomes available.</li>
+      <li>No public download is available yet.</li>
+      <li>Start by understanding the intended product scope: printer profiles, maintenance history, preventive prompts, parts notes, and local-first records.</li>
+      <li>Use the roadmap and release preparation page for current status.</li>
+
     </ul>
   </section>
 
-  <section class="docs-section" aria-labelledby="first-record-title">
-    <h2 id="first-record-title">A first record should stay simple</h2>
-    <p>
-      The planned first workflow is to create one printer profile, add a small number of real maintenance notes, and use
-      those records to understand the history of that printer over time. Avoid trying to document every possible detail
-      on the first day.
-    </p>
-  </section>
-
-  <section class="content-panel" aria-labelledby="next-guides-title">
-    <h2 id="next-guides-title">Next guides</h2>
-    <ul class="link-list">
-      <li><a href={withBase('/docs/printer-profiles/')}>Learn about printer profiles</a></li>
-      <li><a href={withBase('/docs/maintenance-history/')}>Review maintenance history</a></li>
-      <li><a href={withBase('/features/')}>Compare the guide with the feature overview</a></li>
-    </ul>
+  <section class="content-panel" aria-labelledby="status-title">
+    <span class="status-pill">Preview</span>
+    <h2 id="status-title">Not final release documentation.</h2>
+    <p>Public app screenshots, final workflows, downloads, paid plans, verified catalogs, account features, and support desk procedures are not available yet.</p>
   </section>
 </DocsLayout>

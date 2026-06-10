@@ -1,127 +1,60 @@
 ---
 import { withBase } from '../utils/paths';
 import FeatureGrid from '../components/content/FeatureGrid.astro';
-import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const catalogPackItems = [
-  {
-    title: 'Structured printer profiles',
-    status: 'Planned content',
-    description:
-      'Verified catalog packs by BMR are intended to help users begin with printer-specific profile fields and baseline context instead of starting from an empty record.',
-  },
-  {
-    title: 'Suggested maintenance routines',
-    status: 'Planned content',
-    description:
-      'BMR-maintained verified catalogs may include suggested routine templates that users can review, adjust, or ignore based on their own printer, manuals, usage, and safety practices.',
-  },
-  {
-    title: 'Part records and guides',
-    status: 'Planned content',
-    description:
-      'Catalog content is planned to include starter part records, consumable notes, and guide references created by BMR to make manual maintenance tracking easier to organize.',
-  },
+const scopeItems = [
+  { title: 'Printer profile templates', status: 'Planned', description: 'Catalogs may include starting profile details for selected printer families after model coverage is defined.' },
+  { title: 'Maintenance routine suggestions', status: 'Planned', description: 'Suggested care routines may help users start organized records, but users remain responsible for checking manufacturer documentation and printer condition.' },
+  { title: 'Parts and consumables notes', status: 'Planned', description: 'Optional catalog content may organize common wear items and service notes for selected models without claiming universal compatibility.' },
 ];
 
-const releaseBoundaries = [
-  'Catalogs are optional planned content packs, not a required part of the maintenance logbook.',
-  'Catalogs are not available yet and should not be treated as final product availability, pricing, licensing, or update commitments.',
-  'Users should review catalog suggestions against their printer manual, safety guidance, installed parts, and real workshop conditions.',
+const boundaries = [
+  { title: 'Not available yet', status: 'Current status', description: 'No verified catalog is publicly available, paid, bundled, or downloadable today.' },
+  { title: 'Not manufacturer validated', status: 'Independence', description: 'Verified means reviewed and maintained by BMR for internal content quality and organization; it does not mean approved or supported by manufacturers.' },
+  { title: 'Selected models only', status: 'Compatibility caution', description: 'Future compatibility should use narrow language such as compatible with selected Bambu Lab printer models only after coverage is defined.' },
 ];
 ---
 
 <BaseLayout
-  title="Catalogs | NozzleNote by BMR"
-  description="Planned BMR Verified Catalogs for NozzleNote by BMR, including cautious catalog roadmap language and manufacturer independence notes."
+  title="Catalog Planning | NozzleNote by BMR"
+  description="Catalog planning for NozzleNote by BMR. BMR Verified Catalogs are planned optional content packs and are not available and are not manufacturer validated."
 >
   <main class="page-shell feature-page">
     <section class="page-hero" aria-labelledby="catalogs-title">
-      <p class="section-eyebrow">Catalogs</p>
-      <h1 id="catalogs-title">BMR Verified Catalogs are planned optional content packs.</h1>
+      <p class="section-eyebrow">Catalog planning</p>
+      <h1 id="catalogs-title">Verified catalogs are planned optional content, not live resources.</h1>
       <p>
-        NozzleNote by BMR is being developed as a local-first maintenance logbook. BMR Verified Catalogs are planned as
-        optional BMR-maintained verified catalogs that may later help users start with structured printer profiles,
-        suggested maintenance routines, part records and guides.
+        NozzleNote by BMR may later offer BMR Verified Catalogs to help users start organized maintenance records. Catalogs are not public, paid, bundled, downloadable, or manufacturer supported today.
       </p>
-      <div class="hero-actions" aria-label="Catalog page links">
+      <div class="hero-actions" aria-label="Catalog links">
         <a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a>
-        <a class="secondary-link" href={withBase('/features/')}>Review features</a>
+        <a class="secondary-link" href={withBase('/pricing/')}>View pricing direction</a>
+        <a class="secondary-link" href={withBase('/manufacturer-disclaimer/')}>Read manufacturer disclaimer</a>
       </div>
     </section>
 
-    <section class="status-banner" aria-label="Catalog status and independence summary">
-      <span class="status-pill">Planned / independent</span>
+    <StatusNote title="Planned first concept" tone="accent">
       <p>
-        <strong>Catalogs are not available yet.</strong> They are planned optional BMR-maintained content packs. This
-        page describes intended compatibility context only and does not imply manufacturer affiliation, endorsement,
-        sponsorship, review, or support.
+        BMR Verified Catalog — Compatible with selected Bambu Lab printer models is a future concept only. Model coverage, content scope, pricing, licensing, support, and update expectations are not final.
       </p>
-    </section>
+    </StatusNote>
 
-    <section class="content-panel" aria-labelledby="catalog-concept-title">
-      <span class="status-pill">Planned first concept</span>
-      <h2 id="catalog-concept-title">BMR Verified Catalog — Compatible with Bambu Lab Printers</h2>
-      <p>
-        The planned first catalog concept is a verified catalog pack by BMR for users who maintain Bambu Lab printers.
-        The wording describes intended compatibility context only. It does not imply manufacturer affiliation,
-        endorsement, sponsorship, review, or support.
-      </p>
-    </section>
-
-    <section class="feature-section" aria-labelledby="catalog-includes-title">
+    <section class="feature-section" aria-labelledby="verified-meaning-title">
       <div class="section-heading">
-        <p class="section-eyebrow">Planned catalog scope</p>
-        <h2 id="catalog-includes-title">Catalogs are designed to speed up setup, not replace user judgment.</h2>
+        <p class="section-eyebrow">Verified definition</p>
+        <h2 id="verified-meaning-title">Verified means BMR content review, not manufacturer validation.</h2>
         <p>
-          BMR-maintained verified catalogs are planned to provide practical starting points for manual maintenance
-          tracking. They should remain editable, optional, and clearly separate from the free Core app release path.
+          “Verified” means reviewed and maintained by BMR for internal content quality and organization. It does not mean verified, approved, certified, reviewed, endorsed, or supported by any 3D printer manufacturer.
         </p>
       </div>
-      <div class="feature-preview-split">
-        <FeatureGrid items={catalogPackItems} ariaLabel="Planned verified catalog content areas" />
-        <AppPreviewFrame
-          title="Verified catalog planning preview"
-          label="Catalog planning preview"
-          status="Planned only"
-          pattern="catalog"
-          variant="compact"
-          caption="Preview placeholder for planned optional verified catalog packs. Catalogs are not available yet and this is not a final screenshot."
-        />
-      </div>
+      <FeatureGrid items={scopeItems} ariaLabel="Planned catalog scope" />
     </section>
 
-    <StatusNote title="Planned product model" tone="accent">
-      <p>
-        The planned product model is a free Core app for manual maintenance tracking, with optional paid verified catalogs
-        for users who want ready-to-use printer-specific profiles, routines, parts and guides.
-      </p>
-      <p>Paid catalog availability, pricing, licensing and update periods are not final yet.</p>
-    </StatusNote>
-
-    <section class="content-panel" aria-labelledby="catalog-boundaries-title">
-      <h2 id="catalog-boundaries-title">Catalog boundaries</h2>
-      <ul class="plain-list">
-        {releaseBoundaries.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <StatusNote title="Manufacturer independence note">
-      <p>
-        NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, or officially
-        connected to Bambu Lab, Creality, Anycubic, Prusa, or any other 3D printer manufacturer.
-      </p>
-    </StatusNote>
-
-    <section class="content-panel" aria-labelledby="next-steps-title">
-      <h2 id="next-steps-title">Where catalog planning fits</h2>
-      <p>
-        Catalog work belongs after the maintenance core, documentation, release guidance, legal review, and catalog review
-        process are ready. See the <a href={withBase('/roadmap/')}>product roadmap</a> for current development focus,
-        future commercial path, and future expansion ideas.
-      </p>
+    <section class="feature-section" aria-labelledby="catalog-boundaries-title">
+      <div class="section-heading"><p class="section-eyebrow">Catalog boundaries</p><h2 id="catalog-boundaries-title">The catalog model remains preliminary.</h2><p>Catalogs must stay optional, clearly separated from the app’s core recordkeeping, and conservative about compatibility.</p></div>
+      <FeatureGrid items={boundaries} ariaLabel="Catalog boundaries" />
     </section>
   </main>
 </BaseLayout>

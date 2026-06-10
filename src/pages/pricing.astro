@@ -1,0 +1,94 @@
+---
+import { withBase } from '../utils/paths';
+import FeatureGrid from '../components/content/FeatureGrid.astro';
+import StatusNote from '../components/content/StatusNote.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pricingCards = [
+  {
+    title: 'NozzleNote Core',
+    status: 'Planned free direction',
+    description:
+      'Core is planned as the entry-level desktop maintenance tracker for printer profiles, maintenance history, preventive prompts, and parts notes. It is not publicly available yet.',
+  },
+  {
+    title: 'NozzleNote Pro',
+    status: 'Future direction',
+    description:
+      'Pro may later add expanded workflows, advanced organization, export convenience, or other professional features after release planning and reviewed commercial terms.',
+  },
+  {
+    title: 'BMR Verified Catalogs',
+    status: 'Planned optional content',
+    description:
+      'Verified catalogs are planned as optional content packs reviewed and maintained by BMR for internal content quality and organization; they are not manufacturer validated.',
+  },
+  {
+    title: 'Bundles',
+    status: 'Roadmap-only',
+    description:
+      'Future bundles may combine app entitlements and optional catalog content, but no bundle, checkout, payment flow, or license activation is live today.',
+  },
+];
+---
+
+<BaseLayout
+  title="Pricing Direction | NozzleNote by BMR"
+  description="Future pricing direction for NozzleNote by BMR. No checkout, paid plan, license activation, or paid catalog is available yet."
+>
+  <main class="page-shell feature-page">
+    <section class="page-hero" aria-labelledby="pricing-title">
+      <p class="section-eyebrow">Pricing direction</p>
+      <h1 id="pricing-title">Future commercial planning, not a checkout page.</h1>
+      <p>
+        NozzleNote by BMR is in development. This page explains a cautious monetization direction so expectations are clear before any public release, payment flow, paid catalog, or license system exists.
+      </p>
+      <div class="hero-actions" aria-label="Pricing direction links">
+        <a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a>
+        <a class="secondary-link" href={withBase('/download/')}>Read release preparation</a>
+        <a class="secondary-link" href={withBase('/catalogs/')}>Review catalog planning</a>
+      </div>
+    </section>
+
+    <StatusNote title="Not available yet" tone="accent">
+      <p>
+        There is no checkout, payment link, subscription, paid plan, paid catalog, license activation, account system, or refund process on this website. Any future commercial release will require reviewed terms, privacy language, and support expectations first.
+      </p>
+    </StatusNote>
+
+    <section class="feature-section" aria-labelledby="planned-model-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Planned model summary</p>
+        <h2 id="planned-model-title">A possible path from Core to optional paid value.</h2>
+        <p>
+          The intended direction is to keep basic maintenance organization approachable while reserving future paid options for expanded workflows, optional catalogs, and carefully reviewed licensing.
+        </p>
+      </div>
+      <FeatureGrid items={pricingCards} ariaLabel="Planned pricing model cards" />
+    </section>
+
+    <section class="content-grid" aria-label="Future license planning">
+      <article class="content-card">
+        <span class="status-pill">Future</span>
+        <h2>License direction</h2>
+        <p>
+          Future paid app editions may use license entitlements, activation limits, and update periods. No active sales or activation system exists today.
+        </p>
+      </article>
+      <article class="content-card">
+        <span class="status-pill">Planned</span>
+        <h2>Activation limits</h2>
+        <p>
+          Activation limits may be defined later for personal or professional use, but no specific limit is final and no activation server is live.
+        </p>
+      </article>
+      <article class="content-card">
+        <span class="status-pill">Unavailable</span>
+        <h2>No commercial flow</h2>
+        <p>
+          Prices, checkout, payment processor terms, refunds, support desk workflows, and license delivery will be published only after proper review.
+        </p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
