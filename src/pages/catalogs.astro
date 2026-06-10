@@ -1,6 +1,7 @@
 ---
 import { withBase } from '../utils/paths';
 import FeatureGrid from '../components/content/FeatureGrid.astro';
+import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -79,7 +80,17 @@ const releaseBoundaries = [
           tracking. They should remain editable, optional, and clearly separate from the free Core app release path.
         </p>
       </div>
-      <FeatureGrid items={catalogPackItems} ariaLabel="Planned verified catalog content areas" />
+      <div class="feature-preview-split">
+        <FeatureGrid items={catalogPackItems} ariaLabel="Planned verified catalog content areas" />
+        <AppPreviewFrame
+          title="Verified catalog planning preview"
+          label="Catalog planning preview"
+          status="Planned only"
+          pattern="catalog"
+          variant="compact"
+          caption="Preview placeholder for planned optional verified catalog packs. Catalogs are not available yet and this is not a final screenshot."
+        />
+      </div>
     </section>
 
     <StatusNote title="Planned product model" tone="accent">
