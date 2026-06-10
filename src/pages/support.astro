@@ -1,6 +1,7 @@
 ---
 import { withBase } from '../utils/paths';
 import FaqList from '../components/content/FaqList.astro';
+import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -156,6 +157,25 @@ const faqItems = [
         <strong>Support is currently limited to public website guidance.</strong> There is no support form, account help
         desk, installer support, paid support program, or manufacturer service channel on this website yet.
       </p>
+    </section>
+
+    <section class="content-panel content-panel--preview" aria-labelledby="support-preview-title">
+      <div>
+        <span class="status-pill">Support scope preview</span>
+        <h2 id="support-preview-title">Future app support should stay tied to app records.</h2>
+        <p>
+          This compact preview shows the intended support boundary: maintenance records and local data guidance may be in
+          scope later, while printer repair, safety, warranty, and manufacturer service remain outside this website.
+        </p>
+      </div>
+      <AppPreviewFrame
+        title="Support scope preview"
+        label="UI preview"
+        status="Preview placeholder"
+        pattern="support"
+        variant="compact"
+        caption="Preview placeholder for future support categories; no support desk or released app workflow is implied."
+      />
     </section>
 
     <section class="feature-section" aria-labelledby="before-support-title">

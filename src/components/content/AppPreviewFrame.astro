@@ -1,0 +1,539 @@
+---
+type PreviewPattern =
+  | 'maintenance'
+  | 'profiles'
+  | 'history'
+  | 'preventive'
+  | 'parts'
+  | 'local'
+  | 'plannedQuality'
+  | 'release'
+  | 'support'
+  | 'campaign'
+  | 'docs';
+
+type PreviewVariant = 'desktop' | 'panel' | 'compact' | 'split';
+
+interface Props {
+  title: string;
+  label?: string;
+  status?: string;
+  caption?: string;
+  pattern?: PreviewPattern;
+  variant?: PreviewVariant;
+  ariaLabel?: string;
+}
+
+const {
+  title,
+  label = 'Interface preview',
+  status = 'Preview placeholder',
+  caption = 'App preview placeholder. Final screenshots will be added closer to release.',
+  pattern = 'maintenance',
+  variant = 'desktop',
+  ariaLabel,
+} = Astro.props;
+
+const patternData = {
+  maintenance: {
+    nav: ['Profiles', 'History', 'Parts'],
+    heading: 'Maintenance workspace',
+    metricOne: ['Next task', 'Motion system care'],
+    metricTwo: ['Records', 'Service history'],
+    rows: ['Cleaned nozzle path', 'Replaced PTFE tube', 'Checked belt tension'],
+    side: ['Cost notes', 'Incident log'],
+  },
+  profiles: {
+    nav: ['Profile', 'Setup', 'Notes'],
+    heading: 'Printer profile',
+    metricOne: ['Identity', 'Model notes'],
+    metricTwo: ['Context', 'Workshop setup'],
+    rows: ['Printer nickname', 'Installed parts', 'Usage notes'],
+    side: ['Independent', 'Local record'],
+  },
+  history: {
+    nav: ['Timeline', 'Service', 'Incidents'],
+    heading: 'Maintenance history',
+    metricOne: ['Timeline', 'Dated records'],
+    metricTwo: ['Changes', 'Parts linked'],
+    rows: ['Inspection note', 'Part replacement', 'Incident follow-up'],
+    side: ['Notes', 'Costs'],
+  },
+  preventive: {
+    nav: ['Tasks', 'Intervals', 'Review'],
+    heading: 'Preventive planning',
+    metricOne: ['Routine', 'Scheduled check'],
+    metricTwo: ['Status', 'Planned prompt'],
+    rows: ['Lubrication check', 'Filter inspection', 'Build surface review'],
+    side: ['Manual review', 'No diagnosis'],
+  },
+  parts: {
+    nav: ['Parts', 'Costs', 'Vendors'],
+    heading: 'Parts and consumables',
+    metricOne: ['Consumables', 'Tracked'],
+    metricTwo: ['Costs', 'Recorded'],
+    rows: ['Nozzle purchase', 'PTFE tube change', 'Build surface note'],
+    side: ['Vendors', 'Receipts'],
+  },
+  local: {
+    nav: ['Local', 'Backup', 'Export'],
+    heading: 'Local-first direction',
+    metricOne: ['Storage', 'User-controlled'],
+    metricTwo: ['Backup', 'Planned guidance'],
+    rows: ['Local records', 'Manual backup notes', 'Export planning'],
+    side: ['Private direction', 'No account claim'],
+  },
+  plannedQuality: {
+    nav: ['Roadmap', 'Quality', 'Calibrate'],
+    heading: 'Future quality notes',
+    metricOne: ['Calibration', 'Roadmap only'],
+    metricTwo: ['Print quality', 'Planned direction'],
+    rows: ['Observation note', 'Calibration history idea', 'Quality checklist idea'],
+    side: ['Planned', 'Not live'],
+  },
+  release: {
+    nav: ['Build', 'Notes', 'Limits'],
+    heading: 'Release preparation',
+    metricOne: ['Package', 'Not published'],
+    metricTwo: ['Version', 'Required later'],
+    rows: ['Release notes', 'Known limitations', 'Backup guidance'],
+    side: ['No files yet', 'In development'],
+  },
+  support: {
+    nav: ['Scope', 'Records', 'Safety'],
+    heading: 'Support context',
+    metricOne: ['App questions', 'Future scope'],
+    metricTwo: ['Printer service', 'Out of scope'],
+    rows: ['Maintenance record help', 'Data backup guidance', 'Manufacturer issues excluded'],
+    side: ['Independent', 'Draft support'],
+  },
+  campaign: {
+    nav: ['Funding', 'Rewards', 'Review'],
+    heading: 'Future supporter concept',
+    metricOne: ['Campaign', 'Not live'],
+    metricTwo: ['Rewards', 'Under review'],
+    rows: ['Launch preparation', 'Documentation polish', 'Catalog planning'],
+    side: ['No payment', 'No tiers'],
+  },
+  docs: {
+    nav: ['Guide', 'Profile', 'History'],
+    heading: 'Guide-assisted workflow',
+    metricOne: ['Docs', 'Early structure'],
+    metricTwo: ['Steps', 'Draft guidance'],
+    rows: ['Create profile', 'Record maintenance', 'Review history'],
+    side: ['Readable', 'Cautious'],
+  },
+}[pattern];
+
+const accessibleLabel = ariaLabel ?? `${title}: ${status}. ${caption}`;
+const frameClass = `app-preview app-preview--${variant} app-preview--${pattern}`;
+---
+
+<figure class={frameClass} aria-label={accessibleLabel}>
+  <figcaption class="app-preview__intro">
+    <span class="app-preview__label">{label}</span>
+    <strong class="app-preview__status">{status}</strong>
+  </figcaption>
+
+  <div class="app-preview__window" aria-hidden="true">
+    <div class="app-preview__chrome">
+      <span></span>
+      <span></span>
+      <span></span>
+      <em>{title}</em>
+    </div>
+
+    <div class="app-preview__body">
+      <nav class="app-preview__nav">
+        <i></i>
+        {patternData.nav.map((item) => <span>{item}</span>)}
+      </nav>
+
+      <div class="app-preview__main">
+        <div class="app-preview__heading">
+          <span>{patternData.heading}</span>
+          <i></i>
+        </div>
+
+        <div class="app-preview__metrics">
+          <div>
+            <span>{patternData.metricOne[0]}</span>
+            <strong>{patternData.metricOne[1]}</strong>
+          </div>
+          <div>
+            <span>{patternData.metricTwo[0]}</span>
+            <strong>{patternData.metricTwo[1]}</strong>
+          </div>
+        </div>
+
+        <div class="app-preview__content">
+          <div class="app-preview__rows">
+            {patternData.rows.map((row, index) => (
+              <span class:list={[index === 1 && 'is-active']}>
+                <b>{row}</b>
+                <i></i>
+              </span>
+            ))}
+          </div>
+          <div class="app-preview__side">
+            {patternData.side.map((item) => <span>{item}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="app-preview__caption">{caption}</p>
+</figure>
+
+<style>
+  .app-preview {
+    --preview-min-height: 18rem;
+    position: relative;
+    display: grid;
+    min-width: 0;
+    gap: 0.95rem;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(57, 208, 255, 0.28);
+    border-radius: calc(var(--radius-card) + 0.2rem);
+    padding: clamp(1rem, 3vw, 1.35rem);
+    background:
+      radial-gradient(circle at 16% 6%, rgba(57, 208, 255, 0.16), transparent 12rem),
+      radial-gradient(circle at 96% 14%, rgba(124, 58, 237, 0.18), transparent 14rem),
+      linear-gradient(145deg, rgba(7, 10, 18, 0.9), rgba(16, 22, 36, 0.82));
+    box-shadow: var(--shadow-soft), var(--shadow-cyan);
+    isolation: isolate;
+    transition:
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-glow) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-hover);
+  }
+
+  .app-preview:hover,
+  .app-preview:focus-within {
+    border-color: rgba(57, 208, 255, 0.42);
+    box-shadow: var(--shadow-soft), var(--shadow-cyan), 0 0 0 1px rgba(57, 208, 255, 0.08);
+    transform: translateY(var(--motion-hover-raise));
+  }
+
+  .app-preview::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.72;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(57, 208, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57, 208, 255, 0.045) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
+    content: '';
+  }
+
+  .app-preview__intro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .app-preview__label,
+  .app-preview__status {
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .app-preview__label {
+    color: var(--color-accent);
+  }
+
+  .app-preview__status {
+    border: 1px solid rgba(167, 139, 250, 0.32);
+    padding: 0.38rem 0.58rem;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--color-brand-violet-soft);
+  }
+
+  .app-preview__window {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.15rem;
+    background: rgba(7, 10, 18, 0.48);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .app-preview__chrome {
+    display: flex;
+    gap: 0.42rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(57, 208, 255, 0.12);
+    padding: 0.75rem 0.85rem;
+    background: rgba(16, 22, 36, 0.64);
+  }
+
+  .app-preview__chrome span {
+    width: 0.58rem;
+    height: 0.58rem;
+    border-radius: 999px;
+    background: rgba(167, 139, 250, 0.34);
+  }
+
+  .app-preview__chrome span:first-child {
+    background: rgba(57, 208, 255, 0.56);
+  }
+
+  .app-preview__chrome em {
+    overflow: hidden;
+    margin-left: 0.35rem;
+    color: var(--color-text-soft);
+    font-size: 0.72rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .app-preview__body {
+    display: grid;
+    grid-template-columns: minmax(4.5rem, 0.28fr) minmax(0, 1fr);
+    min-height: var(--preview-min-height);
+  }
+
+  .app-preview__nav {
+    display: grid;
+    align-content: start;
+    gap: 0.65rem;
+    border-right: 1px solid rgba(57, 208, 255, 0.12);
+    padding: 1rem 0.8rem;
+    background: rgba(16, 22, 36, 0.5);
+  }
+
+  .app-preview__nav i {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.85rem;
+    background: linear-gradient(135deg, rgba(57, 208, 255, 0.52), rgba(124, 58, 237, 0.42));
+    box-shadow: 0 0 28px rgba(57, 208, 255, 0.15);
+  }
+
+  .app-preview__nav span {
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 999px;
+    padding: 0.34rem 0.45rem;
+    color: var(--color-text-soft);
+    font-size: clamp(0.54rem, 1.2vw, 0.68rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .app-preview__nav span:first-of-type {
+    border-color: rgba(57, 208, 255, 0.22);
+    background: rgba(57, 208, 255, 0.08);
+    color: var(--color-accent);
+  }
+
+  .app-preview__main {
+    display: grid;
+    gap: 0.85rem;
+    align-content: start;
+    min-width: 0;
+    padding: 1rem;
+  }
+
+  .app-preview__heading {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .app-preview__heading span {
+    color: var(--color-text);
+    font-size: clamp(0.88rem, 1.6vw, 1rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .app-preview__heading i,
+  .app-preview__rows i {
+    display: block;
+    border-radius: 999px;
+    background: rgba(57, 208, 255, 0.24);
+  }
+
+  .app-preview__heading i {
+    width: min(7rem, 34%);
+    height: 0.5rem;
+  }
+
+  .app-preview__metrics,
+  .app-preview__content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .app-preview__metrics div,
+  .app-preview__side,
+  .app-preview__rows span {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .app-preview__metrics div {
+    display: grid;
+    gap: 0.28rem;
+    min-height: 4.25rem;
+    border-radius: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .app-preview__metrics span,
+  .app-preview__side span {
+    color: var(--color-text-soft);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .app-preview__metrics strong {
+    color: var(--color-text);
+    font-size: clamp(0.82rem, 1.5vw, 0.98rem);
+    line-height: 1.1;
+  }
+
+  .app-preview__content {
+    grid-template-columns: minmax(0, 1.25fr) minmax(5.5rem, 0.75fr);
+  }
+
+  .app-preview__rows {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .app-preview__rows span {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.9rem;
+    padding: 0.68rem 0.75rem;
+  }
+
+  .app-preview__rows .is-active {
+    border-color: rgba(57, 208, 255, 0.22);
+    background: linear-gradient(90deg, rgba(57, 208, 255, 0.12), rgba(124, 58, 237, 0.08));
+  }
+
+  .app-preview__rows b {
+    overflow: hidden;
+    color: var(--color-text-muted);
+    font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-preview__rows i {
+    flex: 0 0 min(3.8rem, 30%);
+    height: 0.42rem;
+  }
+
+  .app-preview__side {
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+    border-radius: 0.95rem;
+    padding: 0.75rem;
+    background:
+      radial-gradient(circle at top right, rgba(124, 58, 237, 0.13), transparent 6rem),
+      rgba(255, 255, 255, 0.035);
+  }
+
+  .app-preview__side span {
+    border-radius: 0.75rem;
+    padding: 0.58rem;
+    background: rgba(124, 58, 237, 0.08);
+    color: var(--color-brand-violet-soft);
+  }
+
+  .app-preview__caption {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .app-preview--panel {
+    --preview-min-height: 15.5rem;
+  }
+
+  .app-preview--compact {
+    --preview-min-height: 12rem;
+    padding: 1rem;
+  }
+
+  .app-preview--compact .app-preview__body {
+    grid-template-columns: 1fr;
+  }
+
+  .app-preview--compact .app-preview__nav {
+    display: none;
+  }
+
+  .app-preview--compact .app-preview__side {
+    display: none;
+  }
+
+  .app-preview--compact .app-preview__content {
+    grid-template-columns: 1fr;
+  }
+
+  .app-preview--split .app-preview__body {
+    grid-template-columns: minmax(3.8rem, 0.22fr) minmax(0, 1fr);
+  }
+
+  @media (max-width: 760px) {
+    .app-preview {
+      --preview-min-height: 13rem;
+      transform: none !important;
+    }
+
+    .app-preview__body,
+    .app-preview--split .app-preview__body {
+      grid-template-columns: 1fr;
+    }
+
+    .app-preview__nav {
+      display: none;
+    }
+
+    .app-preview__metrics,
+    .app-preview__content {
+      grid-template-columns: 1fr;
+    }
+
+    .app-preview__side {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-preview {
+      transition-duration: 1ms;
+      transform: none !important;
+    }
+  }
+</style>
