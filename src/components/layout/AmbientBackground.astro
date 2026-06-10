@@ -32,9 +32,8 @@
     border-radius: 999px;
     opacity: 0.68;
     mix-blend-mode: screen;
-    filter: blur(26px);
+    filter: blur(22px);
     transform: translate3d(0, 0, 0);
-    will-change: transform, opacity;
   }
 
   .ambient-background__orb--cyan {
@@ -67,7 +66,7 @@
   }
 
   .ambient-background__grid {
-    inset: -2px;
+    inset: -4.5rem;
     opacity: 0.58;
     background-image:
       linear-gradient(rgba(57, 208, 255, 0.06) 1px, transparent 1px),
@@ -76,7 +75,7 @@
     background-position: 0 0, 0 0, 0 0;
     background-size: 4.5rem 4.5rem, 4.5rem 4.5rem, 1.15rem 1.15rem;
     mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.78) 42%, transparent 88%);
-    will-change: background-position, opacity;
+    transform: translate3d(0, 0, 0);
   }
 
   .ambient-background__wash {
@@ -86,7 +85,6 @@
       linear-gradient(112deg, transparent 0 21%, rgba(57, 208, 255, 0.08) 31%, transparent 43% 62%, rgba(124, 58, 237, 0.075) 72%, transparent 84%),
       radial-gradient(ellipse at 48% 18%, rgba(255, 255, 255, 0.04), transparent 42%);
     transform: translate3d(-4%, 0, 0) rotate(-2deg);
-    will-change: transform, opacity;
   }
 
   .ambient-background__scan {
@@ -98,7 +96,13 @@
     mask-image: linear-gradient(to bottom, black, transparent 76%);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 701px) {
+    .ambient-background__orb,
+    .ambient-background__grid,
+    .ambient-background__wash {
+      will-change: transform, opacity;
+    }
+
     .ambient-background__orb--cyan {
       animation: ambient-orb-cyan var(--motion-duration-ambient) var(--motion-ease-ambient) infinite alternate;
     }
@@ -117,6 +121,27 @@
 
     .ambient-background__wash {
       animation: ambient-light-wash var(--motion-duration-light-sweep) var(--motion-ease-ambient) infinite alternate;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .ambient-background__orb {
+      filter: blur(18px);
+      opacity: 0.42;
+    }
+
+    .ambient-background__orb--blue,
+    .ambient-background__scan {
+      display: none;
+    }
+
+    .ambient-background__grid {
+      opacity: 0.36;
+    }
+
+    .ambient-background__wash {
+      opacity: 0.24;
+      transform: none;
     }
   }
 
@@ -173,11 +198,11 @@
 
   @keyframes ambient-grid-drift {
     from {
-      background-position: 0 0, 0 0, 0 0;
+      transform: translate3d(0, 0, 0);
     }
 
     to {
-      background-position: 4.5rem 4.5rem, 4.5rem 4.5rem, 1.15rem 1.15rem;
+      transform: translate3d(4.5rem, 4.5rem, 0);
     }
   }
 
