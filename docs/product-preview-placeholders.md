@@ -28,14 +28,16 @@ The reusable preview system lives in:
 - a status pill;
 - a caption that states placeholder status;
 - optional variants for desktop, panel, compact, and split presentation;
-- pattern-specific UI cues for maintenance history, printer profiles, preventive maintenance, parts, local-first data, roadmap-only quality notes, release preparation, support scope, docs, and future campaign concepts.
+- pattern-specific UI cues for maintenance history, printer profiles, preventive maintenance, parts, local-first data, roadmap-only quality notes, planned verified catalog content, release preparation, support scope, docs, and future campaign concepts.
 
 ## Current integration points
 
 Preview placeholders are integrated into selected public pages where they help explain the product direction without overloading the content:
 
 - homepage Solution section;
+- homepage in-development workflow section;
 - Features page feature groups;
+- Catalogs page planned verified catalog section;
 - Docs hub workflow section;
 - Download page release-preparation panel;
 - Support page support-scope panel;

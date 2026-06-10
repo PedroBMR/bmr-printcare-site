@@ -1,71 +1,170 @@
 ---
+import AppPreviewFrame from '../content/AppPreviewFrame.astro';
+
 const steps = [
-  'Add a printer profile',
-  'Create maintenance tasks',
-  'Record service events',
-  'Review upcoming care',
+  {
+    title: 'Add a printer profile',
+    text: 'Start with a local record for the machine, setup notes, installed parts, and workshop context.',
+  },
+  {
+    title: 'Create maintenance tasks',
+    text: 'Plan routine checks as editable prompts, not as safety guarantees or machine-made diagnosis.',
+  },
+  {
+    title: 'Record service events',
+    text: 'Capture dated maintenance notes, incidents, parts, consumables, costs, and follow-up context where supported.',
+  },
+  {
+    title: 'Review upcoming care',
+    text: 'Use history to decide what deserves attention next before skipped maintenance becomes harder to explain.',
+  },
 ];
 ---
 
-<section id="workflow" class="section-shell" aria-labelledby="workflow-title">
+<section id="workflow" class="section-shell workflow-section" aria-labelledby="workflow-title">
   <div class="section-heading">
-    <p class="section-eyebrow">Workflow preview</p>
-    <h2 id="workflow-title">A simple loop for planned maintenance.</h2>
+    <p class="section-eyebrow">In-development product flow</p>
+    <h2 id="workflow-title">A planned loop from printer context to upcoming care.</h2>
+    <p>
+      The flow below is a compact storytelling preview of how NozzleNote is being shaped. It is not a released app flow,
+      and the interface visuals remain preview placeholders until final screenshots are ready.
+    </p>
   </div>
-  <ol class="workflow-list">
-    {steps.map((step, index) => (
-      <li>
-        <span>{String(index + 1).padStart(2, '0')}</span>
-        <strong>{step}</strong>
-      </li>
-    ))}
-  </ol>
+
+  <div class="workflow-shell">
+    <ol class="workflow-list" aria-label="Planned NozzleNote maintenance workflow">
+      {steps.map((step, index) => (
+        <li>
+          <span class="workflow-index">{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <strong>{step.title}</strong>
+            <p>{step.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="workflow-preview-stack" aria-label="Workflow preview placeholders">
+      <AppPreviewFrame
+        title="Printer profile workflow preview"
+        label="Workflow preview"
+        status="Preview placeholder"
+        pattern="profiles"
+        variant="compact"
+        caption="In-development product flow preview. Final screenshots will be added closer to release."
+      />
+      <AppPreviewFrame
+        title="Preventive task workflow preview"
+        label="Workflow preview"
+        status="Preview placeholder"
+        pattern="preventive"
+        variant="compact"
+        caption="Preview placeholder for planned routine care prompts; not a released workflow claim."
+      />
+    </div>
+  </div>
 </section>
 
 <style>
-  .workflow-list {
+  .workflow-section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .section-heading p:not(.section-eyebrow) {
+    max-width: 46rem;
+    margin: 1rem 0 0;
+    color: var(--color-text-muted);
+  }
+
+  .workflow-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr);
+    gap: clamp(1.25rem, 4vw, 2.5rem);
+    align-items: start;
+  }
+
+  .workflow-list {
+    position: relative;
+    display: grid;
     gap: 1rem;
-    margin: 2rem 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  li {
-    min-height: 10rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    padding: 1.25rem;
-    background: linear-gradient(180deg, rgba(21, 29, 46, 0.82), rgba(16, 22, 36, 0.64));
+  .workflow-list::before {
+    position: absolute;
+    top: 1.3rem;
+    bottom: 1.3rem;
+    left: 1.15rem;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(57, 208, 255, 0.62), rgba(124, 58, 237, 0.28));
+    content: '';
+    pointer-events: none;
   }
 
-  span {
+  li {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    min-height: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1rem;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(57, 208, 255, 0.09), transparent 12rem),
+      linear-gradient(180deg, rgba(21, 29, 46, 0.82), rgba(16, 22, 36, 0.64));
+    box-shadow: var(--shadow-premium-card);
+  }
+
+  .workflow-index {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    width: 2.35rem;
+    height: 2.35rem;
+    place-items: center;
+    border: 1px solid rgba(57, 208, 255, 0.38);
+    border-radius: 999px;
+    background: rgba(7, 10, 18, 0.92);
     color: var(--color-accent);
+    font-size: 0.8rem;
     font-weight: 900;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
+    box-shadow: 0 0 22px rgba(57, 208, 255, 0.16);
   }
 
   strong {
     display: block;
-    margin-top: 2.5rem;
-    font-size: 1.3rem;
-    line-height: 1.1;
+    font-size: 1.06rem;
+    line-height: 1.15;
   }
 
-  @media (max-width: 900px) {
-    .workflow-list {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  li p {
+    margin: 0.55rem 0 0;
+    color: var(--color-text-muted);
   }
 
-  @media (max-width: 560px) {
-    .workflow-list {
+  .workflow-preview-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (max-width: 980px) {
+    .workflow-shell {
       grid-template-columns: 1fr;
     }
 
-    li {
-      min-height: auto;
+    .workflow-preview-stack {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 680px) {
+    .workflow-preview-stack {
+      grid-template-columns: 1fr;
     }
   }
 </style>

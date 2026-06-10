@@ -7,6 +7,7 @@ type PreviewPattern =
   | 'parts'
   | 'local'
   | 'plannedQuality'
+  | 'catalog'
   | 'release'
   | 'support'
   | 'campaign'
@@ -90,6 +91,14 @@ const patternData = {
     metricTwo: ['Print quality', 'Planned direction'],
     rows: ['Observation note', 'Calibration history idea', 'Quality checklist idea'],
     side: ['Planned', 'Not live'],
+  },
+  catalog: {
+    nav: ['Catalog', 'Profiles', 'Routines'],
+    heading: 'Verified catalog planning',
+    metricOne: ['Content', 'Optional pack'],
+    metricTwo: ['Status', 'Planned only'],
+    rows: ['Starter profile fields', 'Routine template idea', 'Part note reference'],
+    side: ['Independent', 'Not available'],
   },
   release: {
     nav: ['Build', 'Notes', 'Limits'],
