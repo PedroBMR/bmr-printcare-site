@@ -1,13 +1,14 @@
-# NozzleNote by BMR website
+# NozzleNote by BMR
 
-This repository contains the Astro website for **NozzleNote by BMR**, an independent 3D printer maintenance tracking product in development. Public website copy, documentation previews, pricing direction, release-preparation language, and preliminary legal pages are aligned to the current content source-of-truth direction.
+NozzleNote by BMR is a local-first desktop maintenance logbook for 3D printer care. This repository contains the Astro static website for the product and its release-preparation pages.
 
 ## Current status
 
-- NozzleNote by BMR is in development.
+- Website and product are in development.
+- The desktop app is not publicly available yet.
+- No checkout, paid catalog, license activation, cloud sync, account system, mobile app, printer integration, or active support desk workflow is live.
 - The production domain is `https://nozzlenote.com`.
 - GitHub Pages deployment is root-domain safe and must not depend on a legacy repository subpath.
-- Public downloads, paid plans, checkout, license activation, account features, cloud sync, mobile apps, printer integrations, support desk workflows, and BMR Verified Catalogs are not live.
 - Legal and commercial pages are preliminary placeholders until reviewed by a qualified professional, except that the Privacy Notice describes current conditional GA4 website analytics behavior when configured.
 
 ## Source of truth

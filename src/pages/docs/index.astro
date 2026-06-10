@@ -15,8 +15,62 @@ const guides = [
   { title: 'Troubleshooting', href: '/docs/troubleshooting/', status: 'Planned', description: 'Planned troubleshooting documentation scope for app records, not printer repair or manufacturer service.' },
 ];
 ---
-<DocsLayout title="Documentation Preview | NozzleNote by BMR" description="Documentation preview for NozzleNote by BMR, an independent desktop app in development for 3D printer maintenance tracking." eyebrow="Documentation preview" heading="Documentation preview for planned maintenance workflows." intro="NozzleNote by BMR is still in development. These guides are early documentation previews and release-preparation notes, not final product instructions or a public download announcement." mode="hub">
-  <section class="docs-section" aria-labelledby="docs-guides-title"><div class="section-heading"><p class="section-eyebrow">Start here</p><h2 id="docs-guides-title">Core guides and planned topics.</h2><p>Visible labels use Preview, Planned, or Release preparation until app behavior is implemented and public.</p></div><DocsGrid items={guides} ariaLabel="Documentation preview and planned guide cards" /></section>
-  <section class="docs-section docs-section--with-preview" aria-labelledby="docs-workflow-title"><div class="section-heading"><p class="section-eyebrow">Workflow preview</p><h2 id="docs-workflow-title">A simple path through the planned product.</h2><p>The preview is intentionally schematic and does not represent final app screenshots.</p></div><AppPreviewFrame title="Documentation workflow preview" label="Guide UI preview" status="Preview placeholder" pattern="docs" variant="compact" caption="Documentation preview placeholder. Final screenshots will be added closer to release." /><ol class="docs-steps"><li><strong>Create a printer profile.</strong><span>Keep printer identity, setup notes, and maintenance context in one place.</span></li><li><strong>Record maintenance events.</strong><span>Add dated notes when you clean, inspect, adjust, replace, or observe something important.</span></li><li><strong>Plan preventive work.</strong><span>Use planned reminders as prompts, not safety guarantees or machine-made findings.</span></li><li><strong>Review history before decisions.</strong><span>Use records to understand what changed before making maintenance decisions.</span></li></ol></section>
-  <section class="status-note status-note--accent" aria-labelledby="docs-independence-title"><h2 id="docs-independence-title">Manufacturer disclaimer</h2><p>NozzleNote by BMR is independent and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to any 3D printer manufacturer.</p><ul class="link-list"><li><a href={withBase('/manufacturer-disclaimer/')}>Read the full manufacturer disclaimer</a></li></ul></section>
+<DocsLayout
+  title="Documentation Preview | NozzleNote by BMR"
+  description="Documentation preview for NozzleNote by BMR, an independent desktop app in development for 3D printer maintenance tracking."
+  eyebrow="Documentation preview"
+  heading="Documentation preview for planned maintenance workflows."
+  intro="NozzleNote by BMR is still in development. These guides are early documentation previews and release-preparation notes, not final product instructions or a public download announcement."
+  mode="hub"
+>
+  <section class="docs-section" aria-labelledby="docs-guides-title">
+    <div class="section-heading">
+      <p class="section-eyebrow">Start here</p>
+      <h2 id="docs-guides-title">Core guides and planned topics.</h2>
+      <p>Visible labels use Preview, Planned, or Release preparation until app behavior is implemented and public.</p>
+    </div>
+    <DocsGrid items={guides} ariaLabel="Documentation preview and planned guide cards" />
+  </section>
+
+  <section class="docs-section docs-section--with-preview" aria-labelledby="docs-workflow-title">
+    <div class="section-heading">
+      <p class="section-eyebrow">Workflow preview</p>
+      <h2 id="docs-workflow-title">A simple path through the planned product.</h2>
+      <p>The preview is intentionally schematic and does not represent final app screenshots.</p>
+    </div>
+    <AppPreviewFrame
+      title="Documentation workflow preview"
+      label="Guide UI preview"
+      status="Preview placeholder"
+      pattern="docs"
+      variant="compact"
+      caption="Documentation preview placeholder. Final screenshots will be added closer to release."
+    />
+    <ol class="docs-steps">
+      <li>
+        <strong>Create a printer profile.</strong>
+        <span>Keep printer identity, setup notes, and maintenance context in one place.</span>
+      </li>
+      <li>
+        <strong>Record maintenance events.</strong>
+        <span>Add dated notes when you clean, inspect, adjust, replace, or observe something important.</span>
+      </li>
+      <li>
+        <strong>Plan preventive work.</strong>
+        <span>Use planned reminders as prompts, not safety guarantees or machine-made findings.</span>
+      </li>
+      <li>
+        <strong>Review history before decisions.</strong>
+        <span>Use records to understand what changed before making maintenance decisions.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section class="status-note status-note--accent" aria-labelledby="docs-independence-title">
+    <h2 id="docs-independence-title">Manufacturer disclaimer</h2>
+    <p>NozzleNote by BMR is independent and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to any 3D printer manufacturer.</p>
+    <ul class="link-list">
+      <li><a href={withBase('/manufacturer-disclaimer/')}>Read the full manufacturer disclaimer</a></li>
+    </ul>
+  </section>
 </DocsLayout>
