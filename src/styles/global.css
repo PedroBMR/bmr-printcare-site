@@ -816,6 +816,7 @@ h2 {
 }
 
 .docs-card h3 {
+  display: block;
   margin: 0;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   letter-spacing: -0.035em;
@@ -823,11 +824,13 @@ h2 {
 }
 
 .docs-card p {
+  display: block;
   margin: 0;
   color: var(--color-text-muted);
 }
 
 .docs-card__link {
+  display: block;
   color: var(--color-accent);
   font-weight: 900;
 }
@@ -867,10 +870,12 @@ h2 {
 }
 
 .docs-steps strong {
+  display: block;
   color: var(--color-text);
 }
 
 .docs-steps span {
+  display: block;
   grid-column: 2;
   color: var(--color-text-muted);
 }
