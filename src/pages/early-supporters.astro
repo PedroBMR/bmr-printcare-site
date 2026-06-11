@@ -4,21 +4,21 @@ import FeatureGrid from '../components/content/FeatureGrid.astro';
 import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 const funding = [
-  { title: 'Release preparation', status: 'Possible future use', description: 'A future campaign could help fund testing, packaging, screenshots, documentation, and support preparation.' },
-  { title: 'Catalog research', status: 'Possible future use', description: 'Funds could support careful content organization for optional verified catalogs after scope and review.' },
-  { title: 'Documentation and support', status: 'Possible future use', description: 'A campaign could help improve guides and future support materials before public availability.' },
+  { title: 'Legal and accounting readiness', status: 'Possible future use', description: 'A future campaign may help fund professional review, accounting setup, terms preparation, and release-readiness checks.' },
+  { title: 'Release packaging', status: 'Possible future use', description: 'Funding may support packaging, code signing, documentation, testing, and careful desktop-app release preparation.' },
+  { title: 'Documentation and support planning', status: 'Possible future use', description: 'Support could help improve guides, support scope planning, and responsible launch materials before public availability.' },
 ];
 const limits = [
-  { title: 'No payment', status: 'Not live', description: 'There is no pledge form, payment button, checkout, or supporter purchase on this page.' },
-  { title: 'No final rewards', status: 'Not promised', description: 'Reward ideas are not final and do not promise app access, licenses, catalogs, mobile access, or delivery dates.' },
-  { title: 'Review required', status: 'Before launch', description: 'Any campaign would need reviewed terms, refund language, delivery expectations, privacy language, and support scope.' },
+  { title: 'Campaign not live', status: 'Not live', description: 'No pledge form, payment button, checkout, supporter tier, campaign page, or payment collection is active.' },
+  { title: 'No final rewards or pricing', status: 'Not final', description: 'Rewards, pricing, delivery expectations, refund terms, support scope, and release timing are not final.' },
+  { title: 'No broad future promise', status: 'Not promised', description: 'There is no lifetime all-access promise, no perpetual future catalog-access promise, and no guaranteed release date.' },
 ];
 ---
-<BaseLayout title="Early Supporters | NozzleNote by BMR" description="Early Supporters planning for NozzleNote by BMR. No campaign, payment, pledge form, final reward, or delivery date is live.">
+<BaseLayout title="Early Supporters | NozzleNote by BMR" description="Early Supporters campaign planning for NozzleNote by BMR. No campaign, payment, pledge form, final reward, pricing, refund term, or delivery date is live.">
   <main class="page-shell feature-page">
-    <section class="page-hero" aria-labelledby="supporters-title"><p class="section-eyebrow">Early Supporters concept</p><h1 id="supporters-title">A future supporter campaign is not live.</h1><p>This page describes what a future campaign could support. It does not accept payments, promises rewards, sell licenses, or provide app or catalog access.</p><div class="hero-actions"><a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a><a class="secondary-link" href={withBase('/pricing/')}>Pricing direction</a></div></section>
-    <StatusNote title="No payment status" tone="accent"><p>No pledge form, payment button, checkout, campaign, supporter tier, reward, or delivery schedule is active.</p></StatusNote>
-    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">What a future campaign could help fund</p><h2>Potential support areas remain preliminary.</h2></div><FeatureGrid items={funding} ariaLabel="Potential future supporter campaign funding areas" /></section>
-    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">Current limits</p><h2>What this page does not promise.</h2></div><FeatureGrid items={limits} ariaLabel="Early supporter limitations" /></section>
+    <section class="page-hero" aria-labelledby="supporters-title"><p class="section-eyebrow">Early Supporters concept</p><h1 id="supporters-title">Support launch preparation — not a live purchase.</h1><p>A future Early Supporter campaign may help fund the final preparation needed before a responsible public launch, including legal review, accounting setup, release packaging, code signing, documentation, testing and support planning. The campaign is not live yet, rewards are not final and no payment is being collected through this website.</p><div class="hero-actions"><a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a><a class="secondary-link" href={withBase('/pricing/')}>Pricing direction</a></div></section>
+    <StatusNote title="No payment status" tone="accent"><p>No pledge form, payment button, checkout, campaign, supporter tier, reward, delivery schedule, license, app access, or catalog access is active.</p></StatusNote>
+    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">Early Supporter campaign planning</p><h2>Potential support areas remain preliminary.</h2><p>A future campaign could help cover responsible launch preparation costs, not sell the finished product now.</p></div><FeatureGrid items={funding} ariaLabel="Potential future supporter campaign funding areas" /></section>
+    <section class="feature-section"><div class="section-heading"><p class="section-eyebrow">Current limits</p><h2>What this page does not promise.</h2><p>Delivery expectations, refund terms, support scope, rewards, pricing, and release timing must be reviewed before any campaign could go live.</p></div><FeatureGrid items={limits} ariaLabel="Early supporter limitations" /></section>
   </main>
 </BaseLayout>
