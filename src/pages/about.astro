@@ -1,0 +1,208 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BuilderPlaceholder from '../components/content/BuilderPlaceholder.astro';
+
+const philosophyCards = [
+  {
+    title: 'Local-first maintenance records',
+    body: 'NozzleNote is designed around app records that stay local by default, helping users organize printer-care context without requiring a cloud-first workflow.',
+  },
+  {
+    title: 'Practical printer care history',
+    body: 'The app is being built to keep maintenance notes, service events, parts context and routine care history easier to review.',
+  },
+  {
+    title: 'Printer-focused context',
+    body: 'Each printer can have its own profile, setup notes and maintenance context, so records do not have to live in unrelated files or messages.',
+  },
+  {
+    title: 'Planned verified catalog direction',
+    body: 'BMR Verified Catalogs are planned as optional catalog packs reviewed by BMR for structure and maintenance context. They are not manufacturer-approved, certified or official catalogs.',
+  },
+  {
+    title: 'Transparent roadmap',
+    body: 'The website explains what is current, what is planned and what is not available yet, so visitors can follow development without mistaking future plans for live features.',
+  },
+];
+
+const notList = [
+  'not a slicer',
+  'not a remote printer controller',
+  'not a print farm manager',
+  'not a cloud-only platform',
+  'not a marketplace',
+  'not official manufacturer software',
+  'not a replacement for manufacturer tools',
+  'not a guarantee against printer issues',
+];
+
+const statusList = [
+  'no public download is available',
+  'no checkout is active',
+  'no paid plan is active',
+  'no paid catalog is active',
+  'no license activation is active',
+  'no account system is active',
+  'no support entitlement exists',
+  'no crowdfunding pledge is active',
+];
+---
+
+<BaseLayout
+  title="About NozzleNote by BMR"
+  description="The story behind NozzleNote by BMR — an independent local-first 3D printer maintenance logbook currently in development."
+>
+  <main class="page-shell about-page">
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="about-hero__copy">
+        <p class="section-eyebrow">About NozzleNote by BMR</p>
+        <h1 id="about-title">Built from a real maintenance problem.</h1>
+        <p>
+          NozzleNote by BMR is being built by Pedro Luiz BMR as an independent, local-first desktop workspace for 3D printer maintenance. The goal is simple: make routine care, parts notes, service history and maintenance context easier to keep in one place — without turning printer care into guesswork.
+        </p>
+        <ul class="about-chip-list" aria-label="NozzleNote status highlights">
+          <li>Currently in development</li>
+          <li>Independent product</li>
+          <li>App records local by default</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a>
+          <a class="secondary-link" href={withBase('/docs/')}>Read the docs preview</a>
+        </div>
+      </div>
+      <!-- Builder pose: confident founder portrait, half-body, black NozzleNote shirt, dark premium cyan/blue/violet lighting. -->
+      <BuilderPlaceholder
+        src="/assets/about/builder-hero.png"
+        alt="Planned stylized founder portrait placeholder for The Builder representing Pedro Luiz BMR."
+        label="The Builder image placeholder"
+        note="Future hero portrait direction for The Builder; placeholder used until final designer artwork is added."
+        variant="hero"
+        aspectRatio="4 / 5"
+      />
+    </section>
+
+    <section class="about-split" aria-labelledby="why-title">
+      <div class="content-panel">
+        <p class="section-eyebrow">Origin problem</p>
+        <h2 id="why-title">Why NozzleNote exists</h2>
+        <p>
+          3D printers are practical machines, but taking care of them over time creates a lot of small records: cleaning notes, replaced parts, service dates, recurring issues, setup details and reminders. When those records live in memory, spreadsheets, sticky notes, chat messages, photos, separate files and improvised logs, it becomes harder to understand the printer’s maintenance history.
+        </p>
+        <p>
+          That scattered context can make it harder to remember what was cleaned, when a part was replaced, what issue happened before, which notes belong to which printer and what maintenance context should be reviewed next.
+        </p>
+        <p>
+          NozzleNote is being built to organize that context in a local-first desktop app, so maintenance records can stay close to the user and easier to review.
+        </p>
+      </div>
+      <!-- Builder pose: reviewing scattered maintenance notes, spreadsheets and printer-care reminders, premium dark workspace. -->
+      <BuilderPlaceholder
+        src="/assets/about/builder-messy-records.png"
+        alt="Planned Builder visual placeholder showing scattered printer maintenance records being reviewed."
+        label="Scattered records placeholder"
+        note="Future scene direction: The Builder reviewing scattered maintenance notes in a premium dark workspace."
+        variant="inline"
+        aspectRatio="5 / 4"
+      />
+    </section>
+
+    <section class="about-split about-split--reverse" aria-labelledby="founder-title">
+      <div class="about-founder-card section-card">
+        <span class="status-pill">Founder</span>
+        <h3>Pedro Luiz BMR</h3>
+        <p>Founder &amp; Builder of NozzleNote by BMR</p>
+        <ul class="plain-list">
+          <li>Independent product builder</li>
+          <li>Building NozzleNote in public, carefully and responsibly</li>
+        </ul>
+      </div>
+      <div class="section-heading">
+        <p class="section-eyebrow">Founder-led product</p>
+        <h2 id="founder-title">Founder &amp; Builder</h2>
+        <p>
+          NozzleNote by BMR is being built by Pedro Luiz BMR, an independent builder creating a focused maintenance workspace for 3D printer owners. The product is not being positioned as a slicer, printer controller, print farm manager or manufacturer platform. It is a maintenance-focused tool shaped around the practical reality of taking care of printers over time.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-split" aria-labelledby="builder-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Visual storytelling</p>
+        <h2 id="builder-title">Meet The Builder</h2>
+        <p>
+          The Builder is a stylized founder character inspired by Pedro Luiz BMR. He represents the hands-on, build-in-public spirit behind NozzleNote: practical, technical, focused and transparent.
+        </p>
+        <p>
+          The Builder is not a childish mascot. He is a visual storytelling element for the About page and future founder/product moments: modern, calm, focused, technical and premium — not cartoonish, anime, childish or gamer-styled.
+        </p>
+      </div>
+      <!-- Builder pose: focused independent product builder at a workstation, working on NozzleNote interface concepts, premium dark technical environment. -->
+      <BuilderPlaceholder
+        src="/assets/about/builder-at-work.png"
+        alt="Planned Builder visual placeholder showing an independent product builder working at a workstation."
+        label="Builder at work placeholder"
+        note="Future scene direction: focused independent product builder working on NozzleNote interface concepts."
+        variant="inline"
+        aspectRatio="5 / 4"
+      />
+    </section>
+
+    <section class="feature-section" aria-labelledby="philosophy-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Product philosophy</p>
+        <h2 id="philosophy-title">What NozzleNote is designed to be</h2>
+        <p>These directions describe the intended product shape while the desktop app remains in development.</p>
+      </div>
+      <div class="content-grid about-philosophy-grid">
+        {philosophyCards.map((card) => (
+          <article class="content-card">
+            <h3>{card.title}</h3>
+            <p>{card.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="about-split" aria-labelledby="not-title">
+      <div class="content-panel">
+        <p class="section-eyebrow">Focused scope</p>
+        <h2 id="not-title">What NozzleNote is not</h2>
+        <p>
+          NozzleNote is intentionally focused. It is being built as a maintenance logbook and care-context workspace, not as a tool to control printers, slice files or replace manufacturer software.
+        </p>
+      </div>
+      <div class="section-card">
+        <ul class="about-check-list" aria-label="NozzleNote scope boundaries">
+          {notList.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="about-split about-split--reverse" aria-labelledby="status-title">
+      <div class="section-card">
+        <ul class="about-check-list" aria-label="Current product status limitations">
+          {statusList.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="section-heading">
+        <p class="section-eyebrow">Current stage</p>
+        <h2 id="status-title">Still being built</h2>
+        <p>
+          NozzleNote is currently in development. This website explains the product direction, roadmap, planned commercial model and release preparation, but the desktop app is not publicly available yet.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a>
+          <a class="secondary-link" href={withBase('/docs/')}>Read docs preview</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-note status-note--accent" aria-labelledby="independence-title">
+      <h2 id="independence-title">Independence note</h2>
+      <p>
+        Brand and product names may be mentioned only for descriptive purposes where necessary. NozzleNote by BMR is an independent product and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by or officially connected to any 3D printer manufacturer.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
