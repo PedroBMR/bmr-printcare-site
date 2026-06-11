@@ -44,7 +44,7 @@ const statusList = [
   'no paid catalog is active',
   'no license activation is active',
   'no account system is active',
-  'no support entitlement exists',
+  'no active support plan exists',
   'no crowdfunding pledge is active',
 ];
 ---
@@ -71,12 +71,10 @@ const statusList = [
           <a class="secondary-link" href={withBase('/docs/')}>Read the docs preview</a>
         </div>
       </div>
-      <!-- Builder pose: confident founder portrait, half-body, black NozzleNote shirt, dark premium cyan/blue/violet lighting. -->
       <BuilderPlaceholder
         src="/assets/about/builder-hero.png"
-        alt="Planned stylized founder portrait placeholder for The Builder representing Pedro Luiz BMR."
-        label="The Builder image placeholder"
-        note="Future hero portrait direction for The Builder; placeholder used until final designer artwork is added."
+        alt="The Builder, a stylized founder character representing Pedro Luiz BMR and the build-in-public spirit behind NozzleNote."
+        label="The Builder visual"
         variant="hero"
         aspectRatio="4 / 5"
       />
@@ -96,15 +94,23 @@ const statusList = [
           NozzleNote is being built to organize that context in a local-first desktop app, so maintenance records can stay close to the user and easier to review.
         </p>
       </div>
-      <!-- Builder pose: reviewing scattered maintenance notes, spreadsheets and printer-care reminders, premium dark workspace. -->
-      <BuilderPlaceholder
-        src="/assets/about/builder-messy-records.png"
-        alt="Planned Builder visual placeholder showing scattered printer maintenance records being reviewed."
-        label="Scattered records placeholder"
-        note="Future scene direction: The Builder reviewing scattered maintenance notes in a premium dark workspace."
-        variant="inline"
-        aspectRatio="5 / 4"
-      />
+      <div class="about-insight-grid" aria-label="Why maintenance records get scattered">
+        <article class="about-mini-card">
+          <span class="about-mini-card__icon" aria-hidden="true">01</span>
+          <h3>Records fragment</h3>
+          <p>Care notes can end up split across files, photos, messages and memory.</p>
+        </article>
+        <article class="about-mini-card">
+          <span class="about-mini-card__icon" aria-hidden="true">02</span>
+          <h3>Context fades</h3>
+          <p>Replacement dates, recurring symptoms and setup details become harder to review later.</p>
+        </article>
+        <article class="about-mini-card">
+          <span class="about-mini-card__icon" aria-hidden="true">03</span>
+          <h3>History matters</h3>
+          <p>NozzleNote is being built to make printer-care history easier to keep in one focused workspace.</p>
+        </article>
+      </div>
     </section>
 
     <section class="about-split about-split--reverse" aria-labelledby="founder-title">
@@ -137,15 +143,16 @@ const statusList = [
           The Builder is not a childish mascot. He is a visual storytelling element for the About page and future founder/product moments: modern, calm, focused, technical and premium — not cartoonish, anime, childish or gamer-styled.
         </p>
       </div>
-      <!-- Builder pose: focused independent product builder at a workstation, working on NozzleNote interface concepts, premium dark technical environment. -->
-      <BuilderPlaceholder
-        src="/assets/about/builder-at-work.png"
-        alt="Planned Builder visual placeholder showing an independent product builder working at a workstation."
-        label="Builder at work placeholder"
-        note="Future scene direction: focused independent product builder working on NozzleNote interface concepts."
-        variant="inline"
-        aspectRatio="5 / 4"
-      />
+      <div class="about-builder-story-card section-card" aria-label="The Builder story marker">
+        <div class="about-builder-badge" aria-hidden="true">
+          <span>NN</span>
+          <strong>Builder</strong>
+        </div>
+        <h3>A founder character, not a launch claim</h3>
+        <p>
+          The Builder supports the founder story while the product remains in development. He does not indicate an active download, checkout, account system, paid plan or catalog release.
+        </p>
+      </div>
     </section>
 
     <section class="feature-section" aria-labelledby="philosophy-title">

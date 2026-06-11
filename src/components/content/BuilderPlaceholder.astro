@@ -1,6 +1,8 @@
 ---
+import { withBase } from '../../utils/paths';
+
 interface Props {
-  src: string;
+  src?: string;
   alt: string;
   label?: string;
   note?: string;
@@ -11,31 +13,70 @@ interface Props {
 const {
   src,
   alt,
-  label = 'The Builder image placeholder',
-  note = 'Future Builder artwork direction placeholder.',
+  label = 'The Builder visual',
+  note,
   aspectRatio = '4 / 5',
   variant = 'inline',
 } = Astro.props;
+
+const imageSrc = src ? withBase(src) : undefined;
+const hasImage = Boolean(imageSrc);
 ---
 
-<figure class:list={['builder-placeholder', `builder-placeholder--${variant}`]} style={`--builder-aspect-ratio: ${aspectRatio};`} aria-label={alt}>
-  <div class="builder-placeholder__stage" role="img" aria-label={alt}>
+<figure
+  class:list={['builder-placeholder', `builder-placeholder--${variant}`, { 'builder-placeholder--with-image': hasImage }]}
+  style={`--builder-aspect-ratio: ${aspectRatio};`}
+  aria-label={alt}
+>
+  <div class="builder-placeholder__stage">
     <div class="builder-placeholder__glow" aria-hidden="true"></div>
-    <div class="builder-placeholder__silhouette" aria-hidden="true">
-      <span class="builder-placeholder__head"></span>
-      <span class="builder-placeholder__body"></span>
-      <span class="builder-placeholder__bench"></span>
-    </div>
-    <div class="builder-placeholder__content">
-      <span class="builder-placeholder__kicker">Future asset</span>
-      <strong>{label}</strong>
-      <span class="builder-placeholder__path">{src}</span>
+    {imageSrc ? (
+      <img
+        class="builder-placeholder__image"
+        src={imageSrc}
+        alt={alt}
+        loading={variant === 'hero' ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchpriority={variant === 'hero' ? 'high' : 'auto'}
+        data-builder-image
+      />
+    ) : null}
+    <div class="builder-placeholder__fallback" role="img" aria-label={alt} hidden={hasImage}>
+      <div class="builder-placeholder__silhouette" aria-hidden="true">
+        <span class="builder-placeholder__head"></span>
+        <span class="builder-placeholder__body"></span>
+        <span class="builder-placeholder__bench"></span>
+      </div>
+      <div class="builder-placeholder__content">
+        <span class="builder-placeholder__kicker">Builder story</span>
+        <strong>{label}</strong>
+      </div>
     </div>
   </div>
-  <figcaption>
-    <span>{note}</span>
-  </figcaption>
+  {note ? (
+    <figcaption>
+      <span>{note}</span>
+    </figcaption>
+  ) : null}
 </figure>
+
+<script is:inline>
+  document.querySelectorAll('[data-builder-image]').forEach((image) => {
+    const showFallback = () => {
+      image.hidden = true;
+      const fallback = image.nextElementSibling;
+      if (fallback) {
+        fallback.hidden = false;
+      }
+    };
+
+    image.addEventListener('error', showFallback);
+
+    if (image.complete && image.naturalWidth === 0) {
+      showFallback();
+    }
+  });
+</script>
 
 <style>
   .builder-placeholder {
@@ -51,10 +92,9 @@ const {
     min-height: 20rem;
     aspect-ratio: var(--builder-aspect-ratio);
     overflow: hidden;
-    align-items: end;
+    align-items: stretch;
     border: 1px solid rgba(57, 208, 255, 0.28);
     border-radius: calc(var(--radius-card) + 0.4rem);
-    padding: clamp(1.1rem, 3vw, 1.45rem);
     background:
       radial-gradient(circle at 50% 18%, rgba(57, 208, 255, 0.18), transparent 10rem),
       radial-gradient(circle at 78% 18%, rgba(124, 58, 237, 0.16), transparent 12rem),
@@ -66,22 +106,23 @@ const {
   .builder-placeholder__stage::before,
   .builder-placeholder__stage::after {
     position: absolute;
+    z-index: 2;
     pointer-events: none;
     content: '';
   }
 
   .builder-placeholder__stage::before {
     inset: 0;
-    opacity: 0.38;
+    opacity: 0.34;
     background:
-      linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+      linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
     background-size: 2.4rem 2.4rem;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 82%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 78%);
   }
 
   .builder-placeholder__stage::after {
-    inset: auto 12% 20% 12%;
+    inset: auto 10% 8% 10%;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(57, 208, 255, 0.58), rgba(167, 139, 250, 0.42), transparent);
     box-shadow: 0 0 34px rgba(57, 208, 255, 0.22);
@@ -96,6 +137,32 @@ const {
     opacity: 0.52;
     background: radial-gradient(ellipse, rgba(57, 208, 255, 0.2), rgba(124, 58, 237, 0.1) 42%, transparent 68%);
     filter: blur(18px);
+  }
+
+  .builder-placeholder__image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(1.04) contrast(1.03);
+  }
+
+  .builder-placeholder--hero .builder-placeholder__image {
+    object-position: center center;
+  }
+
+  .builder-placeholder__fallback {
+    position: relative;
+    display: grid;
+    min-height: inherit;
+    padding: clamp(1.1rem, 3vw, 1.45rem);
+    align-items: end;
+  }
+
+  .builder-placeholder__fallback[hidden] {
+    display: none;
   }
 
   .builder-placeholder__silhouette {
@@ -156,7 +223,6 @@ const {
   }
 
   .builder-placeholder__kicker,
-  .builder-placeholder__path,
   figcaption {
     color: var(--color-text-soft);
     font-size: 0.76rem;
@@ -177,18 +243,13 @@ const {
     line-height: 1.1;
   }
 
-  .builder-placeholder__path {
-    overflow-wrap: anywhere;
-    font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
-  }
-
   figcaption {
     margin: 0;
     padding: 0 0.15rem;
   }
 
   .builder-placeholder--hero .builder-placeholder__stage {
-    min-height: clamp(26rem, 48vw, 34rem);
+    min-height: clamp(24rem, 44vw, 32rem);
   }
 
   .builder-placeholder--wide .builder-placeholder__stage {
@@ -198,6 +259,10 @@ const {
   @media (max-width: 640px) {
     .builder-placeholder__stage {
       min-height: 18rem;
+    }
+
+    .builder-placeholder--hero .builder-placeholder__stage {
+      min-height: clamp(20rem, 88vw, 26rem);
     }
   }
 </style>
