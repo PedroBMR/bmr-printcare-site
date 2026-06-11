@@ -18,7 +18,7 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
         <div class="cookie-consent__copy">
           <h2 id="cookie-consent-title">Analytics cookie settings</h2>
           <p id="cookie-consent-copy">
-            We use basic analytics cookies to understand website traffic and improve NozzleNote. You can accept or reject analytics cookies. Learn more in our Privacy Notice.
+            Basic analytics cookies help us understand website traffic. You can accept or reject analytics cookies, and the Privacy Notice explains the details.
           </p>
         </div>
         <div class="cookie-consent__actions" aria-label="Analytics consent choices">
@@ -35,7 +35,9 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
   )
 }
 
-<script is:inline>
+{
+  isValidMeasurementId && (
+    <script is:inline>
   (() => {
     const configElement = document.getElementById('nozzlenote-analytics-config');
     const consentElement = document.querySelector('[data-cookie-consent]');
@@ -63,6 +65,7 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
     const rejectedValue = 'rejected';
     const acceptButton = consentElement.querySelector('[data-cookie-accept]');
     const rejectButton = consentElement.querySelector('[data-cookie-reject]');
+    const gaDisableKey = `ga-disable-${measurementId}`;
     let analyticsLoaded = false;
 
     const getPreference = () => {
@@ -105,6 +108,8 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
     };
 
     const loadAnalytics = () => {
+      window[gaDisableKey] = false;
+
       if (analyticsLoaded || document.querySelector('script[data-nozzlenote-ga4]')) {
         analyticsLoaded = true;
         return;
@@ -131,6 +136,9 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
 
     const rejectAnalytics = () => {
       setPreference(rejectedValue);
+      window[gaDisableKey] = true;
+      document.querySelectorAll('script[data-nozzlenote-ga4]').forEach((script) => script.remove());
+      analyticsLoaded = false;
       hideBanner();
       clearAnalyticsCookies();
     };
@@ -142,6 +150,8 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
       showBanner();
       acceptButton?.focus({ preventScroll: true });
     });
+
+    window[gaDisableKey] = true;
 
     const preference = getPreference();
     if (preference === acceptedValue) {
@@ -159,6 +169,8 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
     showBanner();
   })();
 </script>
+  )
+}
 
 <style>
   .cookie-consent[hidden] {
@@ -209,6 +221,7 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
   .cookie-consent p {
     color: var(--color-text-muted);
     font-size: 0.95rem;
+    line-height: 1.42;
   }
 
   .cookie-consent__actions {
@@ -247,12 +260,51 @@ const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
   }
 
   @media (max-width: 760px) {
+    .cookie-consent {
+      right: 0.75rem;
+      bottom: 0.75rem;
+      left: 0.75rem;
+    }
+
     .cookie-consent__panel {
       grid-template-columns: 1fr;
+      gap: 0.75rem;
+      max-height: min(62vh, 24rem);
+      overflow: auto;
+      border-radius: 1rem;
+      padding: 0.8rem;
+    }
+
+    .cookie-consent h2 {
+      font-size: 0.95rem;
+    }
+
+    .cookie-consent p {
+      font-size: 0.86rem;
     }
 
     .cookie-consent__actions {
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      justify-content: stretch;
+    }
+
+    .cookie-consent__button,
+    .cookie-consent__link {
+      min-height: 2.65rem;
+      padding: 0.68rem 0.72rem;
+      text-align: center;
+    }
+
+    .cookie-consent__link {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .cookie-consent__actions {
+      grid-template-columns: 1fr;
     }
   }
 </style>
