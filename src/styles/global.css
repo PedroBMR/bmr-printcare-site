@@ -1532,3 +1532,166 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+.about-page {
+  gap: clamp(3rem, 6vw, 5.5rem);
+}
+
+.about-hero,
+.about-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.about-hero__copy {
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
+}
+
+.about-hero h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.55rem, 6vw, 5.2rem);
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+
+.about-hero p:not(.section-eyebrow),
+.about-split .section-heading p,
+.about-split .content-panel p {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 2vw, 1.14rem);
+}
+
+.about-split .section-heading {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-split--reverse {
+  grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1fr);
+}
+
+.about-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-chip-list li {
+  border: 1px solid rgba(57, 208, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.5rem 0.72rem;
+  background: rgba(57, 208, 255, 0.07);
+  color: var(--color-text-soft);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.about-founder-card {
+  gap: 1rem;
+}
+
+.about-founder-card h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.about-founder-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.about-check-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-check-list li {
+  position: relative;
+  padding-left: 1.65rem;
+  color: var(--color-text-muted);
+}
+
+.about-check-list li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 16px rgba(57, 208, 255, 0.4);
+  content: '';
+}
+
+.about-philosophy-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.about-philosophy-grid > .content-card {
+  grid-column: span 2;
+}
+
+.about-philosophy-grid > .content-card:nth-last-child(2),
+.about-philosophy-grid > .content-card:nth-last-child(1) {
+  grid-column: span 3;
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
+  .page-shell.about-page > :is(.about-hero, .about-split, .feature-section, .status-note) {
+    animation: motion-fade-up var(--motion-duration-entrance) var(--motion-ease-emphasized) both;
+    animation-delay: calc(var(--motion-entrance-stagger) * var(--motion-order, 0));
+  }
+}
+
+@media (max-width: 900px) {
+  .about-hero,
+  .about-split,
+  .about-split--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .about-philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-philosophy-grid > .content-card,
+  .about-philosophy-grid > .content-card:nth-last-child(2),
+  .about-philosophy-grid > .content-card:nth-last-child(1) {
+    grid-column: auto;
+  }
+
+  .about-split--reverse > :first-child {
+    order: 2;
+  }
+
+  .about-split--reverse > :last-child {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-hero h1 {
+    font-size: clamp(2.2rem, 12vw, 3.4rem);
+    letter-spacing: -0.055em;
+    line-height: 1.03;
+  }
+
+  .about-chip-list li {
+    width: 100%;
+  }
+}
