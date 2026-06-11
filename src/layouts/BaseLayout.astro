@@ -4,6 +4,7 @@ import SiteFooter from '../components/layout/SiteFooter.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import AmbientBackground from '../components/layout/AmbientBackground.astro';
 import GoogleAnalytics from '../components/layout/GoogleAnalytics.astro';
+import CookieConsent from '../components/layout/CookieConsent.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -52,5 +53,6 @@ const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site).href : unde
       <slot />
     </div>
     <SiteFooter />
+    <CookieConsent />
   </body>
 </html>

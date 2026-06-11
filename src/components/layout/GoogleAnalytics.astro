@@ -2,20 +2,20 @@
 const rawMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const measurementId = typeof rawMeasurementId === 'string' ? rawMeasurementId.trim() : '';
 const isValidMeasurementId = /^G-[A-Z0-9]{6,20}$/.test(measurementId);
-const gtagSource = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-const gtagInlineScript = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${measurementId}');
-`;
+const analyticsConfig = {
+  measurementId,
+  consentKey: 'nozzlenote_analytics_consent',
+  gtagSource: `https://www.googletagmanager.com/gtag/js?id=${measurementId}`,
+};
 ---
 
 {
   isValidMeasurementId && (
-    <>
-      <script is:inline async src={gtagSource}></script>
-      <script is:inline set:html={gtagInlineScript}></script>
-    </>
+    <script
+      is:inline
+      type="application/json"
+      id="nozzlenote-analytics-config"
+      set:html={JSON.stringify(analyticsConfig)}
+    />
   )
 }

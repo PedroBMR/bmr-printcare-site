@@ -1,0 +1,124 @@
+---
+import { withBase } from '../../utils/paths';
+---
+
+<section class="interest-section section-shell" aria-labelledby="interest-title">
+  <div class="section-heading">
+    <p class="section-eyebrow">Pre-launch interest</p>
+    <h2 id="interest-title">Help shape NozzleNote before launch.</h2>
+    <p>
+      NozzleNote by BMR is still in development. An interest list is being prepared so visitors can follow the project and share what kind of 3D printing setup they use. This helps us understand demand, prioritize documentation and plan future compatibility coverage responsibly.
+    </p>
+  </div>
+
+  <div class="interest-card">
+    <div>
+      <h3>Launch updates list coming soon</h3>
+      <p>
+        No active form is collecting data yet. A future form may ask for an email address, user type, number of printers, printer models, and optional country/region or use case.
+      </p>
+      <p class="interest-warning">
+        Please do not submit printer serial numbers, private account details, payment data, sensitive personal information or confidential maintenance records. NozzleNote is still in development.
+      </p>
+    </div>
+    <div class="interest-actions" aria-label="Pre-launch interest actions">
+      <span class="disabled-cta" aria-disabled="true">Interest list coming soon</span>
+      <a class="secondary-link" href={withBase('/privacy/')}>Read Privacy Notice</a>
+    </div>
+  </div>
+
+  <p class="interest-disclaimer">
+    Joining the interest list does not create a purchase, license, early access right, delivery promise, support entitlement or crowdfunding pledge.
+  </p>
+</section>
+
+<style>
+  .interest-section {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .interest-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    border: 1px solid rgba(57, 208, 255, 0.2);
+    border-radius: var(--radius-card);
+    padding: clamp(1.25rem, 4vw, 2rem);
+    background:
+      radial-gradient(circle at 12% 0%, rgba(57, 208, 255, 0.12), transparent 17rem),
+      linear-gradient(145deg, rgba(124, 58, 237, 0.12), rgba(16, 22, 36, 0.68));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .interest-card h3,
+  .interest-card p,
+  .interest-disclaimer {
+    margin: 0;
+  }
+
+  .interest-card h3 {
+    margin-bottom: 0.55rem;
+    font-size: clamp(1.25rem, 3vw, 1.8rem);
+    letter-spacing: -0.035em;
+  }
+
+  .interest-card p,
+  .interest-disclaimer {
+    color: var(--color-text-muted);
+  }
+
+  .interest-warning {
+    margin-top: 0.8rem !important;
+  }
+
+  .interest-actions {
+    display: grid;
+    gap: 0.75rem;
+    min-width: min(100%, 16rem);
+  }
+
+  .disabled-cta,
+  .secondary-link {
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.85rem 1rem;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .disabled-cta {
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: rgba(148, 163, 184, 0.12);
+    color: var(--color-text-muted);
+  }
+
+  .secondary-link {
+    border: 1px solid rgba(57, 208, 255, 0.28);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .secondary-link:hover,
+  .secondary-link:focus-visible {
+    border-color: rgba(57, 208, 255, 0.55);
+  }
+
+  .interest-disclaimer {
+    max-width: 54rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 760px) {
+    .interest-card {
+      grid-template-columns: 1fr;
+    }
+
+    .interest-actions {
+      width: 100%;
+    }
+  }
+</style>
