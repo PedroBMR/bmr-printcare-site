@@ -1596,6 +1596,103 @@ h2 {
   font-weight: 900;
 }
 
+
+.about-insight-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.about-mini-card,
+.about-builder-story-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-mini-card {
+  display: grid;
+  gap: 0.55rem;
+  border: 1px solid rgba(57, 208, 255, 0.18);
+  border-radius: var(--radius-card);
+  padding: clamp(1rem, 2.2vw, 1.25rem);
+  background:
+    linear-gradient(135deg, rgba(57, 208, 255, 0.08), transparent 42%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.82), rgba(20, 16, 39, 0.62));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.about-mini-card::after,
+.about-builder-story-card::after {
+  position: absolute;
+  inset: auto 1rem 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(57, 208, 255, 0.45), rgba(167, 139, 250, 0.32), transparent);
+  content: '';
+}
+
+.about-mini-card__icon {
+  display: inline-grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 1px solid rgba(57, 208, 255, 0.3);
+  border-radius: 0.85rem;
+  background: rgba(57, 208, 255, 0.08);
+  color: var(--color-accent);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.about-mini-card h3,
+.about-builder-story-card h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  letter-spacing: -0.025em;
+}
+
+.about-mini-card p,
+.about-builder-story-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.about-builder-story-card {
+  gap: 1rem;
+}
+
+.about-builder-badge {
+  display: inline-grid;
+  width: min(100%, 14rem);
+  min-height: 8rem;
+  place-items: center;
+  justify-items: center;
+  border: 1px solid rgba(57, 208, 255, 0.24);
+  border-radius: calc(var(--radius-card) - 0.15rem);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(57, 208, 255, 0.18), transparent 4.5rem),
+    radial-gradient(circle at 75% 80%, rgba(124, 58, 237, 0.16), transparent 5rem),
+    rgba(7, 10, 18, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 18px 42px rgba(7, 10, 18, 0.34);
+}
+
+.about-builder-badge span {
+  color: var(--color-accent);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+  text-shadow: 0 0 28px rgba(57, 208, 255, 0.35);
+}
+
+.about-builder-badge strong {
+  color: var(--color-text-soft);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .about-founder-card {
   gap: 1rem;
 }
