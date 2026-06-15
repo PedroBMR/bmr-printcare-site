@@ -5,24 +5,24 @@ import { withBase } from '../../utils/paths';
 <section class="interest-section section-shell" aria-labelledby="interest-title">
   <div class="section-heading">
     <p class="section-eyebrow">Pre-launch interest</p>
-    <h2 id="interest-title">Help shape NozzleNote before launch.</h2>
+    <h2 id="interest-title">Follow NozzleNote as it develops.</h2>
     <p>
-      NozzleNote by BMR is still in development. An interest list is being prepared so visitors can follow the project and share what kind of 3D printing setup they use. This helps us understand demand, prioritize documentation and plan future compatibility coverage responsibly.
+      NozzleNote by BMR is still in development. The Early Interest List lets visitors follow the project and share broad 3D printing setup context so product direction, documentation and future compatibility planning can be considered responsibly.
     </p>
   </div>
 
   <div class="interest-card">
     <div>
-      <h3>Launch updates list coming soon</h3>
+      <h3>Join the Early Interest List</h3>
       <p>
-        No active form is collecting data yet. A future form may ask for an email address, user type, number of printers, printer models, and optional country/region or use case.
+        The dedicated Early Interest page collects limited information through Formspree when the public form endpoint is configured. It is for occasional product updates, roadmap notes and future release information only.
       </p>
       <p class="interest-warning">
         Please do not submit printer serial numbers, private account details, payment data, sensitive personal information or confidential maintenance records. NozzleNote is still in development.
       </p>
     </div>
     <div class="interest-actions" aria-label="Pre-launch interest actions">
-      <span class="disabled-cta" aria-disabled="true">Interest list coming soon</span>
+      <a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a>
       <a class="secondary-link" href={withBase('/privacy/')}>Read Privacy Notice</a>
     </div>
   </div>
@@ -79,7 +79,7 @@ import { withBase } from '../../utils/paths';
     min-width: min(100%, 16rem);
   }
 
-  .disabled-cta,
+  .primary-link,
   .secondary-link {
     display: inline-flex;
     justify-content: center;
@@ -90,10 +90,11 @@ import { withBase } from '../../utils/paths';
     text-align: center;
   }
 
-  .disabled-cta {
-    border: 1px solid rgba(148, 163, 184, 0.24);
-    background: rgba(148, 163, 184, 0.12);
-    color: var(--color-text-muted);
+  .primary-link {
+    border: 1px solid rgba(57, 208, 255, 0.36);
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.86), rgba(57, 208, 255, 0.24));
+    color: var(--color-text);
+    text-decoration: none;
   }
 
   .secondary-link {

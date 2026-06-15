@@ -1,29 +1,34 @@
-# Pre-launch interest planning
+# Early Interest List
 
-Milestone 30 uses a placeholder-only pre-launch interest section because no real form provider has been selected or configured.
+Milestone 34 activates a controlled Early Interest List page at `/early-interest/` for NozzleNote by BMR while the desktop app remains in development.
 
-## Current public state
+## Provider and configuration
 
-- No active interest form is collecting data.
-- No email field is shown.
-- No launch updates are being collected yet.
-- No purchase, license, early access right, delivery promise, support entitlement, crowdfunding pledge, partnership, employment relationship, or investment relationship is created.
-- No payment, checkout, pledge form, or Early Supporter campaign is live.
+- Provider: Formspree.
+- Required public build variable: `PUBLIC_EARLY_INTEREST_FORM_ENDPOINT`.
+- Production value: `https://formspree.io/f/mwvjybyw`.
+- If the variable is missing, the page must render a safe unavailable state and provide `contact@nozzlenote.com`.
+- The endpoint must be passed at build time and must not be duplicated in page copy except documentation or generated output when the variable is supplied.
 
-## Future form planning
-
-A future interest form may collect:
+## Collected fields
 
 - email address;
 - user type;
-- number of printers;
+- number of 3D printers;
 - printer models;
-- optional country/region or use case.
+- current maintenance tracking method;
+- biggest maintenance frustration;
+- consent to receive occasional updates.
 
-Before any real form is launched, update the Privacy Notice and Terms with the actual provider, data categories, consent copy, unsubscribe process, and retention approach.
+## Purpose, retention and removal
 
-## Safety warning for future forms
+The list is for occasional NozzleNote by BMR product updates, roadmap notes, future release information, and understanding early product interest. Early Interest form data may be kept while NozzleNote by BMR is being developed and while the visitor remains interested in receiving updates. Visitors can unsubscribe or request removal at any time by contacting `contact@nozzlenote.com`.
 
-Use this warning near any future submission action:
+## Boundaries
 
-> Please do not submit printer serial numbers, private account details, payment data, sensitive personal information or confidential maintenance records. NozzleNote is still in development.
+- No payment, checkout, pledge, preorder, license reservation, app download, account, beta access system, support entitlement, database, or backend is created.
+- No newsletter automation, marketing automation, mailing-list segmentation, or automatic email sequences are created.
+- No form data is sent to GA4 and no form submission analytics event is added.
+- Early Interest List data must not be sold or used for unrelated marketing.
+- Early Interest List submissions must not be shared with printer manufacturers, advertisers, data brokers, or unrelated third parties.
+- Do not collect phone numbers, addresses, CPF/tax IDs, printer serial numbers, payment details, passwords, account credentials, private maintenance logs, or license keys.

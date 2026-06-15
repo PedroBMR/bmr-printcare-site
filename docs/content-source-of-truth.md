@@ -29,3 +29,9 @@ The manufacturer independence disclaimer must remain site-wide:
 ## Update process
 
 Before changing public claims, review the source documents and confirm that the updated copy does not imply live downloads, paid plans, checkout, license activation, account systems, cloud sync, mobile apps, printer integrations, automated diagnostic conclusions, photo-based analysis, active verified catalogs, paid catalogs, refund processes, final legal terms, support desk availability, manufacturer approval, broad compatibility, guaranteed rewards, or guaranteed release timing.
+
+## Milestone 34 Early Interest exception
+
+The `/early-interest/` page is an approved controlled exception to the prior placeholder-only interest-list state. It may collect Early Interest submissions through Formspree only when `PUBLIC_EARLY_INTEREST_FORM_ENDPOINT` is configured. The page and CTAs must frame the action as early interest, occasional updates, roadmap notes, and future release information while the app is still in development.
+
+This exception does not authorize payment, preorder, beta access, license reservation, checkout, accounts, app download, backend, database, newsletter automation, marketing automation, mailing-list segmentation, automatic email sequences, support entitlement, or sending form data to GA4.

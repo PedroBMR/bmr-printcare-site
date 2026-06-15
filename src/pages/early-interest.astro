@@ -1,0 +1,175 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const formEndpoint = import.meta.env.PUBLIC_EARLY_INTEREST_FORM_ENDPOINT;
+const isFormConfigured = typeof formEndpoint === 'string' && formEndpoint.trim().length > 0;
+---
+
+<BaseLayout
+  title="Early Interest List — NozzleNote by BMR"
+  description="Join the NozzleNote by BMR Early Interest List for occasional product updates, roadmap notes and future release information while the app is still in development."
+>
+  <main class="page-shell early-interest-page">
+    <section class="page-hero early-interest-hero" aria-labelledby="early-interest-title">
+      <p class="section-eyebrow">Early interest</p>
+      <h1 id="early-interest-title">Join the Early Interest List</h1>
+      <p>NozzleNote by BMR is still in development. Join the early interest list to receive occasional progress updates, roadmap notes, and future release information.</p>
+      <p class="hero-reassurance">No preorder. No checkout. No unrelated marketing. Only occasional updates as the product develops.</p>
+      <div class="safety-note" role="note">
+        Joining the Early Interest List does not create a purchase, license, early access right, delivery promise, support entitlement or crowdfunding pledge.
+      </div>
+    </section>
+
+    <section class="interest-layout" aria-labelledby="form-title">
+      <div class="form-card">
+        <div class="form-heading">
+          <p class="section-eyebrow">NozzleNote by BMR</p>
+          <h2 id="form-title">Early Interest form</h2>
+          <p>Use this form to share broad product interest while the desktop app is still in development.</p>
+        </div>
+
+        {isFormConfigured ? (
+          <form class="interest-form" method="POST" action={formEndpoint} data-early-interest-form novalidate>
+            <input type="hidden" name="_subject" value="NozzleNote by BMR Early Interest List submission" />
+            <label class="hidden-field" aria-hidden="true">Leave this field empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field-group">
+              <label for="user_type">User type</label>
+              <select id="user_type" name="user_type" required>
+                <option value="">Select one</option>
+                <option>Hobbyist</option>
+                <option>Prosumer / advanced maker</option>
+                <option>Print farm / business</option>
+                <option>Makerspace / school / lab</option>
+                <option>Repair / maintenance service</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="printer_count">Number of 3D printers</label>
+              <select id="printer_count" name="printer_count">
+                <option value="">Select one if you want</option>
+                <option>1</option>
+                <option>2–3</option>
+                <option>4–10</option>
+                <option>11–25</option>
+                <option>26+</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="printer_models">Printer models</label>
+              <input id="printer_models" name="printer_models" type="text" placeholder="Bambu Lab P1P, A1 Combo, Ender 3…" />
+              <p class="helper-text">Example: Bambu Lab P1P, A1 Combo, Ender 3… Please list printer models only. Do not submit printer serial numbers, account details or confidential maintenance records.</p>
+            </div>
+
+            <div class="field-group">
+              <label for="maintenance_tracking_method">Current maintenance tracking method</label>
+              <select id="maintenance_tracking_method" name="maintenance_tracking_method">
+                <option value="">Select one if you want</option>
+                <option>Memory only</option>
+                <option>Notes app</option>
+                <option>Spreadsheet</option>
+                <option>Paper notebook</option>
+                <option>Existing maintenance software</option>
+                <option>Nothing yet</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="maintenance_frustration">Biggest maintenance frustration</label>
+              <textarea id="maintenance_frustration" name="maintenance_frustration" rows="4"></textarea>
+              <p class="helper-text">Please keep this general. Do not include sensitive personal information, payment data, account credentials, printer serial numbers or confidential records.</p>
+            </div>
+
+            <label class="consent-row" for="consent">
+              <input id="consent" name="consent" type="checkbox" value="agreed" required />
+              <span>I agree to receive occasional product updates about NozzleNote by BMR. I understand I can unsubscribe at any time.</span>
+            </label>
+
+            <button class="primary-link submit-button" type="submit" data-submit-label="Join the Early Interest List">Join the Early Interest List</button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+          </form>
+        ) : (
+          <div class="unavailable-card" role="status">
+            <p>The Early Interest form is not configured yet. You can contact us at <a href="mailto:contact@nozzlenote.com">contact@nozzlenote.com</a>.</p>
+          </div>
+        )}
+      </div>
+
+      <aside class="policy-card" aria-label="Early Interest List notes">
+        <h2>Before you submit</h2>
+        <p>By submitting this form, you agree that NozzleNote by BMR may use your email address and submitted answers to send occasional product updates, roadmap notes and future release information, and to understand early product interest. You can unsubscribe or request removal at any time by contacting <a href="mailto:contact@nozzlenote.com">contact@nozzlenote.com</a>.</p>
+        <p>This is not a preorder, paid supporters program, beta access promise, license reservation, support entitlement or crowdfunding pledge. NozzleNote by BMR is still in development.</p>
+        <p>Early Interest List data must not be sold. Early Interest List submissions must not be shared with printer manufacturers, advertisers, data brokers or unrelated third parties. Early Interest List data must not be used for unrelated marketing.</p>
+        <a class="secondary-link" href={withBase('/privacy/')}>Read Privacy Notice</a>
+      </aside>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  (() => {
+    const form = document.querySelector('[data-early-interest-form]');
+    if (!(form instanceof HTMLFormElement)) return;
+    const status = form.querySelector('[data-form-status]');
+    const button = form.querySelector('button[type="submit"]');
+    const defaultLabel = button?.getAttribute('data-submit-label') || 'Join the Early Interest List';
+
+    form.addEventListener('submit', async (event) => {
+      if (!form.checkValidity()) return;
+      event.preventDefault();
+      if (!(button instanceof HTMLButtonElement)) return;
+      button.disabled = true;
+      button.textContent = 'Submitting…';
+      if (status) status.textContent = 'Submitting your Early Interest List request…';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error('Form submission failed');
+        form.reset();
+        if (status) status.textContent = 'Thanks for joining the NozzleNote by BMR Early Interest List. We may send occasional product updates, roadmap notes and future release information.';
+      } catch {
+        if (status) status.textContent = 'Something went wrong while submitting the form. Please try again or contact us at contact@nozzlenote.com.';
+      } finally {
+        button.disabled = false;
+        button.textContent = defaultLabel;
+      }
+    });
+  })();
+</script>
+
+<style>
+  .early-interest-page { display: grid; gap: 2rem; }
+  .early-interest-hero { max-width: 58rem; }
+  .hero-reassurance { color: var(--color-text-soft); font-weight: 800; }
+  .safety-note, .unavailable-card { border: 1px solid rgba(57,208,255,.24); border-radius: 1.25rem; padding: 1rem; background: rgba(57,208,255,.08); color: var(--color-text-soft); }
+  .interest-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .75fr); gap: 1.25rem; align-items: start; }
+  .form-card, .policy-card { border: 1px solid var(--color-border); border-radius: var(--radius-card); background: linear-gradient(145deg, rgba(16,22,36,.9), rgba(11,16,28,.72)); box-shadow: var(--shadow-soft); padding: clamp(1.25rem, 4vw, 2rem); }
+  .form-heading, .interest-form, .policy-card { display: grid; gap: 1rem; }
+  .form-heading h2, .form-heading p, .policy-card h2, .policy-card p { margin: 0; }
+  .field-group { display: grid; gap: .45rem; }
+  label { color: var(--color-text-soft); font-weight: 900; }
+  input, select, textarea { width: 100%; border: 1px solid rgba(148,163,184,.28); border-radius: .9rem; padding: .85rem 1rem; background: rgba(7,10,18,.74); color: var(--color-text); font: inherit; }
+  textarea { resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible, .consent-row:focus-within { outline: 3px solid rgba(57,208,255,.35); outline-offset: 3px; border-color: rgba(57,208,255,.7); }
+  .helper-text, .form-status { margin: 0; color: var(--color-text-muted); font-size: .92rem; }
+  .consent-row { display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: start; border: 1px solid rgba(124,58,237,.24); border-radius: 1rem; padding: 1rem; background: rgba(124,58,237,.08); }
+  .consent-row input { width: 1.2rem; height: 1.2rem; margin-top: .1rem; }
+  .submit-button { width: 100%; border: 0; cursor: pointer; }
+  .submit-button:disabled { cursor: wait; opacity: .7; }
+  .hidden-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  @media (max-width: 860px) { .interest-layout { grid-template-columns: 1fr; } }
+</style>
