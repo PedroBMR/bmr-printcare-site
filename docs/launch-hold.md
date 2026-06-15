@@ -17,3 +17,9 @@ Allowed post-29 changes are limited to critical fixes, typo corrections, legal w
 - Early Supporters remains a future campaign concept to support launch preparation, not a live purchase.
 
 Do not start larger product, pricing, documentation, catalog, checkout, account, cloud, mobile, or legal initiatives from the website alone while the app is still in development.
+
+## Milestone 34 controlled exception
+
+The active Early Interest List at `/early-interest/` is allowed during launch hold as a narrow Formspree-based collection path for occasional product updates, roadmap notes, future release information, and early product-interest context. It requires `PUBLIC_EARLY_INTEREST_FORM_ENDPOINT` at build time and must show a safe unavailable state when the variable is missing.
+
+Launch-hold boundaries remain in place: no public download, checkout, payment flow, preorder, paid supporters flow, license activation, account system, beta access system, support entitlement, newsletter automation, marketing automation, mailing-list segmentation, automatic email sequences, backend, database, cloud sync, or public catalog purchase is live.
