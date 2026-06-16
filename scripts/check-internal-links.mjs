@@ -93,6 +93,10 @@ for (const file of htmlFiles) {
   pageIds.set(file, getIds(readFileSync(file, 'utf8')));
 }
 
+const plannedMissingAssetPrefixes = [
+  '/assets/app-screenshots/closed-beta/v0.2.0-beta.1/',
+];
+
 const failures = [];
 
 for (const route of expectedRoutes) {
@@ -136,6 +140,11 @@ for (const file of htmlFiles) {
 
     if (!target.startsWith('/')) {
       failures.push(`${relativeFile} uses a relative internal link that should be root-relative: ${value}`);
+      continue;
+    }
+
+    const isPlannedMissingAsset = plannedMissingAssetPrefixes.some((prefix) => target.startsWith(prefix));
+    if (isPlannedMissingAsset) {
       continue;
     }
 

@@ -1,0 +1,134 @@
+---
+import { withBase } from '../../utils/paths';
+import type { AppScreenshot } from '../../data/appScreenshots';
+
+interface Props {
+  screenshot: AppScreenshot;
+  badge?: string;
+  eager?: boolean;
+  compact?: boolean;
+}
+
+const { screenshot, badge = 'Closed Beta preview', eager = false, compact = false } = Astro.props;
+const fileName = screenshot.src.split('/').pop() ?? screenshot.id;
+---
+
+<figure class:list={['app-screenshot-card', compact && 'app-screenshot-card--compact']}>
+  <div class="app-screenshot-card__media">
+    <img
+      src={withBase(screenshot.src)}
+      alt={screenshot.alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      onerror="this.style.display='none';this.closest('.app-screenshot-card__media')?.classList.add('is-missing')"
+    />
+    <div class="app-screenshot-card__fallback" aria-hidden="true">
+      <span>{badge}</span>
+      <strong>Closed Beta screenshot slot</strong>
+      <p>Add <code>{fileName}</code> to the screenshot assets folder.</p>
+    </div>
+  </div>
+  <figcaption class="app-screenshot-card__caption">
+    <span>{badge}</span>
+    <strong>{screenshot.title}</strong>
+    <p>{screenshot.caption}</p>
+  </figcaption>
+</figure>
+
+<style>
+  .app-screenshot-card {
+    display: grid;
+    gap: 0.95rem;
+    min-width: 0;
+    margin: 0;
+    border: 1px solid rgba(124, 58, 237, 0.34);
+    border-radius: calc(var(--radius-card) + 0.15rem);
+    padding: clamp(0.85rem, 2vw, 1.1rem);
+    background:
+      radial-gradient(circle at 18% 0%, rgba(57, 208, 255, 0.14), transparent 14rem),
+      radial-gradient(circle at 88% 12%, rgba(124, 58, 237, 0.22), transparent 16rem),
+      linear-gradient(145deg, rgba(12, 17, 31, 0.94), rgba(7, 10, 18, 0.86));
+    box-shadow: var(--shadow-soft), 0 0 2.5rem rgba(124, 58, 237, 0.16);
+    overflow: hidden;
+  }
+
+  .app-screenshot-card__media {
+    position: relative;
+    display: grid;
+    min-height: clamp(13rem, 27vw, 22rem);
+    overflow: hidden;
+    border: 1px solid rgba(57, 208, 255, 0.22);
+    border-radius: var(--radius-card);
+    background: rgba(7, 10, 18, 0.72);
+    aspect-ratio: 16 / 10;
+  }
+
+  .app-screenshot-card--compact .app-screenshot-card__media {
+    min-height: 11rem;
+  }
+
+  .app-screenshot-card__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: rgba(7, 10, 18, 0.92);
+  }
+
+  .app-screenshot-card__fallback {
+    display: grid;
+    place-content: center;
+    gap: 0.55rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    text-align: center;
+    color: var(--color-text-muted);
+    background:
+      linear-gradient(135deg, rgba(57, 208, 255, 0.12), transparent 28%),
+      radial-gradient(circle at 50% 20%, rgba(124, 58, 237, 0.24), transparent 36%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 14px);
+  }
+
+  .app-screenshot-card__media:not(.is-missing) .app-screenshot-card__fallback {
+    visibility: hidden;
+  }
+
+  .app-screenshot-card__fallback span,
+  .app-screenshot-card__caption span {
+    justify-self: center;
+    width: max-content;
+    border: 1px solid rgba(57, 208, 255, 0.28);
+    border-radius: 999px;
+    padding: 0.28rem 0.62rem;
+    color: var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(57, 208, 255, 0.08);
+  }
+
+  .app-screenshot-card__fallback strong,
+  .app-screenshot-card__caption strong {
+    color: var(--color-text);
+  }
+
+  .app-screenshot-card__fallback p,
+  .app-screenshot-card__caption p {
+    margin: 0;
+  }
+
+  .app-screenshot-card__fallback code {
+    color: var(--color-text);
+  }
+
+  .app-screenshot-card__caption {
+    display: grid;
+    gap: 0.42rem;
+    color: var(--color-text-muted);
+  }
+
+  .app-screenshot-card__caption span {
+    justify-self: start;
+  }
+</style>

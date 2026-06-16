@@ -9,7 +9,11 @@ import ProductScopeSection from '../components/sections/ProductScopeSection.astr
 import RoadmapCta from '../components/sections/RoadmapCta.astro';
 import SolutionSection from '../components/sections/SolutionSection.astro';
 import WorkflowPreview from '../components/sections/WorkflowPreview.astro';
+import AppScreenshotCard from '../components/content/AppScreenshotCard.astro';
+import { getAppScreenshot } from '../data/appScreenshots';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const homeScreenshots = ['maintenance-tasks-preview', 'parts-inventory-low-stock-preview', 'printer-registry-preview', 'backup-export-preview'].map(getAppScreenshot);
 ---
 
 <BaseLayout
@@ -23,6 +27,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <ProductScopeSection />
     <WorkflowPreview />
     <FeatureHighlights />
+    <section class="feature-section" aria-labelledby="home-screenshots-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Closed Beta interface preview</p>
+        <h2 id="home-screenshots-title">Selected v0.2.0-beta.1 preview slots.</h2>
+        <p>NozzleNote is not publicly available yet, and there is no public download yet. Screenshots may change before public release.</p>
+      </div>
+      <div class="screenshot-card-grid">
+        {homeScreenshots.map((screenshot) => <AppScreenshotCard screenshot={screenshot} badge="v0.2.0-beta.1 preview" />)}
+      </div>
+    </section>
     <LocalFirstSection />
     <PrelaunchInterestSection />
     <DisclaimerSection />

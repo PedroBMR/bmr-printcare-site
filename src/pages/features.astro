@@ -1,8 +1,9 @@
 ---
 import { withBase } from '../utils/paths';
 import FeatureGrid from '../components/content/FeatureGrid.astro';
-import AppPreviewFrame from '../components/content/AppPreviewFrame.astro';
 import StatusNote from '../components/content/StatusNote.astro';
+import AppScreenshotCard from '../components/content/AppScreenshotCard.astro';
+import { getAppScreenshot } from '../data/appScreenshots';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const coreFeatures = [
@@ -22,6 +23,29 @@ const directionItems = [
   { title: 'Verified catalogs', status: 'Planned optional content', description: 'BMR Verified Catalogs are planned as optional content packs maintained by BMR for content quality and organization, not manufacturer approval.' },
   { title: 'Conservative workflow', status: 'Product goal', description: 'The product direction favors clear records, careful labels, and human review over broad compatibility or automated diagnosis promises.' },
 ];
+
+const featureScreenshotSections = [
+  {
+    title: 'Printer profiles',
+    note: 'Closed Beta preview slots for local printer records. Interface may change, and NozzleNote is not publicly available yet.',
+    ids: ['printer-registry-preview', 'add-printer-modal-preview'],
+  },
+  {
+    title: 'Maintenance tasks',
+    note: 'Closed Beta preview slots for task planning and intervals. Interface may change before public release.',
+    ids: ['maintenance-tasks-preview', 'add-task-modal-preview'],
+  },
+  {
+    title: 'Parts and inventory',
+    note: 'Closed Beta preview slots for local spare-part records and low-stock review.',
+    ids: ['parts-inventory-low-stock-preview', 'parts-low-stock-detail-preview'],
+  },
+  {
+    title: 'Backup and Import Preview',
+    note: 'Closed Beta preview slots for local JSON backup/export and read-only Import Preview. Import Preview does not restore or overwrite data.',
+    ids: ['backup-export-preview', 'backup-export-success-preview'],
+  },
+].map((section) => ({ ...section, screenshots: section.ids.map(getAppScreenshot) }));
 
 const roadmapOnlyItems = [
   { title: 'Calibration tracking', status: 'Roadmap-only', description: 'Calibration notes and related history are future ideas, not current release commitments.' },
@@ -68,7 +92,19 @@ const roadmapOnlyItems = [
       <FeatureGrid items={roadmapOnlyItems} ariaLabel="Roadmap-only feature ideas" />
     </section>
 
-    <AppPreviewFrame title="Feature overview preview" label="Interface preview" status="Preview placeholder" pattern="maintenance" variant="desktop" caption="Screenshot placeholder — final app screenshots will be added closer to beta readiness." />
+    <section class="feature-section" aria-labelledby="feature-screenshots-title">
+      <div class="section-heading"><p class="section-eyebrow">Closed Beta preview</p><h2 id="feature-screenshots-title">Feature screenshot slots by workflow.</h2><p>No login is required for the core maintenance workflow shown in this Closed Beta build. No cloud is required for the core maintenance workflow shown in this Closed Beta build. App records are stored locally by default in this build.</p></div>
+      {featureScreenshotSections.map((section) => (
+        <article class="content-panel">
+          <span class="status-pill">v0.2.0-beta.1 preview</span>
+          <h3>{section.title}</h3>
+          <p>{section.note}</p>
+          <div class="screenshot-card-grid screenshot-card-grid--two">
+            {section.screenshots.map((screenshot) => <AppScreenshotCard screenshot={screenshot} badge="Closed Beta preview" compact />)}
+          </div>
+        </article>
+      ))}
+    </section>
 
     <StatusNote title="Manufacturer independence" tone="accent">
       <p>NozzleNote by BMR is independent and is not affiliated with, endorsed by, sponsored by, certified by, reviewed by, or officially connected to any 3D printer manufacturer.</p>

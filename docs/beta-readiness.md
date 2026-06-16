@@ -25,3 +25,13 @@ The website must continue to avoid public flows for payment, checkout, license a
 ## Screenshot posture
 
 Product visuals should remain intentional placeholders unless approved real app screenshots are available. Placeholder copy should say: “Screenshot placeholder — final app screenshots will be added closer to beta readiness.” Real development screenshots, if approved later, should be labeled as development build previews that are not publicly available yet and may change before release.
+
+## Milestone 38 Closed Beta screenshot slots
+
+- Screenshot source build: `v0.2.0-beta.1`.
+- Prepared folder: `public/assets/app-screenshots/closed-beta/v0.2.0-beta.1/`.
+- Pedro must manually place the reviewed PNG files there and commit them separately.
+- Codex must not insert, upload, copy, generate, encode, or commit PNG screenshot files.
+- Required public disclaimer: “Screenshots show an early Closed Beta build of NozzleNote by BMR. Interface, wording, and workflows may change before public release.”
+- These images must stay labeled as Closed Beta previews and must not be used as final/public release screenshots.
+- Intentionally non-primary visuals: first-run dashboard, parts empty state, and backup success state.

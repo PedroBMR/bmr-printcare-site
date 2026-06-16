@@ -1,61 +1,42 @@
 # Product preview placeholders
 
-NozzleNote by BMR currently uses intentionally designed product preview placeholders instead of final product screenshots.
+Milestone 38 prepares Closed Beta screenshot slots for NozzleNote by BMR without adding PNG files.
 
-## Why placeholders are used
+## Source build and folder
 
-The desktop app is still in development and final real screenshots are not ready yet. The website must therefore avoid presenting synthetic UI as finished product proof, public availability, or a released feature set.
+- Screenshot source build: `v0.2.0-beta.1`.
+- Folder path: `public/assets/app-screenshots/closed-beta/v0.2.0-beta.1/`.
+- Public URL prefix: `/assets/app-screenshots/closed-beta/v0.2.0-beta.1/`.
+- Manual placement requirement: Pedro manually adds reviewed PNG files later and commits them separately.
+- Codex must not insert, upload, copy, generate, encode, or commit PNG screenshot files.
 
-Placeholder copy should remain explicit and cautious. Preferred labels include:
+## Expected filenames and mapping
 
-- "Interface preview"
-- "Preview placeholder"
-- "UI preview"
-- "Desktop app preview"
-- "App preview placeholder"
-- "Screenshot placeholder — final app screenshots will be added closer to beta readiness"
+| Original file | Required filename |
+| --- | --- |
+| `Home.png` | `dashboard-first-run-preview.png` |
+| `Printers.png` | `printer-registry-preview.png` |
+| `Printer.png` | `add-printer-modal-preview.png` |
+| `Maintenance.png` | `maintenance-tasks-preview.png` |
+| `Taks.png` | `add-task-modal-preview.png` |
+| `Parts nozzle.png` | `parts-inventory-low-stock-preview.png` |
+| `Low Stock.png` | `parts-low-stock-detail-preview.png` |
+| `Parts.png` | `parts-empty-state-preview.png` |
+| `Backup.png` | `backup-export-preview.png` |
+| `Backup 2.png` | `backup-export-success-preview.png` |
 
-## Reusable components
+## Placement and usage rules
 
-The reusable preview system lives in:
+- Home uses only strong slots: maintenance tasks, parts inventory low stock, printer registry, and backup/export.
+- Beta Status uses the full Closed Beta interface previews gallery.
+- Features maps slots to printer profiles, maintenance tasks, parts/inventory, and Backup and Import Preview.
+- Download uses the backup/export preview only for safety guidance, not public download availability.
+- Docs intentionally keeps the schematic workflow preview for now to avoid making the docs hub too image-heavy.
 
-- `src/components/content/AppPreviewFrame.astro`
+## Not primary marketing visuals
 
-`AppPreviewFrame` renders lightweight HTML and CSS interface scaffolds with:
+- `dashboard-first-run-preview.png` is a first-run/empty dashboard and should not be the main Home hero if stronger screenshots are available.
+- `parts-empty-state-preview.png` is an onboarding empty state and should not be a main marketing image.
+- `backup-export-success-preview.png` is optional supporting evidence and should not replace the main backup/export image unless explaining success state.
 
-- a title;
-- a short label;
-- a status pill;
-- a caption that states placeholder status;
-- optional variants for desktop, panel, compact, and split presentation;
-- pattern-specific UI cues for maintenance history, printer profiles, preventive maintenance, parts, local-first data, roadmap-only quality notes, planned verified catalog content, release preparation, support scope, docs, and future campaign concepts.
-
-## Current integration points
-
-Preview placeholders are integrated into selected public pages where they help explain the product direction without overloading the content:
-
-- homepage Solution section;
-- homepage in-development workflow section;
-- Features page feature groups;
-- Catalogs page planned verified catalog section;
-- Docs hub workflow section;
-- Download page release-preparation panel;
-- Support page support-scope panel;
-- Roadmap page current-focus panel;
-- Early Supporters page future-concept panel.
-
-## Replacement guidance
-
-When final screenshots or real app preview assets are ready:
-
-1. Replace only the relevant placeholder instance or add a dedicated screenshot component with real image metadata.
-2. Keep captions clear about what the screenshot represents, including version or build context when possible.
-3. Do not remove cautious release language until the app, documentation, support scope, legal placeholders, and release files are ready.
-4. Keep root-safe asset paths with the existing `withBase` utility when linking public assets from Astro components.
-5. Avoid large unoptimized raster files; use appropriately sized screenshots and modern compression.
-
-## Accessibility and performance notes
-
-The placeholder UI details are marked decorative with `aria-hidden="true"` inside the component, while each figure has a concise accessible label and visible caption. This prevents screen readers from navigating placeholder rows as if they were real application controls.
-
-The previews are built from semantic HTML and CSS. They do not use JavaScript, canvas, WebGL, video, third-party animation libraries, or large raster placeholder images. Motion is limited to existing hover and transition tokens, and `prefers-reduced-motion` keeps placeholders stable.
+Required disclaimer: “Screenshots show an early Closed Beta build of NozzleNote by BMR. Interface, wording, and workflows may change before public release.” These are not final screenshots or public release screenshots.
