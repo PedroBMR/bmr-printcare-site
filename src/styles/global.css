@@ -1859,3 +1859,14 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+.screenshot-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(1rem, 3vw, 1.35rem);
+}
+
+.screenshot-card-grid--two {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  margin-top: 1rem;
+}

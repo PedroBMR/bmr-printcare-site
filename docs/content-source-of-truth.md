@@ -35,3 +35,13 @@ Before changing public claims, review the source documents and confirm that the 
 The `/early-interest/` page is an approved controlled exception to the prior placeholder-only interest-list state. It may collect Early Interest submissions through Formspree only when `PUBLIC_EARLY_INTEREST_FORM_ENDPOINT` is configured. The page and CTAs must frame the action as early interest, occasional updates, roadmap notes, and future release information while the app is still in development.
 
 This exception does not authorize payment, preorder, beta access, license reservation, checkout, accounts, app download, backend, database, newsletter automation, marketing automation, mailing-list segmentation, automatic email sequences, support entitlement, or sending form data to GA4.
+
+## Milestone 38 Closed Beta screenshot slots
+
+- Screenshot source build: `v0.2.0-beta.1`.
+- Prepared folder: `public/assets/app-screenshots/closed-beta/v0.2.0-beta.1/`.
+- Pedro must manually place the reviewed PNG files there and commit them separately.
+- Codex must not insert, upload, copy, generate, encode, or commit PNG screenshot files.
+- Required public disclaimer: “Screenshots show an early Closed Beta build of NozzleNote by BMR. Interface, wording, and workflows may change before public release.”
+- These images must stay labeled as Closed Beta previews and must not be used as final/public release screenshots.
+- Intentionally non-primary visuals: first-run dashboard, parts empty state, and backup success state.

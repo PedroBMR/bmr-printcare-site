@@ -2,7 +2,11 @@
 import { withBase } from '../utils/paths';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import StatusNote from '../components/content/StatusNote.astro';
+import AppScreenshotCard from '../components/content/AppScreenshotCard.astro';
+import { getAppScreenshot } from '../data/appScreenshots';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const backupScreenshot = getAppScreenshot('backup-export-preview');
 
 const futureDownloadFields = [
   { title: 'Current beta version', status: 'Not public yet', description: 'Reserved for a reviewed future beta version value. No fake version is shown.' },
@@ -41,6 +45,13 @@ const futureConfigFields = [
         <p>The fields below are placeholders for a future beta download flow. They are intentionally inactive while NozzleNote remains in internal Windows QA and Closed Beta preparation. Related readiness pages include <a href={withBase('/release-notes/')}>Release Notes</a>, <a href={withBase('/known-limitations/')}>Known Limitations</a>, and <a href={withBase('/feedback/')}>Feedback</a>.</p>
       </div>
       <ReleaseChecklist items={futureDownloadFields} ariaLabel="Future beta download placeholders" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="backup-preview-title">
+      <span class="status-pill">Beta safety preview</span>
+      <h2 id="backup-preview-title">Backup/export guidance before any public installer.</h2>
+      <p>No public installer is available yet. This screenshot is from a Closed Beta build and does not indicate public download availability. Import Preview is read-only and does not restore or overwrite data.</p>
+      <AppScreenshotCard screenshot={backupScreenshot} badge="Closed Beta preview" />
     </section>
 
     <section class="content-panel" aria-labelledby="future-config-title">

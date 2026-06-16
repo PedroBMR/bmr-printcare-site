@@ -3,6 +3,8 @@ import { withBase } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import StatusNote from '../components/content/StatusNote.astro';
+import AppScreenshotCard from '../components/content/AppScreenshotCard.astro';
+import { getAppScreenshot } from '../data/appScreenshots';
 
 const timeline = [
   { title: 'Internal Windows QA', status: 'Current', description: 'Current internal testing focus before any public release path is opened.' },
@@ -46,7 +48,7 @@ const unavailableItems = [
   'Public support entitlement',
 ];
 
-const screenshotSlots = ['Dashboard', 'Printer Profiles', 'Maintenance Tasks', 'Maintenance Logs', 'Parts & Inventory', 'Backup / Import Preview', 'Quick Panel, if implemented later'];
+const betaGallery = ['dashboard-first-run-preview', 'printer-registry-preview', 'maintenance-tasks-preview', 'parts-inventory-low-stock-preview', 'backup-export-preview', 'add-printer-modal-preview', 'add-task-modal-preview', 'parts-low-stock-detail-preview', 'parts-empty-state-preview', 'backup-export-success-preview'].map(getAppScreenshot);
 ---
 <BaseLayout title="Beta Status | NozzleNote by BMR" description="NozzleNote by BMR is not publicly available yet and is preparing for invite-only Closed Beta after internal Windows QA. Join the Early Interest List for future updates.">
   <main class="page-shell feature-page beta-page">
@@ -86,8 +88,8 @@ const screenshotSlots = ['Dashboard', 'Printer Profiles', 'Maintenance Tasks', '
     </section>
 
     <section class="roadmap-section-group" aria-labelledby="screenshots-title">
-      <div class="section-heading"><p class="section-eyebrow">Future screenshots</p><h2 id="screenshots-title">Screenshot placeholder section</h2><p>Screenshot placeholder — final app screenshots will be added closer to beta readiness.</p></div>
-      <div class="placeholder-grid" aria-label="Future app screenshot slots">{screenshotSlots.map((slot) => <article class="screenshot-placeholder"><span>{slot}</span><p>Screenshot placeholder — final app screenshots will be added closer to beta readiness.</p></article>)}</div>
+      <div class="section-heading"><p class="section-eyebrow">Closed Beta interface preview</p><h2 id="screenshots-title">Closed Beta interface previews</h2><p>These previews show selected areas of the current v0.2.0-beta.1 desktop build while NozzleNote is still preparing for invite-only Closed Beta.</p><p>Screenshots show an early Closed Beta build of NozzleNote by BMR. Interface, wording, and workflows may change before public release.</p></div>
+      <div class="screenshot-card-grid" aria-label="Closed Beta interface previews">{betaGallery.map((screenshot) => <AppScreenshotCard screenshot={screenshot} badge="Closed Beta preview" />)}</div>
     </section>
 
     <section class="content-panel" aria-labelledby="readiness-resources-title">
