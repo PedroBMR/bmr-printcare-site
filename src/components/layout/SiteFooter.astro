@@ -1,4 +1,5 @@
 ---
+import { officialSocialLinks } from '../../data/socialLinks';
 import { withBase } from '../../utils/paths';
 
 const primaryLinks = [
@@ -29,6 +30,7 @@ const legalLinks = [
   { label: 'Refund policy', href: '/refund-policy/' },
   { label: 'Manufacturer disclaimer', href: '/manufacturer-disclaimer/' },
 ];
+const hasOfficialSocialLinks = officialSocialLinks.length > 0;
 const currentYear = 2026;
 ---
 
@@ -60,6 +62,21 @@ const currentYear = 2026;
           ))}
         </ul>
       </div>
+
+      {hasOfficialSocialLinks && (
+        <div>
+          <h3>Follow the build</h3>
+          <ul aria-label="Official NozzleNote by BMR social links">
+            {officialSocialLinks.map((link) => (
+              <li>
+                <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.ariaLabel}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div>
         <h3>Legal</h3>
@@ -132,7 +149,7 @@ const currentYear = 2026;
 
   .footer-links {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) minmax(0, 1.15fr);
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: 1rem;
   }
 
