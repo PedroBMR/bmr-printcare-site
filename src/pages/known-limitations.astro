@@ -1,0 +1,51 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatusNote from '../components/content/StatusNote.astro';
+
+const websiteLimitations = [
+  'No public download is available yet.',
+  'No checkout is available.',
+  'No paid plan is available.',
+  'No paid catalog is available.',
+  'No account system is available.',
+  'No license activation is available.',
+  'No public beta feedback form is open yet.',
+];
+
+const betaLimitations = [
+  'Windows is the first intended platform.',
+  'Manual updates are expected during early beta stages.',
+  'Beta builds may contain bugs.',
+  'Users should export backups before updating or testing beta builds.',
+  'Some workflows may change between beta versions.',
+  'Known issues will be documented with real beta releases.',
+];
+
+const appLimitations = [
+  'No cloud sync is available.',
+  'No mobile app is available.',
+  'Paid catalogs are not available yet.',
+  'Restore may not be available yet or may be clearly marked as unavailable depending on the current app state.',
+  'The app is not a slicer, remote printer controller, AI diagnosis tool, warranty channel, manufacturer support desk, or official manufacturer service tool.',
+];
+---
+<BaseLayout title="Known Limitations Prepared for Future Beta Builds | NozzleNote by BMR" description="Known limitations for NozzleNote by BMR are documented safely: no public download is available yet, and real beta limitations will be documented with real beta releases.">
+  <main class="page-shell feature-page">
+    <section class="page-hero" aria-labelledby="limitations-title">
+      <p class="section-eyebrow">Known Limitations</p>
+      <h1 id="limitations-title">Current and future limitations, stated plainly.</h1>
+      <p>NozzleNote by BMR is in internal Windows QA. There is no public build yet, so the notes below separate current website limitations from future beta and app limitations.</p>
+      <div class="hero-actions" aria-label="Known limitations actions">
+        <a class="primary-link" href={withBase('/beta/')}>View Beta Status</a>
+        <a class="secondary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a>
+      </div>
+    </section>
+
+    <section class="content-panel" aria-labelledby="website-limitations-title"><span class="status-pill">Current website limitations</span><h2 id="website-limitations-title">What is not active on the website today.</h2><ul class="check-list">{websiteLimitations.map((item) => <li>{item}</li>)}</ul></section>
+    <section class="content-panel" aria-labelledby="beta-limitations-title"><span class="status-pill">Future beta limitations</span><h2 id="beta-limitations-title">What early beta testers should expect later.</h2><ul class="check-list">{betaLimitations.map((item) => <li>{item}</li>)}</ul></section>
+    <section class="content-panel" aria-labelledby="app-limitations-title"><span class="status-pill">Future app limitations</span><h2 id="app-limitations-title">Product boundaries for future app communication.</h2><ul class="check-list">{appLimitations.map((item) => <li>{item}</li>)}</ul></section>
+
+    <StatusNote title="Beta Software Notice" tone="accent"><p>Beta versions may contain bugs, incomplete features, and changes between releases. Users should export backups before updating or testing new builds. Beta software should not be treated as guaranteed stable software, official manufacturer service guidance, warranty support, or a substitute for backups and careful review.</p></StatusNote>
+  </main>
+</BaseLayout>

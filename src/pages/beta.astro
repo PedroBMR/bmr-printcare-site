@@ -57,7 +57,7 @@ const screenshotSlots = ['Dashboard', 'Printer Profiles', 'Maintenance Tasks', '
       <p>The website is being prepared for future beta communication, release notes, known limitations, screenshots, feedback instructions, and a future download flow. No public beta download is available today.</p>
       <div class="hero-actions" aria-label="Beta status actions">
         <a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a>
-        <a class="secondary-link" href={withBase('/roadmap/')}>Follow the Roadmap</a>
+        <a class="secondary-link" href={withBase('/roadmap/')}>Follow the Roadmap</a><a class="secondary-link" href={withBase('/release-notes/')}>Release Notes</a>
       </div>
       <p class="safety-copy">Joining the list does not guarantee Closed Beta access, Open Beta timing, public release availability, pricing, compatibility, delivery, or support.</p>
     </section>
@@ -88,6 +88,17 @@ const screenshotSlots = ['Dashboard', 'Printer Profiles', 'Maintenance Tasks', '
     <section class="roadmap-section-group" aria-labelledby="screenshots-title">
       <div class="section-heading"><p class="section-eyebrow">Future screenshots</p><h2 id="screenshots-title">Screenshot placeholder section</h2><p>Screenshot placeholder — final app screenshots will be added closer to beta readiness.</p></div>
       <div class="placeholder-grid" aria-label="Future app screenshot slots">{screenshotSlots.map((slot) => <article class="screenshot-placeholder"><span>{slot}</span><p>Screenshot placeholder — final app screenshots will be added closer to beta readiness.</p></article>)}</div>
+    </section>
+
+    <section class="content-panel" aria-labelledby="readiness-resources-title">
+      <span class="status-pill">Future readiness resources</span>
+      <h2 id="readiness-resources-title">Supporting pages for future beta communication.</h2>
+      <p>These pages are prepared as placeholders while NozzleNote remains in internal Windows QA and Closed Beta planning.</p>
+      <ul class="link-list">
+        <li><a href={withBase('/release-notes/')}>Release Notes</a> — future release-note structure without published builds.</li>
+        <li><a href={withBase('/known-limitations/')}>Known Limitations</a> — current website limits and future beta boundaries.</li>
+        <li><a href={withBase('/feedback/')}>Feedback</a> — beta feedback readiness; not open yet.</li>
+      </ul>
     </section>
 
     <StatusNote title="Beta safety note" tone="accent"><p>Beta builds may contain bugs, incomplete features, and changes between releases. Users should export backups before updating or testing new builds. Beta testing does not replace printer manuals, safety guidance, qualified repair judgment, or manufacturer support.</p></StatusNote>
