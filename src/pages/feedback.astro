@@ -1,0 +1,41 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatusNote from '../components/content/StatusNote.astro';
+
+const futureFields = [
+  'Email',
+  'App version',
+  'Windows version',
+  'Issue type',
+  'What happened',
+  'Steps to reproduce',
+  'Expected result',
+  'Actual result',
+  'Optional screenshot/log note, only if technically supported and reviewed',
+  'Consent to be contacted about the issue',
+];
+---
+<BaseLayout title="Beta Feedback Not Open Yet | NozzleNote by BMR" description="Beta feedback for NozzleNote by BMR is not open yet. No public beta feedback form is available; the page is prepared for future invite-only Closed Beta communication.">
+  <main class="page-shell feature-page">
+    <section class="page-hero" aria-labelledby="feedback-title">
+      <p class="section-eyebrow">Beta Feedback</p>
+      <h1 id="feedback-title">Beta Feedback — not open yet</h1>
+      <p>Beta feedback will open with invite-only Closed Beta testing. No public beta feedback form is available yet.</p>
+      <p>Beta feedback will open with Closed Beta testing. For now, visitors can join the Early Interest List or contact <a href="mailto:contact@nozzlenote.com">contact@nozzlenote.com</a>.</p>
+      <div class="hero-actions" aria-label="Feedback actions">
+        <a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a>
+        <a class="secondary-link" href="mailto:contact@nozzlenote.com">Contact NozzleNote by BMR</a>
+      </div>
+    </section>
+
+    <StatusNote title="Feedback collection status" tone="accent"><p>No live beta feedback form is open today. This page does not collect logs, screenshots, attachments, private maintenance records, license keys, account credentials, or form input for analytics.</p></StatusNote>
+
+    <section class="content-panel" aria-labelledby="future-feedback-title">
+      <span class="status-pill">Future structure only</span>
+      <h2 id="future-feedback-title">Future Beta Feedback form fields may include:</h2>
+      <p>This is a non-submitting outline only. A live form should be added only after a real endpoint and privacy/legal copy are reviewed.</p>
+      <ul class="check-list">{futureFields.map((field) => <li>{field}</li>)}</ul>
+    </section>
+  </main>
+</BaseLayout>

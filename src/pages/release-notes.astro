@@ -1,0 +1,52 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
+import StatusNote from '../components/content/StatusNote.astro';
+
+const futureReleaseExamples = [
+  { title: 'v0.2.0-beta.1 — Closed Beta / Pre-release', status: 'Future structure example', description: 'Placeholder format only. A real entry would include release type, date, what changed, known issues, backup guidance, and a download availability note.' },
+  { title: 'v0.2.0-beta.2 — Closed Beta update', status: 'Future structure example', description: 'Placeholder format only. This planned version name is not a published build and does not have a date or download link.' },
+  { title: 'v0.3.0-open-beta.1 — future Open Beta', status: 'Future structure example', description: 'Placeholder format only. Open Beta is a future public testing stage and is not scheduled yet.' },
+];
+
+const futureEntryFields = [
+  'Release type',
+  'Date, only when real',
+  'What changed',
+  'Known issues documented from the real release',
+  'Before updating / backup recommendation',
+  'Download availability note without unreviewed installer links',
+];
+---
+<BaseLayout title="Release Notes Prepared for Future Beta Builds | NozzleNote by BMR" description="NozzleNote release notes are prepared for future beta builds; no public download, public beta, or published release notes are available yet.">
+  <main class="page-shell feature-page">
+    <section class="page-hero" aria-labelledby="release-notes-title">
+      <p class="section-eyebrow">Release Notes</p>
+      <h1 id="release-notes-title">Release notes are prepared for future beta and release builds.</h1>
+      <p>No public release notes are available yet because no public beta or public release build is available.</p>
+      <p><strong>Release notes listed here will appear only when actual beta or release builds are available. Do not treat planned version names as published releases.</strong></p>
+      <div class="hero-actions" aria-label="Release notes actions">
+        <a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a>
+        <a class="secondary-link" href={withBase('/beta/')}>View Beta Status</a>
+      </div>
+    </section>
+
+    <StatusNote title="Current release-note status" tone="accent"><p>No public download is available yet, and no planned version name below represents a published build.</p></StatusNote>
+
+    <section class="roadmap-section-group" aria-labelledby="future-release-examples-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Future structure examples</p>
+        <h2 id="future-release-examples-title">Placeholder entries for future release-note formatting.</h2>
+        <p>These examples show how real notes may be organized later. They are intentionally undated and do not include download links.</p>
+      </div>
+      <ReleaseChecklist items={futureReleaseExamples} ariaLabel="Future release note structure examples" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="future-fields-title">
+      <span class="status-pill">Future fields</span>
+      <h2 id="future-fields-title">Each real future release note should support these details.</h2>
+      <ul class="check-list">{futureEntryFields.map((field) => <li>{field}</li>)}</ul>
+    </section>
+  </main>
+</BaseLayout>
