@@ -2,20 +2,18 @@
 
 Date added: 2026-06-16
 
-Milestone 39 prepared a central social-link configuration for NozzleNote by BMR. Public social links must only render when an official project profile URL is provided and reviewed.
+Milestone 39 prepared a central social-link configuration for NozzleNote by BMR. Milestone 40 activates the reviewed official project profile URLs while keeping social links secondary to the website CTAs.
 
 ## Current official profile URLs
 
-No official project social profile URLs were provided for this milestone, so no public social links are rendered yet.
+| Network | Status | Handle | Official URL |
+| --- | --- | --- | --- |
+| X | Active | `@NozzleNotebyBMR` | `https://x.com/NozzleNotebyBMR` |
+| Instagram | Active | `@nozzlenote` | `https://www.instagram.com/nozzlenote` |
+| Threads | Active | `@nozzlenote` | `https://www.threads.net/@nozzlenote` |
+| YouTube | Active | `@NozzleNotebyBMR` | `https://www.youtube.com/@NozzleNotebyBMR` |
 
-| Network | Status | Official URL |
-| --- | --- | --- |
-| X | Pending | Not provided |
-| Instagram | Pending | Not provided |
-| Threads | Pending | Not provided |
-| YouTube | Pending | Not provided |
-
-## Where links will appear after URLs are approved
+## Where links appear
 
 - Footer: a compact “Follow the build” group near footer navigation.
 - About page: a cautious “Follow the build” section about Internal Windows QA, invite-only Closed Beta preparation, and future release planning.

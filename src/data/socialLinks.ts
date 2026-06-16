@@ -2,6 +2,7 @@ export type SocialLink = {
   id: 'x' | 'instagram' | 'threads' | 'youtube';
   label: string;
   url: string | null;
+  handle: string;
   external: true;
   ariaLabel: string;
   iconName?: string;
@@ -11,7 +12,8 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'x',
     label: 'X',
-    url: null,
+    url: 'https://x.com/NozzleNotebyBMR',
+    handle: '@NozzleNotebyBMR',
     external: true,
     ariaLabel: 'Follow NozzleNote by BMR on X',
     iconName: 'x',
@@ -19,7 +21,8 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'instagram',
     label: 'Instagram',
-    url: null,
+    url: 'https://www.instagram.com/nozzlenote',
+    handle: '@nozzlenote',
     external: true,
     ariaLabel: 'Follow NozzleNote by BMR on Instagram',
     iconName: 'instagram',
@@ -27,7 +30,8 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'threads',
     label: 'Threads',
-    url: null,
+    url: 'https://www.threads.net/@nozzlenote',
+    handle: '@nozzlenote',
     external: true,
     ariaLabel: 'Follow NozzleNote by BMR on Threads',
     iconName: 'threads',
@@ -35,7 +39,8 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'youtube',
     label: 'YouTube',
-    url: null,
+    url: 'https://www.youtube.com/@NozzleNotebyBMR',
+    handle: '@NozzleNotebyBMR',
     external: true,
     ariaLabel: 'Watch NozzleNote by BMR on YouTube',
     iconName: 'youtube',
