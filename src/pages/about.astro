@@ -1,4 +1,5 @@
 ---
+import { officialSocialLinks } from '../data/socialLinks';
 import { withBase } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BuilderPlaceholder from '../components/content/BuilderPlaceholder.astro';
@@ -36,6 +37,8 @@ const notList = [
   'not a replacement for manufacturer tools',
   'not a guarantee against printer issues',
 ];
+
+const hasOfficialSocialLinks = officialSocialLinks.length > 0;
 
 const statusList = [
   'no public download is available',
@@ -204,6 +207,30 @@ const statusList = [
         </div>
       </div>
     </section>
+
+
+    {hasOfficialSocialLinks && (
+      <section class="about-split" aria-labelledby="about-social-title">
+        <div class="section-heading">
+          <p class="section-eyebrow">Follow the build</p>
+          <h2 id="about-social-title">Follow NozzleNote by BMR updates</h2>
+          <p>
+            Follow NozzleNote by BMR as the project moves through Internal Windows QA, invite-only Closed Beta preparation, and future release planning.
+          </p>
+        </div>
+        <div class="section-card">
+          <ul class="social-link-list" aria-label="Official NozzleNote by BMR social links">
+            {officialSocialLinks.map((link) => (
+              <li>
+                <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.ariaLabel}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
 
     <section class="status-note status-note--accent" aria-labelledby="independence-title">
       <h2 id="independence-title">Independence note</h2>

@@ -1,9 +1,11 @@
 ---
+import { officialSocialLinks } from '../data/socialLinks';
 import { withBase } from '../utils/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const formEndpoint = import.meta.env.PUBLIC_EARLY_INTEREST_FORM_ENDPOINT;
 const isFormConfigured = typeof formEndpoint === 'string' && formEndpoint.trim().length > 0;
+const hasOfficialSocialLinks = officialSocialLinks.length > 0;
 ---
 
 <BaseLayout
@@ -110,6 +112,20 @@ const isFormConfigured = typeof formEndpoint === 'string' && formEndpoint.trim()
         <p>By submitting this form, you agree that NozzleNote by BMR may use your email address and submitted answers to send occasional product updates, roadmap notes and future release information, and to understand early product interest. You can unsubscribe or request removal at any time by contacting <a href="mailto:contact@nozzlenote.com">contact@nozzlenote.com</a>.</p>
         <p>This is not a preorder, paid supporters program, beta access promise, license reservation, support entitlement or crowdfunding pledge. NozzleNote by BMR is still in development.</p>
         <p>Early Interest List data must not be sold. Early Interest List submissions must not be shared with printer manufacturers, advertisers, data brokers or unrelated third parties. Early Interest List data must not be used for unrelated marketing.</p>
+        {hasOfficialSocialLinks && (
+          <div class="interest-social-note">
+            <p>You can also follow the build on official NozzleNote by BMR social profiles. Following a social profile does not join the Early Interest List or create beta access.</p>
+            <ul class="social-link-list" aria-label="Official NozzleNote by BMR social links">
+              {officialSocialLinks.map((link) => (
+                <li>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.ariaLabel}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <a class="secondary-link" href={withBase('/privacy/')}>Read Privacy Notice</a>
       </aside>
     </section>
@@ -158,7 +174,7 @@ const isFormConfigured = typeof formEndpoint === 'string' && formEndpoint.trim()
   .safety-note, .unavailable-card { border: 1px solid rgba(57,208,255,.24); border-radius: 1.25rem; padding: 1rem; background: rgba(57,208,255,.08); color: var(--color-text-soft); }
   .interest-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .75fr); gap: 1.25rem; align-items: start; }
   .form-card, .policy-card { border: 1px solid var(--color-border); border-radius: var(--radius-card); background: linear-gradient(145deg, rgba(16,22,36,.9), rgba(11,16,28,.72)); box-shadow: var(--shadow-soft); padding: clamp(1.25rem, 4vw, 2rem); }
-  .form-heading, .interest-form, .policy-card { display: grid; gap: 1rem; }
+  .form-heading, .interest-form, .policy-card, .interest-social-note { display: grid; gap: 1rem; }
   .form-heading h2, .form-heading p, .policy-card h2, .policy-card p { margin: 0; }
   .field-group { display: grid; gap: .45rem; }
   label { color: var(--color-text-soft); font-weight: 900; }
