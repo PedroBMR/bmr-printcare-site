@@ -3,18 +3,53 @@ import { withBase } from '../utils/paths';
 import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
 import StatusNote from '../components/content/StatusNote.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-const checklist = [
-  { title: 'App behavior validated', status: 'Planned', description: 'Core maintenance workflows must be tested before release.' },
-  { title: 'Real screenshots prepared', status: 'Planned', description: 'Preview placeholders will be replaced only with actual app screenshots.' },
-  { title: 'Installer and platform notes', status: 'Planned', description: 'Public files, requirements, version notes, and checksums will be added only when available.' },
-  { title: 'Legal and support review', status: 'Required', description: 'Terms, privacy, license, refund, and support expectations must be reviewed before commercial availability.' },
+
+const futureDownloadFields = [
+  { title: 'Current beta version', status: 'Not public yet', description: 'Reserved for a reviewed future beta version value. No fake version is shown.' },
+  { title: 'Windows installer download', status: 'Inactive placeholder', description: 'Reserved for a real, reviewed public installer URL. No installer link is active today.' },
+  { title: 'Release notes link', status: 'Planned', description: 'Reserved for future release notes when public beta communication is ready.' },
+  { title: 'Known limitations link', status: 'Planned', description: 'Reserved for future beta limitations and safety notes.' },
+  { title: 'Backup recommendation', status: 'Planned', description: 'Future beta download guidance should remind users to export backups before updating or testing builds.' },
+  { title: 'Feedback link', status: 'Not public yet', description: 'Reserved for a real feedback endpoint. No public beta feedback form is open yet.' },
+  { title: 'Windows compatibility notes', status: 'Planned', description: 'Reserved for reviewed Windows compatibility details before any public installer is offered.' },
+];
+
+const futureConfigFields = [
+  'PUBLIC_BETA_STATUS=preparing',
+  'PUBLIC_CURRENT_BETA_VERSION=',
+  'PUBLIC_WINDOWS_INSTALLER_URL=',
+  'PUBLIC_RELEASE_NOTES_URL=',
+  'PUBLIC_FEEDBACK_FORM_URL=',
 ];
 ---
-<BaseLayout title="Release Preparation | NozzleNote by BMR" description="NozzleNote by BMR is in development. No public download, installer, binary, checksum, or release date is available yet.">
+<BaseLayout title="Download Status | NozzleNote by BMR" description="NozzleNote by BMR is not publicly available yet. The app is in internal Windows QA and preparing for invite-only Closed Beta; no public download is available today.">
   <main class="page-shell feature-page">
-    <section class="page-hero" aria-labelledby="download-title"><p class="section-eyebrow">Release preparation</p><h1 id="download-title">No public download is available yet.</h1><p>This page is intentionally a release preparation page, not a live download page. No installer, binary, checksum, or public release date is being published here.</p><div class="hero-actions"><a class="primary-link" href={withBase('/roadmap/')}>View roadmap</a><a class="secondary-link" href={withBase('/docs/')}>Read documentation preview</a></div></section>
-    <StatusNote title="Current status" tone="accent"><p>NozzleNote by BMR is still in development. Download links will be added only after release files exist and public release language is reviewed.</p></StatusNote>
-    <section class="roadmap-section-group"><div class="section-heading"><p class="section-eyebrow">Planned release checklist</p><h2>What to expect before download.</h2><p>Future release notes should explain platform support, installation, local data behavior, backups, known limitations, and support expectations.</p></div><ReleaseChecklist items={checklist} ariaLabel="Planned release checklist" /></section>
+    <section class="page-hero" aria-labelledby="download-title">
+      <p class="section-eyebrow">Download status</p>
+      <h1 id="download-title">No public download is available yet.</h1>
+      <p>NozzleNote is not publicly available yet. The app is currently in internal Windows QA and preparing for invite-only Closed Beta.</p>
+      <p>This page is ready for a future beta download flow, but it does not offer a public installer today.</p>
+      <div class="hero-actions"><a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a><a class="secondary-link" href={withBase('/beta/')}>Learn about the Beta Status</a><a class="secondary-link" href={withBase('/roadmap/')}>Follow the Roadmap</a></div>
+    </section>
+
+    <StatusNote title="Current status" tone="accent"><p>No public download, public beta download, checkout, paid catalog, account system, cloud sync, mobile app, public beta feedback form, or support entitlement is active.</p></StatusNote>
+
+    <section class="roadmap-section-group" aria-labelledby="future-download-title">
+      <div class="section-heading">
+        <p class="section-eyebrow">Future beta download flow</p>
+        <h2 id="future-download-title">Inactive placeholders for future download details.</h2>
+        <p>The fields below are placeholders for a future beta download flow. They are intentionally inactive while NozzleNote remains in internal Windows QA and Closed Beta preparation.</p>
+      </div>
+      <ReleaseChecklist items={futureDownloadFields} ariaLabel="Future beta download placeholders" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="future-config-title">
+      <span class="status-pill">Documentation only</span>
+      <h2 id="future-config-title">Suggested future environment fields</h2>
+      <p>These field names are documented for future implementation only. The current page safely renders without these values and does not create a clickable installer.</p>
+      <ul class="code-list">{futureConfigFields.map((field) => <li><code>{field}</code></li>)}</ul>
+    </section>
+
     <section class="content-panel"><span class="status-pill">Safety and data note</span><h2>Users remain responsible for printer maintenance decisions.</h2><p>NozzleNote is being designed for recordkeeping and planning. It is not a safety system, repair service, warranty channel, or manufacturer service portal. App maintenance records are planned to stay local by default.</p></section>
   </main>
 </BaseLayout>

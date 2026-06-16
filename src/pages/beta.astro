@@ -1,0 +1,102 @@
+---
+import { withBase } from '../utils/paths';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReleaseChecklist from '../components/content/ReleaseChecklist.astro';
+import StatusNote from '../components/content/StatusNote.astro';
+
+const timeline = [
+  { title: 'Internal Windows QA', status: 'Current', description: 'Current internal testing focus before any public release path is opened.' },
+  { title: 'Closed Beta', status: 'Planned, invite-only', description: 'The next expected stage. Closed Beta participation will be limited and is not guaranteed by joining the Early Interest List.' },
+  { title: 'Open Beta', status: 'Future public testing stage, not scheduled yet', description: 'A later public testing stage may follow after Closed Beta readiness. No date or availability is promised.' },
+  { title: 'Stable 1.0', status: 'Future stable release, not scheduled yet', description: 'A future stable release depends on testing, packaging, documentation, safety review, and support readiness.' },
+];
+
+const validationAreas = [
+  'Windows installation experience',
+  'Printer maintenance workflows',
+  'Maintenance task creation',
+  'Maintenance log creation',
+  'Parts and inventory tracking',
+  'Backup export',
+  'Import preview safety',
+  'Data persistence after relaunch',
+  'Interface language clarity, including English and Brazilian Portuguese where available',
+  'Clarity of local-first/no-login/no-cloud behavior for the core maintenance workflow',
+];
+
+const coreAreas = [
+  { title: 'Printer profiles', status: 'Internal QA', description: 'Desktop profile structure is being prepared and tested before any public availability.' },
+  { title: 'Maintenance tasks', status: 'Preparing for Closed Beta', description: 'Task creation and maintenance planning flows are being prepared for invite-only validation.' },
+  { title: 'Maintenance logs', status: 'Internal QA', description: 'Maintenance history workflows are being checked for clarity and persistence.' },
+  { title: 'Parts and inventory', status: 'Preparing for Closed Beta', description: 'Parts tracking concepts are being prepared without any public paid catalog.' },
+  { title: 'Backup export', status: 'Internal QA', description: 'Backup export behavior is part of the local-first desktop readiness path.' },
+  { title: 'Safe import preview', status: 'Planned', description: 'Import preview safety remains part of release-path validation and does not imply a public restore workflow.' },
+];
+
+const unavailableItems = [
+  'Public download',
+  'Checkout',
+  'Paid catalogs',
+  'Account system',
+  'Cloud sync',
+  'Mobile app',
+  'Auto-updater',
+  'Full restore workflow',
+  'Public beta feedback form',
+  'Public support entitlement',
+];
+
+const screenshotSlots = ['Dashboard', 'Printer Profiles', 'Maintenance Tasks', 'Maintenance Logs', 'Parts & Inventory', 'Backup / Import Preview', 'Quick Panel, if implemented later'];
+---
+<BaseLayout title="Beta Status | NozzleNote by BMR" description="NozzleNote by BMR is not publicly available yet and is preparing for invite-only Closed Beta after internal Windows QA. Join the Early Interest List for future updates.">
+  <main class="page-shell feature-page beta-page">
+    <section class="page-hero" aria-labelledby="beta-title">
+      <p class="section-eyebrow">Beta Status</p>
+      <h1 id="beta-title">NozzleNote Beta Status</h1>
+      <p>NozzleNote by BMR is not publicly available yet. The app is currently in internal Windows QA and preparing for invite-only Closed Beta.</p>
+      <p>The website is being prepared for future beta communication, release notes, known limitations, screenshots, feedback instructions, and a future download flow. No public beta download is available today.</p>
+      <div class="hero-actions" aria-label="Beta status actions">
+        <a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a>
+        <a class="secondary-link" href={withBase('/roadmap/')}>Follow the Roadmap</a>
+      </div>
+      <p class="safety-copy">Joining the list does not guarantee Closed Beta access, Open Beta timing, public release availability, pricing, compatibility, delivery, or support.</p>
+    </section>
+
+    <section class="roadmap-section-group" aria-labelledby="beta-timeline-title">
+      <div class="section-heading"><p class="section-eyebrow">Release path</p><h2 id="beta-timeline-title">Beta status timeline.</h2><p>The emotional focus today is current internal Windows QA and the next planned invite-only Closed Beta stage.</p></div>
+      <ReleaseChecklist items={timeline} ariaLabel="Beta status timeline" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="beta-validation-title">
+      <span class="status-pill">Expected validation areas</span>
+      <h2 id="beta-validation-title">What future beta testing is expected to validate</h2>
+      <p>These are expected validation areas, not public availability claims.</p>
+      <ul class="check-list">{validationAreas.map((item) => <li>{item}</li>)}</ul>
+    </section>
+
+    <section class="roadmap-section-group" aria-labelledby="core-areas-title">
+      <div class="section-heading"><p class="section-eyebrow">Desktop readiness</p><h2 id="core-areas-title">Current desktop core areas being prepared or tested</h2><p>These areas are being prepared for internal QA and invite-only Closed Beta planning. They are not public yet.</p></div>
+      <ReleaseChecklist items={coreAreas} ariaLabel="Current desktop core areas being prepared or tested" />
+    </section>
+
+    <section class="content-panel" aria-labelledby="not-available-title">
+      <span class="status-pill">Not public yet</span>
+      <h2 id="not-available-title">What is not available yet</h2>
+      <ul class="check-list check-list--muted">{unavailableItems.map((item) => <li>{item}</li>)}</ul>
+    </section>
+
+    <section class="roadmap-section-group" aria-labelledby="screenshots-title">
+      <div class="section-heading"><p class="section-eyebrow">Future screenshots</p><h2 id="screenshots-title">Screenshot placeholder section</h2><p>Screenshot placeholder — final app screenshots will be added closer to beta readiness.</p></div>
+      <div class="placeholder-grid" aria-label="Future app screenshot slots">{screenshotSlots.map((slot) => <article class="screenshot-placeholder"><span>{slot}</span><p>Screenshot placeholder — final app screenshots will be added closer to beta readiness.</p></article>)}</div>
+    </section>
+
+    <StatusNote title="Beta safety note" tone="accent"><p>Beta builds may contain bugs, incomplete features, and changes between releases. Users should export backups before updating or testing new builds. Beta testing does not replace printer manuals, safety guidance, qualified repair judgment, or manufacturer support.</p></StatusNote>
+
+    <section class="content-panel" aria-labelledby="final-beta-cta-title">
+      <span class="status-pill">Early Interest List</span>
+      <h2 id="final-beta-cta-title">Follow future beta readiness updates.</h2>
+      <p>This is not a preorder, license reservation, support entitlement, public beta download, or crowdfunding pledge.</p>
+      <div class="hero-actions"><a class="primary-link" href={withBase('/early-interest/')}>Join the Early Interest List</a><a class="secondary-link" href={withBase('/docs/')}>Read the Docs Preview</a></div>
+    </section>
+  </main>
+</BaseLayout>

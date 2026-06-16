@@ -2,14 +2,14 @@
 import { normalizeRoute, withBase } from '../../utils/paths';
 const navigationItems = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about/' },
   { label: 'Features', href: '/features/' },
-  { label: 'Docs', href: '/docs/' },
-  { label: 'Catalogs', href: '/catalogs/' },
-  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Beta Status', href: '/beta/' },
   { label: 'Roadmap', href: '/roadmap/' },
   { label: 'Download', href: '/download/' },
+  { label: 'Docs', href: '/docs/' },
   { label: 'Support', href: '/support/' },
+  { label: 'About', href: '/about/' },
+
 ];
 
 const normalizedPath = normalizeRoute(Astro.url.pathname);
