@@ -16,6 +16,7 @@ interface Props {
 const { title, description, noindex = false } = Astro.props;
 const canonicalPath = stripBase(Astro.url.pathname);
 const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site).href : undefined;
+const socialImageUrl = Astro.site ? new URL(withBase('/brand/nozzlenote-nn-symbol-512.png'), Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -33,10 +34,14 @@ const canonicalUrl = Astro.site ? new URL(canonicalPath, Astro.site).href : unde
     <meta property="og:description" content={description} />
     {canonicalUrl && !noindex && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:locale" content="en_US" />
+    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    <meta property="og:image:alt" content="NozzleNote by BMR logo mark" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
+    <meta name="twitter:image:alt" content="NozzleNote by BMR logo mark" />
 
     <meta name="theme-color" content="#070A12" />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />

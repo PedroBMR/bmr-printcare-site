@@ -13,7 +13,7 @@ Placeholder copy should remain explicit and cautious. Preferred labels include:
 - "UI preview"
 - "Desktop app preview"
 - "App preview placeholder"
-- "Final screenshots will be added closer to release"
+- "Screenshot placeholder — final app screenshots will be added closer to beta readiness"
 
 ## Reusable components
 
