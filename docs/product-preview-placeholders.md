@@ -1,4 +1,4 @@
-# Product preview placeholders
+# Product preview screenshot handling
 
 Milestone 38 prepares Closed Beta screenshot slots for NozzleNote by BMR without adding PNG files.
 
@@ -31,7 +31,7 @@ Milestone 38 prepares Closed Beta screenshot slots for NozzleNote by BMR without
 - Beta Status uses the full Closed Beta interface previews gallery.
 - Features maps slots to printer profiles, maintenance tasks, parts/inventory, and Backup and Import Preview.
 - Download uses the backup/export preview only for safety guidance, not public download availability.
-- Docs intentionally keeps the schematic workflow preview for now to avoid making the docs hub too image-heavy.
+- Docs no longer renders a schematic placeholder visual; the docs hub stays lightweight and links concepts through text.
 
 ## Not primary marketing visuals
 
@@ -40,3 +40,9 @@ Milestone 38 prepares Closed Beta screenshot slots for NozzleNote by BMR without
 - `backup-export-success-preview.png` is optional supporting evidence and should not replace the main backup/export image unless explaining success state.
 
 Required disclaimer: “Screenshots show an early Closed Beta build of NozzleNote by BMR. Interface, wording, and workflows may change before public release.” These are not final screenshots or public release screenshots.
+
+## Milestone 41 cleanup
+
+Old decorative placeholder cards were removed from public pages in favor of real Closed Beta screenshot cards where visuals are useful. The Home, Features, Beta, Download, and solution/workflow marketing sections now use `AppScreenshotCard.astro` with assets from `src/data/appScreenshots.ts` instead of generic mock UI frames. The `AppScreenshotCard.astro` fallback remains in place only for missing files and should continue to identify the slot as a Closed Beta screenshot slot.
+
+Deprecated public copy such as old generic placeholder labels and wording about final app screenshots being added closer to beta readiness should not be reintroduced on public pages. Internal documentation may mention the older placeholder approach only as replaced/deprecated context.

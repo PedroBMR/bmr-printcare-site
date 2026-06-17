@@ -146,6 +146,6 @@ Future visual/storytelling milestones should continue to preserve this budget: u
 
 ## Milestone 26 scroll storytelling note
 
-Milestone 26 adds lightweight product-flow storytelling without adding a new animation system. The homepage workflow section uses a CSS-only ordered-list rail and static preview placeholders to explain the planned path from printer profile to preventive care review.
+Milestone 26 adds lightweight product-flow storytelling without adding a new animation system. The homepage workflow section uses a CSS-only ordered-list rail and static Closed Beta screenshot cards to explain the planned path from printer profile to preventive care review.
 
 This flow remains responsive and text-first: the ordered list carries the semantic meaning, while the rail line and numbered dots are visual accents. No scroll JavaScript, requestAnimationFrame, setInterval, third-party animation dependency, canvas, WebGL, video, audio, or large asset was added. Motion remains limited to existing hover/transition tokens and existing reduced-motion behavior.

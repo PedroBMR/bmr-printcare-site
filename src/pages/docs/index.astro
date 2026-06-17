@@ -1,7 +1,6 @@
 ---
 import { withBase } from '../../utils/paths';
 import DocsGrid from '../../components/docs/DocsGrid.astro';
-import AppPreviewFrame from '../../components/content/AppPreviewFrame.astro';
 import DocsLayout from '../../components/docs/DocsLayout.astro';
 const guides = [
   { title: 'Getting started', href: '/docs/getting-started/', status: 'Preview', description: 'Understand what NozzleNote by BMR is intended to help with while the app is still in development.' },
@@ -34,18 +33,10 @@ const guides = [
 
   <section class="docs-section docs-section--with-preview" aria-labelledby="docs-workflow-title">
     <div class="section-heading">
-      <p class="section-eyebrow">Workflow preview</p>
+      <p class="section-eyebrow">Documentation flow</p>
       <h2 id="docs-workflow-title">A simple path through the planned product.</h2>
-      <p>The preview is intentionally schematic and does not represent final app screenshots.</p>
+      <p>This lightweight guide keeps the docs hub focused on planned concepts while app screenshots remain in the Beta and Features pages.</p>
     </div>
-    <AppPreviewFrame
-      title="Documentation workflow preview"
-      label="Guide UI preview"
-      status="Preview placeholder"
-      pattern="docs"
-      variant="compact"
-      caption="Screenshot placeholder — final app screenshots will be added closer to beta readiness."
-    />
     <ol class="docs-steps">
       <li>
         <strong>Create a printer profile.</strong>
