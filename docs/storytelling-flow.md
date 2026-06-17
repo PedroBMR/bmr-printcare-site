@@ -8,7 +8,7 @@ The homepage should now read as a cautious product story:
 
 1. **Cinematic hero** — introduces NozzleNote by BMR and preserves the Premium Violet Tech first impression.
 2. **Problem** — explains why maintenance records become scattered across memory, notes, spreadsheets, labels, and chat messages.
-3. **Solution** — positions NozzleNote as a focused local-first desktop workspace for printer care records, supported by an explicit preview placeholder.
+3. **Solution** — positions NozzleNote as a focused local-first desktop workspace for printer care records, supported by an approved Closed Beta screenshot card.
 4. **Scope** — clarifies what the product is and is not before feature details become more specific.
 5. **In-development product flow** — shows the planned loop: add a printer profile, create maintenance tasks, record service events, and review upcoming care.
 6. **Feature highlights** — connects the loop to the core product areas: printer profiles, service history, maintenance planning, and part records.
@@ -28,17 +28,15 @@ The scroll rhythm is intended to answer these questions in order:
 - What is planned but not available yet?
 - Where should readers go next for roadmap, download, support, catalog, or documentation details?
 
-## Placeholder support
+## Screenshot support
 
-Product preview placeholders remain explicit and non-misleading. Milestone 26 uses `AppPreviewFrame.astro` to support the story with:
+Milestone 41 replaced the old public placeholder frames with real Closed Beta screenshot cards where product visuals are useful:
 
-- the homepage solution preview;
-- the homepage workflow preview for printer profiles and preventive tasks;
-- feature-page previews for maintenance history, preventive maintenance, parts, profiles, local-first direction, and roadmap-only ideas;
-- a catalogs-page planning preview for optional verified catalog packs;
-- existing release, support, roadmap, docs, and Early Supporters previews.
+- the homepage solution preview now uses a Closed Beta maintenance task screenshot;
+- the homepage workflow section now uses Closed Beta screenshot cards for printer profiles and preventive tasks;
+- feature-page sections use mapped Closed Beta screenshots for profiles, maintenance tasks, parts/inventory, and backup/export.
 
-All placeholders should continue to use visible labels such as "Preview placeholder," "Workflow preview," "App preview placeholder," or equivalent language that makes clear the visuals are not final screenshots.
+Public visuals should use Closed Beta or v0.2.0-beta.1 preview labels, avoid final/public/stable claims, and rely on `AppScreenshotCard.astro` fallback only when a screenshot file is missing.
 
 ## Deferred to Milestone 27
 

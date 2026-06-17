@@ -24,7 +24,7 @@ The website must continue to avoid public flows for payment, checkout, license a
 
 ## Screenshot posture
 
-Product visuals should remain intentional placeholders unless approved real app screenshots are available. Placeholder copy should say: “Screenshot placeholder — final app screenshots will be added closer to beta readiness.” Real development screenshots, if approved later, should be labeled as development build previews that are not publicly available yet and may change before release.
+Product visuals should use approved Closed Beta screenshot assets where public pages need interface context. These screenshots must remain labeled as Closed Beta or v0.2.0-beta.1 previews, early-build imagery, and subject to change before public release. The older decorative placeholder cards have been replaced on public pages; `AppScreenshotCard.astro` keeps a missing-file fallback only for unavailable assets.
 
 ## Milestone 38 Closed Beta screenshot slots
 

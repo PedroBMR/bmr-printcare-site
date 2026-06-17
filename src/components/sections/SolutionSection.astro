@@ -1,5 +1,8 @@
 ---
-import AppPreviewFrame from '../content/AppPreviewFrame.astro';
+import AppScreenshotCard from '../content/AppScreenshotCard.astro';
+import { getAppScreenshot } from '../../data/appScreenshots';
+
+const maintenanceScreenshot = getAppScreenshot('maintenance-tasks-preview');
 ---
 
 <section class="section-shell solution-section" aria-labelledby="solution-title">
@@ -12,14 +15,7 @@ import AppPreviewFrame from '../content/AppPreviewFrame.astro';
     </p>
   </div>
 
-  <AppPreviewFrame
-    title="NozzleNote maintenance workspace"
-    label="Desktop app preview"
-    status="Preview placeholder"
-    pattern="maintenance"
-    variant="desktop"
-    caption="Screenshot placeholder — final app screenshots will be added closer to beta readiness."
-  />
+  <AppScreenshotCard screenshot={maintenanceScreenshot} badge="Closed Beta preview" compact />
 </section>
 
 <style>

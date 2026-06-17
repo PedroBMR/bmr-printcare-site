@@ -1,5 +1,8 @@
 ---
-import AppPreviewFrame from '../content/AppPreviewFrame.astro';
+import AppScreenshotCard from '../content/AppScreenshotCard.astro';
+import { getAppScreenshot } from '../../data/appScreenshots';
+
+const workflowScreenshots = ['printer-registry-preview', 'maintenance-tasks-preview'].map(getAppScreenshot);
 
 const steps = [
   {
@@ -27,7 +30,7 @@ const steps = [
     <h2 id="workflow-title">A planned loop from printer context to upcoming care.</h2>
     <p>
       The flow below is a compact storytelling preview of how NozzleNote is being shaped. It is not a released app flow,
-      and the interface visuals remain preview placeholders until final screenshots are ready.
+      and the interface visuals are Closed Beta v0.2.0-beta.1 previews that may change before public release.
     </p>
   </div>
 
@@ -44,23 +47,10 @@ const steps = [
       ))}
     </ol>
 
-    <div class="workflow-preview-stack" aria-label="Workflow preview placeholders">
-      <AppPreviewFrame
-        title="Printer profile workflow preview"
-        label="Workflow preview"
-        status="Preview placeholder"
-        pattern="profiles"
-        variant="compact"
-        caption="Screenshot placeholder — final app screenshots will be added closer to beta readiness."
-      />
-      <AppPreviewFrame
-        title="Preventive task workflow preview"
-        label="Workflow preview"
-        status="Preview placeholder"
-        pattern="preventive"
-        variant="compact"
-        caption="Preview placeholder for planned routine care prompts; not a released workflow claim."
-      />
+    <div class="workflow-preview-stack" aria-label="Closed Beta workflow screenshot previews">
+      {workflowScreenshots.map((screenshot) => (
+        <AppScreenshotCard screenshot={screenshot} badge="Closed Beta preview" compact />
+      ))}
     </div>
   </div>
 </section>
